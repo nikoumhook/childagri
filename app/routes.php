@@ -15,6 +15,11 @@
 		['GET|POST', '/game/assiette', 'Game#assiette', 'game_assiette'],
 		['GET|POST', '/game/carte', 'Game#carte', 'game_carte'],
 
+
+
+/*//////////////BACK-OFFICE Administration       *//////////////////////////
+
+        ['GET|POST', '/config/', 'Back#home', 'back_home'],
         /*//////////////ROUTE ANTHONY POUr TEST SON OBJET*//////////////////////////
         ['GET|POST', '/debug/[:username]/', 'Game#setPlayer', 'game_setP']
 	);

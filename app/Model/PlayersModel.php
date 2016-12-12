@@ -2,11 +2,12 @@
 namespace Model;
 
 use \W\Model\Model;
+use \W\Model\SaveModel;
 use \W\Model\ConnectionModel;
 
 class PlayersModel extends Model
 {
-	
+
 	/**
 	 * Récupère un utilisateur en fonction de son email ou de son pseudo
 	 * @param string $usernameOrEmail Le pseudo ou l'email d'un utilisateur
@@ -16,12 +17,12 @@ class PlayersModel extends Model
 	{
 
 		$app = getApp();
-		$sql = 'SELECT * FROM ' . $this->table . 
+		$sql = 'SELECT * FROM ' . $this->table .
 			   ' WHERE username = :username';
 		$dbh = ConnectionModel::getDbh();
 		$sth = $dbh->prepare($sql);
 		$sth->bindValue(':username', $username);
-		
+
 		if($sth->execute()){
 			$foundUser = $sth->fetch();
 			if($foundUser){

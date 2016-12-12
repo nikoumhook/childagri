@@ -1,0 +1,82 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    background: red;
+}
+
+.circle{
+    margin:10px;
+    width:100px;
+    background:#FF0000;
+    height:100px;
+    border-radius:100px;
+    text-align:center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/************************************/
+/*             TOPBAR               */
+/************************************/
+#navTopBar{
+    background: white;
+    position: fixed;
+    top: 0;left: 0;right: 0;
+}
+#navTopBar ul{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+
+}
+#navTopBar li{
+    display: inline-block;
+
+}
+
+
+/************************************/
+/*             LEFTBAR              */
+/************************************/
+#navLeftBar{
+    background: yellow;
+    position: fixed;
+    left: 0;top: 0;bottom: 0;
+    display: flex;
+    align-items: center;
+}
+#navLeftBar ul{
+    margin: 0;
+    padding: 0;
+}
+
+#navLeftBar li{
+
+    list-style: none;
+}
+
+/************************************/
+/*            MENU DECO             */
+/************************************/
+#navDeco{
+    position: fixed;
+    top: 0;right: 0;
+    background: green;
+}
+/************************************/
+/*          MENU Trophee            */
+/************************************/
+#navTrophee{
+    position: fixed;
+    bottom: 0;right: 0;
+    background: pink;
+}
+/************************************/
+/*         MENU NavRetour           */
+/************************************/
+#navReturn{
+    position: fixed;
+    bottom: 0;left: 0;
+    background: pink;
+}

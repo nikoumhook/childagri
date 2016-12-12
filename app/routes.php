@@ -13,5 +13,8 @@
 
 		/*//////////////ROUTE DE LA GAME*//////////////////////////
 		['GET|POST', '/game/assiette', 'Game#assiette', 'game_assiette'],
-		['GET|POST', '/game/carte', 'Game#carte', 'game_carte']
+		['GET|POST', '/game/carte', 'Game#carte', 'game_carte'],
+
+        /*//////////////ROUTE ANTHONY POUr TEST SON OBJET*//////////////////////////
+        ['GET|POST', '/debug/[:username]/', 'Game#setPlayer', 'game_setP']
 	);

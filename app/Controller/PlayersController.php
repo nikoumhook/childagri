@@ -7,6 +7,6 @@ use \W\Controller\Controller;
 class PlayersController extends Controller
 {
 
-
+    
 
 }

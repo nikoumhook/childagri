@@ -4,20 +4,25 @@
         <meta charset="utf-8">
         <title></title>
         <link rel="stylesheet" href="../public/assets/css/knacss.css">
+        <link rel="stylesheet" href="owl-carousel/owl.theme.css">
+        <link rel="stylesheet" href="owl-carousel/owl.transition.css">
+        <link rel="stylesheet" href="owl-carousel/owl.carousel.css">
         <link rel="stylesheet" href="interface.css">
     </head>
     <body>
         <div id="navTopBar">
-            <ul>
-                <li><img src="aliment_babybel.svg" alt=""></li>
-                <li><img src="aliment_babybel.svg" alt=""></li>
-                <li><img src="aliment_babybel.svg" alt=""></li>
-                <li><img src="aliment_babybel.svg" alt=""></li>
-                <li><img src="aliment_babybel.svg" alt=""></li>
-                <li><img src="aliment_babybel.svg" alt=""></li>
-                <li><img src="aliment_babybel.svg" alt=""></li>
-                <li><img src="aliment_babybel.svg" alt=""></li>
+            <a class="customNavigation btn prev"><</a>
+            <ul id="owl-demo">
+                <li class="item" ><img src="aliment_babybel.svg" alt=""></li>
+                <li class="item" ><img src="aliment_babybel.svg" alt=""></li>
+                <li class="item" ><img src="aliment_babybel.svg" alt=""></li>
+                <li class="item" ><img src="aliment_babybel.svg" alt=""></li>
+                <li class="item" ><img src="aliment_babybel.svg" alt=""></li>
+                <li class="item" ><img src="aliment_babybel.svg" alt=""></li>
+                <li class="item" ><img src="aliment_babybel.svg" alt=""></li>
+                <li class="item" ><img src="aliment_babybel.svg" alt=""></li>
             </ul>
+            <a class="customNavigation btn next">></a>
         </div>
         <div id="navLeftBar">
             <ul>
@@ -28,16 +33,56 @@
             </ul>
         </div>
         <div id="navDeco">
-            <ul>
-                <li>Reset</li>
-                <li>Deco</li>
-            </ul>
+            <div class="decoMenu pam">
+                MENU
+                <ul class="decoSubmenu">
+                    <li><a class="pas" href="#">Reset</a></li>
+                    <li><a class="pas" href="#">Deco</a></li>
+                </ul>
+            </div>
         </div>
-        <div id="navTrophee">
+        <div id="navTrophee" class="pam">
             image Intestinc
         </div>
-        <div id="navReturn">
+        <div id="navReturn" class="pam">
             fleche de retour
         </div>
+        <script
+    			  src="https://code.jquery.com/jquery-3.1.1.min.js"
+    			  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    			  crossorigin="anonymous">
+        </script>
+        <script src="owl-carousel/owl.carousel.min.js">
+
+        </script>
+        <script>
+            $(function(){
+                // menu deco
+                $('.decoMenu').click(function(){
+                    $('.decoSubmenu').toggle();
+                });
+
+
+                // navTopBar
+                var owl = $("#owl-demo");
+
+                owl.owlCarousel({
+                    items : 6, //10 items above 1000px browser width
+                    itemsDesktop : [1000,5], //5 items between 1000px and 901px
+                    itemsDesktopSmall : [900,6], // betweem 900px and 601px
+                    itemsTablet: [600,2], //2 items between 600 and 0
+                    itemsMobile : false, // itemsMobile disabled - inherit from itemsTablet option
+                    pagination:false
+                });
+
+                // Custom Navigation Events
+                $(".next").click(function(){
+                  owl.trigger('owl.next');
+                })
+                $(".prev").click(function(){
+                  owl.trigger('owl.prev');
+                })
+            });
+        </script>
     </body>
 </html>

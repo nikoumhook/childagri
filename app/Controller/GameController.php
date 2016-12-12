@@ -7,8 +7,12 @@ use \W\Controller\Controller;
 class GameController extends Controller
 {
 
-    public function home(){
-        $this->show('front/home');
+    public function assiette(){
+        $this->show('front/assiette');
+    }
+
+    public function carte(){
+        $this->show('front/carte');
     }
 
 }

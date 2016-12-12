@@ -5,28 +5,46 @@
         <title><?= $this->e($title) ?></title>
         <link rel="stylesheet" href="<?= $this->assetUrl('css/knacss.css') ?>">
         <link rel="stylesheet" href="<?= $this->assetUrl('owl-carousel/owl.theme.css') ?>">
-        <link rel="stylesheet" href="<?= $this->assetUrl('owl-carousel/owl.transition.css') ?>">
+        <link rel="stylesheet" href="<?= $this->assetUrl('owl-carousel/owl.transitions.css') ?>">
         <link rel="stylesheet" href="<?= $this->assetUrl('owl-carousel/owl.carousel.css') ?>">
         <link rel="stylesheet" href="<?= $this->assetUrl('css/interface.css') ?>">
         <link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
+        <style media="screen">
+            #container_assiette{
+                margin: 200px;
+            }
+            #container_assiette img{
+                align-items: center;
+            }
+        </style>
     </head>
     <body>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <div class="">
+            <?= $this->section('script') ?>
+        </div>
+        <?php
+        $carte=''; ?>
+        <?php if (isset($carte)): ?>
         <div id="navTopBar">
             <a class="customNavigation btn prev"><</a>
             <ul id="owl-demo">
-                <li class="item" ><img src="<?= $this->assetUrl('img/aliment_babybel.svg') ?>" alt=""></li>
-                <li class="item" ><img src="<?= $this->assetUrl('img/aliment_beurre.svg') ?>" alt=""></li>
-                <li class="item" ><img src="<?= $this->assetUrl('img/aliment_cornflakes.svg') ?>" alt=""></li>
-                <li class="item" ><img src="<?= $this->assetUrl('img/aliment_kiwi.svg') ?>" alt=""></li>
-                <li class="item" ><img src="<?= $this->assetUrl('img/aliment_knacki.svg') ?>" alt=""></li>
-                <li class="item" ><img src="<?= $this->assetUrl('img/aliment_miel.svg') ?>" alt=""></li>
-                <li class="item" ><img src="<?= $this->assetUrl('img/aliment_mousseline.svg') ?>" alt=""></li>
-                <li class="item" ><img src="<?= $this->assetUrl('img/aliment_pomme.svg') ?>" alt=""></li>
-                <li class="item" ><img src="<?= $this->assetUrl('img/aliment_roquefort.svg') ?>" alt=""></li>
-                <li class="item" ><img src="<?= $this->assetUrl('img/aliment_surimi.svg') ?>" alt=""></li>
+                <li class="item" id="1" name="Babybel"><img src="<?= $this->assetUrl('img/aliment_babybel.svg') ?>" alt=""></li>
+                <li class="item" id="2" name="Beurre"><img src="<?= $this->assetUrl('img/aliment_beurre.svg') ?>" alt=""></li>
+                <li class="item" id="3" name="Cornflakes"><img src="<?= $this->assetUrl('img/aliment_cornflakes.svg') ?>" alt=""></li>
+                <li class="item" id="4" name="Kiwi"><img src="<?= $this->assetUrl('img/aliment_kiwi.svg') ?>" alt=""></li>
+                <li class="item" id="5" name="Knacki"><img src="<?= $this->assetUrl('img/aliment_knacki.svg') ?>" alt=""></li>
+                <li class="item" id="6" name="Miel"><img src="<?= $this->assetUrl('img/aliment_miel.svg') ?>" alt=""></li>
+                <li class="item" id="7" name="Mousseline"><img src="<?= $this->assetUrl('img/aliment_mousseline.svg') ?>" alt=""></li>
+                <li class="item" id="8" name="Pomme"><img src="<?= $this->assetUrl('img/aliment_pomme.svg') ?>" alt=""></li>
+                <li class="item" id="9" name="Roquefort"><img src="<?= $this->assetUrl('img/aliment_roquefort.svg') ?>" alt=""></li>
+                <li class="item" id="10" name="Surimi"><img src="<?= $this->assetUrl('img/aliment_surimi.svg') ?>" alt=""></li>
             </ul>
             <a class="customNavigation btn next">></a>
         </div>
+        <?php endif; ?>
+
         <div id="navLeftBar">
             <ul>
                 <li class="circle">P'tit Dej</li>
@@ -56,11 +74,6 @@
         </main>
 
 
-        <script
-    			  src="https://code.jquery.com/jquery-3.1.1.min.js"
-    			  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-    			  crossorigin="anonymous">
-        </script>
         <script src="<?= $this->assetUrl('owl-carousel/owl.carousel.min.js') ?>"></script>
         <script src="<?= $this->assetUrl('owl-carousel/owl.carousel.min.js') ?>"></script>
     </body>

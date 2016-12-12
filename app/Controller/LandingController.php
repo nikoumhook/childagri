@@ -4,17 +4,23 @@
 namespace Controller;
 
 use \W\Controller\Controller;
+use \W\Model\UsersModel; 
+
+
+use W\Security\AuthentificationModel;
+use Respect\Validation\Validator as v;
 
 class LandingController extends Controller
+
 {
 
 	/**
 	 * Page d'accueil par défaut
 	 */
-	public function home()
+	public function landingPage()
 	{
-		$this->show('default/home');
-		$this->redirectToRoute('user_page1');
+		$this->show('landingPage.php');
+		
 	}
 
 
@@ -26,6 +32,11 @@ class LandingController extends Controller
 		//$this ->showNotFound est une methode qui existe déjà
 		$this->showNotFound();
 	}
+
+
+
+
+
 
 
 }

@@ -3,22 +3,18 @@ namespace Model;
 
 use \W\Model\Model;
 
-/*LandingModel: traitement method 1 select BD*/
+/*LandingModel: 2 model 
+	Model traitement select BD
+	Model traitement insert BD + Select BD
+
+	*/
 
 class LandingModel extends Model
 {
+
+
 	
-
-
-
+	
 }
 
 
-
-/*LandingModel: traitement method 2 insert BD*/
-
-class LandingModel extends Model
-{
-	
-
-}

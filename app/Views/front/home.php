@@ -29,6 +29,7 @@
                 <button type="submit">Connecter</button>
             </form>
         </div>
+        
         <!-- formulaire pour les personnes ne possedant pas de compte -->
         <div id="subscribe">
             <h2>Inscription</h2>

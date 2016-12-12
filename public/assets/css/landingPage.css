@@ -1,0 +1,58 @@
+
+
+/***************WRAPPER**********************/
+
+#wrapper{
+	height: 100vh;
+	width: 100vh;
+}
+
+.backgroundLanding{
+	background: url();
+	background-color: ;
+
+}
+
+
+
+/***************DIV EXPLAIN**********************/
+
+
+#explainLanding{
+	height: 150px;
+	width: 100%;
+}
+
+
+
+/***************Boutton ON JOUE********************/
+
+
+
+
+
+/***************DIV POPIN*************************/
+
+/*Wrapper Popin*/
+.wrapperPopin{
+	width:100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+/*Titre de la popin*/
+.titrePopinLanding{
+	margin-bottom: 50px;
+}
+
+/*Etiquette des fomulaires*/
+.labelLanding{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+
+/*Input des fomulaires*/
+.inputLanding{
+	margin-bottom: 15px;
+}

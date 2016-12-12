@@ -58,7 +58,7 @@ $(function () {
                         data: {"aliment1":ingr1, "day_parts": [1,0,0,0]},
                         dataType: 'json', // Type de données que l'on va recevoir
                     });
-                    <?= $this->load('game_carte') ?>
+                    <?= $this->show('game_carte') ?>
                 }
             }
             alert('Vous avez sélectionné ' + aliment + nbre);

@@ -16,111 +16,106 @@
 <!-- Mon style -->
 <link rel="stylesheet" href="<?=$this->assetUrl('css/landingPage.css');?>">
 
-
-
-
-
 </head>
-
 
 <body>
 
-</body>
 
 	<!-- DIV grand wrapper --> 
 	<div id="wrapper" class="backgroundLanding">
 
 		<!-- Div explication -->
-		<div id="explainLanding"> <h1>Joue et découvre ce que tu manges tous les jours !</h1></div>
+		<div id="explainLanding"> 
+			<h1 class="txtcenter titreLanding">Amuse toi à découvrir ce que tu manges tous les jours !</h1>
+		</div>
 
 		<!-- Button play -->
 		<button id="trigger-overlay" type="button" class="overlay">ON JOUE</button>
 
 
 		<!-- Div POPIN -->
-		<div id="log" class="overlay overlay-simplegenie"">
+		<div id="log" class="overlay overlay-simplegenie">
 
 			<!-- Bouton fermeture de la div simple genius-->
 			<button type="button" class="overlay-close">Fermer</button>
 
 			<!-- Div wrapper formulaire Popin: 2 grid -->
-			<div class="grid-2 wrapperPopin">
+			<div class="grid-2 wrapperPopin flex-container-v">
 
 				<!-- Div formulaire connexion Popin -->
-				<div id="connexion">
-					<h2 class="txtcenter"> Connecte toi pour jouer</h2>
+				<div id="connexion" class="bloc1 one-half">
+					<h2 class="txtcenter titrePopinLanding"> Connecte toi pour jouer</h2>
+					<form id="FormConnect" class="flex-item-center" action="#">
 
+						<!-- formulaire connexion-->
+						<div class="grid-2 flex-item-center">
+							<label for="usernameC" class="labelLanding one-third">Ton pseudo</label>
+							<input id="usernameC" class="inputLanding three-quarter" type="text" name="username" placeholder="Maxou33" required>
+						</div>
 
-					<form id="FormConnect" class="login" action="#">
+						<div class="grid-2 flex-item-center">
+							<label for="passwordC" class="labelLanding one-third">Ton mot de passe</label>
+							<input id="passwordC" class="inputLanding three-quarter" type="password" name="passwordconnect" placeholder="Ex: unMot2PassSecret" required>
+						</div>
+
+						<div class="grid">
+							<button id="validConnexion" type="submit">SE CONNECTER POUR JOUER</button>
+						</div>
 
 						<!-- div Affichage resultat traitement AJAX CONNEXION-->
 						<div id="resultConnect" class="txtcenter"></div> 
-
-						<!-- formulaire connexion-->
-						<label for="usernameC" class="labelLanding txtleft">Ton pseudo</label>
-						<input id="usernameC" class="inputLanding" type="text" name="username" placeholder="Maxou33" required>
-						<br>
-
-
-						<label for="passwordC" class="labelLanding txtleft">Ton mot de passe</label>
-						<input id="passwordC" class="inputLanding" type="password" name="passwordconnect" placeholder="UnMot2PassSecret33" required>
-						<br>
-
-						<button id="validConnexion" type="submit">SE CONNECTER POUR JOUER</button>
 						
 					</form>
 				</div>
 
 				<!-- Div formulaire inscription Popin -->
-				<div id="inscription">
+				<div id="inscription" class="bloc2 one-half">
 					<h2 class="txtcenter titrePopinLanding"> Inscris toi pour jouer</h2>
+					<form class="flex-item-center" action="#">
 
+						<!-- formulaire iscription-->
+						<div class="grid-2 flex-item-center">
+							<label for="firstname" class="labelLanding one-third">Ton prénom</label>
+							<input id="firstname" class="inputLanding three-quarter" type="text" name="firstname" placeholder="Ex: Maxime">
 
-					<form class="subscribe" action="#">
+							<label for="lastname" class="labelLanding one-third">Ton nom</label>
+							<input id="lastname" class="inputLanding three-quarter" type="text" name="lastname" placeholder="Ex:Segol" >
+						</div>
+
+						<div class="grid-2 flex-item-center">
+							<label for="username" class="labelLanding one-third">Ton pseudo</label>
+							<input id="username" class="inputLanding" type="text" name="username" placeholder="Ex:Maxou33">
+
+							<label for="password" class="labelLanding one-third">Ton mot de passe</label>
+							<input id="password" class="inputLanding three-quarter" type="password" name="password" placeholder="Ex: unMot2PassSecret">
+						
+
+							<label for="passwordVerify" class="labelLanding one-third">Ton mot de passe (encore)</label>
+							<input id="passwordVerify" class="inputLanding three-quarter" type="password" name="passwordVerify" placeholder="Ex: unMot2PassSecret">
+						</div>
+
+						<div class="grid-1 flex-item-center">
+							L'adresse mail n'est pas obligatoire.<br> 
+							Mais elle te pemettra de récupérer ton mot de passe si tu l'oublies !
+						</div>
+
+						<div class="grid-2 flex-item-center">
+							<label for="mail" class="labelLanding one-third">Ton mail</label>
+							<input id="mail" class="inputLanding three-quarter" type="mail" name="mail" placeholder="Ex: max.s@gmail.com">
+						</div>
+
+						<div class="grid">
+							<button id="validInscription" type="submit">S'INSCRIRE POUR JOUER</button>
+						</div>
 
 						<!-- div Affichage resultat traitement AJAX INSCRIPTION-->
 						<div id="resultInscription" class="center"></div> 
-
-						<!-- formulaire iscription-->
-						<label for="firstname" class="labelLanding txtleft">Ton prénom</label>
-						<input id="firstname" class="inputLanding" type="text" name="firstname" placeholder="Ex: Maxime">
-						<br>
-
-						<label for="lastname" class="labelLanding txtleft">Ton nom</label>
-						<input id="lastname" class="inputLanding" type="text" name="lastname" placeholder="Segol" >
-						<br>
-
-
-						<label for="username" class="labelLanding txtleft">Ton pseudo</label>
-						<input id="username" class="inputLanding" type="text" name="username" placeholder="Maxou33">
-						<br>
-
-
-						<label for="password" class="labelLanding txtleft">Ton mot de passe</label>
-						<input id="password" class="inputLanding" type="password" name="password" placeholder="UnMot2PassSecret33">
-						<br>
-
-
-						<label for="passwordVerify" class="labelLanding txtleft">Ton mot de passe pour le vérifier</label>
-						<input id="passwordVerify" class="inputLanding" type="password" name="passwordVerify" placeholder="UnMot2PassSecret33">
-						<br>
-
-
-						<label for="mail" class="labelLanding">Ton mail</label>
-						<input id="mail" class="inputLanding" type="mail" name="mail" placeholder="maxS@gmail.com">
-						<br>
-
-						<div class="">
-                   		 L'adresse mail n'est pas obligatoire mais elle te pemettra de récupérer ton mot de passe si tu l'oublies !</div>
-
-						<button id="validInscription" type="submit">S'INSCRIRE POUR JOUER</button>
 						
 					</form>
-
 				</div> <!-- fermeture de la div inscription -->
+
 			</div> <!-- fermeture de la div wrapper de la popin -->
 		</div> <!-- fermeture de la popin -->
-
 
 	</div> <!-- fermeture du wrapper -->
 
@@ -144,10 +139,10 @@
 				dataType: 'json',
 				success: function(result){
 					if(result.code == 'valid'){
-						$('#resultInscription').html('<div>' + result.msg +'</div>');
+						$('#resultInscription').html('<div class="infoReussite">' + result.msg +'</div>');
 					}
 					else if(result.code =='error'){
-						$('#resultInscription').html('<div>' + result.msg +'</div>');
+						$('#resultInscription').html('<div class="infoErreur">' + result.msg +'</div>');
 					}
 				}//fermeture success
 			});//fermeture $.ajax
@@ -169,7 +164,7 @@
 				dataType: 'json',
 				success: function(result){
 					if(result.code == 'valid'){
-						$('#resultConnect').html('<div>' + result.msg +'</div>');
+						$('#resultConnect').html('<div class="infoReussite">' + result.msg +'</div>');
 					}
 				}//fermeture success
 			});//fermeture $.ajax
@@ -179,6 +174,6 @@
 
 
 
-
+</body>
 
 </html>

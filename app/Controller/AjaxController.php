@@ -33,11 +33,11 @@ class AjaxController extends Controller
 			}
 
 			if(!v::notEmpty()->length(2,15)->validate($post['username'])){
-				$errors[] = 'Choisi un pseudo entre 2 et 15 lettres';
+				$errors[] = 'Choisis un pseudo entre 2 et 15 lettres';
 			}
 
 			if(!v::notEmpty()->length(5,15)->validate($post['password'])){
-				$errors[] = 'Choisi un mot de passe nom entre 5 et 15 lettres';
+				$errors[] = 'Choisis un mot de passe nom entre 5 et 15 lettres';
 			}
 
 			if($post['passwordVerify']!= $post['password']){
@@ -97,7 +97,7 @@ class AjaxController extends Controller
 			else{
 				$connectPlayer = new PlayersModel();
 					if($result= $connectPlayer->isValidLoginInfo($post['username'], $post['passwordconnect'])){
-						$this->showJson(['code'=>'valid', 'msg'=>'Bravo tu es bien connecté ! Prêt feu, jouez !']);
+						$this->showJson(['code'=>'valid', 'msg'=>'Bravo tu es bien connecté. <br>PRET, FEU, JOUEZ !']);
 					}
 				}
 		}// fermeture 1ère condition !empty

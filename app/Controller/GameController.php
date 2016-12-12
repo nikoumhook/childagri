@@ -113,6 +113,13 @@ class GameController extends Controller{
                 break;
         }
 
-    }
+            public function assiette(){
+                $this->show('front/assiette');
+            }
+
+            public function carte(){
+                $this->show('front/carte');
+
+            }
 
 }// fin de class

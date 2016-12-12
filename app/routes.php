@@ -1,6 +1,7 @@
 <?php
 
 	$w_routes = array(
-		['GET', '/', 'Default#home', 'default_home'],
-		['GET', '/play/', 'Game#home', 'game_home'],
+		
+/*//////////////ROUTE DE LA LANDINGPAGE*///////////////////
+		['GET|POST', '/', 'Landing#landingPage', 'game_home'],
 	);

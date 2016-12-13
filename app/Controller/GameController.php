@@ -20,21 +20,23 @@ class GameController extends Controller{
      */
     public function startGame(){
 
-        if (isset($_SESSION['player'])) {
-            // Si le joueur est connecté on va chercher (ou on créé) sa sauvegarde et ont la met dans la sessions
+        if (isset($_SESSION['player']) && !isset($_SESSION['save'])) {
+
             $_SESSION['save'] = $this->setSav();
 
-            var_dump($_SESSION);
+        }
 
-            if (isset($_SESSION['save']['repas']) && empty($_SESSION['save']['repas'])) {
+        if (isset($_SESSION['player'])) {
+
+            // Si le joueur est connecté on va chercher (ou on créé) sa sauvegarde et ont la met dans la sessions
+            if (isset($_SESSION['save']['repas'])) {
                 $this->redirectToRoute('game_assiette');
             }
 
-
-        }else {
-            // si l'utilisateur n'est pas connecté alors ont le redirige vers la page de connexion
-            $this->redirectToRoute('game_landing');
         }
+
+        // si l'utilisateur n'est pas connecté alors ont le redirige vers la page de connexion
+        $this->redirectToRoute('game_landing');
 
 
 
@@ -77,7 +79,6 @@ class GameController extends Controller{
              // controle si une partie est en cour dans la base de donné :
              // recupère dans la base de donnée les infos sur la player afin de récupéré ingame et de le controler
              $saveModel = new SaveModel();
-
              if (isset($player['inGame']) && !empty($player['inGame']) && is_numeric($player['inGame'])) {
 
                  // fait la requete pour récupéré la sauvegarde en cour
@@ -87,12 +88,13 @@ class GameController extends Controller{
                  $this->repasSelected = unserialize($save['repas']);
 
              }else {
+
                  // permet de creer une sauvegarde a la creation de la partie si elle n'existait pas
                  $save = $this->savGame();
 
                 // la lie automatiquement dans ingame de Players dans la bdd
                  $playersModel->update([
-                     'inGame' => $save,
+                     'inGame' => $save['id'],
                  ],$player['id']);
                  // Si il ne trouve pas de sauvegarde on commence le jeux vide
 
@@ -109,18 +111,25 @@ class GameController extends Controller{
 
     /**
      * construit la session de jeux ou met a jour si des données sont passé
-     * @param  string $data option qui permet de mettre a jour les données
+     * @param  bool $data variable qui est a true ou false et qui permet d'enregistré ou de créé une sauvegarde
      * @return les données de la sauvegarde si elle existe ou redirige sur la route de la carte si il n'y a aucune seuvegarde en cour
      */
-     public function savGame($data = []){
+     public function savGame($data = false){
 
          $saveModel = new SaveModel();
 
-        if (empty($data)) {
+        if (!$data) {
+
             return $saveModel->createSav();
+
         }else {
-            $save = $SaveModel->update($data);
+
+            $data = [ 'repas' => $_SESSION['save']['repas'], 'id_quizz' => $_SESSION['save']['id_quizz']];
+
+            $save = $saveModel->update($data,$_SESSION['save']['id']);
             if ($save) {
+                var_dump($save);
+                die;
                 return $save ;
             }
         }
@@ -222,6 +231,37 @@ class GameController extends Controller{
                 break;
         }
     }
+
+    /**
+     * methode qui redirige vers l'assiette
+     */
+    public function resetGame(){
+
+        $playersModel = new PlayersModel();
+        $saveModel = new SaveModel();
+
+        $playersModel->update([
+            'inGame' => '',
+        ],$_SESSION['player']['id']);
+
+        $saveModel->deleteSav($_SESSION['save']['id']);
+        unset($_SESSION['save']);
+
+
+        $this->redirectToRoute('game_startPlay');
+
+    }
+
+    /**
+     * methode qui redirige vers l'assiette
+     */
+    public function quitGame(){
+
+        $this->savGame(true);
+
+        $this->show('front/assiette');
+    }
+
 
     /**
      * methode qui redirige vers l'assiette

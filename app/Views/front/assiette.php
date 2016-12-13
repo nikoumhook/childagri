@@ -9,7 +9,7 @@
 <?php $this->stop('script') ?>
 
 <?php $this->start('main_content') ?>
-
+    <?= var_dump($_SESSION); ?>
     <div id="container_assiette" class="pal">
         <div id="dragZone">
             <div class="aliments" id="aliment1"></div>

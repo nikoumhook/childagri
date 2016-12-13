@@ -14,10 +14,11 @@ class AssietteController extends Controller
 	 */
 	public function assiette(){
 
+        $gameController = new GameController();
+
         if (isset($_SESSION['player'])) {
 
             // Ont récupère les repas qui ont été selectionné
-            $gameController = new GameController();
             $repas = $gameController->getRepasSelected(false);
 
             // si des repas ont été validé je viens mettre la bonne forme a la valeur
@@ -31,16 +32,15 @@ class AssietteController extends Controller
             // $repas = unserialize('a:2:{i:1;s:5:"1,2,3";i:4;s:5:"2,4,6";}');
 
             if (empty($repas)) {
-                $this->show('front/assiette-taff-sur-selection-repas',[
-                    'repas' =>  $repas
-                ]);
+                $this->show('front/assiette');
+                // pour test : $this->show('front/assiette-taff-sur-selection-repas',[
+                //     'repas' =>  $repas
+                // ]);
             }else {
-
-                $this->show('front/assiette-taff-sur-selection-repas',[
-                    'repas' =>  $repas
-                ]);
-                var_dump($repas);
-                die();
+                $this->show('front/assiette');
+                // pour test :$this->show('front/assiette-taff-sur-selection-repas',[
+                //     'repas' =>  $repas
+                // ]);
             }
 
         }else {

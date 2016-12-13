@@ -59,8 +59,8 @@
             <div class="decoMenu pam">
                 MENU
                 <ul class="decoSubmenu">
-                    <li><a class="pas" href="#">Reset</a></li>
-                    <li><a class="pas" href="#">Deco</a></li>
+                    <li><a class="pas" href="<?= $this->url('game_reset') ?>">Reset</a></li>
+                    <li><a class="pas" href="<?= $this->url('game_quit') ?>">Deco</a></li>
                 </ul>
             </div>
         </div>

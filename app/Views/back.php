@@ -6,6 +6,9 @@
 
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/knacss.css') ?>">
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/backLayout.css') ?>">
+
+    <?= $this->section('head') ?>
+
 </head>
 <body>
 

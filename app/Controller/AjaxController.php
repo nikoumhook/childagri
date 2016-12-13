@@ -5,6 +5,7 @@ namespace Controller;
 use \W\Controller\Controller;
 use Model\PlayersModel;
 use \Controller\GameController;
+use Model\QuizzModel;
 use Respect\Validation\Validator as v;
 
 class AjaxController extends Controller
@@ -90,7 +91,6 @@ class AjaxController extends Controller
 			}
 
 		}//fermeture 1ère condition !empty
-
 	}// fermeture function AddPlayer
 
 
@@ -120,7 +120,7 @@ class AjaxController extends Controller
 
 						$this->showJson(['code'=>'valid', 'msg'=>'Bravo tu es bien connecté. <br>PRET, FEU, JOUEZ !']);
 					}else {
-					    $error[] = 'si tu as oublié ton mot de passe demande le ici';
+					    $error[] = 'Si tu as oublié ton mot de passe demande le ici';
 					}
 				}
 
@@ -129,6 +129,72 @@ class AjaxController extends Controller
             }
 		}// fermeture 1ère condition !empty
 	}// fermeture function connectPlayer
+
+
+
+
+
+	/***************** Page quizz:  TRAITEMENTS **********/
+	public function quizz()
+	{
+
+		$errors = [];
+		$formValid = false;
+		$modelQuizz = new QuizzModel();
+		
+
+		if (!empty($_POST)) {
+
+			foreach ($_POST as $key => $value) {
+				$post[$key] = trim($value);
+			}
+
+			$usernameValidator = v::alnum('é,è,ê,à,ï,ö')->length(5, 20);
+
+
+			if (!isset($post['aliment']) || !is_numeric($post['aliment']) || empty($post['aliment'])) {
+				$errors [] ="Vous devez selectionner l'aliment dont vous rédigez le quizz dans le menu déroulant";
+			}
+
+			// Verif QUESTION - REPONSE 
+			if(!v::notEmpty()->length(20,1000)->validate($post['question'])){
+				$errors[] = 'Votre question doit comporter un minimum de 20 caractères';
+			}
+
+			if (!isset($post['answer']) || empty($post['answer']) || !($post['answer']== 'oui' || $post['answer']=='non')) {
+				$errors[] = 'Votre devez choisir la réponse de votre question';
+			}
+
+			
+			//si mon formulaire n'a pas d'erreur
+			if (count($errors) === 0) {
+
+				$dataInsert = [
+					'id_aliment'	=>	$post['aliment'],
+					'content' 		=>	$post['question'],
+					'answer' 		=>	$post['answer']
+				];
+
+				if ($modelQuizz->insert($dataInsert)) {
+					$this->showJson(['code'=>'valid', 'msg'=>'Votre question a bien été enregistré dans le quizz']);
+				}
+		
+			}//fermeture if count error=0
+
+			//sinon (si le formulaire a des erreurs)	
+			else {
+				$this->showJson (['code'=>'error', 'msg'=>implode( '<br>',$errors)]);
+			}
+			
+		}// fermeture 1ère condition !empty
+
+	} // fermeture function quizz
+
+
+
+
+
+
 
 
 }//fermeture de la class

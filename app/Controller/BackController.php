@@ -5,6 +5,9 @@ namespace Controller;
 use \W\Controller\Controller;
 use Respect\Validation\Validator as v;
 use Model\PedagoModel; 
+use Model\AlimentsModel; 
+use Model\QuizzModel; 
+
 
 class BackController extends Controller
 {
@@ -17,46 +20,121 @@ class BackController extends Controller
 		$this->show('back/home');
 	}
 
-	/**
-	 * Page aliment: AFFIACHE de la page
-	 */
-	public function aliment()
+
+	
+	/***************** Page QUIZZ: AFFICHAGE  **********/
+	
+	public function quizz()
 	{
-		$PedagoModel = new PedagoModel();
-		$this->show('back/aliment',['lands'=>$PedagoModel->getLands()]);
-	}
-
-
-
-	/**
-	 * Page Zone Pedago: AFFICHE dans le formulaire la liste de zones de production + la liste des ingrédients enregistrés dans la DB (pour 2menus select)
-	 */
-	public function zonePedago()
-	{
-		$PedagoModel = new PedagoModel();
-		$this->show('back/zonePedago', [
-			'aliments'=>$PedagoModel->getAliments(),
-			'lands'=>$PedagoModel->getLands()
+		$modelPedago = new PedagoModel();
+		$this->show('back/quizz', [
+			'aliments'=>$modelPedago->getAliments()
 			]);
-
 	}
 
 
-	/**
-	 * Page Zone Pedago: ajoute dans la DB du contenu pedago (text-img-audio) pour 1 ingrédient avec sa zone de prod
-	 */
+	/***************** Page ALIMENT: AFFICHAGE et TRAITEMENTS **********/
 
-	public function addPedago ()
+	public function aliment()
 	{
 		$errors = [];
 		$formValid = false;
-		$modelAddPedago = new PedagoModel();
+		$imgvalid= false;
+		$modelAliments = new AlimentsModel();
+		$modelPedago = new PedagoModel();
+
+		if (!empty($_POST)) {
+			foreach ($_POST as $key => $value) {
+				$post[$key] = trim($value);
+			}
+
+			$usernameValidator = v::alnum('é,è,ê,à,ï,ö')->length(5, 20);
+
+			if(!v::notEmpty()->length(3,100)->validate($post['aliment'])){
+				$errors[] = 'Le nom de votre aliment doit comporter un minimum de 3 caractères';
+			}
+
+			if (!isset($post['land']) && !is_numeric($post['land'])) {
+				$errors [] ="Vous devez selectionner la région de production de votre aliment dans le menu déroulant";
+			}
+
+			if(v::notEmpty()->validate($_FILES['picture']['tmp_name'])){
+
+				$imgvalid= true;
+
+				//Condition fichier img
+				//ici valide le mimetype (format) de l'image
+				if(!v::image()->validate($_FILES['picture']['tmp_name'])){
+					$errors[] = 'Votre image n\'est pas valide';
+				}
+				//ici valide le tmp name de l'image
+				if (!v::uploaded()->validate($_FILES['picture']['tmp_name'])) {
+					$errors[] = 'Une erreur est survenue lors de l\'upload de votre image';
+				}
+
+				//ici on valide la taille de l'image
+				if (!v::size(null, '2MB')->validate($_FILES['picture']['tmp_name'])) {
+					$errors[] = 'Il vous faut télécharger une image inférieure à 2MB';
+				}
+
+			}// fermeture condition si jamais c'est pas vide on controle l'image (pas obligatoire d'enregistrer l'image car brouillon)
+
+			if (!isset($post['publish']) || empty($post['publish']) || !($post['publish']== 'oui' || $post['publish']=='non')) {
+				$errors[] = 'Votre devez choisir si vous souhaitez publier votre aliment ou si vous souhaitez l\'enregistrer en brouillon';
+			}
+
+
+			//si mon formulaire n'a pas d'erreur
+			if (count($errors) === 0) {
+
+				$data = [
+					'name'		=>$post['aliment'],
+					'id_land'	=>$post['land'],
+					'publish'	=>$post['publish'], 
+				];
+
+				//condition si tu enregistre une img
+				if ($imgvalid) {
+					$data ['urlImg'] = $post['picture'];
+				}
+
+				$result= $modelAliments->insert($data);
+
+				$formValid = true;
+
+			}//fermeture if count error =0
+			
+			//quoi qu'il se passe je redirige sur la route de la page (affichage du formualire vide)
+			
+		}// fermeture 1ère condition !empty
+
+		$this->show('back/aliment', [
+			'lands'=>$modelPedago->getLands(),
+			'errors'=>$errors,
+			'success'=>$formValid,
+			]);
+
+	}// fermeture function aliment
+
+
+
+	/***************** Page Zones Pédagogiques: AFFICHAGE et TRAITEMENTS **********/
+
+	public function zonePedago()
+	{
+
+
+		$errors = [];
+		$formValid = false;
+		$modelPedago = new PedagoModel();
+		$mp3valid = false;
+		$imgvalid= false;
 
 		if (!empty($_POST)) {
 
 			foreach ($_POST as $key => $value) {
 				$post[$key] = trim($value);
-			}//fermeture de nettoyage de $post
+			}
 
 			$usernameValidator = v::alnum('é,è,ê,à,ï,ö')->length(5, 20);
 
@@ -68,7 +146,7 @@ class BackController extends Controller
 			$errors [] ="Vous devez selectionner la région de production de votre aliment dans le menu déroulant";
 			}
 
-			if (!isset($post['publish']) || !empty($post['publish']) || $post['publish']!= 'oui' || $post['publish']!= 'non') {
+			if (!isset($post['publish']) || empty($post['publish']) || !($post['publish']== 'oui' || $post['publish']=='non')) {
 				$errors[] = 'Votre devez choisir si vous souhaitez publier votre contenu pédagogique ou si vous souhaitez l\'enregistrer en brouillon';
 			}
 
@@ -78,66 +156,115 @@ class BackController extends Controller
 
 			//Condition fichier audio
 			//ici valide le format du fichier audio
-			if(v::extension('mp3')->validate($_FILES['sound']['tmp_name'])){
-				$errors[] = 'Votre fichier audio n\'est pas valide';
-			}
+			if (v::notEmpty()->validate($_FILES['sound']['tmp_name'])) {
 
-			//ici valide le format du fichier audio
-			if(v::mimetype('audio/mpeg3')->validate($_FILES['sound']['tmp_name'])){; 
-				$errors[] = 'Votre fichier audio n\'est pas valide';
-			}
+				$mp3valid= true;
 
-			//ici valide le tmp name du fichier audio
-			if (!v::uploaded()->validate($_FILES['sound']['tmp_name'])) {
-				$errors[] = 'Une erreur est survenue lors de l\'upload de votre fichier audio';
-			}
+				if(v::extension('mp3')->validate($_FILES['sound']['tmp_name'])){
+					$errors[] = 'Votre fichier audio n\'est pas valide';
+				}
 
-			//ici on valide la taille de l'image // PAS BON
-			if (!v::size(null, '8MB')->validate($_FILES['sound']['tmp_name'])) {
-				$errors[] = 'Il vous faut télécharger un fichier audio inférieur à 8MB';
-			}
+				//ici valide le format du fichier audio
+				if(v::mimetype('audio/mpeg3')->validate($_FILES['sound']['tmp_name'])){; 
+					$errors[] = 'Votre fichier audio n\'est pas valide';
+				}
 
-			//Condition fichier img
-			//ici valide le mimetype (format) de l'image
-			if(!v::image()->validate($_FILES['picture']['tmp_name'])){
-				$errors[] = 'Votre image n\'est pas valide';
-			}
-			//ici valide le tmp name de l'image
-			if (!v::uploaded()->validate($_FILES['picture']['tmp_name'])) {
-				$errors[] = 'Une erreur est survenue lors de l\'upload de votre image';
-			}
+				//ici valide le tmp name du fichier audio
+				if (!v::uploaded()->validate($_FILES['sound']['tmp_name'])) {
+					$errors[] = 'Une erreur est survenue lors de l\'upload de votre fichier audio';
+				}
+			
+				//ici on valide la taille de l'image // PAS BON
+				if (!v::size(null, '8MB')->validate($_FILES['sound']['tmp_name'])) {
+					$errors[] = 'Il vous faut télécharger un fichier audio inférieur à 8MB';
+				}
 
-			//ici on valide la taille de l'image
-			if (!v::size(null, '2MB')->validate($_FILES['picture']['tmp_name'])) {
-				$errors[] = 'Il vous faut télécharger une image inférieure à 2MB';
-			}
+			}//fermture condition si jamais c'est pas vide on controle la piste audio (pas obligatoire d'enregistrer la piste audio car brouillon
+
+			if(v::notEmpty()->validate($_FILES['picture']['tmp_name'])){
+
+				$imgvalid= true;
+
+				//Condition fichier img
+				//ici valide le mimetype (format) de l'image
+				if(!v::image()->validate($_FILES['picture']['tmp_name'])){
+					$errors[] = 'Votre image n\'est pas valide';
+				}
+				//ici valide le tmp name de l'image
+				if (!v::uploaded()->validate($_FILES['picture']['tmp_name'])) {
+					$errors[] = 'Une erreur est survenue lors de l\'upload de votre image';
+				}
+
+				//ici on valide la taille de l'image
+				if (!v::size(null, '2MB')->validate($_FILES['picture']['tmp_name'])) {
+					$errors[] = 'Il vous faut télécharger une image inférieure à 2MB';
+				}
+
+			}// fermture condition si jamais c'est pas vide on controle l'image (pas obligatoire d'enregistrer l'image car brouillon)
 
 
-			//sin mon formulaire n'a pas d'erreur
+			//si mon formulaire n'a pas d'erreur
 			if (count($errors) === 0) {
 
-			$result= $modelAddPedago->insert ([
+
+				$data = [
 					'id_aliment'=>$post['aliment'],
 					'id_land'	=>$post['land'],
 					'content' 	=>$post['content'],
-					'urlImg'	=>$post['picture'],
-					'urlSound'  =>$post['sound'],
-					'pusblish'	=>$post['publish'], //verif avec Tony
-				]);
+					'publish'	=>$post['publish'], //verif avec Tony
+				];
 
-			$formValid = true;
+				//condition si tu enregistre une piste audio
+				if ($mp3valid) {
+					$data ['urlSound'] = $post['sound'];
+				}
+			
+				//condition si tu enregistre une img
+				if ($imgvalid) {
+					$data ['urlImg'] = $post['picture'];
+				}
+
+				$result= $modelPedago->insert($data);
+
+				$formValid = true;
 
 			}//fermeture if count error =0
+			
+			//quoi qu'il se passe je redirige sur la route de la page (affichage du formualire vide)
+			
+		}// fermeture 1ère condition !empty
 
-			//ici Affichage des messages d'erreurs
+		$this->show('back/zonePedago', [
+			'aliments'=>$modelPedago->getAliments(),
+			'lands'=>$modelPedago->getLands(),
+			'errors'=>$errors,
+			'success'=>$formValid,
+			]);
+
+	}//fermeture fonction zonePedago
 
 
 
 
-		}//fermeture function addPedago
 
-		
-	}// fermeture fuction addPedago
+}//fermeture de la class
 
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

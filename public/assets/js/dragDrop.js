@@ -44,6 +44,8 @@ $(function () {
             if (nbre == 1) {
                 ingr1 = aliment ;
                 pic_aliment = $('#'+ ingr1).children('img').attr('src');
+                // alert(pic_aliment);
+                $("#aliment1").append('<img src="http://localhost' + pic_aliment + '">');
                 $('#'+aliment).parent().remove();
             }else if (nbre == 2) {
                 if(aliment == ingr1){

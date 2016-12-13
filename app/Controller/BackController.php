@@ -22,16 +22,18 @@ class BackController extends Controller
 
 
 	
-	/***************** Page aliment: AFFICHAGE  **********/
+	/***************** Page QUIZZ: AFFICHAGE  **********/
 	
 	public function quizz()
 	{
-		$this->show('back/quizz');
+		$modelPedago = new PedagoModel();
+		$this->show('back/quizz', [
+			'aliments'=>$modelPedago->getAliments()
+			]);
 	}
 
 
-
-	/***************** Page aliment: AFFICHAGE et TRAITEMENTS **********/
+	/***************** Page ALIMENT: AFFICHAGE et TRAITEMENTS **********/
 
 	public function aliment()
 	{

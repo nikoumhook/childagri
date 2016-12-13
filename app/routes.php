@@ -4,6 +4,8 @@
 
 /*//////////////ROUTE DE LA LANDINGPAGE pour affichage *///////////////////
 		['GET|POST', '/', 'Landing#landingPage', 'game_landing'],
+/*//////////////ROUTE Du DEBUT DE LA PARTIE *///////////////////
+		['GET|POST', '/play', 'Game#startGame', 'game_startPlay'],
 
 /*//////////////ROUTE DE LA LANDINGPAGE pour traitement ajax inscription *///////////////////
 		['GET|POST', '/ajax/inscription', 'Ajax#addPlayer', 'ajax_inscription'],
@@ -13,6 +15,7 @@
 
 		/*//////////////ROUTE DE LA GAME*//////////////////////////
 		['GET|POST', '/game/assiette', 'Game#assiette', 'game_assiette'],
+		['GET|POST', '/test/assiette', 'Assiette#assiette', 'test_assiette'],
 		['GET|POST', '/game/carte', 'Game#carte', 'game_carte'],
 
 

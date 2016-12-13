@@ -61,9 +61,11 @@
         <div id="navTrophee" class="pam">
             image Intestinc
         </div>
-        <div id="navReturn" class="pam">
-            fleche de retour
-        </div>
+        <?php if ($w_current_route == 'game_carte'): ?>
+            <div id="navReturn" class="pam">
+                fleche de retour
+            </div>
+        <?php endif; ?>
 
         <main>
             <?= $this->section('main_content') ?>

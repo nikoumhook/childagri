@@ -18,9 +18,13 @@ class SaveModel extends Model
          ]);
 
          if ($save) {
-             return $save['id'];
+
+             return $this->getSav($save['id']);
+
          }else {
+
              return false;
+
          }
 
         //  if (empty($repas)) {

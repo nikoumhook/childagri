@@ -3,7 +3,8 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-use Model\PlayersModel; 
+use Model\PlayersModel;
+use \Controller\GameController;
 use Respect\Validation\Validator as v;
 
 class AjaxController extends Controller
@@ -14,6 +15,7 @@ class AjaxController extends Controller
 	public function addPlayer()
 	{
 		$errors = [];
+        $controlMail = false; // sert a controler si le champ mail a été rempli
 		$modelAddPlayer = new PlayersModel();
 
 		if (!empty($_POST)) {
@@ -36,6 +38,10 @@ class AjaxController extends Controller
 				$errors[] = 'Choisis un pseudo entre 2 et 15 lettres';
 			}
 
+			if($modelAddPlayer->getplayer($post['username'])){
+				$errors[] = 'Ce pseudo est déja pris';
+			}
+
 			if(!v::notEmpty()->length(5,15)->validate($post['password'])){
 				$errors[] = 'Choisis un mot de passe nom entre 5 et 15 lettres';
 			}
@@ -44,24 +50,35 @@ class AjaxController extends Controller
 				$errors[] = 'Attention tu n\'as pas écrit le même mot de passe';
 			}
 
-			if((!v::notEmpty()->email()->validate($post['mail']))){
-				$errors[] = 'Ton email n\'est pas écrit correctement';
+			if (v::notEmpty()->validate($post['mail'])) {
+                $controlMail = true;
+                if((!v::email()->validate($post['mail']))){
+    				$errors[] = 'Ton email n\'est pas écrit correctement';
+    			}
 			}
 
 			//sin mon formulaire n'a pas d'erreur
 			if (count($errors) === 0) {
-			
+
 				//je déclare une varaible pour traiter l'insertion
 				$dataInsert=[
 					'firstname' => $post['firstname'],
 					'lastname'  => $post['lastname'],
 					'username'	=> $post['username'],
-					'email'		=> $post['mail'],
 					'password'	=> password_hash($post['password'], PASSWORD_DEFAULT),
 				];
-	
+                if ($controlMail) {
+                    $dataInsert['email'] = $post['mail'];
+                }
+
 				//Si la methode d'insertion s'execute
-				if($modelAddPlayer->insert($dataInsert)){
+                $user = $modelAddPlayer->insert($dataInsert);
+				if($user){
+
+                    // ont enregistre la joueur dans la session.
+                    $gameController = new GameController();
+                    $gameController->setPlayer($user['id']);
+
 					$this->showJson(['code'=>'valid', 'msg'=>'Bravo tu es inscrit ! Nous aussi on est ravis. A toi de joueur maintenant']);
 				}
 
@@ -82,7 +99,7 @@ class AjaxController extends Controller
 //METHODE CONNECT PLAYER : page landing Page - Formulaire de connexion
 	public function connectPlayer()
 	{
-		$errors = null;
+		$errors = [];
 
 		if (!empty($_POST)) {
 
@@ -91,15 +108,25 @@ class AjaxController extends Controller
 			}
 
 			if (empty($post['username']) || empty($post['passwordconnect'])) {
-				$error = 'Pour te connecter il te faut saisir ton pseudo et ton mot de passe';
+				$error[] = 'Pour te connecter il te faut saisir ton pseudo et ton mot de passe';
 			}
-
 			else{
 				$connectPlayer = new PlayersModel();
 					if($result= $connectPlayer->isValidLoginInfo($post['username'], $post['passwordconnect'])){
+
+                        // ont enregistre la joueur dans la session.
+                        $gameController = new GameController();
+                        $gameController->setPlayer($result);
+
 						$this->showJson(['code'=>'valid', 'msg'=>'Bravo tu es bien connecté. <br>PRET, FEU, JOUEZ !']);
+					}else {
+					    $error[] = 'si tu as oublié ton mot de passe demande le ici';
 					}
 				}
+
+            if (count($error) != 0) {
+                $this->showJson(['code'=>'error', 'msg'=> implode(',',$error)]);
+            }
 		}// fermeture 1ère condition !empty
 	}// fermeture function connectPlayer
 

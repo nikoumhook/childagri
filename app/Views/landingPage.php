@@ -21,11 +21,11 @@
 <body>
 
 
-	<!-- DIV grand wrapper --> 
+	<!-- DIV grand wrapper -->
 	<div id="wrapper" class="backgroundLanding">
 
 		<!-- Div explication -->
-		<div id="explainLanding"> 
+		<div id="explainLanding">
 			<h1 class="txtcenter titreLanding">Amuse toi à découvrir ce que tu manges tous les jours !</h1>
 		</div>
 
@@ -58,13 +58,13 @@
 							<input id="passwordC" class="inputLanding three-quarter" type="password" name="passwordconnect" placeholder="Ex: unMot2PassSecret" required>
 						</div>
 
-						<div class="grid">
+						<div id="buttonConnexion" class="grid">
 							<button id="validConnexion" type="submit">SE CONNECTER POUR JOUER</button>
 						</div>
 
 						<!-- div Affichage resultat traitement AJAX CONNEXION-->
-						<div id="resultConnect" class="txtcenter"></div> 
-						
+						<div id="resultConnect" class="txtcenter"></div>
+
 					</form>
 				</div>
 
@@ -88,14 +88,14 @@
 
 							<label for="password" class="labelLanding one-third">Ton mot de passe</label>
 							<input id="password" class="inputLanding three-quarter" type="password" name="password" placeholder="Ex: unMot2PassSecret">
-						
+
 
 							<label for="passwordVerify" class="labelLanding one-third">Ton mot de passe (encore)</label>
 							<input id="passwordVerify" class="inputLanding three-quarter" type="password" name="passwordVerify" placeholder="Ex: unMot2PassSecret">
 						</div>
 
 						<div class="grid-1 flex-item-center">
-							L'adresse mail n'est pas obligatoire.<br> 
+							L'adresse mail n'est pas obligatoire.<br>
 							Mais elle te pemettra de récupérer ton mot de passe si tu l'oublies !
 						</div>
 
@@ -104,13 +104,13 @@
 							<input id="mail" class="inputLanding three-quarter" type="mail" name="mail" placeholder="Ex: max.s@gmail.com">
 						</div>
 
-						<div class="grid">
+						<div id="buttonSubscribe" class="grid">
 							<button id="validInscription" type="submit">S'INSCRIRE POUR JOUER</button>
 						</div>
 
 						<!-- div Affichage resultat traitement AJAX INSCRIPTION-->
-						<div id="resultInscription" class="center"></div> 
-						
+						<div id="resultInscription" class="center"></div>
+
 					</form>
 				</div> <!-- fermeture de la div inscription -->
 
@@ -139,7 +139,12 @@
 				dataType: 'json',
 				success: function(result){
 					if(result.code == 'valid'){
+                        $('#buttonSubscribe').html('');
 						$('#resultInscription').html('<div class="infoReussite">' + result.msg +'</div>');
+
+                        setInterval(function(){
+                            $(location).attr('href','<?= $this->url('game_startPlay'); ?>');
+                        },3000);
 					}
 					else if(result.code =='error'){
 						$('#resultInscription').html('<div class="infoErreur">' + result.msg +'</div>');
@@ -154,18 +159,27 @@
 <!-- Script Affichage validation formulaire connexion en Ajax -->
 <script>
 	$(document).ready(function(){
+
 		$('#validConnexion').click(function(e){
 			e.preventDefault();
 			$.ajax({
 				url: '<?=$this->url('ajax_connexion');?>',
-				type:'post',
+				type: 'post',
 				cache:false,
 				data: $('#FormConnect').serialize(),
 				dataType: 'json',
 				success: function(result){
 					if(result.code == 'valid'){
+
+                        $('#buttonConnexion').html('');
 						$('#resultConnect').html('<div class="infoReussite">' + result.msg +'</div>');
-					}
+                        setInterval(function(){
+                            $(location).attr('href','<?= $this->url('game_startPlay'); ?>');
+                        },3000);
+
+					}else if(result.code =='error'){
+						$('#resultConnect').html('<div class="infoErreur">' + result.msg +'</div>');
+					};
 				}//fermeture success
 			});//fermeture $.ajax
 		});// fermeture buttton clic

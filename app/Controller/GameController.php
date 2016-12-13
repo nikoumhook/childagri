@@ -9,82 +9,103 @@ use \Model\SaveModel;
 class GameController extends Controller{
 
 
-    private $idPlayer ;// utilisateur lié a la partie
-    private $usernameUser ;// utilisateur lié a la partie
     private $alimentSelected ;// aliment deja selectionné par l'utilisateur
     private $repasSelected; // permet de stocker les repas selectionné. sous le forme $repasSelected[i]= 1 , $repasSelected[i] = 2
     private $resultats; // permet de stocker les quizz fait dans les clés et les reponse bonne ou fausse dans les valeurs.
     // ex: [id quizz : '1' => false,4 => true]
 
 
+    /**
+     * Controle la debut de la partie pour savoir ou diriger le joueur en fonction des sauvegardes
+     */
+    public function startGame(){
+
+        if (isset($_SESSION['player'])) {
+            // Si le joueur est connecté on va chercher (ou on créé) sa sauvegarde et ont la met dans la sessions
+            $_SESSION['save'] = $this->setSav();
+
+            var_dump($_SESSION);
+
+            if (isset($_SESSION['save']['repas']) && empty($_SESSION['save']['repas'])) {
+                $this->redirectToRoute('game_assiette');
+            }
+
+
+        }else {
+            // si l'utilisateur n'est pas connecté alors ont le redirige vers la page de connexion
+            $this->redirectToRoute('game_landing');
+        }
+
+
+
+    }
 
     /**
-     * construit la session de jeux
-     * @param  string $username username du player
+     * construit Player dans la session
+     * Cette fonction est utilisé a la fin de la requete ajax de connexion pour mettre en place la partie
+     * @param  int $id id du player
      * @return les données de la sauvegarde si elle existe ou redirige sur la route de la carte si il n'y a aucune seuvegarde en cour
      */
-    public function setPlayer($username){
+    public function setPlayer($id){
+
 
         $playersModel = new PlayersModel();
-        $player = $playersModel->getPlayer($username);
+        $player = $playersModel->find($id);
 
         // config les informations de base du joueur :
-        $this->setIdPlayer($player['id']);
 
         $_SESSION['player'] = [
-            'username'  =>  $username,
+            'username'  =>  $player['username'],
             'id'        =>  $player['id'],
         ];
 
-        // controle si une partie est en cour dans la base de donné :
-        // recupère dans la base de donnée les infos sur la player afin de récupéré ingame et de le controler
-        $saveModel = new SaveModel();
 
-        if (!$player) {
+    }// setplayer
 
-            return trigger_error("L'utilisateur n'existe pas !!!", E_USER_ERROR);
+    /**
+     * controle si la sauvegarde existe et sinon l'attribut et l'enregistre
+     * @param  string $data option qui permet de mettre a jour les données
+     * @return l'id de la sauvegarde
+     */
+     public function setSav(){
 
-        }elseif (isset($player['inGame']) && !empty($player['inGame']) && is_numeric($player['inGame'])) {
+        if (isset($_SESSION['player']['id'])) {
 
-            // fait la requete pour récupéré la sauvegarde en cour
-            $save = $saveModel->getSav($player['inGame']);
+             $playersModel = new PlayersModel();
+             $player = $playersModel->find($_SESSION['player']['id']);
 
-            // assigne automatiquement les repas qui ont deja été fait
-            $this->repasSelected = unserialize($save['repas']);
+             // controle si une partie est en cour dans la base de donné :
+             // recupère dans la base de donnée les infos sur la player afin de récupéré ingame et de le controler
+             $saveModel = new SaveModel();
 
-            // DEBUG !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            // test de ma methode pour voir si ont récupère bien les aliments deja selectionné
-            $this->setAlimentSelected();
-            echo "<pre>";
-            var_dump($save);
-            echo "aliments" ;
-            var_dump($this->alimentSelected);
-            echo "repas" ;
-            var_dump($this->repasSelected);
-            echo "getrepasselected";
-            var_dump($this->getRepasSelected());
-            echo "</pre>";
-            die('faire aller sur la carte de france avec la config passé');
-            // DEBUG !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+             if (isset($player['inGame']) && !empty($player['inGame']) && is_numeric($player['inGame'])) {
 
-        }else {
-            // permet de creer une sauvegarde a la creation de la partie si elle n'existait pas
-            $save = $this->savGame();
+                 // fait la requete pour récupéré la sauvegarde en cour
+                 $save = $saveModel->getSav($player['inGame']);
 
-            // la lie automatiquement dans ingame de Players dans la bdd
-            $playersModel->update([
-                'inGame' => $save,
-            ],$player['id']);
+                 // assigne automatiquement les repas qui ont deja été fait
+                 $this->repasSelected = unserialize($save['repas']);
 
-            die("permet d'instaurer une sauvegarde des la creation de l'utilisateur");
+             }else {
+                 // permet de creer une sauvegarde a la creation de la partie si elle n'existait pas
+                 $save = $this->savGame();
+
+                // la lie automatiquement dans ingame de Players dans la bdd
+                 $playersModel->update([
+                     'inGame' => $save,
+                 ],$player['id']);
+                 // Si il ne trouve pas de sauvegarde on commence le jeux vide
+
+
+             }
+
+             return $save ;
+
+        }else{
+            die("rediriger vers la connection avec un message d'exuse nous somme desolé nous avons peut etre perdu votre connection");
         }
+     }
 
-        // Si il ne trouve pas de sauvegarde on commence le jeux vide
-        $this->redirectToRoute('game_assiette');
-
-
-
-    }// constructeur
 
     /**
      * construit la session de jeux ou met a jour si des données sont passé
@@ -108,18 +129,6 @@ class GameController extends Controller{
 
      }
 
-    /**
-     * rempli la propriété id de l'objet
-     * @param  string $id id du player
-     * @return $this l'objet
-     */
-    public function setIdPlayer($id){
-
-        $this->idPlayer = $id;
-
-        return $this;
-
-    }
 
     /**
      * attribut a la propriété aliments ceux qui ont été selectionné
@@ -148,9 +157,10 @@ class GameController extends Controller{
     public function getRepasSelected($implode = true){
 
         $repas='';
+
         // recupère juste les repas selectionné
-        if (!empty($this->repasSelected)) {
-            $repas = array_keys($this->repasSelected) ;
+        if (!empty($_SESSION['save']['repas'])) {
+            $repas = array_keys($_SESSION['save']['repas']) ;
 
             if ($implode) {
                 // a voir si utile les mets sur une seule ligne

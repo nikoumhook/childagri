@@ -43,19 +43,18 @@
 			<div class="grid-2 wrapperPopin flex-container-v">
 
 				<!-- Div formulaire connexion Popin -->
-				<div id="connexion" class="bloc1 one-half">
+				<div id="connexion" class="bloc1 center">
 					<h2 class="txtcenter titrePopinLanding"> Connecte toi pour jouer</h2>
 					<form id="FormConnect" class="flex-item-center" action="#">
 
-						<!-- formulaire connexion-->
 						<div class="grid-2 flex-item-center">
 							<label for="usernameC" class="labelLanding one-third">Ton pseudo</label>
-							<input id="usernameC" class="inputLanding three-quarter" type="text" name="username" placeholder="Maxou33" required>
+							<input id="usernameC" class="inputLanding two-third" type="text" name="username" placeholder="Maxou33" required>
 						</div>
 
 						<div class="grid-2 flex-item-center">
 							<label for="passwordC" class="labelLanding one-third">Ton mot de passe</label>
-							<input id="passwordC" class="inputLanding three-quarter" type="password" name="passwordconnect" placeholder="Ex: unMot2PassSecret" required>
+							<input id="passwordC" class="inputLanding two-third" type="password" name="passwordconnect" placeholder="Ex: unMot2PassSecret" required>
 						</div>
 
 						<div id="buttonConnexion" class="grid">
@@ -69,17 +68,17 @@
 				</div>
 
 				<!-- Div formulaire inscription Popin -->
-				<div id="inscription" class="bloc2 one-half">
+				<div id="inscription" class="bloc2 center">
 					<h2 class="txtcenter titrePopinLanding"> Inscris toi pour jouer</h2>
 					<form class="flex-item-center" action="#">
 
 						<!-- formulaire iscription-->
 						<div class="grid-2 flex-item-center">
 							<label for="firstname" class="labelLanding one-third">Ton prénom</label>
-							<input id="firstname" class="inputLanding three-quarter" type="text" name="firstname" placeholder="Ex: Maxime">
+							<input id="firstname" class="inputLanding two-third" type="text" name="firstname" placeholder="Ex: Maxime">
 
 							<label for="lastname" class="labelLanding one-third">Ton nom</label>
-							<input id="lastname" class="inputLanding three-quarter" type="text" name="lastname" placeholder="Ex:Segol" >
+							<input id="lastname" class="inputLanding two-third" type="text" name="lastname" placeholder="Ex:Segol" >
 						</div>
 
 						<div class="grid-2 flex-item-center">
@@ -87,11 +86,12 @@
 							<input id="username" class="inputLanding" type="text" name="username" placeholder="Ex:Maxou33">
 
 							<label for="password" class="labelLanding one-third">Ton mot de passe</label>
-							<input id="password" class="inputLanding three-quarter" type="password" name="password" placeholder="Ex: unMot2PassSecret">
+
+							<input id="password" class="inputLanding two-third" type="password" name="password" placeholder="Ex: unMot2PassSecret">
 
 
 							<label for="passwordVerify" class="labelLanding one-third">Ton mot de passe (encore)</label>
-							<input id="passwordVerify" class="inputLanding three-quarter" type="password" name="passwordVerify" placeholder="Ex: unMot2PassSecret">
+							<input id="passwordVerify" class="inputLanding two-third" type="password" name="passwordVerify" placeholder="Ex: unMot2PassSecret">
 						</div>
 
 						<div class="grid-1 flex-item-center">

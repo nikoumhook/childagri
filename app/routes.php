@@ -24,14 +24,22 @@
 
         ['GET|POST', '/config/', 'Back#home', 'back_home'],
 
-   /*////////  BACK OFFICE Zone Pedago///////////////*/
+  		 /*////////  BACK OFFICE Zone Pedago///////////////*/
          ['GET|POST', '/config/zonePedago', 'Back#zonePedago', 'back_zonePedago'],
 
-   /*/////// BACK OFFICE ZONE Aliments ///////////////*/
+  		/*/////// BACK OFFICE ZONE Aliments ///////////////*/
          ['GET|POST', '/config/aliment', 'Back#aliment', 'back_aliment'],
 
+
+         /*/////// BACK OFFICE ZONE Quizz ///////////////*/
+         ['GET|POST', '/config/quizz', 'Back#quizz', 'back_quizz'],
+
+		/*/////// BACK OFFICE ZONE Quizz traitement ajax /////////*/
+         ['GET|POST', '/ajax/quizz', 'Ajax#quizz', 'ajax_quizz'],
+
+
         /*//////////////ROUTE ANTHONY POUr TEST SON OBJET*//////////////////////////
-        ['GET|POST', '/debug/[:username]/', 'Game#setPlayer', 'game_setP']
+        ['GET|POST', '/debug/[:username]/', 'Game#setPlayer', 'game_setP'],
 
 
 

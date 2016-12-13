@@ -38,6 +38,11 @@
             a faire :
             -> dans le dossier back faire les 4 pages de contenu avec les formulaires pour config, users,aliments,et zone pedago.
             -> dans les liens de la naviigation du back j'ai juste supprimé le ? de < ?= pour pas que sa foute la merde quand les routes existerons ont pourra le mettre en place
+
+
+
+            Carine: traiter un sous menu du menu du haut (administrer/ liste)
+            traiter uploade fichier img et fichier audio
         </code>
     </div>
 <!-- DEBUGGGGGGGGGGGGG       ******************************************************                  -->

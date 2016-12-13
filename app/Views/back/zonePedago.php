@@ -16,13 +16,13 @@
 		<?php endif;?>
 
 		<?php if (isset($success) && $success == true):?>
-		<div class="">Bravo votre contenu pedagogique a bien été!</div>
+		<div class="">Bravo votre contenu pedagogique a bien été enregistré!</div>
 		<?php endif;?>
 
 
 		<form method="POST" enctype="multipart/form-data">
 
-			<h2 class="txtcenter"> Administrer votre contenu pedagogique</h2>
+			<h1 class="txtcenter"> Administrer votre contenu pedagogique</h1>
 
 			<div class="grid-2 flex-container-v">
 

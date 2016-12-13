@@ -1,4 +1,4 @@
-<?php $this->layout('front', ['title' => 'Jeu assiette']) ?>
+<?php $this->layout('front', ['title' => 'Jeu assiette','repas'=> $repas]) ?>
 
 <?php $this->start('script') ?>
 <script>

@@ -43,10 +43,10 @@
 
         <div id="navLeftBar">
             <ul>
-                <li id="repas1" class="circle">P'tit Dej</li>
-                <li id="repas2" class="circle">Repas Midi</li>
-                <li id="repas3" class="circle">Goutter</li>
-                <li id="repas4" class="circle">Le Soir</li>
+                <li id="repas1" class="circle <?= (!in_array('1',$repas))? 'obsRepa' : '' ?>">P'tit Dej </li>
+                <li id="repas2" class="circle <?= (!in_array('2',$repas))? 'obsRepa' : '' ?>">Repas Midi</li>
+                <li id="repas3" class="circle <?= (!in_array('3',$repas))? 'obsRepa' : '' ?>">Goutter</li>
+                <li id="repas4" class="circle <?= (!in_array('4',$repas))? 'obsRepa' : '' ?>">Le Soir</li>
             </ul>
         </div>
         <div id="navDeco">

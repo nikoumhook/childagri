@@ -13,6 +13,7 @@ body{
     align-items: center;
     justify-content: center;
     position: fixed;
+    z-index: 100;
     top: 0;left: 0;right: 0;
 }
 #navTopBar ul{
@@ -45,6 +46,7 @@ body{
 /*             LEFTBAR              */
 /************************************/
 #navLeftBar{
+    z-index: 99;
     position: fixed;
     left: 0;top: 0;bottom: 0;
     display: flex;
@@ -79,6 +81,7 @@ body{
 /*            MENU DECO             */
 /************************************/
 #navDeco{
+    z-index: 101;
     position: fixed;
     top: 0;right: 0;
     background: rgba(125,125,125,1);
@@ -102,6 +105,7 @@ body{
 /*          MENU Trophee            */
 /************************************/
 #navTrophee{
+    z-index: 98;
     position: fixed;
     bottom: 0;right: 0;
     background: pink;
@@ -110,6 +114,7 @@ body{
 /*         MENU NavRetour           */
 /************************************/
 #navReturn{
+    z-index: 97;
     position: fixed;
     bottom: 0;left: 0;
     background: pink;

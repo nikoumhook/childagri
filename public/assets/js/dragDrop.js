@@ -71,9 +71,8 @@ $(function () {
                 }
             }
         }
-            total = ingr1 +","+ ingr2 +","+ ingr3;
+            total = (ingr1 + ingr2 + ingr3).replace( /[^\d.]/g, '' ).split("");
             alert(total);
-            $('#dragZone').find('#test455').addClass('yellow');
         },
 
     });

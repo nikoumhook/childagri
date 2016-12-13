@@ -14,7 +14,9 @@ $(function(){
         itemsDesktopSmall : [900,6], // betweem 900px and 601px
         itemsTablet: [600,2], //2 items between 600 and 0
         itemsMobile : false, // itemsMobile disabled - inherit from itemsTablet option
-        pagination:false
+        pagination:false,
+        mouseDrag :false,
+        touchDrag :false,
     });
 
     // Custom Navigation Events

@@ -37,7 +37,6 @@
             -> dans les liens de la naviigation du back j'ai juste supprimé le ? de < ?= pour pas que sa foute la merde quand les routes existerons ont pourra le mettre en place
         </code>
     </div>
-
 <!-- DEBUGGGGGGGGGGGGG       ******************************************************                  -->
 
 		<main class="wrapper containerMain">

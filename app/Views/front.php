@@ -7,16 +7,12 @@
         <link rel="stylesheet" href="<?= $this->assetUrl('owl-carousel/owl.theme.css') ?>">
         <link rel="stylesheet" href="<?= $this->assetUrl('owl-carousel/owl.transitions.css') ?>">
         <link rel="stylesheet" href="<?= $this->assetUrl('owl-carousel/owl.carousel.css') ?>">
+
+        <!-- import des fichiers css meta et script si besoin  -->
+        <?= $this->section('head') ?>
+
         <link rel="stylesheet" href="<?= $this->assetUrl('css/interface.css') ?>">
         <link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
-        <style media="screen">
-            #container_assiette{
-                margin: 200px;
-            }
-            #container_assiette img{
-                align-items: center;
-            }
-        </style>
     </head>
     <body>
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -74,7 +70,7 @@
         </main>
 
 
-        <script src="<?= $this->assetUrl('owl-carousel/owl.carousel.min.js') ?>"></script>
+        <script src="<?= $this->assetUrl('js/interface.js') ?>"></script>
         <script src="<?= $this->assetUrl('owl-carousel/owl.carousel.min.js') ?>"></script>
     </body>
 </html>

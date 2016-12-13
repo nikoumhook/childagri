@@ -43,10 +43,10 @@
 
         <div id="navLeftBar">
             <ul>
-                <li class="circle">P'tit Dej</li>
-                <li class="circle">Repas Midi</li>
-                <li class="circle">Goutter</li>
-                <li class="circle">Le Soir</li>
+                <li id="repas1" class="circle">P'tit Dej</li>
+                <li id="repas2" class="circle">Repas Midi</li>
+                <li id="repas3" class="circle">Goutter</li>
+                <li id="repas4" class="circle">Le Soir</li>
             </ul>
         </div>
         <div id="navDeco">

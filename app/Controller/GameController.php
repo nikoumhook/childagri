@@ -128,9 +128,9 @@ class GameController extends Controller{
 
             $save = $saveModel->update($data,$_SESSION['save']['id']);
             if ($save) {
-                var_dump($save);
-                die;
+
                 return $save ;
+                
             }
         }
 
@@ -259,7 +259,11 @@ class GameController extends Controller{
 
         $this->savGame(true);
 
-        $this->show('front/assiette');
+        unset($_SESSION['player']);
+        unset($_SESSION['save']);
+
+        $this->redirectToRoute('game_landing');
+
     }
 
 

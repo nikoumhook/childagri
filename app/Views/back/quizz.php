@@ -34,6 +34,7 @@
 					<label for="answer1" class="one-third">Réponse</label><br>
 					<input type="radio" name="answer" value="oui" > La réponse est OUI<br>
 	  				<input type="radio" name="answer" value="non" checked> La réponse est NON<br>
+	  				<input type="text" id="ExplainAnswer" name="ExplainAnswer" class="">
 
 					<!-- Bouton -->
 					<div class="center flex_container-v">
@@ -52,8 +53,11 @@
 					<textarea id="question2" type="text" name="question"></textarea>
 
 					<label for="answer2" class="one-third">Réponse</label><br>
-					<input type="radio" name="answer" value="oui" checked> La réponse est OUI<br>
-	  				<input type="radio" name="answer" value="non"> La réponse est NON<br>
+					<input type="radio" name="answer" value="oui" checked> La réponse est OUI
+					<br>
+	  				<input type="radio" name="answer" value="non"> La réponse est NON
+	  				<br>
+	  				<input type="text" id="ExplainAnswer" name="ExplainAnswer" class="">
 
 	  				<!-- Bouton -->
 					<div class="center flex_container-v">
@@ -72,8 +76,11 @@
 					<textarea id="question3" type="text" name="question"></textarea>
 
 					<label for="answer3" class="one-third">Réponse</label><br>
-					<input type="radio" name="answer" value="oui" checked> La réponse est OUI<br>
-	  				<input type="radio" name="answer" value="non"> La réponse est NON<br>
+					<input type="radio" name="answer" value="oui" checked> La réponse est OUI
+					<br>
+	  				<input type="radio" name="answer" value="non"> La réponse est NON
+	  				<br>
+	  				<input type="text" id="ExplainAnswer" name="ExplainAnswer" class="">
 
 	  				<!-- Bouton -->
 					<div class="center flex_container-v">
@@ -93,8 +100,11 @@
 					<textarea id="question4" type="text" name="question"></textarea>
 
 					<label for="answer4" class="one-third">Réponse</label><br>
-					<input type="radio" name="answer" value="oui" checked> La réponse est OUI<br>
-	  				<input type="radio" name="answer" value="non"> La réponse est NON<br>
+					<input type="radio" name="answer" value="oui" checked> La réponse est OUI
+					<br>
+	  				<input type="radio" name="answer" value="non"> La réponse est NON
+	  				<br>
+	  				<input type="text" id="ExplainAnswer" name="ExplainAnswer" class="">
 
 	  				<!-- Bouton -->
 					<div class="center flex_container-v">
@@ -117,10 +127,11 @@
 
 <!-- Script Affichage validation  -->
 <script>
+	var nbrQuestion = 0;
 	$(document).ready(function(){
-
 		var controlAjax = function(thiz){
 				var form = $(thiz).parent().parent();
+
 
 				$.ajax({
 					url: '<?=$this->url('ajax_quizz');?>', 
@@ -129,12 +140,17 @@
 					data: {
 						aliment : $('#aliment').val() ,
 						question : $(form).children('textarea').val(),
-						answer : $(form).children('input[type="radio"]').val()
+						answer : $(form).children('input:checked').val(),
+						ExplainAnswer : $(form).children('input[type="text"]').val()
 					},
 					dataType: 'json',
 					success: function(result){
 						if(result.code == 'valid'){
 							$(form).children('.result').html('<div class="">' + result.msg +'</div>');
+							nbrQuestion++;
+							if (nbrQuestion==4) {
+								$(location).attr('href', '<?= $this->url('back_quizz');?>');
+							}
 						}
 						else if(result.code =='error'){
 							$(form).children('.result').html('<div class="">' + result.msg +'</div>');

@@ -20,8 +20,6 @@ class BackController extends Controller
 		$this->show('back/home');
 	}
 
-
-	
 	/***************** Page QUIZZ: AFFICHAGE  **********/
 	
 	public function quizz()
@@ -31,8 +29,6 @@ class BackController extends Controller
 			'aliments'=>$modelPedago->getAliments()
 			]);
 	}
-
-
 
 	/***************** Page LISTE QUIZZ: AFFICHAGE  **********/
 	
@@ -44,15 +40,38 @@ class BackController extends Controller
 			]);
 	}
 
-	
-
 	/***************** Page FICHE QUIZZ: AFFICHAGE  **********/
 	
 	public function ficheQuizz($id)
 	{
 		$modelPedago = new PedagoModel();
-		$this->show('back/ficheQuizz', [
-			'aliment'=>$modelPedago->getOneAliment($id),
+		$conteneurQuizz = $modelPedago->getQuizzAliment($id);
+		$i = 1;
+		foreach ($conteneurQuizz as $quizz) {
+			switch ($i) {
+				case '1':
+					$quizz1=$quizz;
+					break;
+				case '2':
+					$quizz2=$quizz;
+					break;
+				case '3':
+					$quizz3=$quizz;
+					break;
+				case '4':
+					$quizz4=$quizz;
+					break;
+			}
+
+			$i++;
+
+		}
+
+		$this->show('back/ficheQuizz',[
+			'quizz1'	=>	$quizz1,
+			'quizz2'	=>	$quizz2,
+			'quizz3'	=>	$quizz3,
+			'quizz4'	=>	$quizz4
 			]);
 	}
 
@@ -260,12 +279,15 @@ class BackController extends Controller
 
 			//si mon formulaire n'a pas d'erreur
 			if (count($errors) === 0) {
-
-
+			
+				$AlimentsModel = new AlimentsModel();
+				$aliment= $AlimentsModel->find($post['aliment']);
+				
 				$data = [
 					'id_aliment'=>$post['aliment'],
 					'content' 	=>$post['content'],
-					'publish'	=>$post['publish'], //verif avec Tony
+					'publish'	=>$post['publish'], 
+					'id_land'	=>$aliment['id_land'],
 				];
 
 				//condition si tu enregistre une piste audio

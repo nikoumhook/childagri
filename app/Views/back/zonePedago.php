@@ -42,7 +42,7 @@
 	  						<option value="" selected disable>Liste des régions</option>
 	  							<php foreach ($lands as $land) :?>
 	  								<option value="<= $land['id'];?>"> <= ucfirst($land['publicName']);?></option>
-	  							<?php endforeach ;?>
+	  							<?php //endforeach ;?>
 						</select>
 						<br> -->
 						 

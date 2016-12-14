@@ -21,8 +21,13 @@
             <div id="menu">
                 <ul>
                     <li><a href="<= $this->url('nom_de_la_route') ?>" class="<= ($w_current_route == 'nom_de_la_route')? 'active' :''; ?>">CONFIG APP</a></li>
-                    <li><a href="<= $this->url('nom_de_la_route') ?>" class="<= ($w_current_route == 'nom_de_la_route')? 'active' :''; ?>">ALIMenTS</a></li>
-                    <li><a href="<= $this->url('nom_de_la_route') ?>" class="<= ($w_current_route == 'nom_de_la_route')? 'active' :''; ?>">Pedagogie</a></li>
+
+                    <li><a href="<?= $this->url('back_aliment') ?>" class="<= ($w_current_route == 'back_aliment')? 'active' :''; ?>">ALIMenTS</a></li>
+
+                    <li><a href="<?= $this->url('back_zonePedago') ?>" class="<= ($w_current_route == 'back_zonePedago')? 'active' :''; ?>">Pedagogie</a></li>
+
+                    <li><a href="<?= $this->url('back_quizz') ?>" class="<= ($w_current_route == 'back_quizz')? 'active' :''; ?>">Quizz</a></li>
+
                     <li><a href="<= $this->url('nom_de_la_route') ?>" class="<= ($w_current_route == 'nom_de_la_route')? 'active' :''; ?>">utilisateurs</a></li>
                 </ul>
             </div>
@@ -43,6 +48,8 @@
 
             Carine: traiter un sous menu du menu du haut (administrer/ liste)
             traiter uploade fichier img et fichier audio
+
+            Mettre un bouton home pour revenir à la page d'accueil avec les 5 blocs d'admin
         </code>
     </div>
 <!-- DEBUGGGGGGGGGGGGG       ******************************************************                  -->

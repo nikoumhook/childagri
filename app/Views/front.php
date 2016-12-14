@@ -21,7 +21,11 @@
     </head>
     <body>
 
-
+        <div class="debug pam">
+            <pre>
+                <?php var_dump($_SESSION); ?>
+            </pre>
+        </div>
 
 
         <!-- BOUTON PERMANENTS ************///////////////////////////////:******************* -->

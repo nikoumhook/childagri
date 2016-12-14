@@ -19,7 +19,7 @@ class AssietteController extends Controller
         // la variable sessions['repasEnCours'] est créé une fois que les 3 ingredients ont été selectionné et unset quand il demande le retour sa la carte
         // donc si elle existe le player n'a rien a faire sur cette page mais devrait se situé sur la carte
         // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv  < du coup ici ont controle si elle existe et ont la redirige si c'est le cas
-        if (isset($_SESSION['repasEnCour'])) {
+        if (isset($_SESSION['repasEnCour']) && !empty($_SESSION['repasEnCour'])) {
             $this->redirectToRoute('game_carte');
         }
 

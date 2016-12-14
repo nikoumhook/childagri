@@ -21,6 +21,7 @@
 
 
 /*///////////////////////////////// TRAITEMENT AJAX *///////////////////
+
         // LANDINGPAGE inscription :
         ['GET|POST', '/ajax/inscription', 'Ajax#addPlayer', 'ajax_inscription'],
         // LANDINGPAGE connexion :

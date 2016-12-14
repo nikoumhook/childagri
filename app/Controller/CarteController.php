@@ -3,6 +3,10 @@
 namespace Controller;
 
 use \W\Controller\Controller;
+use \Model\PedagoModel;
+use \Model\AlimentsModel;
+use \Controller\GameController ;
+
 
 class CarteController extends Controller
 {
@@ -19,7 +23,35 @@ class CarteController extends Controller
 
                 // selon les ingredients choisi dans  $_SESSION['repasEnCour']
 
-                $this->show('front/carte');
+                $pedagoModel = new PedagoModel();
+                $gameController = new GameController();
+                $alimentsModel = new AlimentsModel();
+
+                $aliments = $gameController->getAlimentSelected();
+
+                $i = 1;
+                foreach ($aliments as $idaliment) {
+
+                    switch ($i) {
+                        case '1':
+                            $aliment1 = $alimentsModel->getAlimentsAndPedago($idaliment) ;
+                            break;
+                        case '2':
+                            $aliment2 = $alimentsModel->getAlimentsAndPedago($idaliment) ;
+                            break;
+                        case '3':
+                            $aliment3 = $alimentsModel->getAlimentsAndPedago($idaliment) ;
+                            break;
+
+                    }
+                        $i++;
+                }
+
+                $this->show('front/carte',[
+                    'aliment1' => $aliment1 ,
+                    'aliment2' => $aliment2 ,
+                    'aliment3' => $aliment3 
+                ]);
 
             }
 

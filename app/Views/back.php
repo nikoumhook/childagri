@@ -16,7 +16,7 @@
     <nav>
         <div class="wrapper containerMenu">
             <div id="logo">
-                LOGO
+                <a href="<= $this->url('back_home') ?>">LOGO</a>
             </div>
             <div id="menu">
                 <ul>
@@ -34,25 +34,6 @@
         </div>
     </nav>
 
-<!-- DEBUGGGGGGGGGGGGG       ******************************************************                  -->
-    <div class="debug">
-        <code>
-            Anthony :
-            j'ai pour habitude d'utiliser ma page d'accueil du back pour mettre les consignes et faire passer les messages entre nous et surtout les taches qu'il reste a faire
-            idem j'appelle tout debug quand sa ne doit pas rester pour faire des recherche rapide sur toute les pages a la fin pour pas qu'il n'y ai des parties a ne pas mettre en ligne qui reste
-            a faire :
-            -> dans le dossier back faire les 4 pages de contenu avec les formulaires pour config, users,aliments,et zone pedago.
-            -> dans les liens de la naviigation du back j'ai juste supprimé le ? de < ?= pour pas que sa foute la merde quand les routes existerons ont pourra le mettre en place
-
-
-
-            Carine: traiter un sous menu du menu du haut (administrer/ liste)
-            traiter uploade fichier img et fichier audio
-
-            Mettre un bouton home pour revenir à la page d'accueil avec les 5 blocs d'admin
-        </code>
-    </div>
-<!-- DEBUGGGGGGGGGGGGG       ******************************************************                  -->
 
 		<main class="wrapper containerMain">
 			<?= $this->section('main_content') ?>

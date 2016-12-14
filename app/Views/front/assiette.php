@@ -17,13 +17,6 @@
         </div>
         <img src="<?= $this->assetUrl('img/element_assiette.jpg') ?>" alt="">
     </div>
-    <div class="debug">
-        <?php echo 'SESSION :' ?>
-        <?php var_dump($_SESSION) ?>
-        <?php echo 'REPAS :' ?>
-        <?php var_dump($repas) ?>
-
-    </div>
 <?php $this->stop('main_content') ?>
 
 <?php $this->start('script') ?>

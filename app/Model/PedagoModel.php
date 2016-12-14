@@ -6,7 +6,7 @@ use \W\Model\ConnectionModel;
 
 class PedagoModel extends Model
 {
-	
+
 
 	public function getLands(){
 		$app = getApp();
@@ -76,7 +76,7 @@ class PedagoModel extends Model
 
 
 
-	public function getOnePedago($id){
+	public function getOnePedagoByIdAliment($id){
 		$app = getApp();
 		$sql = 'SELECT pedago. * , lands.name AS region, aliments.name AS ingredient FROM pedago JOIN lands ON pedago.id_land = lands.id JOIN aliments ON pedago.id_land = aliments.id_land WHERE pedago.id = :id' ;
 		$dbh = ConnectionModel::getDbh();
@@ -90,7 +90,6 @@ class PedagoModel extends Model
 		}
 		return false;
 	} //fermeture fonction getPedag
-
 
 
 

@@ -20,9 +20,15 @@ class GameController extends Controller{
      */
     public function startGame(){
 
+        // si le joueur est identifié et qu'il n'y a pas deja une partie dans sa session alors ont viens lui en attribuer une
         if (isset($_SESSION['player']) && !isset($_SESSION['save'])) {
 
-            $_SESSION['save'] = $this->setSav();
+            $save = $this->setSav();
+            $_SESSION['save'] = $save['save'];
+
+            if (isset($save['repasEnCour']) && !empty($save['repasEnCour']) && $save['repasEnCour']) {
+                $_SESSION['repasEnCour'] = $save['repasEnCour'];
+            }
 
         }
 
@@ -79,11 +85,14 @@ class GameController extends Controller{
              // controle si une partie est en cour dans la base de donné :
              // recupère dans la base de donnée les infos sur la player afin de récupéré ingame et de le controler
              $saveModel = new SaveModel();
+
+             // si une sauvegarde existe dans la base de donné :
              if (isset($player['inGame']) && !empty($player['inGame']) && is_numeric($player['inGame'])) {
 
                  // fait la requete pour récupéré la sauvegarde en cour
                  $save = $saveModel->getSav($player['inGame']);
-                 $save['repas'] = unserialize($save['repas']);
+                 $save = $this->structureSaveRecup($save);
+
                  // assigne automatiquement les repas qui ont deja été fait
 
                  return $save;
@@ -92,10 +101,11 @@ class GameController extends Controller{
 
                  // permet de creer une sauvegarde a la creation de la partie si elle n'existait pas
                  $save = $this->savGame();
+                 $save = $this->structureSaveRecup($save);
 
                 // la lie automatiquement dans ingame de Players dans la bdd
                  $playersModel->update([
-                     'inGame' => $save['id'],
+                     'inGame' => $save['save']['id'],
                  ],$player['id']);
                  // Si il ne trouve pas de sauvegarde on commence le jeux vide
 
@@ -119,15 +129,25 @@ class GameController extends Controller{
 
          $saveModel = new SaveModel();
 
+
         if (!$data) {
 
-            return $saveModel->createSav();
+            // créé juste un sauvegarde dans la base et retourne son id
+            return $saveModel->createSav(); // retourne l'id d'une nouvelle sauvegarde
 
         }else {
 
             $data = [ 'repas' => serialize($_SESSION['save']['repas']), 'id_quizz' => $_SESSION['save']['id_quizz']];
 
+            // si la partie est a la carte ont enregistre
+            if (isset($_SESSION['repasEnCour']) && !empty($_SESSION['repasEnCour'])) {
+
+                $data['repasEnCour'] = serialize($_SESSION['repasEnCour']) ;
+
+            }
+
             $save = $saveModel->update($data,$_SESSION['save']['id']);
+
             if ($save) {
 
                 return $save ;
@@ -139,20 +159,38 @@ class GameController extends Controller{
 
      }
 
+     /**
+      * Fonction qui ne sert qu'a structurer les sauvegarde récupéré dans la bbd pour les poster dans la session directement
+      * @return @array save correct
+      */
+     public function structureSaveRecup($save){
+
+         if (!empty($save)) {
+             $saveGood['save']['id'] = $save['id'];
+             $saveGood['save']['id_quizz'] = unserialize($save['repas']);
+             $saveGood['save']['repas'] = unserialize($save['repas']);
+             $saveGood['repasEnCour'] = unserialize($save['repasEnCour']);
+         }else {
+             $saveGood = $save;
+         }
+
+         return $saveGood ;
+     }
 
     /**
      * attribut a la propriété aliments ceux qui ont été selectionné
      * elle renvoi les données a jour en fonction du repasSelected
      * @return @mixed les données de la propriété ou false si il n'y a rien
      */
-    public function setAlimentSelected(){
+    public function getAlimentSelected(){
 
-        if (!empty($this->repasSelected)) {
-            foreach ($this->repasSelected as $aliment) {
-                $this->alimentSelected[] = $aliments ;
+        if (!empty($_SESSION['repasEnCour'])) {
+
+            foreach ($_SESSION['repasEnCour'] as $aliments) {
+                    $aliments = $aliments ;
             }
 
-            return $this->alimentSelected;
+            return $aliments;
         }
 
         return false ;
@@ -248,8 +286,9 @@ class GameController extends Controller{
         ],$_SESSION['player']['id']);
 
         $saveModel->deleteSav($_SESSION['save']['id']);
-        unset($_SESSION['save']);
 
+        unset($_SESSION['save']);
+        unset($_SESSION['repasEnCour']);
 
         $this->redirectToRoute('game_startPlay');
 
@@ -264,6 +303,7 @@ class GameController extends Controller{
 
         unset($_SESSION['player']);
         unset($_SESSION['save']);
+        unset($_SESSION['repasEnCour']);
 
         $this->redirectToRoute('game_landing');
 

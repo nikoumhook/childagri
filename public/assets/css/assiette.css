@@ -7,25 +7,25 @@
     justify-content: center;
 }
 
-#container_assiette img{
+#assiette{
     height: 80%;
     max-height: 90vw;
     width: auto;
 }
-#container_carte {
+/*#container_carte {
     position: relative;
     width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-}
+}*/
 
-#container_carte img{
+/*#container_carte img{
     height: 80%;
     max-height: 90vw;
     width: auto;
-}
+}*/
 .containerZoneDrag{
     position: absolute;
     top: 0;right: 0;bottom: 0;left: 0;
@@ -35,16 +35,17 @@
 }
 #dragZone {
 	position: absolute;
-	background: red;
-	display: block;
-	height: 300px;
-    margin-top: -150px;
-	width: 300px;
-    margin-left: -150px;
+	height: 45%;
+	margin-top: -14%;
+	width: 30%;
+	margin-left: -17%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.aliments{
-    margin: 0 auto;
-    height: 100px;
-    width: 100px;
+.aliments img{
+    height: 200px;
+    width: 200px;
 }

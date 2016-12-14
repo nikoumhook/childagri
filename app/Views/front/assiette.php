@@ -15,15 +15,25 @@
                 <div class="aliments" id="aliment3"></div>
             </div>
         </div>
-        <img src="<?= $this->assetUrl('img/element_assiette.jpg') ?>" alt="">
+        <img id="assiette" src="<?= $this->assetUrl('img/element_assiette.jpg') ?>" alt="">
     </div>
 <?php $this->stop('main_content') ?>
 
 <?php $this->start('script') ?>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+
     <!-- J'ai du supprimer la fichier js car j'avais besoin de php dedans du coup il est dessous entierement -->
     <script>
+
+    // config :
+    // nom des repas:
+    var repas1 = 'petit dejeuné';
+    var repas2 = '2nd repas';
+    var repas3 = '3eme repas';
+    var repas4 = '4eme repas';
+
+
     var nbre = 0 ;
     var already = [0,0,0,0];
 
@@ -42,6 +52,13 @@
         $('.obsRepas').on('click',function(){
             // ont viens attribuer la valeur de l'id du bouton a la variable
             repas = $(this).attr('id');
+
+
+            // PAR DEFAUT LE TEXTE DOIT ETRE PRESENT EN HAUT SUR LA PAGE EN DUR IL SERA CHANGé APRéS
+            //a ce moment il faut faire un requete ajax qui correspond au repas choisi et qui viens remplir
+            // ---->>>  sa >>>>    $('#owl-demo').html()
+
+
             // ont stop le listener pour pas qu'ils n'ecoute plus si ont click sur les autres repas
             $('.obsRepas').off('click');
 
@@ -92,7 +109,7 @@
                     ingr1 = aliment ;
                     pic_aliment = $('#'+ ingr1).children('img').attr('src');
                     // alert(pic_aliment);
-                    $("#aliment1").append('<img src="http://localhost' + pic_aliment + '">');
+                    $("#aliment1").append('<img class="alimentssvg" src="http://localhost' + pic_aliment + '">');
                     $('#'+aliment).parent().remove();
                 }else if (nbre == 2) {
                     if(aliment == ingr1){
@@ -134,10 +151,24 @@
                         dataType: 'json',
                         success: function(result){
                             if (result.control == 'ok') {
+                                setInterval(function(){
+                                    $(location).attr('href','<?= $this->url('game_carte'); ?>');
+                                },1000);
 
-                                $(location).attr('href','<?= $this->url('game_carte'); ?>');
+                                if (repas == 'repas1') {
+                                    alert('Felicitation, tu as choisi ton '+repas1+', tu peut maintenant en savoir plus sur sur tes choix');
+                                }else if (repas == 'repas2') {
+                                    alert('Felicitation, tu as choisi ton '+repas2+', tu peut maintenant en savoir plus sur sur tes choix');
 
-                                alert('passer a la carte de france, nous allons maintenant en apprendre un peut plus sur tes choix');
+                                }else if (repas == 'repas3') {
+                                    alert('Felicitation, tu as choisi ton '+repas3+', tu peut maintenant en savoir plus sur sur tes choix');
+
+                                }else if (repas == 'repas4') {
+                                    alert('Felicitation, tu as choisi ton '+repas4+', tu peut maintenant en savoir plus sur sur tes choix');
+
+                                }
+
+
                             }else {
                                 alert('il y a un probleme technique merci de le signaler à rang5@prod.fr');
                             };

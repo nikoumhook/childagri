@@ -4,7 +4,7 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-use \W\Model\UsersModel; 
+use \W\Model\UsersModel;
 
 
 use W\Security\AuthentificationModel;
@@ -19,22 +19,15 @@ class LandingController extends Controller
 	 */
 	public function landingPage()
 	{
+
+        // si l'utilisateur est déja connecté ont le redirige sur l'assiette
+        if (isset($_SESSION['player']) && !empty($_SESSION['player'])) {
+            $this->redirectToRoute('game_assiette');
+        }
+
 		$this->show('landingPage.php');
-		
+
 	}
-
-
-	/**
-	 * Page 404
-	 */
-	public function NotFound()
-	{
-		//$this ->showNotFound est une methode qui existe déjà
-		$this->showNotFound();
-	}
-
-
-
 
 
 

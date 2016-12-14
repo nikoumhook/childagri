@@ -1,7 +1,7 @@
 <?php $this->layout('front', ['title' => 'Jeu assiette']) ?>
 
 <?php $this->start('head') ?>
-<link rel="stylesheet" href="<?= $this->assetUrl('css/assiette.css') ?>">
+<link rel="stylesheet" href="<?= $this->assetUrl('css/carte.css') ?>">
 <?php $this->stop('head') ?>
 
 
@@ -54,11 +54,13 @@ $(document).ready(function(){
 <?php $this->stop('script') ?>
 
 <?php $this->start('main_content') ?>
-<?= var_dump($_SESSION); ?>
+
 <div id="container_carte" class="pal">
+    <!-- <= var_dump($_SESSION); ?> -->
+    <div id="zonePedago"></div>
     <?xml version="1.0" encoding="UTF-8" standalone="no"?>
     <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-    <svg width="100%" height="100%" viewBox="0 0 713 670" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <svg class="carte" viewBox="0 0 713 670" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
         <g id="zones">
             <path id="bretagne" d="M160.17,186.48l0,16.83l-16.06,16.5l-35.94,12.31l-16.67,-7.14l-20,0l-18,-14.82l-12,-3.72c0,0 -14.67,7.56 -14.67,3.72c0,-3.84 -11.33,-18.51 -11.33,-18.51l-4,-19.33l34,-13.69l32.67,-4.56l18,21.27l36,-4.35l28,15.49Z" style="fill:#e3aae5;fill-rule:nonzero;"/>
             <path id="pays-de-la-loire" d="M192.83,186.48l33.77,6.62l24.23,17.06l2.83,-3.72l6.74,8.47l-2.9,12.74l-13.43,0l-11.65,8l-5.82,16.67l-6.43,12.66l-24.87,5.33l-19.53,7.59l0,13.08l7.78,14l2.08,15.33l-32.8,0l-25.33,-30.66l0,-11.74c0,0 4,-9.59 0,-13.59c-4,-4 -14,-10.92 -14,-10.92l0,-6.17l24,-7.75c0,0 25,-8.87 26.5,-7.35c1.5,1.52 15.5,-15.74 15.5,-15.74l4.06,-9.95l-3.39,-24.12l12.66,4.16Z" style="fill:#e3aae5;fill-rule:nonzero;"/>

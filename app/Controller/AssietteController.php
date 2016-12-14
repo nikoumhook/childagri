@@ -16,36 +16,29 @@ class AssietteController extends Controller
 
         $gameController = new GameController();
 
+        // la variable sessions['repasEnCours'] est créé une fois que les 3 ingredients ont été selectionné et unset quand il demande le retour sa la carte
+        // donc si elle existe le player n'a rien a faire sur cette page mais devrait se situé sur la carte
+        // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv  < du coup ici ont controle si elle existe et ont la redirige si c'est le cas
+        if (isset($_SESSION['repasEnCour'])) {
+            $this->redirectToRoute('game_carte');
+        }
+
+
+        // le player peut se trouver sur l'assiette uniquement si il est connecté
         if (isset($_SESSION['player'])) {
 
             // Ont récupère les repas qui ont été selectionné
             $repas = $gameController->getRepasSelected(false);
 
-            // si des repas ont été validé je viens mettre la bonne forme a la valeur
-            // if (!empty($repas)) {
-            //     foreach ($repas as $key => $value) {
-            //         $repasV[] = 'repas' . $value;
-            //     }
-            // }else {
-            //     $repasV = NULL;
-            // }
-            // $repas = unserialize('a:2:{i:1;s:5:"1,2,3";i:4;s:5:"2,4,6";}');
+            $this->show('front/assiette',[
+                'repas' =>  $repas
+            ]);
 
-            if (empty($repas)) {
-                $this->show('front/assiette');
-                // pour test : $this->show('front/assiette-taff-sur-selection-repas',[
-                //     'repas' =>  $repas
-                // ]);
-            }else {
-                $this->show('front/assiette');
-                // pour test :$this->show('front/assiette-taff-sur-selection-repas',[
-                //     'repas' =>  $repas
-                // ]);
-            }
 
-        }else {
-            $this->redirectToRoute('game_landing');
         }
+
+        // si il n'est pas connecté il est redirigé sur la page d'accueil.
+        $this->redirectToRoute('game_landing');
 
 	}
 

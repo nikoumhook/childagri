@@ -1,4 +1,4 @@
-<?php $this->layout('back', ['title' => 'Quizz de '.ucfirst($aliment['name'])]) ?>
+<?php $this->layout('back', ['title' => 'Quizz de '.ucfirst($quizz1['name'])]) ?>
 
 <?php $this->start('head') ?>
 
@@ -14,46 +14,56 @@
 <?php $this->start('main_content') ?>
 
 
-	<?php if (empty($aliment)) :?> 
+	<?php if (empty($quizz1)) :?> 
 		<div class=""> Quizz inconnu</div>
 	<?php endif;?>
 
 
-<?php var_dump($aliment);?>
 
-	<h1 class="txtcenter"> Quizz de <?=ucfirst($aliment['ingredient']);?> de la région <?=ucfirst($aliment['region']);?></h1>
+	<h1 class="txtcenter"> Quizz de <?=ucfirst($quizz1['ingredient']);?> de la région <?=ucfirst($quizz1['region']);?></h1>
 
 	<div class="grid-2">
 
 		<div class="bloc1">
-			<div>
-				<h2>QUESTION 1</h2>
-					<div>Question:</div>
-					<div>Réponse:</div>
-			</div>
+			<?php if (isset($quizz1) && !empty($quizz1)): ?>
+				<div>
+					<h2>QUESTION 1</h2>
+						<div>Question: <?=ucfirst($quizz1['content']);?></div>
+						<div>Réponse: <?=($quizz1['answer']);?></div>
+						<div>Elements de réponse: <?=($quizz1['explainAnswer']);?></div>
 
+				</div>
+			<?php endif; ?>
 
+			<?php if (isset($quizz2) && !empty($quizz2)): ?>
+				<div>
+					<h2>QUESTION 2</h2>
+						<div>Question: <?=ucfirst($quizz2['content']);?></div>
+						<div>Réponse: <?=($quizz2['answer']);?></div>
+						<div>Elements de réponse: <?=($quizz2['explainAnswer']);?></div>
 
-			<div>
-				<h2>QUESTION 2</h2>
-					<div>Question:</div>
-					<div>Réponse:</div>
-			</div>
+				</div>
+			<?php endif; ?>
 		</div>
-
-
 		<div class="bloc2">
-			<div>
-				<h2>QUESTION 3</h2>
-			</div>
+			<?php if (isset($quizz3) && !empty($quizz3)): ?>
+				<div>
+					<h2>QUESTION 3</h2>
+						<div>Question: <?=ucfirst($quizz3['content']);?></div>
+						<div>Réponse: <?=($quizz3['answer']);?></div>
+						<div>Elements de réponse: <?=($quizz3['explainAnswer']);?></div>
 
-			<div>
-				<h2>QUESTION 4</h2>
-			</div>
+				</div>
+			<?php endif; ?>
+			<?php if (isset($quizz4) && !empty($quizz4)): ?>
+				<div>
+					<h2>QUESTION 4</h2>
+						<div>Question: <?=ucfirst($quizz4['content']);?></div>
+						<div>Réponse: <?=($quizz4['answer']);?></div>
+						<div>Elements de réponse: <?=($quizz4['explainAnswer']);?></div>
+
+				</div>
+			<?php endif; ?>
 		</div>
-
-
-
-
 
 <?php $this->stop('main_content') ?>

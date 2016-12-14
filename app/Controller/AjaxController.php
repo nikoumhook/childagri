@@ -142,7 +142,7 @@ class AjaxController extends Controller
 		$formValid = false;
 		$modelQuizz = new QuizzModel();
 
-
+		
 		if (!empty($_POST)) {
 
 			foreach ($_POST as $key => $value) {
@@ -166,13 +166,19 @@ class AjaxController extends Controller
 			}
 
 
+			// Verif complément de réponse
+			if(!v::notEmpty()->length(20,1000)->validate($post['ExplainAnswer'])){
+				$errors[] = 'Votre complément de réponse doit comporter un minimum de 20 caractères';
+			}
+
 			//si mon formulaire n'a pas d'erreur
 			if (count($errors) === 0) {
 
 				$dataInsert = [
 					'id_aliment'	=>	$post['aliment'],
 					'content' 		=>	$post['question'],
-					'answer' 		=>	$post['answer']
+					'answer' 		=>	$post['answer'],
+					'explainAnswer' =>	$post['ExplainAnswer']
 				];
 
 				if ($modelQuizz->insert($dataInsert)) {

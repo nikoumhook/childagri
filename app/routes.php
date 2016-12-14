@@ -10,11 +10,10 @@
         // Connection du joueur DEBUT DE LA PARTIE :
         ['GET|POST', '/play', 'Game#startGame', 'game_startPlay'],
         // Page assiette :
-	   ['GET|POST', '/game/assiette', 'Game#assiette', 'game_assiette'],
-        // Page assiette en test :
-	   ['GET|POST', '/test/assiette', 'Assiette#assiette', 'test_assiette'],
+		['GET|POST', '/game/assiette', 'Assiette#assiette', 'game_assiette'],
         // Page carte :
-	   ['GET|POST', '/game/carte', 'Game#carte', 'game_carte'],
+		['GET|POST', '/game/carte', 'Carte#carte', 'game_carte'],
+
 
         // menu deco (quit) et reset :
         ['GET', '/game/reset/', 'Game#resetGame', 'game_reset'],
@@ -28,6 +27,8 @@
         ['GET|POST', '/ajax/connexion', 'Ajax#connectPlayer', 'ajax_connexion'],
         // BACK traitement des quizz :
         ['GET|POST', '/ajax/quizz', 'Ajax#quizz', 'ajax_quizz'],
+        // BACK traitement des quizz :
+        ['GET|POST', '/ajax/finassiette', 'Ajax#finAssiette', 'ajax_finAssiette'],
 
 
 /*//////////////BACK-OFFICE Administration*//////////////////////////

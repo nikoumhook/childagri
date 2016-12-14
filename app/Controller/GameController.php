@@ -83,9 +83,10 @@ class GameController extends Controller{
 
                  // fait la requete pour récupéré la sauvegarde en cour
                  $save = $saveModel->getSav($player['inGame']);
-
+                 $save['repas'] = unserialize($save['repas']);
                  // assigne automatiquement les repas qui ont deja été fait
-                 $this->repasSelected = unserialize($save['repas']);
+
+                 return $save;
 
              }else {
 
@@ -124,13 +125,13 @@ class GameController extends Controller{
 
         }else {
 
-            $data = [ 'repas' => $_SESSION['save']['repas'], 'id_quizz' => $_SESSION['save']['id_quizz']];
+            $data = [ 'repas' => serialize($_SESSION['save']['repas']), 'id_quizz' => $_SESSION['save']['id_quizz']];
 
             $save = $saveModel->update($data,$_SESSION['save']['id']);
             if ($save) {
 
                 return $save ;
-                
+
             }
         }
 
@@ -166,7 +167,6 @@ class GameController extends Controller{
     public function getRepasSelected($implode = true){
 
         $repas='';
-
         // recupère juste les repas selectionné
         if (!empty($_SESSION['save']['repas'])) {
             $repas = array_keys($_SESSION['save']['repas']) ;
@@ -193,38 +193,41 @@ class GameController extends Controller{
         // repas = 1 si matin, 2 si apres-midi, 3 si goutter, 4 si soir
         switch ($repas) {
             case '1':
-                if (isset(repas[1]) && !empty(repas[1])) {
-                    $repas[1] = explode(',',$aliments);
-                    $this->repasSelected[] = 1;
+                if (!isset($_SESSION['save']['repas'][1])) {
 
-                    // retourne sur une methode qui lui dit quel ingregients choisir dans la bdd puis show la carte de france
+                    $_SESSION['save']['repas'][1] = explode(',',$aliments);
+                    return true;
+
                 }else {
                     return trigger_error("Repas deja selectionné", E_USER_ERROR);
                 }
                 break;
             case '2':
-                if (isset(repas[2]) && !empty(repas[2])) {
-                    $repas[2] = explode(',',$aliments);
-                    $this->repasSelected[] = 2;
-                    // retourne sur une methode qui lui dit quel ingregients choisir dans la bdd puis show la carte de france
+                if (!isset($_SESSION['save']['repas'][2])) {
+
+                    $_SESSION['save']['repas'][2] = explode(',',$aliments);
+                    return true;
+
                 }else {
                     return trigger_error("Repas deja selectionné", E_USER_ERROR);
                 }
                 break;
             case '3':
-                if (isset(repas[3]) && !empty(repas[3])) {
-                    $repas[3] = explode(',',$aliments);
-                    $this->repasSelected[] = 3;
-                    // retourne sur une methode qui lui dit quel ingregients choisir dans la bdd puis show la carte de france
+                if (!isset($_SESSION['save']['repas'][3])) {
+
+                    $_SESSION['save']['repas'][3] = explode(',',$aliments);
+                    return true;
+
                 }else {
                     return trigger_error("Repas deja selectionné", E_USER_ERROR);
                 }
                 break;
             case '4':
-                if (isset(repas[4]) && !empty(repas[4])) {
-                    $repas[4] = explode(',',$aliments);
-                    $this->repasSelected[] = 4;
-                    // retourne sur une methode qui lui dit quel ingregients choisir dans la bdd puis show la carte de france
+                if (!isset($_SESSION['save']['repas'][4])) {
+
+                    $_SESSION['save']['repas'][4] = explode(',',$aliments);
+                    return true;
+
                 }else {
                     return trigger_error("Repas deja selectionné", E_USER_ERROR);
                 }
@@ -266,20 +269,5 @@ class GameController extends Controller{
 
     }
 
-
-    /**
-     * methode qui redirige vers l'assiette
-     */
-    public function assiette(){
-        $this->show('front/assiette');
-    }
-
-    /**
-    * methode qui redirige vers la carte
-     */
-    public function carte(){
-        $this->show('front/carte');
-
-    }
 
 }// fin de class

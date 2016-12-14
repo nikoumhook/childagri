@@ -141,7 +141,7 @@ class AjaxController extends Controller
 		$errors = [];
 		$formValid = false;
 		$modelQuizz = new QuizzModel();
-		
+
 
 		if (!empty($_POST)) {
 
@@ -156,7 +156,7 @@ class AjaxController extends Controller
 				$errors [] ="Vous devez selectionner l'aliment dont vous rédigez le quizz dans le menu déroulant";
 			}
 
-			// Verif QUESTION - REPONSE 
+			// Verif QUESTION - REPONSE
 			if(!v::notEmpty()->length(20,1000)->validate($post['question'])){
 				$errors[] = 'Votre question doit comporter un minimum de 20 caractères';
 			}
@@ -165,7 +165,7 @@ class AjaxController extends Controller
 				$errors[] = 'Votre devez choisir la réponse de votre question';
 			}
 
-			
+
 			//si mon formulaire n'a pas d'erreur
 			if (count($errors) === 0) {
 
@@ -178,20 +178,40 @@ class AjaxController extends Controller
 				if ($modelQuizz->insert($dataInsert)) {
 					$this->showJson(['code'=>'valid', 'msg'=>'Votre question a bien été enregistré dans le quizz']);
 				}
-		
+
 			}//fermeture if count error=0
 
-			//sinon (si le formulaire a des erreurs)	
+			//sinon (si le formulaire a des erreurs)
 			else {
 				$this->showJson (['code'=>'error', 'msg'=>implode( '<br>',$errors)]);
 			}
-			
+
 		}// fermeture 1ère condition !empty
 
 	} // fermeture function quizz
 
 
+    public function finAssiette(){
+        $gameController = new GameController();
 
+        if (!empty($_POST['repas']) && is_numeric($_POST['repas']) && !empty($_POST['aliments'])) {
+
+            // Stock le repas qui vient d'être fait pour la passer a la carte
+            $_SESSION['repasEnCour'] = [ $_POST['repas'] => $_POST['aliments'] ];
+
+            $controle1 = $gameController->setAlimentsToRepas($_POST['repas'],implode(',',$_POST['aliments']));
+
+            $controle2 = $gameController->savGame(true);
+
+            if ($controle1 && $controle2) {
+
+                $this->showJson(['control' => 'ok']);
+            }
+
+            $this->showJson(['control' => 'ko']);
+        }
+
+    }// fin fonction fin Assiette
 
 
 

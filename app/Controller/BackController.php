@@ -33,6 +33,41 @@ class BackController extends Controller
 	}
 
 
+
+	/***************** Page LISTE QUIZZ: AFFICHAGE  **********/
+	
+	public function listeQuizz()
+	{
+		$modelPedago = new PedagoModel();
+		$this->show('back/listeQuizz', [
+			'aliments'=>$modelPedago->getAliments()
+			]);
+	}
+
+	
+
+	/***************** Page FICHE QUIZZ: AFFICHAGE  **********/
+	
+	public function ficheQuizz($id)
+	{
+		$modelPedago = new PedagoModel();
+		$this->show('back/ficheQuizz', [
+			'aliment'=>$modelPedago->getOneAliment($id),
+			]);
+	}
+
+
+	/***************** Page LISTE ALIMENT: AFFICHAGE  **********/
+	
+	public function listeAliment()
+	{
+		$modelPedago = new PedagoModel();
+		$this->show('back/listeAliment', [
+			'aliments'=>$modelPedago->getAliments()
+			]);
+	}
+
+
 	/***************** Page ALIMENT: AFFICHAGE et TRAITEMENTS **********/
 
 	public function aliment()
@@ -117,6 +152,26 @@ class BackController extends Controller
 	}// fermeture function aliment
 
 
+	/***************** Page LISTE PEDAGO: AFFICHAGE  **********/
+	
+	public function listePedago()
+	{
+		$modelPedago = new PedagoModel();
+		$this->show('back/listePedago', [
+			'pedagos'=>$modelPedago->getPedago(),
+			]);
+	}
+
+	/***************** Page FICHE PEDAGO: AFFICHAGE  **********/
+	
+	public function fichePedago($id)
+	{
+		$modelPedago = new PedagoModel();
+		$this->show('back/fichePedago', [
+			'pedago'=>$modelPedago->getOnePedago($id),
+			]);
+	}
+
 
 	/***************** Page Zones Pédagogiques: AFFICHAGE et TRAITEMENTS **********/
 
@@ -142,16 +197,16 @@ class BackController extends Controller
 			$errors [] ="Vous devez selectionner l'aliment de votre contenu pedagogique dans le menu déroulant";
 			}
 
-			if (!isset($post['land']) && !is_numeric($post['land'])) {
+/*			if (!isset($post['land']) && !is_numeric($post['land'])) {
 			$errors [] ="Vous devez selectionner la région de production de votre aliment dans le menu déroulant";
-			}
+			}*/
 
 			if (!isset($post['publish']) || empty($post['publish']) || !($post['publish']== 'oui' || $post['publish']=='non')) {
 				$errors[] = 'Votre devez choisir si vous souhaitez publier votre contenu pédagogique ou si vous souhaitez l\'enregistrer en brouillon';
 			}
 
-			if(!v::notEmpty()->length(50,1000)->validate($post['content'])){
-				$errors[] = 'Votre contenu pédagogique doit comporter un minimum de 50 caractères';
+			if(!v::notEmpty()->length(20,5000)->validate($post['content'])){
+				$errors[] = 'Votre contenu pédagogique doit comporter un minimum de 20 caractères';
 			}
 
 			//Condition fichier audio
@@ -209,7 +264,6 @@ class BackController extends Controller
 
 				$data = [
 					'id_aliment'=>$post['aliment'],
-					'id_land'	=>$post['land'],
 					'content' 	=>$post['content'],
 					'publish'	=>$post['publish'], //verif avec Tony
 				];

@@ -37,14 +37,14 @@
 						</select>
 						<br>
 
-					<label for="land" class="labelPedago one-third">Choisissez la région de production de votre aliment</label><br>
+				<!-- 	<label for="land" class="labelPedago one-third">Choisissez la région de production de votre aliment</label><br>
 						<select name="land" class="two-third">
 	  						<option value="" selected disable>Liste des régions</option>
-	  							<?php foreach ($lands as $land) :?>
-	  								<option value="<?= $land['id'];?>"> <?= ucfirst($land['publicName']);?></option>
+	  							<php foreach ($lands as $land) :?>
+	  								<option value="<= $land['id'];?>"> <= ucfirst($land['publicName']);?></option>
 	  							<?php endforeach ;?>
 						</select>
-						<br>
+						<br> -->
 						 
 					<label for="publish" class="labelPedago one-third"> Publier votre contenu</label><br>
 						<input type="radio" name="publish" value="oui" checked> OUI je le publie<br>

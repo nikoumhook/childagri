@@ -52,7 +52,9 @@ nav{
 /*               HOME                */
 /*************************************/
 .containerInColumn{
-    background: black;
     display: block; /*a suprimer quand il y aura du contenu*/
     height: 600px;/*a suprimer quand il y aura du contenu*/
+    border:3px solid black;
+    border-radius: 3px;
 }
+

@@ -4,9 +4,9 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use Respect\Validation\Validator as v;
-use Model\PedagoModel; 
-use Model\AlimentsModel; 
-use Model\QuizzModel; 
+use Model\PedagoModel;
+use Model\AlimentsModel;
+use Model\QuizzModel;
 
 
 class BackController extends Controller
@@ -21,7 +21,7 @@ class BackController extends Controller
 	}
 
 	/***************** Page QUIZZ: AFFICHAGE  **********/
-	
+
 	public function quizz()
 	{
 		$modelPedago = new PedagoModel();
@@ -31,7 +31,7 @@ class BackController extends Controller
 	}
 
 	/***************** Page LISTE QUIZZ: AFFICHAGE  **********/
-	
+
 	public function listeQuizz()
 	{
 		$modelPedago = new PedagoModel();
@@ -41,7 +41,7 @@ class BackController extends Controller
 	}
 
 	/***************** Page FICHE QUIZZ: AFFICHAGE  **********/
-	
+
 	public function ficheQuizz($id)
 	{
 		$modelPedago = new PedagoModel();
@@ -77,7 +77,7 @@ class BackController extends Controller
 
 
 	/***************** Page LISTE ALIMENT: AFFICHAGE  **********/
-	
+
 	public function listeAliment()
 	{
 		$modelPedago = new PedagoModel();
@@ -112,6 +112,7 @@ class BackController extends Controller
 				$errors [] ="Vous devez selectionner la région de production de votre aliment dans le menu déroulant";
 			}
 
+
 			if(v::notEmpty()->validate($_FILES['picture']['tmp_name'])){
 
 				$imgvalid= true;
@@ -137,14 +138,42 @@ class BackController extends Controller
 				$errors[] = 'Votre devez choisir si vous souhaitez publier votre aliment ou si vous souhaitez l\'enregistrer en brouillon';
 			}
 
+            // traitement des repas associé a l'ingredient
+            if (isset($post['repas1']) && $post['repas1'] == 'oui' ) {
+                $repas1 = 'oui';
+            }else {
+                $repas1 = 'non';
+            }
+            if (isset($post['repas2']) && $post['repas2'] == 'oui' ) {
+                $repas2 = 'oui';
+            }else {
+                $repas2 = 'non';
+            }
+            if (isset($post['repas3']) && $post['repas3'] == 'oui' ) {
+                $repas3 = 'oui';
+            }else {
+                $repas3 = 'non';
+            }
+            if (isset($post['repas4']) && $post['repas4'] == 'oui' ) {
+                $repas4 = 'oui';
+            }else {
+                $repas4 = 'non';
+            }
 
 			//si mon formulaire n'a pas d'erreur
 			if (count($errors) === 0) {
 
+
+
 				$data = [
-					'name'		=>$post['aliment'],
-					'id_land'	=>$post['land'],
-					'publish'	=>$post['publish'], 
+					'name'		=>   $post['aliment'],
+					'id_land'	=>   $post['land'],
+					'publish'	=>   $post['publish'],
+					'repas1'	=>   $repas1,
+					'repas2'	=>   $repas2,
+					'repas3'	=>   $repas3,
+					'repas4'	=>   $repas4
+
 				];
 
 				//condition si tu enregistre une img
@@ -157,9 +186,9 @@ class BackController extends Controller
 				$formValid = true;
 
 			}//fermeture if count error =0
-			
+
 			//quoi qu'il se passe je redirige sur la route de la page (affichage du formualire vide)
-			
+
 		}// fermeture 1ère condition !empty
 
 		$this->show('back/aliment', [
@@ -172,7 +201,7 @@ class BackController extends Controller
 
 
 	/***************** Page LISTE PEDAGO: AFFICHAGE  **********/
-	
+
 	public function listePedago()
 	{
 		$modelPedago = new PedagoModel();
@@ -182,7 +211,7 @@ class BackController extends Controller
 	}
 
 	/***************** Page FICHE PEDAGO: AFFICHAGE  **********/
-	
+
 	public function fichePedago($id)
 	{
 		$modelPedago = new PedagoModel();
@@ -239,7 +268,7 @@ class BackController extends Controller
 				}
 
 				//ici valide le format du fichier audio
-				if(v::mimetype('audio/mpeg3')->validate($_FILES['sound']['tmp_name'])){; 
+				if(v::mimetype('audio/mpeg3')->validate($_FILES['sound']['tmp_name'])){;
 					$errors[] = 'Votre fichier audio n\'est pas valide';
 				}
 
@@ -247,7 +276,7 @@ class BackController extends Controller
 				if (!v::uploaded()->validate($_FILES['sound']['tmp_name'])) {
 					$errors[] = 'Une erreur est survenue lors de l\'upload de votre fichier audio';
 				}
-			
+
 				//ici on valide la taille de l'image // PAS BON
 				if (!v::size(null, '8MB')->validate($_FILES['sound']['tmp_name'])) {
 					$errors[] = 'Il vous faut télécharger un fichier audio inférieur à 8MB';
@@ -279,14 +308,14 @@ class BackController extends Controller
 
 			//si mon formulaire n'a pas d'erreur
 			if (count($errors) === 0) {
-			
+
 				$AlimentsModel = new AlimentsModel();
 				$aliment= $AlimentsModel->find($post['aliment']);
-				
+
 				$data = [
 					'id_aliment'=>$post['aliment'],
 					'content' 	=>$post['content'],
-					'publish'	=>$post['publish'], 
+					'publish'	=>$post['publish'],
 					'id_land'	=>$aliment['id_land'],
 				];
 
@@ -294,7 +323,7 @@ class BackController extends Controller
 				if ($mp3valid) {
 					$data ['urlSound'] = $post['sound'];
 				}
-			
+
 				//condition si tu enregistre une img
 				if ($imgvalid) {
 					$data ['urlImg'] = $post['picture'];
@@ -305,9 +334,9 @@ class BackController extends Controller
 				$formValid = true;
 
 			}//fermeture if count error =0
-			
+
 			//quoi qu'il se passe je redirige sur la route de la page (affichage du formualire vide)
-			
+
 		}// fermeture 1ère condition !empty
 
 		$this->show('back/zonePedago', [
@@ -324,23 +353,3 @@ class BackController extends Controller
 
 
 }//fermeture de la class
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

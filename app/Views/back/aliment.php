@@ -49,6 +49,22 @@
 
 
 			<div class="bloc2 center">
+                <label>Choix du repas associé
+                    <br>
+                    <label for="repas1">repas 1 </label>
+                    <input id="repas1" name="repas1" type="checkbox" value="oui">
+
+                    <label for="repas2">| repas 2</label>
+                    <input id="repas2" name="repas2" type="checkbox" value="oui">
+
+                    <label for="repas3">| repas 3</label>
+                    <input id="repas3" name="repas3" type="checkbox" value="oui">
+
+                    <label for="repas4">| repas 4</label>
+                    <input id="repas4" name="repas4" type="checkbox" value="oui">
+                    <br>
+                </label>
+
 				<label for="publish" class="labelAliment labelPedago one-third"> Publier votre aliment</label>
 				<br>
 				<input type="radio" name="publish" value="oui" checked> OUI je le publie<br>

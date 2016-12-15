@@ -8,3 +8,16 @@
 .carte{
     height: 90%;
 }
+.aliment1{
+    display: none;
+}
+.aliment2{
+    display: none;
+}
+.aliment3{
+    display: none;
+}
+.markerRegion{
+    z-index: 105;
+    cursor: pointer;
+}

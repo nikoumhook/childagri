@@ -1,7 +1,7 @@
 <?php $this->layout('front', ['title' => 'Jeu carte']) ?>
 
 <?php $this->start('head') ?>
-<link rel="stylesheet" href="<?= $this->assetUrl('css/carte.css') ?>">
+    <link rel="stylesheet" href="<?= $this->assetUrl('css/carte.css') ?>">
 <?php $this->stop('head') ?>
 
 
@@ -40,13 +40,31 @@ $(document).ready(function(){
     //Etabli la position du marker et son image en svg
     $("#marker1").attr("x",xy[2][0]);
     $("#marker1").attr("y",xy[2][1]);
-    $("#marker1").attr("xlink:href", "<?= $this->assetUrl('img/" + image[3] + ".svg') ?>");
+    $("#marker1").attr("xlink:href", '<?= $this->assetUrl($aliment1['urlImg']);?>');
     $("#marker2").attr("x",xy[3][0]);
     $("#marker2").attr("y",xy[3][1]);
-    $("#marker2").attr("xlink:href", "<?= $this->assetUrl('img/" + image[3] + ".svg') ?>");
+    $("#marker2").attr("xlink:href", "<?= $this->assetUrl($aliment2['urlImg']);?>");
     $("#marker3").attr("x",xy[4][0]);
     $("#marker3").attr("y",xy[4][1]);
-    $("#marker3").attr("xlink:href", "<?= $this->assetUrl('img/" + image[3] + ".svg') ?>");
+    $("#marker3").attr("xlink:href", '<?= $this->assetUrl($aliment3['urlImg']);?>');
+
+
+    $('#marker1').click(function(){
+        $('.aliment1').slideToggle( "slow", function() {
+            alert('click sur l\'ingredient 1)');
+        });
+    });
+    $('#marker2').click(function(){
+        $('.aliment2').slideToggle( "slow", function() {
+            alert('click sur l\'ingredient 2)');
+        });
+    });
+    $('#marker3').click(function(){
+        $('.aliment3').slideToggle( "slow", function() {
+            alert('click sur l\'ingredient 3)');
+        });
+    });
+
 });
 
 
@@ -54,6 +72,10 @@ $(document).ready(function(){
 <?php $this->stop('script') ?>
 
 <?php $this->start('main_content') ?>
+
+    <div class="debug">
+        <?php var_dump($aliment1) ?>
+    </div>
 
 <div id="container_carte" class="pal">
 
@@ -118,9 +140,6 @@ $(document).ready(function(){
             <path id="region10" d="M511.86,219.81l-6.36,15.17l-16.89,4.5l0,80.83l9.21,9.67l5.01,-5.63l4,-14.04l36.67,-40l0,-12l0,-13.87l9.01,-4.96l-9.68,-12.5l-30.97,-7.17Z" style="fill:#e3aae5;fill-rule:nonzero;"/>
             <path id="region15" d="M480,106.98l-6.21,12.21l-7.63,34.88l3.34,12.78l24.66,15.46l8.67,21l6,3.13l10.26,-8.56l14.51,8.56l5.23,3.72l7.67,0l6.01,-27.85l0,-23.66l-6.01,-13.67l10.21,-7.33l-29.21,-8.67l-16.06,-13.33l-31.44,-8.67Z" style="fill:#e3aae5;fill-rule:nonzero;"/>
             <path id="region01" d="M568.16,148.98l18,0l-9,80l0,6l-3,4.5l-9.33,-4.5l-3.92,-15.17l0,-21.93l12.63,-15.57l-9.38,-13.16l2.67,-15.67l1.33,-4.5Z" style="fill:#e3aae5;fill-rule:nonzero;"/>
-            <image id="marker1" x='' y='' width="30" height="30" xlink:href="" />
-            <image id="marker2" x='' y='' width="30" height="30" xlink:href="" />
-            <image id="marker3" x='' y='' width="30" height="30" xlink:href="" />
             </g>
             <g id="traits">
                 <path d="M421.21,76.48c1.48,-6.5 -0.66,-13.63 0,-20.25c0.009,-0.565 -0.373,-1.068 -0.92,-1.21c-6.81,-1.33 -13.75,-2 -20.42,-4c-7.33,-2.17 -12.44,-8.18 -17.56,-13.49c-3.56,-3.69 -5.55,-8.5 -9.17,-12.11c-3.62,-3.61 -10.09,-4.23 -14.46,-6.69c-5.74,-3.23 -9.88,-9.93 -13.29,-15.38c-2.13,-3.4 -4.62,-3.81 -8.44,-3.11c-5.83,1.06 -11.42,3.77 -16.74,6.27c-4.14,2 -11.23,3.84 -14.08,7.66c-2.67,3.57 -2,8 -1.42,12.17c1.11,7.68 2,15 0.41,22.72c-1.42,6.69 -5.73,13.47 -10.23,18.52c-5.18,5.81 -13.72,8.45 -20.82,11c-12.91,4.67 -26.35,8.78 -37.57,17c-2.53,1.85 -6.49,5.32 -5.51,9c0.61,2.3 2,4 3.26,6c2.82,4.31 -3.08,6.67 -5.92,8.83c-4,3 -7.64,3.78 -12.43,2.29c-2.927,-1.062 -5.967,-1.784 -9.06,-2.15c-9,-0.69 -16.51,0.65 -24.64,-4.25c-6.38,-3.85 -11.34,-9.67 -16.09,-15.29c-3.69,-4.36 -7.75,-7.53 -13.58,-8.16c-3.09,-0.34 -10.64,-2 -13.17,0.54c-2.76,2.76 0.5,9.83 1.48,12.65c2.76,7.94 7.56,14.51 8.37,23.14c0.84,8.91 -0.45,18.09 -0.75,27l1.25,-1.25c-14.11,-0.19 -26.8,6.87 -40.46,9.32c-8.63,1.55 -12.79,-5.33 -16.41,-11.93c-2.45,-4.47 -5.5,-5.8 -10.49,-5.54c-6.32,0.33 -12.65,1.74 -19,2.23c-7.706,0.455 -15.355,1.613 -22.85,3.46c-6.11,1.63 -11.89,4.52 -17.61,7.17c-6.59,3 -13.43,5.48 -20,8.59c-2.12,1 -3.61,2.87 -2.56,5.24c1.262,2.476 2.72,4.846 4.36,7.09c1.178,1.797 2.132,3.731 2.84,5.76c0.71,2 -0.19,5.11 -0.25,7.25c-0.14,5 6.05,8.42 8.26,12.26c2.34,4.06 3.83,8.68 8.8,10c4.72,1.26 10.38,-1 15.16,-1c6.56,0.09 12.08,6.25 16.5,10.37c3.28,3.06 6.88,6.36 11.16,8c6.69,2.51 13.68,1.11 20.6,2.18c7.9,1.22 11.88,10.31 18.6,13.95c1.42,0.77 2.68,-1.39 1.26,-2.16c-5.08,-2.75 -8,-7.73 -12.54,-11.1c-4.54,-3.37 -9.4,-3.61 -14.85,-3.63c-7.64,0 -13.5,-1.3 -19.45,-6.26c-4.22,-3.51 -7.89,-7.57 -12.45,-10.66c-3.782,-2.547 -8.372,-3.615 -12.89,-3c-2.79,0.29 -5.53,0.86 -8.34,1c-4.46,0.22 -6.35,-3.06 -8.14,-6.52c-1.009,-2.148 -2.278,-4.163 -3.78,-6c-3,-3.44 -5.77,-5.26 -5.2,-10.45c0.74,-6.7 -3.28,-11.15 -6.6,-16.59c-2.28,-3.73 4,-5.12 6.34,-6.06c3.17,-1.26 6.28,-2.58 9.43,-3.9c6.28,-2.64 12.3,-5.79 18.72,-8.1c7.53,-2.71 15.69,-3.5 23.61,-4.2c7,-0.62 13.9,-1.65 20.89,-2.39c7.54,-0.8 9.07,6.68 12.89,11.49c3.53,4.45 7.09,6.69 12.85,6.15c14.35,-1.33 27,-9.7 41.63,-9.5c0.684,-0.005 1.245,-0.566 1.25,-1.25c0.47,-13.92 2.67,-27.55 -3,-40.7c-2.72,-6.32 -6.5,-12.32 -7,-19.37c-0.24,-3.31 15.85,0.3 17.47,1.16c5.25,2.8 8.94,9.25 13,13.46c3.89,4 8.72,8 13.92,10.16c5.85,2.4 12,2.11 18.18,2.08c6.53,0 12.41,3.68 18.83,3.16c4.88,-0.4 9.31,-5.21 13.11,-7.87c3,-2.08 2.41,-5 0.91,-7.93c-0.677,-1.161 -1.415,-2.286 -2.21,-3.37c-2.16,-3.31 0.78,-5.79 2.75,-7.54c2.78,-2.235 5.798,-4.157 9,-5.73c7.171,-3.768 14.647,-6.923 22.35,-9.43c11.63,-4 23.8,-7.51 31.5,-17.7c7.7,-10.19 10,-22.08 8.27,-34.59c-0.48,-3.53 -1.27,-7 -1.35,-10.53c-0.12,-5.71 5,-7 9.23,-9.06c7.46,-3.62 15.64,-8.48 24.09,-9c3,-0.19 6.15,6.54 7.64,8.56c2.108,3.069 4.591,5.864 7.39,8.32c5,4.15 12.66,4.26 17.2,8.79c2.26,2.26 3.65,5.49 5.49,8.09c2,2.75 4.66,5.11 7,7.51c5.22,5.33 10.5,8.85 17.75,10.71c3.94,1 8,1.51 12,2.14c1.24,0.2 4.15,0.09 4.1,0.92c-0.07,1.2 0,2.4 0,3.6c0.08,4.67 1.19,10.19 0.15,14.78c-0.36,1.57 2.05,2.24 2.41,0.67l0.04,-0.01Z" style="fill:#1d1d1b;fill-rule:nonzero;"/>
@@ -150,6 +169,9 @@ $(document).ready(function(){
                 <path d="M292.04,423.98c-5.24,7.24 -7.52,15.17 -11.33,23.13c-4.45,9.3 -9.18,18.92 -14.91,27.5c-2.94,4.4 -6.63,8.83 -11.14,11.66c-5,3.12 -11.87,2.75 -17.5,3c-4.85,0.26 -9.72,0.78 -14.55,1.21c-3.57,0.32 -8.14,0.65 -11.25,2.59c-2.87,1.79 -3.9,4.26 -4.94,7.39c-1.58,4.77 -4,9.2 -5.8,13.86c-1.2,3.06 -1.56,4.77 0.46,7.46c2.42,3.22 5.79,5.61 8.17,8.92c5.34,7.44 -2,17 -5.32,24c-3.32,7 -6.53,13.89 -10,20.73c-0.73,1.43 1.43,2.7 2.16,1.26c3.47,-6.84 6.7,-13.81 10,-20.73c2.76,-5.8 7.48,-12.44 7.89,-19c0.48,-7.6 -7.65,-12.36 -11.6,-17.61c-1.89,-2.51 3.55,-11 4.71,-13.7c0.82,-1.94 1.53,-3.91 2.19,-5.9c1.4,-4.22 5,-5.36 8.9,-6.18c9.74,-2.06 20,-1.36 29.89,-2.69c8.66,-1.17 13.85,-7.05 18.88,-13.66c6.22,-8.17 10.51,-18.23 15.14,-27.35c4.22,-8.31 6.58,-17.05 12.1,-24.69c0.95,-1.31 -1.22,-2.55 -2.16,-1.26l0.01,0.06Z" style="fill:#1d1d1b;fill-rule:nonzero;"/>
                 <path d="M366.5,445.26c1,9.76 0.47,19.72 2.75,29.34c1.15,4.86 4.34,7.56 7.26,11.38c3.18,4.15 10.24,12 8.9,17.4c-2.31,9.35 -14.35,16.93 -21.71,21.94c-10.72,7.31 -22.8,13.3 -35.82,14.77c-6.552,0.564 -13.152,0.146 -19.58,-1.24c-3.48,-0.69 -7.17,-1.62 -10.5,0c-4.61,2.24 -7.15,12.77 -3.43,16.52c3,3 7,4.75 10.31,7.42c2.136,1.712 3.945,3.795 5.34,6.15c2.12,3.62 0.32,7.1 -1,10.54c-0.531,1.383 -0.484,2.922 0.13,4.27c1.57,4 0.9,5.36 -1.92,7.48c-2.698,2.089 -5.58,3.93 -8.61,5.5c-1.44,0.72 -0.18,2.88 1.26,2.16c3.93,-2 13.32,-6.44 13.4,-11.58c0.058,-1.301 -0.334,-2.584 -1.11,-3.63c-2,-3 0.39,-5.66 1.2,-8.48c1,-3.45 -0.65,-7.46 -2.84,-10.08c-3.126,-3.606 -6.846,-6.65 -11,-9c-3.34,-2 -4.81,-3.93 -4.07,-8c0.67,-3.71 2.16,-7.56 6.6,-7.7c2.44,-0.08 4.79,0.83 7.18,1.12c3.75,0.45 7.49,0.91 11.26,1.16c5.972,0.289 11.95,-0.418 17.69,-2.09c11.27,-3.06 21.59,-9.35 31,-16.08c6.75,-4.83 15.4,-11.21 18.26,-19.37c1.52,-4.32 0.42,-7.23 -2.16,-10.88c-3.16,-4.44 -5.89,-9.21 -9.61,-13.23c-5.14,-5.55 -5.08,-13.29 -5.69,-20.43c-0.44,-5.13 -0.4,-10.26 -0.95,-15.38c-0.17,-1.59 -2.67,-1.6 -2.5,0l-0.04,0.02Z" style="fill:#1d1d1b;fill-rule:nonzero;"/>
                 <use xlink:href="#_Image1" x="654" y="552" width="59px" height="117px"/>
+                <image class="markerRegion" id="marker1" x='' y='' width="60px" height="60px" xlink:href="" />
+                <image class="markerRegion" id="marker2" x='' y='' width="60px" height="60px" xlink:href="" />
+                <image class="markerRegion" id="marker3" x='' y='' width="60px" height="60px" xlink:href="" />
             </g>
             <defs>
                 <image id="_Image1" width="59px" height="117px" xlink:href="data:image/png;base64,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"/>

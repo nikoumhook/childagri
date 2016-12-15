@@ -167,7 +167,7 @@ class GameController extends Controller{
 
          if (!empty($save)) {
              $saveGood['save']['id'] = $save['id'];
-             $saveGood['save']['id_quizz'] = unserialize($save['repas']);
+             $saveGood['save']['id_quizz'] = unserialize($save['id_quizz']);
              $saveGood['save']['repas'] = unserialize($save['repas']);
              $saveGood['repasEnCour'] = unserialize($save['repasEnCour']);
          }else {

@@ -46,26 +46,31 @@ class BackController extends Controller
 	{
 		$modelPedago = new PedagoModel();
 		$conteneurQuizz = $modelPedago->getQuizzAliment($id);
-		$i = 1;
-		foreach ($conteneurQuizz as $quizz) {
-			switch ($i) {
-				case '1':
-					$quizz1=$quizz;
-					break;
-				case '2':
-					$quizz2=$quizz;
-					break;
-				case '3':
-					$quizz3=$quizz;
-					break;
-				case '4':
-					$quizz4=$quizz;
-					break;
-			}
+        if($conteneurQuizz){
+            $i = 1;
+            foreach ($conteneurQuizz as $quizz) {
+                switch ($i) {
+                    case '1':
+                    $quizz1=$quizz;
+                    break;
+                    case '2':
+                    $quizz2=$quizz;
+                    break;
+                    case '3':
+                    $quizz3=$quizz;
+                    break;
+                    case '4':
+                    $quizz4=$quizz;
+                    break;
+                }
 
-			$i++;
+                $i++;
 
-		}
+            }
+
+        }else {
+            $quizz1 = $quizz2 = $quizz3 = $quizz4 = '' ;
+        }
 
 		$this->show('back/ficheQuizz',[
 			'quizz1'	=>	$quizz1,

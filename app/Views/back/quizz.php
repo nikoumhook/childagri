@@ -17,7 +17,8 @@
 			<select id="aliment" name="aliment" class="two-third">
 	  			<option value="" selected disable>Liste des aliments</option>
 	  				<?php foreach ($aliments as $aliment) :?>
-	  				<option value="<?= $aliment['id'];?>"> <?= ucfirst($aliment['name']);?></option>
+
+    	  				<option value="<?= $aliment['id'];?>"> <?= ucfirst($aliment['name']);?></option>
 	  				<?php endforeach ;?>
 			</select>
 		<br>
@@ -40,7 +41,7 @@
 					<div class="center flex_container-v">
 						<button id="validQuestion1" type="submit" class="">ENREGISTRER</button>
 					</div>
-					
+
 					<!-- div Affichage resultat traitement AJAX CONNEXION-->
 					<div id="resultQuestion1" class="result txtcenter"></div>
 				</form>
@@ -63,7 +64,7 @@
 					<div class="center flex_container-v">
 						<button id="validQuestion2" type="submit" class="">ENREGISTRER</button>
 					</div>
-					
+
 					<!-- div Affichage resultat traitement AJAX CONNEXION-->
 					<div id="resultQuestion2" class="result txtcenter"></div>
 				</form>
@@ -92,7 +93,7 @@
 				</form>
 			</div>
 
-			
+
 			<div class="bloc4">
 				<form id="formQuestion4">
 					<h2>Renseigner la quatrième question de votre quizz</h2>
@@ -134,7 +135,7 @@
 
 
 				$.ajax({
-					url: '<?=$this->url('ajax_quizz');?>', 
+					url: '<?=$this->url('ajax_quizz');?>',
 					type:'post',
 					cache:false,
 					data: {
@@ -157,7 +158,7 @@
 						}
 					}//fermeture success
 				});//fermeture $.ajax
-			
+
 		};
 
 		$('#formQuestion1').children('.center').children('button').click(function(e){

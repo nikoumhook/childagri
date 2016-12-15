@@ -221,7 +221,7 @@ class BackController extends Controller
 	{
 		$modelPedago = new PedagoModel();
 		$this->show('back/fichePedago', [
-			'pedago'=>$modelPedago->getOnePedago($id),
+			'pedago'=>$modelPedago->getOnePedagobyIdAliment($id),
 			]);
 	}
 

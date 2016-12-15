@@ -1,10 +1,8 @@
 <?php $this->layout('back', ['title' => 'Fiche de ' .ucfirst($aliment['name'])]) ?>
 
 <?php $this->start('head') ?>
-	<!-- Style Knacss -->
-	<link rel="stylesheet" href="<?=$this->assetUrl('css/knacss.css');?>">
-	<!-- Style -->
-	<link rel="stylesheet" href="<?= $this->assetUrl('css/backPedago.css') ?>">
+
+
 <?php $this->stop('head') ?>
 
 
@@ -26,7 +24,7 @@
 
 	<form method="POST" enctype="multipart/form-data">
 
-		<h1 class="txtcenter"> Modifier <?=ucfirst($aliment['name']);?></h1>
+		<h1 class="txtcenter"> Modifier : <br> <?=ucfirst($aliment['name']);?></h1>
 
 		<div class="grid-2">
 

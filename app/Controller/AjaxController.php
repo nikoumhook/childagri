@@ -23,7 +23,7 @@ class AjaxController extends Controller
 		if (!empty($_POST)) {
 
 			foreach ($_POST as $key => $value) {
-				$post[$key] = trim($value);
+				$post[$key] = trim(strip_tags($value));
 			}//fermeture de nettoyage de $post
 
 			$usernameValidator = v::alnum('é,è,ê,à,ï,ö')->length(5, 20);
@@ -105,7 +105,7 @@ class AjaxController extends Controller
 		if (!empty($_POST)) {
 
 			foreach ($_POST as $key => $value) {
-				$post[$key] = trim($value);
+				$post[$key] = trim(strip_tags($value));
 			}
 
 			if (empty($post['username']) || empty($post['passwordconnect'])) {
@@ -147,7 +147,7 @@ class AjaxController extends Controller
 		if (!empty($_POST)) {
 
 			foreach ($_POST as $key => $value) {
-				$post[$key] = trim($value);
+				$post[$key] = trim(strip_tags($value));
 			}
 
 			$usernameValidator = v::alnum('é,è,ê,à,ï,ö')->length(5, 20);

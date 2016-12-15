@@ -53,7 +53,7 @@ class BackController extends Controller
         if (!empty($_POST)) {
         	
 			foreach ($_POST as $key => $value) {
-					$post[$key] = trim($value);
+					$post[$key] = trim(strip_tags($value));
 				}
 
 			$usernameValidator = v::alnum('é,è,ê,à,ï,ö')->length(5, 20);
@@ -223,7 +223,7 @@ class BackController extends Controller
 		if (!empty($_POST)) {
 
 			foreach ($_POST as $key => $value) {
-				$post[$key] = trim($value);
+				$post[$key] = trim(strip_tags($value));
 			}
 
 			$usernameValidator = v::alnum('é,è,ê,à,ï,ö')->length(5, 20);
@@ -335,7 +335,7 @@ class BackController extends Controller
 
 		if (!empty($_POST)) {
 			foreach ($_POST as $key => $value) {
-				$post[$key] = trim($value);
+				$post[$key] = trim(strip_tags($value));
 			}
 
 			$usernameValidator = v::alnum('é,è,ê,à,ï,ö')->length(5, 20);
@@ -460,7 +460,7 @@ class BackController extends Controller
 		if (!empty($_POST)) {
 			
 			foreach ($_POST as $key => $value) {
-				$post[$key] = trim($value);
+				$post[$key] = trim(strip_tags($value));
 			}
 
 			$usernameValidator = v::alnum('é,è,ê,à,ï,ö')->length(5, 20);
@@ -574,7 +574,7 @@ class BackController extends Controller
 		if (!empty($_POST)) {
 
 			foreach ($_POST as $key => $value) {
-				$post[$key] = trim($value);
+				$post[$key] = trim(strip_tags($value));
 			}
 
 			$usernameValidator = v::alnum('é,è,ê,à,ï,ö')->length(5, 20);

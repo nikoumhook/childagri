@@ -2,11 +2,7 @@
 
 <?php $this->start('head') ?>
 
-	<!-- Style Knacss -->
-	<link rel="stylesheet" href="<?=$this->assetUrl('css/knacss.css');?>">
-	<!-- Style -->
 
-	<link rel="stylesheet" href="<?= $this->assetUrl('css/backPedago.css') ?>">
 
 <?php $this->stop('head') ?>
 
@@ -29,7 +25,7 @@
 
 	<form method="POST" enctype="multipart/form-data">
 
-		<h1 class="txtcenter"> Modifier le contenu pédagogique de <?=ucfirst($pedago['ingredient']);?> de la région <?=ucfirst($pedago['region']);?></h1>
+		<h1 class="txtcenter"> Modifier le contenu pédagogique de : <br> <?=ucfirst($pedago['ingredient']);?> de la région <?=ucfirst($pedago['region']);?></h1>
 
 		<div class="grid-3">
 

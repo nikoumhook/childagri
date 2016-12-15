@@ -1,10 +1,7 @@
 <?php $this->layout('back', ['title' => 'Administrer vos contenus pedagogiques']) ?>
 
 <?php $this->start('head') ?>
-	<!-- Style Knacss -->
-	<link rel="stylesheet" href="<?=$this->assetUrl('css/knacss.css');?>">
-	<!-- Style -->
-	<link rel="stylesheet" href="<?= $this->assetUrl('css/backPedago.css') ?>">
+
 <?php $this->stop('head') ?>
 
 
@@ -22,7 +19,7 @@
 
 		<form method="POST" enctype="multipart/form-data">
 
-			<h1 class="txtcenter"> Administrer votre contenu pedagogique</h1>
+			<h1 class="txtcenter"> Administrer le contenu pedagogique</h1>
 
 			<div class="grid-2 flex-container-v">
 

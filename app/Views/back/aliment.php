@@ -1,10 +1,8 @@
 <?php $this->layout('back', ['title' => 'Administrer vos aliments']) ?>
 
 <?php $this->start('head') ?>
-	<!-- Style Knacss -->
-	<link rel="stylesheet" href="<?=$this->assetUrl('css/knacss.css');?>">
-	<!-- Style -->
-	<link rel="stylesheet" href="<?= $this->assetUrl('css/backPedago.css') ?>">
+
+
 <?php $this->stop('head') ?>
 
 
@@ -22,7 +20,7 @@
 
 	<form method="POST" enctype="multipart/form-data">
 
-		<h1 class="txtcenter"> Administrer vos aliments</h1>
+		<h1 class="txtcenter"> Administrer les aliments</h1>
 
 		<div class="grid-2 flex-container-v">
 

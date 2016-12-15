@@ -1,15 +1,15 @@
 <?php $this->layout('back', ['title' => 'Administrer vos quizz']) ?>
 
 <?php $this->start('head') ?>
-	<!-- Style -->
-	<link rel="stylesheet" href="<?= $this->assetUrl('css/backPedago.css') ?>">
+
+
 <?php $this->stop('head') ?>
 
 
 <?php $this->start('main_content') ?>
 
 
-		<h1 class="txtcenter"> Administrer le quizz de chaque aliment</h1>
+		<h1 class="txtcenter"> Administrer le quizz</h1>
 
 
 		<label for="aliment" class="labelPedago one-third"> Choisissez l'aliment de votre quizz</label>

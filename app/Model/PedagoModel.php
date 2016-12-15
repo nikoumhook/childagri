@@ -92,7 +92,7 @@ class PedagoModel extends Model
 
 	public function getOnePedagoByIdAliment($id){
 		$app = getApp();
-		$sql = 'SELECT pedago. * , lands.name AS region, aliments.name AS ingredient FROM pedago JOIN lands ON pedago.id_land = lands.id JOIN aliments ON pedago.id_land = aliments.id_land WHERE pedago.id = :id' ;
+		$sql = 'SELECT pedago. * , lands.name AS region, aliments.name AS ingredient, FROM pedago JOIN lands ON pedago.id_land = lands.id JOIN aliments ON pedago.id_land = aliments.id_land WHERE pedago.id = :id' ;
 		$dbh = ConnectionModel::getDbh();
 		$sth = $dbh->prepare($sql);
 		$sth->bindValue(':id', $id);

@@ -2,11 +2,7 @@
 
 <?php $this->start('head') ?>
 
-	<!-- Style Knacss -->
-	<link rel="stylesheet" href="<?=$this->assetUrl('css/knacss.css');?>">
-	<!-- Style -->
-
-	<link rel="stylesheet" href="<?= $this->assetUrl('css/backPedago.css') ?>">
+	
 
 <?php $this->stop('head') ?>
 
@@ -31,7 +27,7 @@
 
     <form method="POST">
 
-        <h1 class="txtcenter"> Quizz de <?=ucfirst($quizz1['ingredient']);?> de la région <?=ucfirst($quizz1['region']);?></h1>
+        <h1 class="txtcenter"> Quizz de: <br> <?=ucfirst($quizz1['ingredient']);?> de la région <?=ucfirst($quizz1['region']);?></h1>
 
         <div class="grid-2">
 

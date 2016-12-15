@@ -32,11 +32,12 @@
 
 			<div class="bloc1">
 
+				<input type="hidden" value="<?= $aliment['id'];?>" name="id">
+
 				<label for="aliment" class="labelAliment">Nom de l'aliment</label>
 				<br>
 				<input id="aliment" class="inputAliment" type="text" name="aliment" value="<?= ucfirst($aliment['name']);?>">
 				<br>
-
 
 				<label class="labelAliment">Votre image actuelle</label>
 				<br>

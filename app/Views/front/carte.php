@@ -6,6 +6,8 @@
 
 
 <?php $this->start('script') ?>
+<?php echo $aliment1['id'];
+?>
 <script>
 var xy = [
     ['null','null'],
@@ -38,14 +40,14 @@ var xy = [
 var image = ['null', 'aliment_mousseline', 'aliment_miel', 'aliment_kiwi', 'aliment_pain', 'aliment_lait', 'aliment_steak', 'aliment_knacki', 'aliment_nutella', 'aliment_cornflakes','aliment_tomate','aliment_harico','aliment_babybel','aliment_beurre','aliment_pomme','aliment_roquefort','aliment_surimi', 'aliment_yogourt'];
 $(document).ready(function(){
     //Etabli la position du marker et son image en svg
-    $("#marker1").attr("x",xy[2][0]);
-    $("#marker1").attr("y",xy[2][1]);
+    $("#marker1").attr("x",xy[<?php echo $aliment1['id_land'] ?>][0]);
+    $("#marker1").attr("y",xy[<?php echo $aliment1['id_land'] ?>][1]);
     $("#marker1").attr("xlink:href", '<?= $this->assetUrl($aliment1['urlImg']);?>');
-    $("#marker2").attr("x",xy[3][0]);
-    $("#marker2").attr("y",xy[3][1]);
+    $("#marker2").attr("x",xy[<?php echo $aliment2['id_land'] ?>][0]);
+    $("#marker2").attr("y",xy[<?php echo $aliment2['id_land'] ?>][1]);
     $("#marker2").attr("xlink:href", "<?= $this->assetUrl($aliment2['urlImg']);?>");
-    $("#marker3").attr("x",xy[4][0]);
-    $("#marker3").attr("y",xy[4][1]);
+    $("#marker3").attr("x",xy[<?php echo $aliment3['id_land'] ?>][0]);
+    $("#marker3").attr("y",xy[<?php echo $aliment3['id_land'] ?>][1]);
     $("#marker3").attr("xlink:href", '<?= $this->assetUrl($aliment3['urlImg']);?>');
 
     var marker1 = false;

@@ -23,46 +23,91 @@
         <div class="grid-2">
 
             <div class="bloc1">
+
                 <?php if (isset($quizz1) && !empty($quizz1)): ?>
+<?= var_dump($quizz1)?>;
+
                     <div>
                         <h2>QUESTION 1</h2>
-                        <div>Question: <?=ucfirst($quizz1['content']);?></div>
-                        <div>Réponse: <?=($quizz1['answer']);?></div>
-                        <div>Elements de réponse: <?=($quizz1['explainAnswer']);?></div>
+                        <label for="question1"> Question:</label>
+                        <br>
+                        <textarea id="question1" class="" name="question1"><?=ucfirst($quizz1['content']);?></textarea>
+                        <br>
 
+                        <label for="answer1"> Réponse:</label>
+                        <br>
+                        <input type="radio" name="publish1" value="oui" <?=($quizz1['answer']=='oui')? 'checked': '';?>> OUI<br>
+                        <input type="radio" name="publish1" value="non" <?=($quizz1['answer']=='non')? 'checked': '';?>> NON<br>
+
+                        <label for="answer1explain"> Réponse:</label>
+                        <br>
+                        <textarea id="answer1explain" clas=""><?=($quizz1['explainAnswer']);?></textarea>
                     </div>
+
                 <?php endif; ?>
 
                 <?php if (isset($quizz2) && !empty($quizz2)): ?>
-                    <div>
-                        <h2>QUESTION 2</h2>
-                        <div>Question: <?=ucfirst($quizz2['content']);?></div>
-                        <div>Réponse: <?=($quizz2['answer']);?></div>
-                        <div>Elements de réponse: <?=($quizz2['explainAnswer']);?></div>
 
-                    </div>
+                        <h2>QUESTION 2</h2>
+                        <label for="question2"> Question:</label>
+                        <br>
+                        <textarea id="question2" class="" name="question2"><?=ucfirst($quizz2['content']);?></textarea>
+                        <br>
+
+                        <label for="answer2"> Réponse:</label>
+                        <br>
+                        <input type="radio" name="publish2" value="oui" <?=($quizz2['answer']=='oui')? 'checked': '';?>> OUI<br>
+                        <input type="radio" name="publish2" value="non" <?=($quizz2['answer']=='non')? 'checked': '';?>> NON<br>
+
+                        <label for="answer2explain"> Réponse:</label>
+                        <br>
+                        <textarea id="answer2explain" clas=""><?=($quizz2['explainAnswer']);?></textarea>
+
                 <?php endif; ?>
-            </div>
+            </div> <!-- fermeture bloc 1 -->
+
+
             <div class="bloc2">
                 <?php if (isset($quizz3) && !empty($quizz3)): ?>
-                    <div>
+
                         <h2>QUESTION 3</h2>
-                        <div>Question: <?=ucfirst($quizz3['content']);?></div>
-                        <div>Réponse: <?=($quizz3['answer']);?></div>
-                        <div>Elements de réponse: <?=($quizz3['explainAnswer']);?></div>
+                        <label for="question3"> Question:</label>
+                        <br>
+                        <textarea id="question3" class="" name="question3"><?=ucfirst($quizz3['content']);?></textarea>
+                        <br>
 
-                    </div>
+                        <label for="answer3"> Réponse:</label>
+                        <br>
+                        <input type="radio" name="publish3" value="oui" <?=($quizz3['answer']=='oui')? 'checked': '';?>> OUI<br>
+                        <input type="radio" name="publish3" value="non" <?=($quizz3['answer']=='non')? 'checked': '';?>> NON<br>
+
+                        <label for="answer3explain"> Réponse:</label>
+                        <br>
+                        <textarea id="answer3explain" clas=""><?=($quizz3['explainAnswer']);?></textarea>
+
                 <?php endif; ?>
+
                 <?php if (isset($quizz4) && !empty($quizz4)): ?>
-                    <div>
-                        <h2>QUESTION 4</h2>
-                        <div>Question: <?=ucfirst($quizz4['content']);?></div>
-                        <div>Réponse: <?=($quizz4['answer']);?></div>
-                        <div>Elements de réponse: <?=($quizz4['explainAnswer']);?></div>
 
-                    </div>
+
+                        <h2>QUESTION 4</h2>
+                        <label for="question4"> Question:</label>
+                        <br>
+                        <textarea id="question4" class="" name="question4"><?=ucfirst($quizz4['content']);?></textarea>
+                        <br>
+
+                        <label for="answer4"> Réponse:</label>
+                        <br>
+                        <input type="radio" name="publish4" value="oui" <?=($quizz4['answer']=='oui')? 'checked': '';?>> OUI<br>
+                        <input type="radio" name="publish4" value="non" <?=($quizz4['answer']=='non')? 'checked': '';?>> NON<br>
+
+                        <label for="answer4explain"> Réponse:</label>
+                        <br>
+                        <textarea id="answer4explain" class=""><?=($quizz4['explainAnswer']);?></textarea>
+
                 <?php endif; ?>
-            </div>
+
+            </div> <!-- fermeture bloc 2 -->
 
 	<?php endif;?>
 

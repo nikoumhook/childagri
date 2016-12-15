@@ -92,6 +92,18 @@ class BackController extends Controller
 	}
 
 
+	/***************** Page FICHE ALIMENT: AFFICHAGE  **********/
+
+	public function ficheAliment()
+	{
+		$modelPedago = new PedagoModel();
+		$this->show('back/ficheAliment', [
+			'aliment'=>$modelPedago->getOneAliment(),
+			'lands'=>$modelPedago->getLands()
+			]);
+	}
+
+
 	/***************** Page ALIMENT: AFFICHAGE et TRAITEMENTS **********/
 
 	public function aliment()

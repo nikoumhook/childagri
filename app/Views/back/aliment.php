@@ -1,4 +1,4 @@
-<?php $this->layout('back', ['title' => 'Administrer vos contenus pedagogiques']) ?>
+<?php $this->layout('back', ['title' => 'Administrer vos aliments']) ?>
 
 <?php $this->start('head') ?>
 	<!-- Style Knacss -->

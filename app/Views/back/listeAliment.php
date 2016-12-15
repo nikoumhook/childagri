@@ -24,7 +24,7 @@
 				<th>Image</th>
 				<th>Région</th>
 				<th>Etat</th>
-				<th colspan="3">Actions</th>
+				<th>Voir la fiche</th>
 				
 
 			</tr>
@@ -32,18 +32,18 @@
 		</thead>
 
 		<tbody>
-		<?php foreach ($aliments as $aliments):?>
+		<?php foreach ($aliments as $aliment):?>
 			
 			<tr>
-				<td><?=ucfirst($aliments['name']);?></td>
+				<td><?=ucfirst($aliment['name']);?></td>
 
-				<td><img class="" src="<?=$this->assetUrl($aliments['urlImg']);?>"></td>
+				<td><img class="" src="<?=$this->assetUrl($aliment['urlImg']);?>"></td>
 
-				<td><?=ucfirst($aliments['region']);?></td>
+				<td><?=ucfirst($aliment['region']);?></td>
 
 				<td>
 					<?php 
-					switch ($aliments['publish']) {
+					switch ($aliment['publish']) {
 					case "oui":
 						echo "Publié";
 						break;
@@ -54,10 +54,9 @@
 					?>
 				</td>
 
-				<td><input type="radio" name="publish" value="oui"></input> Publier</td>
-				<td><input type="radio" name="publish" value="non"></input> En brouillon</td>
-				<td><button type="submit" class=""</button>Enregistrer</td>
+				<td><a href="<?= $this->url('back_ficheAliment', ['id'=>$aliment['id']]);?>">Voir la fiche</a></td>
 			</tr>
+
 		<?php endforeach;?>
 		</tbody>
 

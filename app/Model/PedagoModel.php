@@ -39,6 +39,23 @@ class PedagoModel extends Model
 	} //fermeture fonction getland
 
 
+	public function getOneAliment(){
+		$app = getApp();
+		$sql = 'SELECT aliments. *, lands.name AS region FROM aliments LEFT JOIN lands ON aliments.id_land = lands.id';
+		$dbh = ConnectionModel::getDbh();
+		$sth = $dbh->prepare($sql);
+
+			if($sth->execute()){
+				$foundAliment = $sth->fetch();
+				if($foundAliment){
+					return $foundAliment;
+			}
+		}
+		return false;
+	} //fermeture fonction getland
+
+
+
 	public function getQuizzAliment($id){
 		$app = getApp();
 		$sql = 'SELECT quizz.*,  aliments.name AS ingredient, lands.name AS region FROM quizz JOIN aliments ON quizz.id_aliment = aliments.id RIGHT JOIN lands ON aliments.id_land = lands.id WHERE quizz.id_aliment = :id';

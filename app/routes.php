@@ -46,11 +46,14 @@
         // BACK Fiche pedago :
          ['GET|POST', '/config/fichePedago/[i:id]', 'Back#fichePedago', 'back_fichePedago'],
 
-         // BACK Aliments :/
+        // BACK Aliments :/
          ['GET|POST', '/config/aliment', 'Back#aliment', 'back_aliment'],
 
-          // BACK Liste Aliments :/
+        // BACK Liste Aliments :/
          ['GET|POST', '/config/listeAliment', 'Back#listeAliment', 'back_listeAliment'],
+
+        // BACK  Fiche Aliments :/
+         ['GET|POST', '/config/ficheAliment/[i:id]', 'Back#ficheAliment', 'back_ficheAliment'],         
 
          // BACK Affichage Quizz (traitement fait en ajax) :
          ['GET|POST', '/config/quizz', 'Back#quizz', 'back_quizz'],

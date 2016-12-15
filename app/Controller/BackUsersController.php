@@ -11,11 +11,11 @@ class BackUsersController extends Controller
 	/**
 	 * Affiche la liste des membres
 	 */
-	public function list()
+	public function listeUser()
 	{
 		$playermodel = new PlayersModel();
 		$players = $playermodel->findAll();
-		$this->show('back/users-list',['players' => $players]);
+		$this->show('back/listeUser',['players' => $players]);
 	}
 
 }

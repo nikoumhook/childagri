@@ -22,7 +22,7 @@
 				<th>Aliment</th>
 				<th>Région</th>
 				<th>Etat</th>
-				<th>Contenu pédagogique</th>
+				<th>Voir la fiche</th>
 			</tr>
 		</thead>
 

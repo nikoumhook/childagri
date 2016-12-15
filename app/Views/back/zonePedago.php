@@ -26,10 +26,10 @@
 
 			<div class="grid-2 flex-container-v">
 
-				<div class="bloc1 center">
+				<div class="bloc1">
 
-					<label for="aliment" class="labelPedago one-third"> Choisissez l'aliment de votre contenu pedagogique</label><br>
-						<select name="aliment" class="two-third">
+					<label for="aliment" class="labelPedago"> Choisissez l'aliment de votre contenu pedagogique</label><br>
+						<select name="aliment" class="">
 	  						<option value="" selected disable>Liste des aliments</option>
 	  							<?php foreach ($aliments as $aliment) :?>
 	  								<option value="<?= $aliment['id'];?>"> <?= ucfirst($aliment['name']);?></option>
@@ -46,7 +46,7 @@
 						</select>
 						<br> -->
 						 
-					<label for="publish" class="labelPedago one-third"> Publier votre contenu</label><br>
+					<label for="publish" class="labelPedago"> Publier votre contenu</label><br>
 						<input type="radio" name="publish" value="oui" checked> OUI je le publie<br>
 	  					<input type="radio" name="publish" value="non"> NON je l'enregistre en brouillon<br>
  					
@@ -54,28 +54,29 @@
 				</div> <!-- fermeture bloc1 -->
 
 
-				<div class="bloc2 center">
+				<div class="bloc2">
 
-					<label for="content" class="labelPedago one-third">Contenu pédagogique</label>
+					<label for="content" class="labelPedago">Contenu pédagogique</label>
 						<textarea id="content" class="inputPedago two-third" type="text" name="content" placeholder="Ex: Le lait">
 						</textarea>
 
 					<br>
-					<label for="picture" class="labelPedago one-third">Illustration</label>
+					<label for="picture" class="labelPedago">Illustration</label>
 						<input id="picture" class="inputPedago two-third" type="file" name="picture" class="" accept="image/*" value="">
 					<br>
 
-					<label for="sound" class="labelPedago one-third">Piste audio</label>
+					<label for="sound" class="labelPedago">Piste audio</label>
 						<input id="sound" class="inputPedago two-third" type="file" name="sound" class="" accept="audio/mpeg3" value="">
 
-				</div> <!--  fermeture bloc1 --> 
+				</div> <!--  fermeture bloc2 --> 
+
+				<!-- Bouton -->
+				<div class="center flex_container-v">
+					<button type="submit" class="">ENREGISTRER</button>
+				</div>
 
 			</div> <!--  fermeture div Grid2 --> 
 
-			<!-- Bouton -->
-			<div class="center flex_container-v">
-				<button type="submit" class="">ENREGISTRER</button>
-			</div>
 
 		</form>
 

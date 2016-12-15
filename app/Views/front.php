@@ -21,11 +21,11 @@
     </head>
     <body>
 
-        <div class="debug pam">
+        <!-- <div class="debug pam">
             <pre>
-                <!-- <php var_dump(); ?> -->
+                <php var_dump($_SESSION); ?>
             </pre>
-        </div>
+        </div> -->
 
 
         <!-- BOUTON PERMANENTS ************///////////////////////////////:******************* -->
@@ -52,10 +52,14 @@
 
             <?php if (isset($carte)): ?>
                 <div id="navTopBar">
-                    <div class="center pam">Choisi un Repas !!!</div>
-                    <!-- <a class="customNavigation btn prev"><</a>
-                    <ul id="owl-demo">
-                        <li class="item" id="from1" name="Babybel"><img src="<?= $this->assetUrl('img/aliment_babybel.svg') ?>" alt=""></li>
+                    <div class="pal">
+                        MERCI DE CHOISIR UN REPAS !
+                    </div>
+
+                    <!-- <a class="customNavigation btn prev"><</a> -->
+                    <!-- <ul id="owl-demo">
+                        <li class="item"><div class="center pam">Choisi un Repas !!!</div></li> -->
+                        <!-- <li class="item" id="from1" name="Babybel"><img src="<?= $this->assetUrl('img/aliment_babybel.svg') ?>" alt=""></li>
                         <li class="item" id="from2" name="Beurre"><img src="<?= $this->assetUrl('img/aliment_beurre.svg') ?>" alt=""></li>
                         <li class="item" id="from3" name="Cornflakes"><img src="<?= $this->assetUrl('img/aliment_cornflakes.svg') ?>" alt=""></li>
                         <li class="item" id="from4" name="Kiwi"><img src="<?= $this->assetUrl('img/aliment_kiwi.svg') ?>" alt=""></li>
@@ -64,8 +68,8 @@
                         <li class="item" id="from7" name="Mousseline"><img src="<?= $this->assetUrl('img/aliment_mousseline.svg') ?>" alt=""></li>
                         <li class="item" id="from8" name="Pomme"><img src="<?= $this->assetUrl('img/aliment_pomme.svg') ?>" alt=""></li>
                         <li class="item" id="from9" name="Roquefort"><img src="<?= $this->assetUrl('img/aliment_roquefort.svg') ?>" alt=""></li>
-                        <li class="item" id="from10" name="Surimi"><img src="<?= $this->assetUrl('img/aliment_surimi.svg') ?>" alt=""></li>
-                    </ul>
+                        <li class="item" id="from10" name="Surimi"><img src="<?= $this->assetUrl('img/aliment_surimi.svg') ?>" alt=""></li> -->
+                    <!-- </ul>
                     <a class="customNavigation btn next">></a> -->
                 </div>
             <?php endif; ?>
@@ -96,11 +100,15 @@
 
         <!-- INCLUSION JAVASCRIPT  ************///////////////////////////////:******************* -->
             <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+            <script src="<?= $this->assetUrl('owl-carousel/owl.carousel.min.js') ?>"></script>
 
             <?= $this->section('script') ?>
         <!-- FIN INCLUSION JAVASCRIPT  ************///////////////////////////////:******************* -->
-
-        <script src="<?= $this->assetUrl('js/interface.js') ?>"></script>
-        <script src="<?= $this->assetUrl('owl-carousel/owl.carousel.min.js') ?>"></script>
+        <script type="text/javascript">
+        // menu deco
+        $('.decoMenu').click(function(){
+            $('.decoSubmenu').toggle();
+        });
+        </script>
     </body>
 </html>

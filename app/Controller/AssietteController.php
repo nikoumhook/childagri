@@ -12,7 +12,8 @@ class AssietteController extends Controller
 	/**
 	 *  Redirection complete vers l'assiette avec les parametres nikel
 	 */
-	public function assiette(){
+	public function assiette($content =''){
+
 
         $gameController = new GameController();
 
@@ -30,8 +31,11 @@ class AssietteController extends Controller
             // Ont récupère les repas qui ont été selectionné
             $repas = $gameController->getRepasSelected(false);
 
+
+
             $this->show('front/assiette',[
-                'repas' =>  $repas
+                'repas' =>  $repas,
+                'aliments'=> $content
             ]);
 
 

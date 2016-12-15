@@ -48,24 +48,51 @@ $(document).ready(function(){
     $("#marker3").attr("y",xy[4][1]);
     $("#marker3").attr("xlink:href", '<?= $this->assetUrl($aliment3['urlImg']);?>');
 
-
+    var marker1 = false;
+    var marker2 = false;
+    var marker3 = false;
     $('#marker1').click(function(){
+
+        marker1 = true;
+        $('#zonePedago').children().hide();
         $('.aliment1').slideToggle( "slow", function() {
-            alert('click sur l\'ingredient 1)');
+
         });
+
+        controleClickPedago();
+
     });
     $('#marker2').click(function(){
+
+        marker2 = true;
+        $('#zonePedago').children().hide();
         $('.aliment2').slideToggle( "slow", function() {
-            alert('click sur l\'ingredient 2)');
+
         });
+
+        controleClickPedago();
+
     });
     $('#marker3').click(function(){
+
+        marker3 = true;
+        $('#zonePedago').children().hide();
         $('.aliment3').slideToggle( "slow", function() {
-            alert('click sur l\'ingredient 3)');
+
         });
+
+        controleClickPedago();
+
     });
 
-});
+    var controleClickPedago = function(){
+        if (marker1 && marker2 && marker3) {
+            alert('Felicitation Vous avez tous lus');
+            // a cette endroit faire le script qui fait apparaitre Le logo du quizz
+        };
+    };
+
+});// ready jaquery
 
 
 </script>

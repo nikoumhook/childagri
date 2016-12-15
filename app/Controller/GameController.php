@@ -187,7 +187,11 @@ class GameController extends Controller{
         if (!empty($_SESSION['repasEnCour'])) {
 
             foreach ($_SESSION['repasEnCour'] as $aliments) {
+
+                if (!empty($aliments)) {
                     $aliments = $aliments ;
+                }
+
             }
 
             return $aliments;

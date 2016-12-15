@@ -29,6 +29,7 @@ class CarteController extends Controller
 
                 $aliments = $gameController->getAlimentSelected();
 
+
                 $i = 1;
                 foreach ($aliments as $idaliment) {
 
@@ -50,7 +51,7 @@ class CarteController extends Controller
                 $this->show('front/carte',[
                     'aliment1' => $aliment1 ,
                     'aliment2' => $aliment2 ,
-                    'aliment3' => $aliment3 
+                    'aliment3' => $aliment3
                 ]);
 
             }

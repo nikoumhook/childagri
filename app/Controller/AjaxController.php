@@ -228,11 +228,19 @@ class AjaxController extends Controller
         $aliments = $alimentsModel->getAlimentForRepas();
 
         if ($aliments) {
+            //$html = '';
             $html = '<a class="customNavigation btn prev"> < </a><ul id="owl-demo">' ;
             foreach ($aliments as $aliment) {
-                $html .= '<li class="item" id="from'.$aliment['id'].'" name="'.$aliment['name'].'"><img src="../assets/'.$aliment['urlImg'].'" alt=""></li>';
+
+                if ($aliment['publish'] == 'oui' && !empty($aliment['urlImg']) ) {
+
+                    $html .= '<li class="item" id="from'.$aliment['id'].'" name="'.$aliment['name'].'"><img src="../assets/'.$aliment['urlImg'].'" alt=""></li>';
+
+                }
             };
+
             $html .= '</ul><a class="customNavigation btn next"> > </a>' ;
+
 
             $this->showJson(['ingredients' => $html,'success'=> 'ok']);
         }

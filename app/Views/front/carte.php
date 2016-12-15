@@ -73,9 +73,6 @@ $(document).ready(function(){
 
 <?php $this->start('main_content') ?>
 
-    <div class="debug">
-        <?php var_dump($aliment1) ?>
-    </div>
 
 <div id="container_carte" class="pal">
 

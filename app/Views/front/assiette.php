@@ -53,10 +53,21 @@
             // ont viens attribuer la valeur de l'id du bouton a la variable
             repas = $(this).attr('id');
 
+            $.ajax({
+                url: '<?=$this->url('ajax_getAliments');?>',
+                type:'post',
+                cache:false,
+                data: {
+                    repas : repas
+                },
+                dataType: 'json',
+                success: function(result){
+                    if (result.success == 'ok') {
+                        $('#navTopBar').html(result.ingredients);
+                    }
 
-            // PAR DEFAUT LE TEXTE DOIT ETRE PRESENT EN HAUT SUR LA PAGE EN DUR IL SERA CHANGé APRéS
-            //a ce moment il faut faire un requete ajax qui correspond au repas choisi et qui viens remplir
-            // ---->>>  sa >>>>    $('#owl-demo').html()
+                }//fermeture success
+            });//fermeture $.ajax
 
 
             // ont stop le listener pour pas qu'ils n'ecoute plus si ont click sur les autres repas

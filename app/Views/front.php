@@ -23,7 +23,7 @@
 
         <div class="debug pam">
             <pre>
-                <?php var_dump(); ?>
+                <!-- <php var_dump(); ?> -->
             </pre>
         </div>
 
@@ -52,7 +52,8 @@
 
             <?php if (isset($carte)): ?>
                 <div id="navTopBar">
-                    <a class="customNavigation btn prev"><</a>
+                    <div class="center pam">Choisi un Repas !!!</div>
+                    <!-- <a class="customNavigation btn prev"><</a>
                     <ul id="owl-demo">
                         <li class="item" id="from1" name="Babybel"><img src="<?= $this->assetUrl('img/aliment_babybel.svg') ?>" alt=""></li>
                         <li class="item" id="from2" name="Beurre"><img src="<?= $this->assetUrl('img/aliment_beurre.svg') ?>" alt=""></li>
@@ -65,7 +66,7 @@
                         <li class="item" id="from9" name="Roquefort"><img src="<?= $this->assetUrl('img/aliment_roquefort.svg') ?>" alt=""></li>
                         <li class="item" id="from10" name="Surimi"><img src="<?= $this->assetUrl('img/aliment_surimi.svg') ?>" alt=""></li>
                     </ul>
-                    <a class="customNavigation btn next">></a>
+                    <a class="customNavigation btn next">></a> -->
                 </div>
             <?php endif; ?>
 

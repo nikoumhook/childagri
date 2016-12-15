@@ -4,8 +4,9 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use Model\PlayersModel;
-use \Controller\GameController;
+use Model\AlimentsModel;
 use Model\QuizzModel;
+use \Controller\GameController;
 use Respect\Validation\Validator as v;
 
 class AjaxController extends Controller
@@ -142,7 +143,7 @@ class AjaxController extends Controller
 		$formValid = false;
 		$modelQuizz = new QuizzModel();
 
-		
+
 		if (!empty($_POST)) {
 
 			foreach ($_POST as $key => $value) {
@@ -219,7 +220,26 @@ class AjaxController extends Controller
 
     }// fin fonction fin Assiette
 
+    // fonction qui permet de récupéré l'affichage des ingredients en fonction du POST['']
+    public function getNeedIngredientsForRepas(){
 
+        $alimentsModel = new AlimentsModel();
+
+        $aliments = $alimentsModel->getAlimentForRepas();
+
+        if ($aliments) {
+            $html = '<a class="customNavigation btn prev"> < </a><ul id="owl-demo">' ;
+            foreach ($aliments as $aliment) {
+                $html .= '<li class="item" id="from'.$aliment['id'].'" name="'.$aliment['name'].'"><img src="../assets/'.$aliment['urlImg'].'" alt=""></li>';
+            };
+            $html .= '</ul><a class="customNavigation btn next"> > </a>' ;
+
+            $this->showJson(['ingredients' => $html,'success'=> 'ok']);
+        }
+
+
+
+    }// fin fonction getNeedIngredientsForRepas
 
 
 

@@ -30,6 +30,8 @@
         ['GET|POST', '/ajax/quizz', 'Ajax#quizz', 'ajax_quizz'],
         // BACK traitement des quizz :
         ['GET|POST', '/ajax/finassiette', 'Ajax#finAssiette', 'ajax_finAssiette'],
+        // ASSIETTE récuperation des aliments en fonction du repas :
+        ['GET|POST', '/ajax/getaliments', 'Ajax#getNeedIngredientsForRepas', 'ajax_getAliments'],
 
 
 /*//////////////BACK-OFFICE Administration*//////////////////////////

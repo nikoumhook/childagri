@@ -10,9 +10,11 @@
         // Connection du joueur DEBUT DE LA PARTIE :
         ['GET|POST', '/play', 'Game#startGame', 'game_startPlay'],
         // Page assiette :
-		['GET|POST', '/game/assiette', 'Assiette#assiette', 'game_assiette'],
+	['GET|POST', '/game/assiette', 'Assiette#assiette', 'game_assiette'],
         // Page carte :
-		['GET|POST', '/game/carte', 'Carte#carte', 'game_carte'],
+	['GET|POST', '/game/carte', 'Carte#carte', 'game_carte'],
+        // Page quizz :
+        ['GET|POST', '/game/quizz', 'Quizz#quizz', 'game_quizz'],
 
 
         // menu deco (quit) et reset :

@@ -2,6 +2,9 @@
 
 <?php $this->start('head') ?>
 
+    <!-- Feuille de style FORMULAIRE BACK -->
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/formulaire.css') ?>">
+
 <?php $this->stop('head') ?>
 
 
@@ -19,58 +22,57 @@
 
 		<form method="POST" enctype="multipart/form-data">
 
-			<h1 class="txtcenter"> Administrer le contenu pedagogique</h1>
+			<h1 class="txtcenter">Enregistrer un contenu pedagogique</h1>
 
-			<div class="grid-2 flex-container-v">
+			<div class="grid-6 pam">
+				<label for="aliment" class="push"> Choisissez l'aliment</label>
+				<select name="aliment" class="pull">
+	  				<option value="" selected disable>Liste des aliments</option>
+	  						<?php foreach ($aliments as $aliment) :?>
+	  							<option value="<?= $aliment['id'];?>"> <?= ucfirst($aliment['name']);?></option>
+	  						<?php endforeach ;?>
+				</select>
+			</div> <!-- fermeture Grid -->
 
-				<div class="bloc1">
 
-					<label for="aliment" class="labelPedago"> Choisissez l'aliment de votre contenu pedagogique</label><br>
-						<select name="aliment" class="">
-	  						<option value="" selected disable>Liste des aliments</option>
-	  							<?php foreach ($aliments as $aliment) :?>
-	  								<option value="<?= $aliment['id'];?>"> <?= ucfirst($aliment['name']);?></option>
-	  							<?php endforeach ;?>
-						</select>
-						<br>
+			<div class="grid-2 flex-container-v zone2">
 
-				<!-- 	<label for="land" class="labelPedago one-third">Choisissez la région de production de votre aliment</label><br>
-						<select name="land" class="two-third">
-	  						<option value="" selected disable>Liste des régions</option>
-	  							<php foreach ($lands as $land) :?>
-	  								<option value="<= $land['id'];?>"> <= ucfirst($land['publicName']);?></option>
-	  							<?php //endforeach ;?>
-						</select>
-						<br> -->
-						 
-					<label for="publish" class="labelPedago"> Publier votre contenu</label><br>
-						<input type="radio" name="publish" value="oui" checked> OUI je le publie<br>
-	  					<input type="radio" name="publish" value="non"> NON je l'enregistre en brouillon<br>
- 					
-
+				<div class="flex-container-v pam">
+					<label for="content" class="">Contenu pédago</label>
+					<textarea id="content" class="" type="text" name="content" placeholder="Ex: Le lait">
+						</textarea>
 				</div> <!-- fermeture bloc1 -->
 
-
-				<div class="bloc2">
-
-					<label for="content" class="labelPedago">Contenu pédagogique</label>
-						<textarea id="content" class="inputPedago two-third" type="text" name="content" placeholder="Ex: Le lait">
-						</textarea>
-
-					<br>
-					<label for="picture" class="labelPedago">Illustration</label>
-						<input id="picture" class="inputPedago two-third" type="file" name="picture" class="" accept="image/*" value="">
-					<br>
-
-					<label for="sound" class="labelPedago">Piste audio</label>
-						<input id="sound" class="inputPedago two-third" type="file" name="sound" class="" accept="audio/mpeg3" value="">
+				<div class="flex-container-v pam">
+					<div class="pas">
+						<label for="picture" class="">Fichier image</label>
+						<input id="picture" class="" type="file" name="picture" accept="image/*" value="">
+					</div>
+					<div class="pas">
+						<label for="sound" class="">Fichier audio </label>
+						<input id="sound" class="" type="file" name="sound" accept="audio/mpeg3" value="">
+					</div>
 
 				</div> <!--  fermeture bloc2 --> 
+			</div> <!-- fermeture grid 2 -->
+
+
+			<div class="grid-4 flex-container-v ptl">
+
+				<div class="flex-container-v push">
+					<div class="">
+						<label for="publish" class=""> PUBLIER</label>
+					</div>
+					<div>
+						<input type="radio" name="publish" value="oui" checked> En ligne
+	  					<input type="radio" name="publish" value="non"> Brouillon
+	  				</div>
+	  			</div> <!-- fermeture bloc3 -->
 
 				<!-- Bouton -->
-				<div class="center flex_container-v">
-					<button type="submit" class="">ENREGISTRER</button>
-				</div>
+				<div class="flex-container-v pull">
+					<button type="submit" class="bouttonEnregistrer">ENREGISTRER</button>
+				</div> <!-- femeture bloc4 -->
 
 			</div> <!--  fermeture div Grid2 --> 
 

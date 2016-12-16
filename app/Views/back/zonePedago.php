@@ -22,11 +22,11 @@
 
 		<form method="POST" enctype="multipart/form-data">
 
-			<h1 class="txtcenter">Enregistrer un contenu pedagogique</h1>
+			<h1 class="txtcenter pbl">Enregistrer un contenu pedagogique</h1>
 
 			<div class="grid-6 pam">
-				<label for="aliment" class="push"> Choisissez l'aliment</label>
-				<select name="aliment" class="pull">
+				<label for="aliment" class="aliment push mam txtright"> Choisissez l'aliment</label>
+				<select name="aliment" class="mam pull">
 	  				<option value="" selected disable>Liste des aliments</option>
 	  						<?php foreach ($aliments as $aliment) :?>
 	  							<option value="<?= $aliment['id'];?>"> <?= ucfirst($aliment['name']);?></option>
@@ -35,7 +35,7 @@
 			</div> <!-- fermeture Grid -->
 
 
-			<div class="grid-2 flex-container-v zone2">
+			<div class="grid-2 flex-container-v">
 
 				<div class="flex-container-v pam">
 					<label for="content" class="">Contenu pédago</label>
@@ -44,12 +44,12 @@
 				</div> <!-- fermeture bloc1 -->
 
 				<div class="flex-container-v pam">
-					<div class="pas">
-						<label for="picture" class="">Fichier image</label>
+					<label for="picture" class="">Fichier image</label>
+					<div class="">
 						<input id="picture" class="" type="file" name="picture" accept="image/*" value="">
 					</div>
-					<div class="pas">
-						<label for="sound" class="">Fichier audio </label>
+					<div class="ptl">
+						<label for="sound" class="">Fichier audio </label><br>
 						<input id="sound" class="" type="file" name="sound" accept="audio/mpeg3" value="">
 					</div>
 
@@ -59,18 +59,25 @@
 
 			<div class="grid-4 flex-container-v ptl">
 
-				<div class="flex-container-v push">
+				<div class="flex-container-v prm plm txtcenter push">
 					<div class="">
-						<label for="publish" class=""> PUBLIER</label>
+						<label for="publish" class="publier pbl"> PUBLIER</label>
 					</div>
-					<div>
-						<input type="radio" name="publish" value="oui" checked> En ligne
-	  					<input type="radio" name="publish" value="non"> Brouillon
+
+					<div class="flex-container">
+						<div class="left">
+							EN LIGNE <input type="radio" name="publish" value="oui" checked>
+						</div>
+
+						<div class="right">
+	  						<input type="radio" name="publish" value="non"> BROUILLON
+	  					</div>
+
 	  				</div>
 	  			</div> <!-- fermeture bloc3 -->
 
 				<!-- Bouton -->
-				<div class="flex-container-v pull">
+				<div class="flex-container-v pull mll">
 					<button type="submit" class="bouttonEnregistrer">ENREGISTRER</button>
 				</div> <!-- femeture bloc4 -->
 

@@ -25,7 +25,7 @@
 
 	<form method="POST" enctype="multipart/form-data">
 
-		<h1 class="txtcenter">Enregistrer un aliment</h1>
+		<h1 class="txtcenter pbl">Enregistrer un aliment</h1>
 
 		<div class="grid-4 flex-container flex-container-v">
 
@@ -54,7 +54,7 @@
 
 			<div class="pam flex-container-v">
 				<div>
-                	<label>Repas </label>
+                	<label>Repas</label>
                 </div><br>
                     
                  <div>
@@ -77,13 +77,19 @@
 
         <div class="grid-4 flex-container flex-container-v ptl">
 
-      		<div class="flex-container-v push">
+      		<div class="flex-container-v prm plm txtcenter push">
       			<div class="">
-					<label for="publish" class=""> PUBLIER</label>
+					<label for="publish" class="publier pbl"> PUBLIER</label>
 				</div>
-				<div>
-					<input type="radio" name="publish" value="oui" checked> En 	ligne
-  					<input type="radio" name="publish" value="non"> Brouillon
+
+				<div class="flex-container">
+					<div class="left">
+						EN LIGNE <input type="radio" name="publish" value="oui" checked>
+					</div>
+
+					<div class="right">
+  						<input type="radio" name="publish" value="non"> BROUILLON
+  					</div>
   				</div>
   			</div> <!-- fermeture bloc5 -->
 

@@ -42,10 +42,11 @@
         </div>
     </nav>
 
-
-		<main class="wrapper containerMain">
+    <div class="centreur">
+		<main class="wrapper pam">
 			<?= $this->section('main_content') ?>
 		</main>
+    </div>
 
 		<footer>
 		</footer>

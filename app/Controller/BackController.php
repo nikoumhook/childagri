@@ -558,7 +558,7 @@ class BackController extends Controller
 
 			//Condition fichier audio
 			//ici valide le format du fichier audio
-			if (v::notEmpty()->validate($_FILES['sound']['tmp_name'])) {
+			if (v::notEmpty()->validate($_FILES['sound']['name'])) {
 
 				$mp3valid= true;
 
@@ -583,7 +583,7 @@ class BackController extends Controller
 
 			}//fermture condition si jamais c'est pas vide on controle la piste audio (pas obligatoire d'enregistrer la piste audio car brouillon
 
-			if(v::notEmpty()->validate($_FILES['picture']['tmp_name'])){
+			if(v::notEmpty()->validate($_FILES['picture']['name'])){
 
 				$imgvalid= true;
 
@@ -608,6 +608,64 @@ class BackController extends Controller
 			//si mon formulaire n'a pas d'erreur
 			if (count($errors) === 0) {
 
+                // traitement de l'image
+
+                $redimNeed = false ;
+
+                // adresse de stockage des l'image :
+                $adressImg = $_SERVER['DOCUMENT_ROOT'].$_SERVER['W_BASE'].'/assets/img/';
+
+                if ($imgvalid) {
+
+                    $picto = Image::make($_FILES['picture']['tmp_name']);
+
+                    // On définit l'extension de l'image en fonction de son mimeType
+                    switch($picto->mime()){
+                            case 'image/jpg':
+                            case 'image/jpeg':
+                                $redimNeed = true ;
+                            break;
+                            case 'image/png':
+                                $redimNeed = true ;
+                            break;
+                            case 'image/gif':
+                                $redimNeed = true ;
+                            break;
+
+                    }// fin swich
+                    if ($redimNeed) {
+                        //$picto->resize(256, 256);
+                    }
+                    // Le nom du picto + son extension
+
+                    $pictoName = 'aliment_'.$_FILES['picture']['name'];
+
+                    // On sauvegarde l'image
+
+                    $controle = $picto->save($adressImg.$pictoName);
+                }// fin if $imgvalid
+
+                // fin traitement de l'image
+
+                // traitement du son
+
+                $redimNeed = false ;
+
+                // adresse de stockage des l'image :
+                $adressSound = $_SERVER['DOCUMENT_ROOT'].$_SERVER['W_BASE'].'/assets/sound/';
+
+                if ($mp3valid) {
+
+                    // On sauvegarde l'image
+                    if (!move_uploaded_file($_FILES['sound']['tmp_name'], $adressSound.'Pedago_'.$_FILES['sound']['name'])) {
+                        $mp3valid = false ;
+                    }
+
+                }// fin if $mp3valid
+
+                // fin traitement du son
+
+
 				$data = [
 					'content' 	=>$post['content'],
 					'publish'	=>$post['publish'],
@@ -615,12 +673,12 @@ class BackController extends Controller
 
 				//condition si tu enregistre une piste audio
 				if ($mp3valid) {
-					$data ['urlSound'] = $post['sound'];
+					$data ['urlSound'] = '/sound/Pedago_'.$_FILES['sound']['name'];
 				}
 
 				//condition si tu enregistre une img
 				if ($imgvalid) {
-					$data ['urlImg'] = $post['picture'];
+					$data ['urlImg'] = '/img/'.$pictoName;
 				}
 
 				$result= $modelPedago->Update($data, $post['id']);
@@ -644,8 +702,7 @@ class BackController extends Controller
 
 	/***************** Page Zones Pédagogiques: AFFICHAGE et TRAITEMENTS **********/
 
-	public function zonePedago()
-	{
+	public function zonePedago(){
 
 
 		$errors = [];
@@ -653,6 +710,16 @@ class BackController extends Controller
 		$modelPedago = new PedagoModel();
 		$mp3valid = false;
 		$imgvalid= false;
+
+        // récupère les id des aliment qui sont deja associé
+        $alimentAssoc = [];
+        foreach ($modelPedago->findSelect('id_aliment') as $value) {
+            if (is_array($value)) {
+                foreach ($value as $value2) {
+                    $alimentAssoc[] = $value2;
+                }
+            }
+        }
 
 		if (!empty($_POST)) {
 
@@ -676,7 +743,7 @@ class BackController extends Controller
 
 			//Condition fichier audio
 			//ici valide le format du fichier audio
-			if (v::notEmpty()->validate($_FILES['sound']['tmp_name'])) {
+			if (v::notEmpty()->validate($_FILES['sound']['name'])) {
 
 				$mp3valid= true;
 
@@ -701,7 +768,7 @@ class BackController extends Controller
 
 			}//fermture condition si jamais c'est pas vide on controle la piste audio (pas obligatoire d'enregistrer la piste audio car brouillon
 
-			if(v::notEmpty()->validate($_FILES['picture']['tmp_name'])){
+			if(v::notEmpty()->validate($_FILES['picture']['name'])){
 
 				$imgvalid= true;
 
@@ -726,6 +793,65 @@ class BackController extends Controller
 			//si mon formulaire n'a pas d'erreur
 			if (count($errors) === 0) {
 
+
+                // traitement de l'image
+
+                $redimNeed = false ;
+
+                // adresse de stockage des l'image :
+                $adressImg = $_SERVER['DOCUMENT_ROOT'].$_SERVER['W_BASE'].'/assets/img/';
+
+                if ($imgvalid) {
+
+                    $picto = Image::make($_FILES['picture']['tmp_name']);
+
+                    // On définit l'extension de l'image en fonction de son mimeType
+                    switch($picto->mime()){
+                            case 'image/jpg':
+                            case 'image/jpeg':
+                                $redimNeed = true ;
+                            break;
+                            case 'image/png':
+                                $redimNeed = true ;
+                            break;
+                            case 'image/gif':
+                                $redimNeed = true ;
+                            break;
+
+                    }// fin swich
+                    if ($redimNeed) {
+                        //$picto->resize(256, 256);
+                    }
+                    // Le nom du picto + son extension
+
+                    $pictoName = 'aliment_'.$_FILES['picture']['name'];
+
+                    // On sauvegarde l'image
+
+                    $controle = $picto->save($adressImg.$pictoName);
+                }// fin if $imgvalid
+
+                // fin traitement de l'image
+
+                // traitement du son
+
+                $redimNeed = false ;
+
+                // adresse de stockage des l'image :
+                $adressSound = $_SERVER['DOCUMENT_ROOT'].$_SERVER['W_BASE'].'/assets/sound/';
+
+                if ($mp3valid) {
+
+                    // On sauvegarde l'image
+                    if (!move_uploaded_file($_FILES['sound']['tmp_name'], $adressSound.'Pedago_'.$_FILES['sound']['name'])) {
+                        $mp3valid = false ;
+                    }
+
+                }// fin if $mp3valid
+
+                // fin traitement du son
+
+
 				$AlimentsModel = new AlimentsModel();
 				$aliment= $AlimentsModel->find($post['aliment']);
 
@@ -738,12 +864,12 @@ class BackController extends Controller
 
 				//condition si tu enregistre une piste audio
 				if ($mp3valid) {
-					$data ['urlSound'] = $post['sound'];
+					$data ['urlSound'] = '/sound/'.'Pedago_'.$_FILES['sound']['name'];
 				}
 
 				//condition si tu enregistre une img
 				if ($imgvalid) {
-					$data ['urlImg'] = $post['picture'];
+					$data ['urlImg'] = '/img/'.$pictoName;
 				}
 
 				$result= $modelPedago->insert($data);
@@ -761,6 +887,7 @@ class BackController extends Controller
 			'lands'=>$modelPedago->getLands(),
 			'errors'=>$errors,
 			'success'=>$formValid,
+            'alimentsAssoc'=>$alimentAssoc
 			]);
 
 	}//fermeture fonction zonePedago

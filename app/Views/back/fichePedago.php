@@ -9,7 +9,7 @@
 
 <?php $this->start('main_content') ?>
 
-	<?php if (empty($pedago)) :?> 
+	<?php if (empty($pedago)) :?>
 		<div class=""> Contenu pédagogique inconnu</div>
 	<?php endif;?>
 
@@ -44,21 +44,21 @@
 	  			<input type="radio" name="publish" value="non" <?=($pedago['publish']=='non')? 'checked': '';?>> En brouillon<br>
 			</div><!--  fermeture bloc 1 -->
 
-			<div class="bloc2"> 
+			<div class="bloc2">
 
 				<label for="audio">Piste audio actuelle</label>
 				<br>
 				<audio controls="controls">
-	  				<source src="<?=$this->assetUrl($pedago['urlSound']);?>" type="audio/mp3" />
+	  				<source src="<?=$this->assetUrl($pedago['urlSound']);?>" type="audio/mp3" >
 				</audio>
 				<br>
 
 				<label for="sound" class="labelPedago">Modifier votre piste audio</label>
-				<input id="sound" class="inputPedago two-third" type="file" name="sound" class="" accept="audio/mpeg3">
-				
+				<input id="sound" class="inputPedago two-third" type="file" name="sound" class="" accept=".mp3">
+
 			</div> <!-- fermeture bloc 2 -->
 
-			<div class="bloc3"> 
+			<div class="bloc3">
 
 				<label for="audio">Votre image actuelle</label>
 				<br>
@@ -69,7 +69,7 @@
 				<br>
 				<input id="picture" class="inputAliment" type="file" name="picture" class="" accept="image/*" value="">
 				<br>
-				
+
 			</div> <!-- fermeture bloc 3 -->
 
 
@@ -79,7 +79,7 @@
 				</div>
 
 		</div> <!-- fermeture de mon grid2 -->
-		
+
 	</form>
 
 

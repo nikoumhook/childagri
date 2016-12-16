@@ -6,8 +6,7 @@
 
 
 <?php $this->start('script') ?>
-<?php echo $aliment1['id'];
-?>
+
 <script>
 var xy = [
     ['null','null'],
@@ -94,7 +93,7 @@ $(document).ready(function(){
                 type:'post',
                 cache:false,
                 data: {
-                    
+
                 },
                 dataType: 'json',
                 success: function(result){
@@ -110,7 +109,7 @@ $(document).ready(function(){
                 }//fermeture success
             });//fermeture $.ajax
             // activation du bouton retour a la carte de france !
-            $('#navReturn').slideToggle();
+            $('#navReturn').slideDown();
             // a cette endroit faire le script qui fait apparaitre Le logo du quizz
         };
     };

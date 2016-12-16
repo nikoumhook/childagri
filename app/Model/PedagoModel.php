@@ -108,6 +108,20 @@ class PedagoModel extends Model
 
 
 
+    public function findSelect($select = '*'){
+        $app = getApp();
+		$sql = 'SELECT '.$select.' FROM pedago ';
+		$dbh = ConnectionModel::getDbh();
+		$sth = $dbh->prepare($sql);
+
+			if($sth->execute()){
+				$foundAllPedago = $sth->fetchAll();
+				if($foundAllPedago){
+					return $foundAllPedago;
+			}
+		}
+		return false;
+    }
 
 
 }

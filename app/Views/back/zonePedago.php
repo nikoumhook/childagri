@@ -25,11 +25,16 @@
 
 				<div class="bloc1">
 
+
 					<label for="aliment" class="labelPedago"> Choisissez l'aliment de votre contenu pedagogique</label><br>
 						<select name="aliment" class="">
 	  						<option value="" selected disable>Liste des aliments</option>
 	  							<?php foreach ($aliments as $aliment) :?>
-	  								<option value="<?= $aliment['id'];?>"> <?= ucfirst($aliment['name']);?></option>
+                                    <?php if (!in_array($aliment['id'],$alimentsAssoc)): ?>
+                                        <option value="<?= $aliment['id'];?>"> <?= ucfirst($aliment['name']);?></option>
+                                    <?php else : ?>
+                                        <option value="<?= $aliment['id'];?>" disabled> <?= ucfirst($aliment['name']);?></option>
+                                    <?php endif; ?>
 	  							<?php endforeach ;?>
 						</select>
 						<br>
@@ -42,11 +47,11 @@
 	  							<?php //endforeach ;?>
 						</select>
 						<br> -->
-						 
+
 					<label for="publish" class="labelPedago"> Publier votre contenu</label><br>
 						<input type="radio" name="publish" value="oui" checked> OUI je le publie<br>
 	  					<input type="radio" name="publish" value="non"> NON je l'enregistre en brouillon<br>
- 					
+
 
 				</div> <!-- fermeture bloc1 -->
 
@@ -63,16 +68,16 @@
 					<br>
 
 					<label for="sound" class="labelPedago">Piste audio</label>
-						<input id="sound" class="inputPedago two-third" type="file" name="sound" class="" accept="audio/mpeg3" value="">
+						<input id="sound" class="inputPedago two-third" type="file" name="sound" class="" accept=".mp3" value="">
 
-				</div> <!--  fermeture bloc2 --> 
+				</div> <!--  fermeture bloc2 -->
 
 				<!-- Bouton -->
 				<div class="center flex_container-v">
 					<button type="submit" class="">ENREGISTRER</button>
 				</div>
 
-			</div> <!--  fermeture div Grid2 --> 
+			</div> <!--  fermeture div Grid2 -->
 
 
 		</form>

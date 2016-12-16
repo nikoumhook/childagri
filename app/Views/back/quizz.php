@@ -2,120 +2,172 @@
 
 <?php $this->start('head') ?>
 
+    <!-- Feuille de style FORMULAIRE BACK -->
 
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/formulaire.css') ?>">
 <?php $this->stop('head') ?>
 
 
 <?php $this->start('main_content') ?>
 
 
-		<h1 class="txtcenter"> Administrer le quizz</h1>
+		<h1 class="txtcenter pbl">Enregistrer un quizz</h1>
 
-
-		<label for="aliment" class="labelPedago one-third"> Choisissez l'aliment de votre quizz</label>
-		<br>
-			<select id="aliment" name="aliment" class="two-third">
+		<div class="grid-6 pam">
+			<label for="aliment" class="push aliment"> Choisissez l'aliment</label>
+			<select id="aliment" name="aliment" class="mll pull">
 	  			<option value="" selected disable>Liste des aliments</option>
 	  				<?php foreach ($aliments as $aliment) :?>
-
-    	  				<option value="<?= $aliment['id'];?>"> <?= ucfirst($aliment['name']);?></option>
+    	  			<option value="<?= $aliment['id'];?>"> <?= ucfirst($aliment['name']);?></option>
 	  				<?php endforeach ;?>
 			</select>
-		<br>
+		</div> <!-- fermeture grid -->
 
 
 		<div class="grid-4 flex-container-v">
 
-			<div class="bloc1">
+			<div class="flex-container-v pam">
+
 				<form id="formQuestion1">
-					<h2>Renseigner la première question de votre quizz</h2>
-					<label for="question1" class="one-third">Question 1</label>
-					<textarea id="question1" type="text" name="question"></textarea>
 
-					<label for="answer1" class="one-third">Réponse</label><br>
-					<input type="radio" name="answer" value="oui" > La réponse est OUI<br>
-	  				<input type="radio" name="answer" value="non" checked> La réponse est NON<br>
-	  				<input type="text" id="ExplainAnswer" name="ExplainAnswer" class="">
+					<div class="flex-container-v">
+						<label for="question1" class="question txtcenter">Question 1</label>
+						<textarea id="question1" type="text" name="question"></textarea>
 
+						<div class="flex-container-v ptm">
+							<label for="answer1" class="reponse pbs txtcenter">Réponse</label>
+							<div class="flex-container">
+								<div class="left pll">
+									OUI <input type="radio" name="answer" value="oui">
+								</div>
+								<div class="right prl">
+	  								<input type="radio" name="answer" value="non" checked> NON
+	  							</div>
+	  						</div>
+	  					</div>
+
+	  					<label for="ExplainAnswer" class="elementReponse txtcenter ptm">Elément réponse</label>
+	  					<textarea id="ExplainAnswer" name="ExplainAnswer" class=""></textarea>
+
+	  				</div>
+	  		
 					<!-- Bouton -->
-					<div class="center flex_container-v">
-						<button id="validQuestion1" type="submit" class="">ENREGISTRER</button>
+					<div class="flex-container-v ptm">
+						<button id="validQuestion1" type="submit" class="mam bouttonEnregistrerQuizz">ENREGISTRER</button>
 					</div>
 
 					<!-- div Affichage resultat traitement AJAX CONNEXION-->
 					<div id="resultQuestion1" class="result txtcenter"></div>
+
 				</form>
-			</div>
 
-			<div class="bloc2">
+			</div> <!-- fermeture bloc1 -->
+
+			<div class="flex-container-v pam">
+
 				<form id="formQuestion2">
-					<h2>Renseigner la deuxième question de votre quizz</h2>
-					<label for="question2" class="one-third">Question 2</label>
-					<textarea id="question2" type="text" name="question"></textarea>
 
-					<label for="answer2" class="one-third">Réponse</label><br>
-					<input type="radio" name="answer" value="oui" checked> La réponse est OUI
-					<br>
-	  				<input type="radio" name="answer" value="non"> La réponse est NON
-	  				<br>
-	  				<input type="text" id="ExplainAnswer" name="ExplainAnswer" class="">
+					<div class="flex-container-v">
+						<label for="question2" class="question txtcenter">Question 2</label>
+						<textarea id="question2" type="text" name="question"></textarea>
 
+						<div class="flex-container-v ptm">
+							<label for="answer2" class="reponse pbs txtcenter">Réponse</label>
+							<div class="flex-container">
+								<div class="left pll">
+									OUI <input type="radio" name="answer" value="oui" checked>
+								</div>
+								<div class="right prl">
+	  								<input type="radio" name="answer" value="non"> NON
+	  							</div>
+	  						</div>
+	  					</div>
+	  				
+
+	  					<label for="ExplainAnswer" class="elementReponse txtcenter ptm">Elément réponse</label>
+	  					<textarea id="ExplainAnswer" name="ExplainAnswer" class=""></textarea>
+	  				
+	  				</div>
 	  				<!-- Bouton -->
-					<div class="center flex_container-v">
-						<button id="validQuestion2" type="submit" class="">ENREGISTRER</button>
+					<div class="center flex-container-v ptm">
+						<button id="validQuestion2" type="submit" class="mam bouttonEnregistrerQuizz">ENREGISTRER</button>
 					</div>
 
 					<!-- div Affichage resultat traitement AJAX CONNEXION-->
 					<div id="resultQuestion2" class="result txtcenter"></div>
 				</form>
-			</div>
+			</div> <!-- fermeture bloc2 -->
 
-			<div class="bloc3">
+			<div class="flex-container-v pam">
+
 				<form id="formQuestion3">
-					<h2>Renseigner la troisième question de votre quizz</h2>
-					<label for="question3" class="one-third">Question 3</label>
-					<textarea id="question3" type="text" name="question"></textarea>
+				
+					<div class="flex-container-v">
+						<label for="question3" class="question txtcenter">Question 3</label>
+						<textarea id="question3" type="text" name="question"></textarea>
 
-					<label for="answer3" class="one-third">Réponse</label><br>
-					<input type="radio" name="answer" value="oui" checked> La réponse est OUI
-					<br>
-	  				<input type="radio" name="answer" value="non"> La réponse est NON
-	  				<br>
-	  				<input type="text" id="ExplainAnswer" name="ExplainAnswer" class="">
+						<div class="flex-container-v ptm">
+							<label for="answer3" class="reponse txtcenter pbs">Réponse</label>
+							<div class="flex-container">
+									<div class="left pll">
+									OUI <input type="radio" name="answer" value="oui" checked> 
+									</div>
+									<div class="right prl">
+	  									<input type="radio" name="answer" value="non"> NON
+	  								</div>
+	  						</div>
+	  					</div>
+	  				
+
+	  					<label for="ExplainAnswer" class="elementReponse txtcenter ptm">Elément réponse</label>
+	  					<textarea id="ExplainAnswer" name="ExplainAnswer" class=""></textarea>
+	  				</div>
 
 	  				<!-- Bouton -->
-					<div class="center flex_container-v">
-						<button id="validQuestion3" type="submit" class="">ENREGISTRER</button>
+					<div class="center flex-container-v ptm">
+						<button id="validQuestion3" type="submit" class="mam bouttonEnregistrerQuizz">ENREGISTRER</button>
 					</div>
 
 					<!-- div Affichage resultat traitement AJAX CONNEXION-->
 					<div id="resultQuestion3" class="result txtcenter"></div>
 				</form>
-			</div>
+			</div> <!-- fermeture bloc3 -->
 
 
-			<div class="bloc4">
+			<div class="flex-container-v pam">
+
 				<form id="formQuestion4">
-					<h2>Renseigner la quatrième question de votre quizz</h2>
-					<label for="question4" class="one-third">Question 4</label>
-					<textarea id="question4" type="text" name="question"></textarea>
+					
+					<div class="flex-container-v">
+						<label for="question4" class="question txtcenter">Question 4</label>
+						<textarea id="question4" type="text" name="question"></textarea>
 
-					<label for="answer4" class="one-third">Réponse</label><br>
-					<input type="radio" name="answer" value="oui" checked> La réponse est OUI
-					<br>
-	  				<input type="radio" name="answer" value="non"> La réponse est NON
-	  				<br>
-	  				<input type="text" id="ExplainAnswer" name="ExplainAnswer" class="">
+						<div class="flex-container-v ptm">
+							<label for="answer4" class="reponse pbs txtcenter">Réponse</label>
+							<div class="flex-container">
+								<div class="left pll">
+									OUI <input type="radio" name="answer" value="oui" checked> 
+								</div>
+								<div class="right prl">
+	  								<input type="radio" name="answer" value="non"> NON
+	  							</div>
+	  						</div>
+	  					</div>
+	  				
 
+	  					<label for="ExplainAnswer" class="elementReponse txtcenter ptm">Elément réponse</label>
+	  					<textarea id="ExplainAnswer" name="ExplainAnswer" class=""></textarea>
+
+	  				</div>
 	  				<!-- Bouton -->
-					<div class="center flex_container-v">
-						<button id="validQuestion4" type="submit" class="">ENREGISTRER</button>
+					<div class="center flex-container-v ptm">
+						<button id="validQuestion4" type="submit" class="mam bouttonEnregistrerQuizz">ENREGISTRER</button>
 					</div>
 
 					<!-- div Affichage resultat traitement AJAX CONNEXION-->
 					<div id="resultQuestion3" class="result txtcenter"></div>
 				</form>
-			</div>
+			</div> <!-- fermeture bloc 4 -->
 
 
 		</div> <!-- fermeture grid4 -->

@@ -1,0 +1,15 @@
+#quizzForm{
+    margin: 0 auto;
+}
+h3{
+    text-decoration: underline;
+    color: red;
+}
+.quizzAliment{
+    margin: 0 auto;
+    max-width: 400px;
+}
+label{
+    width: 500px;
+    display: block;
+}

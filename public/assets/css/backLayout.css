@@ -1,16 +1,28 @@
-.wrapper{
+body {
+    background-color: #BCA9A4;
+}
 
+
+
+.wrapper{
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    background-color: #FFF;
+    border:0;
+    border-radius: 4px;
 }
+
+
+
+
 
 /*************************************/
 /*           NAVIGATION             */
 /*************************************/
 nav{
     height: 70px;
-    background: red;
+    background: ;
 }
 .containerMenu{
     font-family:'Paytone One', sans-serif;
@@ -21,18 +33,20 @@ nav{
     align-items: center;
 }
 .containerMenu li{
+    color: #FFF;
     display: inline-block;
     list-style: none;
 }
 .containerMenu li a{
+    color: #FFF;
     text-decoration: none;
     display: block;
-    background-color: grey;
+    background-color: #F88C00;
     padding: 1em 2em;
     border-radius: 3px;
 }
 .containerMenu li a:hover{
-    background-color: pink;
+    background-color: #F9D9B1;
 
 }
 #menu{
@@ -44,8 +58,10 @@ nav{
 /*************************************/
 /*               MAIN                */
 /*************************************/
-.containerMain{
-    padding: 2em 0;
+.centreur {
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
 }
 
 

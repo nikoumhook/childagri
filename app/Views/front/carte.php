@@ -6,8 +6,6 @@
 
 
 <?php $this->start('script') ?>
-<?php echo $aliment1['id'];
-?>
 <script>
 var xy = [
     ['null','null'],
@@ -94,7 +92,7 @@ $(document).ready(function(){
                 type:'post',
                 cache:false,
                 data: {
-                    
+
                 },
                 dataType: 'json',
                 success: function(result){

@@ -29,7 +29,7 @@ class QuizzModel extends Model
 			}
 		}
 
-		return false;
+		return (false);
 	}
 
 }

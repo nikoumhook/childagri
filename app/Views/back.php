@@ -6,11 +6,11 @@
 
 
     <!-- Typo -->
-    <link href="https://fonts.googleapis.com/css?family=Paytone+One" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Paytone+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
     <!--Icone FontAwesome CDN Bootstrape-->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous"> 
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
     <!-- Feuille de style knacss -->
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/knacss.css') ?>">
@@ -22,7 +22,6 @@
 
 </head>
 <body>
-
 
     <nav>
         <div class="wrapper containerMenu">

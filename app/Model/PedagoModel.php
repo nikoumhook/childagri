@@ -25,7 +25,7 @@ class PedagoModel extends Model
 
 	public function getAliments(){
 		$app = getApp();
-		$sql = 'SELECT aliments. *, lands.name AS region FROM aliments LEFT JOIN lands ON aliments.id_land = lands.id';
+		$sql = 'SELECT aliments.*, lands.name AS region FROM aliments LEFT JOIN lands ON aliments.id_land = lands.id ORDER BY aliments.name';
 		$dbh = ConnectionModel::getDbh();
 		$sth = $dbh->prepare($sql);
 
@@ -39,11 +39,12 @@ class PedagoModel extends Model
 	} //fermeture fonction getland
 
 
-	public function getOneAliment(){
+	public function getOneAliment($id){
 		$app = getApp();
-		$sql = 'SELECT aliments. *, lands.name AS region FROM aliments LEFT JOIN lands ON aliments.id_land = lands.id';
+		$sql = 'SELECT aliments.*, lands.name AS region FROM aliments LEFT JOIN lands ON aliments.id_land = lands.id WHERE aliments.id = :id';
 		$dbh = ConnectionModel::getDbh();
 		$sth = $dbh->prepare($sql);
+        $sth->bindValue(':id', $id);
 
 			if($sth->execute()){
 				$foundAliment = $sth->fetch();
@@ -75,7 +76,7 @@ class PedagoModel extends Model
 
 	public function getPedago(){
 		$app = getApp();
-		$sql = 'SELECT pedago. * , lands.name AS region, aliments.name AS ingredient FROM pedago JOIN lands ON pedago.id_land = lands.id JOIN aliments ON pedago.id_land = aliments.id_land';
+		$sql = 'SELECT pedago.* , lands.name AS region, aliments.name AS ingredient FROM pedago JOIN lands ON pedago.id_land = lands.id JOIN aliments ON pedago.id_land = aliments.id_land';
 		$dbh = ConnectionModel::getDbh();
 		$sth = $dbh->prepare($sql);
 
@@ -92,7 +93,7 @@ class PedagoModel extends Model
 
 	public function getOnePedagoByIdAliment($id){
 		$app = getApp();
-		$sql = 'SELECT pedago. * , lands.name AS region, aliments.name AS ingredient, FROM pedago JOIN lands ON pedago.id_land = lands.id JOIN aliments ON pedago.id_land = aliments.id_land WHERE pedago.id = :id' ;
+		$sql = 'SELECT pedago.* , lands.name AS region, aliments.name AS ingredient FROM pedago JOIN lands ON pedago.id_land = lands.id JOIN aliments ON pedago.id_land = aliments.id_land WHERE pedago.id = :id' ;
 		$dbh = ConnectionModel::getDbh();
 		$sth = $dbh->prepare($sql);
 		$sth->bindValue(':id', $id);

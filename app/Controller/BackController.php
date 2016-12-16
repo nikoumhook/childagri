@@ -8,9 +8,14 @@ use Model\PedagoModel;
 use Model\AlimentsModel;
 use Model\QuizzModel;
 
+use Intervention\Image\ImageManagerStatic as Image;
+
 
 class BackController extends Controller
 {
+
+
+
 
 	/**
 	 * Page d'accueil par défaut
@@ -51,7 +56,7 @@ class BackController extends Controller
 		$modelQuizz = new QuizzModel();
 
         if (!empty($_POST)) {
-        	
+
 			foreach ($_POST as $key => $value) {
 					$post[$key] = trim(strip_tags($value));
 				}
@@ -117,7 +122,8 @@ class BackController extends Controller
 			}
 
 			if (count($errors) === 0) {
-				
+
+
 				$data1=[
 					'content'		=> $post['question1'],
 					'answer'		=> $post['answer1'],
@@ -152,7 +158,7 @@ class BackController extends Controller
 			if ($result && $result1 && $result2 && $result3) {
 				$formValid=true;
 			}
-			
+
         }//fermeture 1ère condition !empty$POST
 
         $conteneurQuizz = $modelPedago->getQuizzAliment($id);
@@ -236,7 +242,7 @@ class BackController extends Controller
 				$errors [] ="Vous devez selectionner la région de production de votre aliment dans le menu déroulant";
 			}
 
-			if(v::notEmpty()->validate($_FILES['picture']['tmp_name'])){
+			if(v::notEmpty()->validate($_FILES['picture']['name'])){
 
 				$imgvalid= true;
 
@@ -286,20 +292,58 @@ class BackController extends Controller
             //si mon formulaire n'a pas d'erreur
 			if (count($errors) === 0) {
 
-				$data = [
-					'name'		=>   $post['aliment'],
-					'id_land'	=>   $post['land'],
-					'publish'	=>   $post['publish'],
-					'repas1'	=>   $repas1,
-					'repas2'	=>   $repas2,
-					'repas3'	=>   $repas3,
-					'repas4'	=>   $repas4
+                // traitement de l'image
 
+                $redimNeed = false ;
+
+                // adresse de stockage des l'image :
+                $adressImg = $_SERVER['DOCUMENT_ROOT'].$_SERVER['W_BASE'].'/assets/img/';
+
+                if ($imgvalid) {
+
+                    $picto = Image::make($_FILES['picture']['tmp_name']);
+
+    				// On définit l'extension de l'image en fonction de son mimeType
+    				switch($picto->mime()){
+    						case 'image/jpg':
+    						case 'image/jpeg':
+                                $redimNeed = true ;
+    						break;
+    						case 'image/png':
+                                $redimNeed = true ;
+    						break;
+    						case 'image/gif':
+                                $redimNeed = true ;
+    						break;
+
+				    }// fin swich
+                    if ($redimNeed) {
+                        $picto->resize(256, 256);
+                    }
+                    // Le nom du picto + son extension
+
+					$pictoName = 'aliment_'.$_FILES['picture']['name'];
+
+					// On sauvegarde l'image
+
+					$controle = $picto->save($adressImg.$pictoName);
+                }// fin if $imgvalid
+
+                // fin traitement de l'image
+
+				$data = [
+					'name'		=>  $post['aliment'],
+					'id_land'	=>  $post['land'],
+					'publish'	=>  $post['publish'],
+					'repas1'	=>  $repas1,
+					'repas2'	=>  $repas2,
+					'repas3'	=>  $repas3,
+					'repas4'	=>  $repas4
 				];
 
 			//condition si tu enregistre une img
 			if ($imgvalid) {
-					$data ['urlImg'] = $post['picture'];
+					$data ['urlImg'] = '/img/'.$pictoName;
 				}
 
 			$result= $modelAliments->Update($data, $post['id']);
@@ -311,14 +355,14 @@ class BackController extends Controller
 		//quoi qu'il se passe je redirige sur la route de la page (affichage du formualire vide)
 
 		}// fermeture 1ère condition !empty
-	
+
 		$this->show('back/ficheAliment', [
-			'aliment'=>$modelPedago->getOneAliment(),
+			'aliment'=>$modelPedago->getOneAliment($id),
 			'lands'=>$modelPedago->getLands(),
 			'errors'=>$errors,
 			'success'=>$formValid,
 			]);
-	
+
 	}// fermeture function ficheAliment
 
 
@@ -344,12 +388,12 @@ class BackController extends Controller
 				$errors[] = 'Le nom de votre aliment doit comporter un minimum de 3 caractères';
 			}
 
-			if (!isset($post['land']) && !is_numeric($post['land'])) {
+			if (empty($post['land']) && !is_numeric($post['land'])) {
 				$errors [] ="Vous devez selectionner la région de production de votre aliment dans le menu déroulant";
 			}
 
 
-			if(v::notEmpty()->validate($_FILES['picture']['tmp_name'])){
+			if(v::notEmpty()->validate($_FILES['picture']['name'])){
 
 				$imgvalid= true;
 
@@ -399,6 +443,45 @@ class BackController extends Controller
 			//si mon formulaire n'a pas d'erreur
 			if (count($errors) === 0) {
 
+                // traitement de l'image
+
+                $redimNeed = false ;
+
+                // adresse de stockage des l'image :
+                $adressImg = $_SERVER['DOCUMENT_ROOT'].$_SERVER['W_BASE'].'/assets/img/';
+
+                if ($imgvalid) {
+
+                    $picto = Image::make($_FILES['picture']['tmp_name']);
+
+    				// On définit l'extension de l'image en fonction de son mimeType
+    				switch($picto->mime()){
+    						case 'image/jpg':
+    						case 'image/jpeg':
+                                $redimNeed = true ;
+    						break;
+    						case 'image/png':
+                                $redimNeed = true ;
+    						break;
+    						case 'image/gif':
+                                $redimNeed = true ;
+    						break;
+
+				    }// fin swich
+                    if ($redimNeed) {
+                        $picto->resize(256, 256);
+                    }
+                    // Le nom du picto + son extension
+
+					$pictoName = 'aliment_'.$_FILES['picture']['name'];
+
+					// On sauvegarde l'image
+
+					$controle = $picto->save($adressImg.$pictoName);
+                }// fin if $imgvalid
+
+                // fin traitement de l'image
+
 				$data = [
 					'name'		=>   $post['aliment'],
 					'id_land'	=>   $post['land'],
@@ -413,7 +496,7 @@ class BackController extends Controller
 
 				//condition si tu enregistre une img
 				if ($imgvalid) {
-					$data ['urlImg'] = $post['picture'];
+					$data['urlImg'] = '/img/'.$pictoName;
 				}
 
 				$result= $modelAliments->insert($data);
@@ -458,7 +541,7 @@ class BackController extends Controller
 		$AlimentsModel = new AlimentsModel();
 
 		if (!empty($_POST)) {
-			
+
 			foreach ($_POST as $key => $value) {
 				$post[$key] = trim(strip_tags($value));
 			}

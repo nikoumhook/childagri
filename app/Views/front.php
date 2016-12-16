@@ -39,6 +39,9 @@
             </div>
         </div>
         <div id="navTrophee" class="pam">
+            <?php if (!empty($_SESSION['save']['id_quizz'])): ?>
+                Affiche la petite bubulle
+            <?php endif; ?>
             image Intestinc
         </div>
         <!-- BOUTON PERMANENTS ************///////////////////////////////:******************* -->
@@ -52,25 +55,10 @@
 
             <?php if (isset($carte)): ?>
                 <div id="navTopBar">
+                    <!-- le contenu ici est remplacé par jQuery quand un repas est selectionné ! -->
                     <div class="pal">
                         MERCI DE CHOISIR UN REPAS !
                     </div>
-
-                    <!-- <a class="customNavigation btn prev"><</a> -->
-                    <!-- <ul id="owl-demo">
-                        <li class="item"><div class="center pam">Choisi un Repas !!!</div></li> -->
-                        <!-- <li class="item" id="from1" name="Babybel"><img src="<?= $this->assetUrl('img/aliment_babybel.svg') ?>" alt=""></li>
-                        <li class="item" id="from2" name="Beurre"><img src="<?= $this->assetUrl('img/aliment_beurre.svg') ?>" alt=""></li>
-                        <li class="item" id="from3" name="Cornflakes"><img src="<?= $this->assetUrl('img/aliment_cornflakes.svg') ?>" alt=""></li>
-                        <li class="item" id="from4" name="Kiwi"><img src="<?= $this->assetUrl('img/aliment_kiwi.svg') ?>" alt=""></li>
-                        <li class="item" id="from5" name="Knacki"><img src="<?= $this->assetUrl('img/aliment_knacki.svg') ?>" alt=""></li>
-                        <li class="item" id="from6" name="Miel"><img src="<?= $this->assetUrl('img/aliment_miel.svg') ?>" alt=""></li>
-                        <li class="item" id="from7" name="Mousseline"><img src="<?= $this->assetUrl('img/aliment_mousseline.svg') ?>" alt=""></li>
-                        <li class="item" id="from8" name="Pomme"><img src="<?= $this->assetUrl('img/aliment_pomme.svg') ?>" alt=""></li>
-                        <li class="item" id="from9" name="Roquefort"><img src="<?= $this->assetUrl('img/aliment_roquefort.svg') ?>" alt=""></li>
-                        <li class="item" id="from10" name="Surimi"><img src="<?= $this->assetUrl('img/aliment_surimi.svg') ?>" alt=""></li> -->
-                    <!-- </ul>
-                    <a class="customNavigation btn next">></a> -->
                 </div>
             <?php endif; ?>
 
@@ -89,7 +77,7 @@
         <!-- BOUTON POUR CARTE  ************///////////////////////////////:******************* -->
         <?php if ($w_current_route == 'game_carte'): ?>
             <div id="navReturn" class="pam">
-                fleche de retour
+                <a href="<?= $this->url('game_assiette') ?>">fleche de retour</a>
             </div>
         <?php endif; ?>
         <!-- FIN BOUTON POUR CARTE  ************///////////////////////////////:******************* -->

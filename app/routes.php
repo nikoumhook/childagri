@@ -32,6 +32,8 @@
         ['GET|POST', '/ajax/finassiette', 'Ajax#finAssiette', 'ajax_finAssiette'],
         // ASSIETTE récuperation des aliments en fonction du repas :
         ['GET|POST', '/ajax/getaliments', 'Ajax#getNeedIngredientsForRepas', 'ajax_getAliments'],
+        // Carte récuperation des aliments en fonction du repas :
+        ['GET|POST', '/ajax/fincarte', 'Ajax#finCarte', 'ajax_finCarte'],
 
 
 /*//////////////BACK-OFFICE Administration*//////////////////////////
@@ -55,7 +57,7 @@
          ['GET|POST', '/config/listeAliment', 'Back#listeAliment', 'back_listeAliment'],
 
         // BACK  Fiche Aliments :/
-         ['GET|POST', '/config/ficheAliment/[i:id]', 'Back#ficheAliment', 'back_ficheAliment'],         
+         ['GET|POST', '/config/ficheAliment/[i:id]', 'Back#ficheAliment', 'back_ficheAliment'],
 
          // BACK Affichage Quizz (traitement fait en ajax) :
          ['GET|POST', '/config/quizz', 'Back#quizz', 'back_quizz'],

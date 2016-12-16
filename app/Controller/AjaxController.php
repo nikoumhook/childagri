@@ -9,9 +9,11 @@ use Model\QuizzModel;
 use \Controller\GameController;
 use Respect\Validation\Validator as v;
 
+
 class AjaxController extends Controller
 {
 
+    private $nbrDeRepasRequis = 2 ;
 
 	//METHODE ADD PLAYER : page landing Page - Formulaire d'inscription
 	public function addPlayer()
@@ -248,6 +250,48 @@ class AjaxController extends Controller
 
 
     }// fin fonction getNeedIngredientsForRepas
+
+
+    // fonction qui controle la sortie de la page carte
+    public function finCarte(){
+
+        $gameController = new GameController();
+
+        $success = false ;
+
+        // si le nombre de repas reglementaire a été
+        if (count($_SESSION['save']['repas']) >= $this->nbrDeRepasRequis) {
+
+
+            foreach ($_SESSION['save']['repas'] as $key => $value) {
+                $quizz[] = $value ;
+            }
+
+            foreach ($quizz as $key => $value) {
+                if (is_array($value)) {
+                    foreach ($value as $aliments) {
+                        $alimentsId[] = $aliments;
+                    }
+                }
+            }
+
+
+            $_SESSION['save']['id_quizz'] = implode(',',$alimentsId);
+
+        }
+
+        unset($_SESSION['repasEnCour']) ;
+        $controle1 = $gameController->savGame(true);
+        if ($controle1) {
+            $success = true;
+        }
+
+
+        $this->ShowJson(['success' => $success]);
+        //controle au cas ou si la sauvegarde c'est bien passé si le nombre de rpas est atteind
+
+
+    }
 
 
 

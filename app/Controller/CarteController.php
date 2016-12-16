@@ -60,11 +60,5 @@ class CarteController extends Controller
 
         }
 
-        public function endCarte(){
-
-
-            unset($_SESSION['repasEnCour']) ;
-
-        }
 
 }

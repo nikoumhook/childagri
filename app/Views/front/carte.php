@@ -89,7 +89,28 @@ $(document).ready(function(){
 
     var controleClickPedago = function(){
         if (marker1 && marker2 && marker3) {
-            alert('Felicitation Vous avez tous lus');
+            $.ajax({
+                url: '<?=$this->url('ajax_finCarte');?>',
+                type:'post',
+                cache:false,
+                data: {
+                    
+                },
+                dataType: 'json',
+                success: function(result){
+                    if (result.success == 'ok') {
+
+                        $('#navTopBar').html(result.ingredients);
+                        dragFn();
+                        dropFn();
+                        owl();
+
+                    }
+
+                }//fermeture success
+            });//fermeture $.ajax
+            // activation du bouton retour a la carte de france !
+            $('#navReturn').slideToggle();
             // a cette endroit faire le script qui fait apparaitre Le logo du quizz
         };
     };
@@ -104,21 +125,6 @@ $(document).ready(function(){
 
 
 <div id="container_carte" class="pal">
-
-
-    <!-- RENAUD -->
-    <!-- RENAUD -->
-    <!-- RENAUD -->
-    <!-- RENAUD -->
-    <!-- RENAUD -->
-    <!-- RENAUD -->
-    <!-- RENAUD -->
-    <!-- RENAUD -->
-    <!-- RENAUD -->
-    <!-- RENAUD -->
-    <!-- RENAUD -->
-    <!-- RENAUD -->
-    <!-- faire une variable qui s''incremente a chaque clic sur le marqueur et une condition et du coup un condition sur le bouton retour -->
 
     <div id="zonePedago">
         <div class="aliment1">

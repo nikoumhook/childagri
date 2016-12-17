@@ -3,6 +3,8 @@
 <?php $this->start('head') ?>
 
 
+    <!-- Feuille de style FICHE BACK -->
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/fiche.css') ?>">
 
 <?php $this->stop('head') ?>
 
@@ -25,60 +27,72 @@
 
 	<form method="POST" enctype="multipart/form-data">
 
-		<h1 class="txtcenter"> Modifier le contenu pédagogique de : <br> <?=ucfirst($pedago['ingredient']);?> de la région <?=ucfirst($pedago['region']);?></h1>
+		<h1 class="titreFiche txtcenter pbm">Contenu pédagogique du <?=$pedago['ingredient'];?> <br> de  <?=ucfirst($pedago['region']);?></h1>
 
-		<div class="grid-3">
+		<div class="grid-2 flex-container-v">
 
-			<div class="bloc1">
+			<input type="hidden" value="<?= $pedago['id'];?>" name="id">
 
-				<input type="hidden" value="<?= $pedago['id'];?>" name="id">
-
-				<label for="pedago">Texte du contenu pédagogique</label>
-				<br>
-				<textarea id="pedago" class="tinyChildAgri" name="content" ><?=$pedago['content'];?></textarea>
-				<br>
-
-				<label for="publish" class="labelAliment labelPedago">Etat actuel de publication</label>
-				<br>
-				<input type="radio" name="publish" value="oui" <?=($pedago['publish']=='oui')? 'checked': '';?>> Publié<br>
-	  			<input type="radio" name="publish" value="non" <?=($pedago['publish']=='non')? 'checked': '';?>> En brouillon<br>
-			</div><!--  fermeture bloc 1 -->
-
-			<div class="bloc2">
-
-				<label for="audio">Piste audio actuelle</label>
-				<br>
-				<audio controls="controls">
-	  				<source src="<?=$this->assetUrl($pedago['urlSound']);?>" type="audio/mp3" >
-				</audio>
-				<br>
-
-				<label for="sound" class="labelPedago">Modifier votre piste audio</label>
-				<input id="sound" class="inputPedago two-third" type="file" name="sound" class="" accept=".mp3">
-
-			</div> <!-- fermeture bloc 2 -->
-
-			<div class="bloc3">
-
-				<label for="audio">Votre image actuelle</label>
-				<br>
-				<img src="<?=$this->assetUrl($pedago['urlImg']);?>">
-				<br>
-
-				<label for="picture" class="">Modifier votre image</label>
-				<br>
-				<input id="picture" class="inputAliment" type="file" name="picture" class="" accept="image/*" value="">
-				<br>
-
-			</div> <!-- fermeture bloc 3 -->
+			<div class="flex-container-v pam">
+				<div>
+					<label class="man pbs" for="audio">Image</label><br>
+					<img src="<?=$this->assetUrl($pedago['urlImg']);?>">
+				</div>
+				<div>
+					<label class="man ptl pbs" for="audio">Piste audio</label><br>
+					<audio controls="controls">
+		  				<source src="<?=$this->assetUrl($pedago['urlSound']);?>" type="audio/mp3" >
+					</audio>
+				</div>
+				<div class="txtright">
+					<label class="man pts pbs" for="picture" class="">Modifier votre image</label><br>
+					<input id="picture" class="pas" type="file" name="picture" class="" accept="image/*" value="">
+				</div>
+				<div class="txtright">
+					<label class="man pbs ptl" for="sound" class="labelPedago">Modifier votre piste audio</label><br>
+					<input id="sound" class="pas" type="file" name="sound" class="" accept=".mp3">
+				</div>
+			</div>
 
 
-			<!-- Bouton -->
-				<div class="center flex_container-v">
-					<button type="submit" class="">ENREGISTRER LES MODIFICATIONS</button>
+			<div class="flex-container-v pam">
+					<label class="man" for="pedago">Contenu pédagogique</label><br>
+					<textarea id="pedago" class="txtAreaFiche tinyChildAgri" name="content" ><?=$pedago['content'];?>
+					</textarea>
+			</div>
+
+	
+		</div> <!-- fermeture grid2 -->
+
+	
+
+	
+
+
+		<div class="grid-4 flex-container-v ptm pbs"> 
+
+			<div class="flex-container-v prn plm txtcenter push">
+				<div class="">
+					<label for="publish" class="publier pbs"> PUBLIER</label>
 				</div>
 
-		</div> <!-- fermeture de mon grid2 -->
+				<div class="flex-container">
+					<div class="right prs">
+						EN LIGNE <input type="radio" class="pas" name="publish" value="oui" <?=($pedago['publish']=='oui')? 'checked': '';?>>
+					</div>
+					<div class="left pls">
+			  			<input type="radio" class="pas" name="publish" value="non" <?=($pedago['publish']=='non')? 'checked': '';?>> BROUILLON
+			  		</div>
+			  	</div>
+			</div>
+
+			<!-- Bouton -->
+			<div class="flex-container-v pull mll">
+				<button type="submit" class="bouttonEnregistrer">MODIFIER</button>
+			</div>
+
+		</div> <!-- fermeture de grid4 -->
+		
 
 	</form>
 

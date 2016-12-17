@@ -1,12 +1,21 @@
 <?php $this->layout('back', ['title' => 'Liste des joueurs']) ?>
 
-<!-- Colonne SQL :  id, firstname, lastname, username, password, email, inGame, id_result, id_quizz_use, birthDate -->
+
+<?php $this->start('head') ?>
+
+    <!-- Feuille de style LISTE BACK -->
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/liste.css') ?>">
+
+
+<?php $this->stop('head') ?>
+
 
 <?php $this->start('main_content') ?>
 
 <h1 class="txtcenter"> Liste des joueurs</h1>
 
 <table>
+
 	<tr>
 		<th>Pseudo</th>
 		<th>Date d'anniversaire</th>
@@ -21,4 +30,6 @@
 	<?php endforeach; ?>
 
 </table>
+
+
 <?php $this->stop('main_content') ?>

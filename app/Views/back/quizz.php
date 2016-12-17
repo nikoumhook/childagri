@@ -3,18 +3,18 @@
 <?php $this->start('head') ?>
 
     <!-- Feuille de style FORMULAIRE BACK -->
-
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/formulaire.css') ?>">
+
 <?php $this->stop('head') ?>
 
 
 <?php $this->start('main_content') ?>
 
 
-		<h1 class="txtcenter pbl">Enregistrer un quizz</h1>
+		<h1 class="titreForm txtcenter pbm">Enregistrer un quizz</h1>
 
 		<div class="grid-6 pam">
-			<label for="aliment" class="push aliment"> Choisissez l'aliment</label>
+			<label for="aliment" class="push aliment mbs txtright">CHOISISSEZ</label>
 			<select id="aliment" name="aliment" class="mll pull">
 	  			<option value="" selected disable>Liste des aliments</option>
 	  				<?php foreach ($aliments as $aliment) :?>
@@ -26,13 +26,13 @@
 
 		<div class="grid-4 flex-container-v">
 
-			<div class="flex-container-v pam">
+			<div class="flex-container-v pas">
 
 				<form id="formQuestion1">
 
 					<div class="flex-container-v">
 						<label for="question1" class="question txtcenter">Question 1</label>
-						<textarea id="question1" type="text" name="question"></textarea>
+						<textarea id="question1" name="question" class="tinyChildAgri"></textarea>
 
 						<div class="flex-container-v ptm">
 							<label for="answer1" class="reponse pbs txtcenter">Réponse</label>
@@ -47,8 +47,7 @@
 	  					</div>
 
 	  					<label for="ExplainAnswer" class="elementReponse txtcenter ptm">Elément réponse</label>
-	  					<textarea id="ExplainAnswer" name="ExplainAnswer" class=""></textarea>
-
+	  					<textarea id="ExplainAnswer" name="ExplainAnswer" class="tinyChildAgri"></textarea>
 	  				</div>
 
 					<!-- Bouton -->
@@ -61,9 +60,9 @@
 
 				</form>
 
-			</div> <!-- fermeture bloc1 -->
+			</div> 
 
-			<div class="flex-container-v pam">
+			<div class="flex-container-v pas">
 
 				<form id="formQuestion2">
 
@@ -98,7 +97,7 @@
 				</form>
 			</div> <!-- fermeture bloc2 -->
 
-			<div class="flex-container-v pam">
+			<div class="flex-container-v pas">
 
 				<form id="formQuestion3">
 
@@ -130,11 +129,12 @@
 
 					<!-- div Affichage resultat traitement AJAX CONNEXION-->
 					<div id="resultQuestion3" class="result txtcenter"></div>
+					
 				</form>
 			</div> <!-- fermeture bloc3 -->
 
 
-			<div class="flex-container-v pam">
+			<div class="flex-container-v pas">
 
 				<form id="formQuestion4">
 

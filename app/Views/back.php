@@ -43,7 +43,7 @@
     </nav>
 
     <div class="centreur">
-		<main class="wrapper pam">
+		<main class="wrapper mam">
 			<?= $this->section('main_content') ?>
 		</main>
     </div>

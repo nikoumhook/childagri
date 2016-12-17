@@ -2,7 +2,8 @@
 
 <?php $this->start('head') ?>
 
-
+    <!-- Feuille de style LISTE BACK -->
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/liste.css') ?>">
 
 <?php $this->stop('head') ?>
 
@@ -25,9 +26,9 @@
 		<tbody>
 		<?php foreach ($aliments as $aliment):?>
 			<tr>
-				<td class="txtcenter"><?=ucfirst($aliment['name']);?></td>
-				<td class="txtcenter"><img class="vignette" src="<?=$this->assetUrl($aliment['urlImg']);?>"></td>
-				<td class="txtcenter">
+				<td class="quizz txtcenter"><?=ucfirst($aliment['name']);?></td>
+				<td class="quizz txtcenter"><img class="vignette" src="<?=$this->assetUrl($aliment['urlImg']);?>"></td>
+				<td class="quizz txtcenter">
 					<?php 
 					switch ($aliment['publish']) {
 					case "oui":
@@ -39,7 +40,7 @@
 					}
 					?>
 				</td>
-				<td class="txtcenter"><a href="<?= $this->url('back_ficheQuizz', ['id'=>$aliment['id']]);?>"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a></td>
+				<td class="quizz txtcenter"><a href="<?= $this->url('back_ficheQuizz', ['id'=>$aliment['id']]);?>"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a></td>
 
 			</tr>
 		<?php endforeach;?>

@@ -2,7 +2,9 @@
 
 <?php $this->start('head') ?>
 
-
+    <!-- Feuille de style LISTE BACK -->
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/liste.css') ?>">
+	
 <?php $this->stop('head') ?>
 
 

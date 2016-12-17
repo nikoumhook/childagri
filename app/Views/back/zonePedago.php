@@ -22,11 +22,11 @@
 
 		<form method="POST" enctype="multipart/form-data">
 
-			<h1 class="txtcenter pbl">Enregistrer un contenu pedagogique</h1>
+			<h1 class="titreForm txtcenter pbm">Enregistrer un contenu pedagogique</h1>
 
-			<div class="grid-6 pam">
-				<label for="aliment" class="aliment push mam txtright"> Choisissez l'aliment</label>
-				<select name="aliment" class="mam pull">
+			<div class="grid-6 flex-container-v pam">
+				<label for="aliment" class="aliment mbs push txtright">CHOISISSEZ</label>
+				<select name="aliment" class="mll pull">
 	  				<option value="" selected disable>Liste des aliments</option>
                     <?php foreach ($aliments as $aliment) :?>
                         <?php if (!in_array($aliment['id'],$alimentsAssoc)): ?>
@@ -36,37 +36,36 @@
                         <?php endif; ?>
                     <?php endforeach ;?>
 				</select>
-			</div> <!-- fermeture Grid -->
+			</div> <!-- fermeture Grid6 -->
 
 
 			<div class="grid-2 flex-container-v">
 
 				<div class="flex-container-v pam">
 					<label for="content" class="">Contenu pédago</label>
-					<textarea id="content" class="" type="text" name="content" placeholder="Ex: Le lait">
-						</textarea>
-				</div> <!-- fermeture bloc1 -->
+					<textarea id="content" class="tinychildAgri" type="text" name="content" placeholder="Ex: Le lait">
+					</textarea>
+				</div> 
 
 				<div class="flex-container-v pam">
 					<label for="picture" class="">Fichier image</label>
 					<div class="">
-						<input id="picture" class="" type="file" name="picture" accept="image/*" value="">
+						<input id="picture" class="pas" type="file" name="picture" accept="image/*" value="">
 					</div>
 					<div class="ptl">
 						<label for="sound" class="">Fichier audio </label><br>
-						<input id="sound" class="" type="file" name="sound" accept="audio/mpeg3" value="">
+						<input id="sound" class="pas" type="file" name="sound" accept="audio/mpeg3" value="">
 					</div>
 
-				</div> <!--  fermeture bloc2 -->
+				</div> 
 			</div> <!-- fermeture grid 2 -->
 
 
-			<div class="grid-4 flex-container-v ptl">
-
+			<div class="grid-4 flex-container-v ptm pbs">
 
 				<div class="flex-container-v prm plm txtcenter push">
 					<div class="">
-						<label for="publish" class="publier pbl"> PUBLIER</label>
+						<label for="publish" class="publier pbs"> PUBLIER</label>
 					</div>
 
 					<div class="flex-container">
@@ -77,15 +76,14 @@
 						<div class="right">
 	  						<input type="radio" name="publish" value="non"> BROUILLON
 	  					</div>
-
 	  				</div>
-	  			</div> <!-- fermeture bloc3 -->
+	  			</div> 
 
 
 				<!-- Bouton -->
 				<div class="flex-container-v pull mll">
 					<button type="submit" class="bouttonEnregistrer">ENREGISTRER</button>
-				</div> <!-- femeture bloc4 -->
+				</div> 
 
 			</div> <!--  fermeture div Grid2 -->
 

@@ -2,6 +2,8 @@
 
 <?php $this->start('head') ?>
 
+    <!-- Feuille de style FICHE BACK -->
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/fiche.css') ?>">
 
 <?php $this->stop('head') ?>
 
@@ -24,74 +26,102 @@
 
 	<form method="POST" enctype="multipart/form-data">
 
-		<h1 class="txtcenter"> Modifier : <br> <?=ucfirst($aliment['name']);?></h1>
+		<h1 class="titreFiche txtcenter pbs">Fiche du <?=$aliment['name'];?></h1>
 
-		<div class="grid-2">
+		<div class="grid-6 pas">
 
-			<div class="bloc1">
+			<input id="aliment" type="hidden" class="mas" value="<?= $aliment['id'];?>" name="id">
 
-				<input type="hidden" value="<?= $aliment['id'];?>" name="id">
+			<label for="aliment" class="mbs prs push txtright">Nom</label>
+			<input id="aliment" class="pas pull" type="text" name="aliment" value="<?= ucfirst($aliment['name']);?>">
+		
+		</div> <!-- fermeture grid6 -->
 
-				<label for="aliment" class="labelAliment">Nom de l'aliment</label>
-				<br>
-				<input id="aliment" class="inputAliment" type="text" name="aliment" value="<?= ucfirst($aliment['name']);?>">
-				<br>
+		
+		<div class="grid-2 flex-container-v">
 
-				<label class="labelAliment">Votre image actuelle</label>
-				<br>
-				<img src="<?= $this->assetUrl($aliment['urlImg']);?>">
-				<br>
+			<div class="pas txtright">
+				<label for="picture" class="pbs">Votre image</label><br>
+				<img src="<?= $this->assetUrl($aliment['urlImg']);?>" alt="">
+			</div>
 
-				<label for="picture" class="labelAliment">Modifier votre image</label>
-				<br>
-				<input id="picture" class="inputAliment" type="file" name="picture" class="" accept="image/*" value="">
-				<br>
-
-				<label for="land" class="labelAliment">Région de production de votre aliment</label>
-				<br>
-
-				<select name="land" class="">
+			<div class="pas txtleft">
+				<label for="land" class="pbs ">Région de production</label><br>
+				<select name="land" class="pas">
   					<?php foreach ($lands as $land) :?>
   						<option value="<?= $land['id'];?>"<?=($land['id']==$aliment['id_land'])? 'selected': '';?>> <?= ucfirst($land['publicName']);?></option>
   					<?php endforeach ;?>
 				</select>
-				<br>
-				
-			</div> <!-- fermeture bloc 1 -->
+			</div>
+			
+		</div> <!-- fermeture grid2 -->
 
 
-			<div class="bloc2">
-                <label>Repas associé
+		<div class="grid-3 flex-container flex-container-v">
 
-                    <br>
-                    <label for="repas1">repas 1 </label>
-                    <input id="repas1" name="repas1" type="checkbox" value="oui" <?=($aliment['repas1']=='oui')? 'checked': '';?>>
-
-                    <label for="repas2">| repas 2</label>
-                    <input id="repas2" name="repas2" type="checkbox" value="oui"<?=($aliment['repas2']=='oui')? 'checked': '';?>>
-
-                    <label for="repas3">| repas 3</label>
-                    <input id="repas3" name="repas3" type="checkbox" value="oui" <?=($aliment['repas3']=='oui')? 'checked': '';?>>
-
-                    <label for="repas4">| repas 4</label>
-                    <input id="repas4" name="repas4" type="checkbox" value="oui" <?=($aliment['repas4']=='oui')? 'checked': '';?>>
-                    <br>
-                </label>
-                <br>
-
-				<label for="publish" class="labelAliment labelPedago">Etat actuel de publication</label>
-				<br>
-				<input type="radio" name="publish" value="oui" <?=($aliment['publish']=='oui')? 'checked': '';?>> Publié<br>
-  				<input type="radio" name="publish" value="non" <?=($aliment['publish']=='non')? 'checked': '';?>> En brouillon<br>
-
-			</div> <!-- fermeture bloc 2 -->
-
-			<!-- Bouton -->
-			<div class="center flex_container-v">
-				<button type="submit" class="">ENREGISTRER LES MODIFICATIONS</button>
+			<div class="pas flex-container-v push">
+				<label for="picture" class="pbs">Modifier votre image</label>
+				<input id="picture" class="pas" type="file" name="picture" class="" accept="image/*" value="">
 			</div>
 
-		</div><!-- fermeture GRID2 -->
+	
+			<div class="pas flex-container-v pull">
+
+				<div class="flex-container-v">
+
+					<label class="txtleft pbs">Repas</label>
+
+	                	<div class="flex-container-v pas repas">
+
+			                <div class="flex-container flex-container-v grid-2 pas">
+	                    		<div class="nomRepas txtright three-quarter">Petit-Déj</div>
+	                    		<input id="repas1" class="one-quarter mts" name="repas1" type="checkbox" value="oui" <?=($aliment['repas1']=='oui')? 'checked': '';?>>
+	                    	</div>
+			                   
+			                <div class="flex-container flex-container-v grid-2 pas">
+	                    		<div class="nomRepas txtright three-quarter">Déjeuner</div>
+	                    		<input id="repas2" class="one-quarter mts" name="repas2" type="checkbox" value="oui"<?=($aliment['repas2']=='oui')? 'checked': '';?>>
+	 						</div>
+
+			                <div class="flex-container flex-container-v grid-2 pas">
+			                    <div class="nomRepas txtright three-quarter" for="repas3">Goûter</div>
+								<input id="repas3" class="one-quarter mts" name="repas3" type="checkbox" value="oui" <?=($aliment['repas3']=='oui')? 'checked': '';?>>
+	  						</div>
+
+			                <div class="flex-container flex-container-v grid-2 pas">
+			                    <div class="nomRepas txtright three-quarter" for="repas4">Diner</div>
+	                    		<input id="repas4" class="one-quarter mts" name="repas4" type="checkbox" value="oui" <?=($aliment['repas4']=='oui')? 'checked': '';?>>
+	                    	</div>
+	                    </div>
+            	</div>
+            </div>
+       	</div><!-- fermeture grid3 -->
+                    
+                
+     	<div class="grid-4 flex-container-v ptm pbs">
+
+      		<div class="flex-container-v prn plm txtcenter push">
+      			<div class="">
+					<label for="publish" class="publier pbs"> PUBLIER</label>
+				</div>
+
+				<div class="flex-container">
+					<div class="right prs">
+						EN LIGNE <input type="radio" name="publish" value="oui" <?=($aliment['publish']=='oui')? 'checked': '';?>> 
+					</div>
+					<div class="left pls">
+						<input type="radio" name="publish" value="non" <?=($aliment['publish']=='non')? 'checked': '';?>> BROUILLON
+					</div>
+				</div>
+			</div>
+
+
+			<!-- Bouton -->
+			<div class="flex-container-v pull mll">
+				<button type="submit" class="bouttonEnregistrer">MODIFIER</button>
+			</div>
+
+		</div> <!-- fermeture Grid4 -->
 
 
 	</form>

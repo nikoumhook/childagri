@@ -1,0 +1,38 @@
+
+/*************************************/
+/*               TABLEAU: page listes                 */
+/*************************************/
+
+
+thead{
+    font-family:'Paytone One', sans-serif;
+    font-size: 18px;
+}
+
+
+
+table {
+  width: 100%;
+  max-width: 100%;
+/*  table-layout: fixed;*/
+  border-collapse: collapse;
+  border: 1px solid black;
+  border-radius: 6px;
+}
+
+
+td{
+    border-bottom: 1px solid #ddd;
+}
+
+.quizzGd{
+	width: 30%;
+
+}
+
+
+.quizzPt {
+	width: 20%;
+
+}
+

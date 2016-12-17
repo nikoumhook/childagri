@@ -1,0 +1,84 @@
+/*Général à toutes les fiches*/
+
+.titreFiche{
+	color: #FFF;
+}
+
+
+/*bouton enregistrer */
+.bouttonEnregistrer{
+	background-color: #F88C00;
+	color:#FFF;
+	font-family:'Paytone One', sans-serif;
+	border:0px;
+    font-size: 38px;
+    border-radius: 4px;
+}
+
+
+
+input{
+	border: 0px solid black;
+	border-radius: 3px;
+	background-color: #FFF;
+}
+
+select{
+	border: 0px solid black;
+	border-radius: 3px;
+	background-color: #FFF;
+}
+
+
+textarea{
+	height:113px;
+	border: 0px solid black;
+	border-radius: 3px;
+	background-color: #FFF;
+}
+
+label{
+	font-size: 20px;
+}
+
+
+/*Label publier brouillon en ligne View Aliment + Contenu pedago*/
+.publier{
+	font-family:'Paytone One', sans-serif;
+	font-size: 26px;
+	color: #FFF;
+}
+
+
+/*repas input View Aliment*/
+
+.repas{
+	background-color: #FFF;
+	border:0;
+	border-radius: 6px;
+}
+
+.nomRepas{
+	font-family:'Paytone One', sans-serif;
+	font-size: 20px;
+}
+
+/*contenu pedago textarea*/
+.txtAreaFiche{
+	height:260px;
+}
+
+
+/*Labels question View Quizz*/
+.question{
+	color: #FFF;
+	font-size: 25px;
+}
+
+.reponse{
+	font-size:19px;
+}
+
+.elementReponse{
+	font-size:19px;
+}

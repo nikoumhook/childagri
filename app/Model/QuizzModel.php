@@ -13,10 +13,10 @@ class QuizzModel extends Model
 	 * @param string $usernameOrEmail Le pseudo ou l'email d'un utilisateur
 	 * @return mixed L'utilisateur, ou false si non trouvé
 	 */
-	public function getQuizzByIdAliment($id){
+	public function getQuizzByIdAliment($id,$select = '*'){
 
 		$app = getApp();
-		$sql = 'SELECT * FROM ' . $this->table .
+		$sql = 'SELECT '.$select.' FROM ' . $this->table .
 			   ' WHERE id_aliment = :id';
 		$dbh = ConnectionModel::getDbh();
 		$sth = $dbh->prepare($sql);

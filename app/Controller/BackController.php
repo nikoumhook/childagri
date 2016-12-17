@@ -27,11 +27,23 @@ class BackController extends Controller
 
 	/***************** Page QUIZZ: AFFICHAGE  **********/
 
-	public function quizz()
+    public function quizz()
 	{
 		$modelPedago = new PedagoModel();
+        $modelQuizz = new QuizzModel();
+
+        $listealiments = $modelPedago->getAliments();
+        foreach ($listealiments as $key => $value) {
+            if ($modelQuizz->getQuizzByIdAliment($value['id'])) {
+                $listealiments[$key]['selected'] = true;
+            }
+            else {
+                $listealiments[$key]['selected'] = false;
+            }
+        }
+
 		$this->show('back/quizz', [
-			'aliments'=>$modelPedago->getAliments()
+			'aliments'=>$listealiments
 			]);
 	}
 
@@ -343,7 +355,7 @@ class BackController extends Controller
 
 			//condition si tu enregistre une img
 			if ($imgvalid) {
-					$data ['urlImg'] = '/img/'.$pictoName;
+					$data ['urlImg'] = 'img/'.$pictoName;
 				}
 
 			$result= $modelAliments->Update($data, $post['id']);
@@ -496,7 +508,7 @@ class BackController extends Controller
 
 				//condition si tu enregistre une img
 				if ($imgvalid) {
-					$data['urlImg'] = '/img/'.$pictoName;
+					$data['urlImg'] = 'img/'.$pictoName;
 				}
 
 				$result= $modelAliments->insert($data);

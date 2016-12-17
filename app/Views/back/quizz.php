@@ -18,7 +18,7 @@
 			<select id="aliment" name="aliment" class="mll pull">
 	  			<option value="" selected disable>Liste des aliments</option>
 	  				<?php foreach ($aliments as $aliment) :?>
-    	  			<option value="<?= $aliment['id'];?>"> <?= ucfirst($aliment['name']);?></option>
+    	  			<option value="<?= $aliment['id'];?>" <?= ($aliment['selected'])? 'disabled': '';?>><?= ucfirst($aliment['name']);?></option>
 	  				<?php endforeach ;?>
 			</select>
 		</div> <!-- fermeture grid -->
@@ -50,7 +50,7 @@
 	  					<textarea id="ExplainAnswer" name="ExplainAnswer" class=""></textarea>
 
 	  				</div>
-	  		
+
 					<!-- Bouton -->
 					<div class="flex-container-v ptm">
 						<button id="validQuestion1" type="submit" class="mam bouttonEnregistrerQuizz">ENREGISTRER</button>
@@ -82,11 +82,11 @@
 	  							</div>
 	  						</div>
 	  					</div>
-	  				
+
 
 	  					<label for="ExplainAnswer" class="elementReponse txtcenter ptm">Elément réponse</label>
 	  					<textarea id="ExplainAnswer" name="ExplainAnswer" class=""></textarea>
-	  				
+
 	  				</div>
 	  				<!-- Bouton -->
 					<div class="center flex-container-v ptm">
@@ -101,7 +101,7 @@
 			<div class="flex-container-v pam">
 
 				<form id="formQuestion3">
-				
+
 					<div class="flex-container-v">
 						<label for="question3" class="question txtcenter">Question 3</label>
 						<textarea id="question3" type="text" name="question"></textarea>
@@ -110,14 +110,14 @@
 							<label for="answer3" class="reponse txtcenter pbs">Réponse</label>
 							<div class="flex-container">
 									<div class="left pll">
-									OUI <input type="radio" name="answer" value="oui" checked> 
+									OUI <input type="radio" name="answer" value="oui" checked>
 									</div>
 									<div class="right prl">
 	  									<input type="radio" name="answer" value="non"> NON
 	  								</div>
 	  						</div>
 	  					</div>
-	  				
+
 
 	  					<label for="ExplainAnswer" class="elementReponse txtcenter ptm">Elément réponse</label>
 	  					<textarea id="ExplainAnswer" name="ExplainAnswer" class=""></textarea>
@@ -137,7 +137,7 @@
 			<div class="flex-container-v pam">
 
 				<form id="formQuestion4">
-					
+
 					<div class="flex-container-v">
 						<label for="question4" class="question txtcenter">Question 4</label>
 						<textarea id="question4" type="text" name="question"></textarea>
@@ -146,14 +146,14 @@
 							<label for="answer4" class="reponse pbs txtcenter">Réponse</label>
 							<div class="flex-container">
 								<div class="left pll">
-									OUI <input type="radio" name="answer" value="oui" checked> 
+									OUI <input type="radio" name="answer" value="oui" checked>
 								</div>
 								<div class="right prl">
 	  								<input type="radio" name="answer" value="non"> NON
 	  							</div>
 	  						</div>
 	  					</div>
-	  				
+
 
 	  					<label for="ExplainAnswer" class="elementReponse txtcenter ptm">Elément réponse</label>
 	  					<textarea id="ExplainAnswer" name="ExplainAnswer" class=""></textarea>

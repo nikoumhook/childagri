@@ -48,7 +48,11 @@ class CarteController extends Controller
                         $i++;
                 }
 
+                // Ont récupère les repas qui ont été selectionné utile pour le bouton repas et l'intestin
+                $repas = $gameController->getRepasSelected(false);
+
                 $this->show('front/carte',[
+                    'repas' =>  $repas,
                     'aliment1' => $aliment1 ,
                     'aliment2' => $aliment2 ,
                     'aliment3' => $aliment3

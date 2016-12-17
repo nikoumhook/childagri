@@ -15,13 +15,13 @@
                 <div class="aliments" id="aliment3"></div>
             </div>
         </div>
-        <img id="assiette" src="<?= $this->assetUrl('img/element_assiette.jpg') ?>" alt="">
+
+        <img id="assiette" src="<?= $this->assetUrl('img/assiette_petitDej.svg') ?>" alt="">
     </div>
 <?php $this->stop('main_content') ?>
 
 <?php $this->start('script') ?>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
 
     <!-- J'ai du supprimer la fichier js car j'avais besoin de php dedans du coup il est dessous entierement -->
     <script>
@@ -56,7 +56,7 @@
         }); // fin fonction .obsRepas
 
 
-        // listener qui permet d'ecouter sur quel bouton on click
+        // listener qui permet d'ecouter sur quel bouton on click pour le repas choisi
         $('.obsRepas').on('click',function(){
             // ont viens attribuer la valeur de l'id du bouton a la variable
             repas = $(this).attr('id');
@@ -71,7 +71,23 @@
                 dataType: 'json',
                 success: function(result){
                     if (result.success == 'ok') {
+                        if (repas == 'repas1') {
 
+                            $('#assiette').attr('src',"<?= $this->assetUrl('img/assiette_petitDej.svg') ?>")
+
+                        }else if (repas == 'repas2') {
+
+                            $('#assiette').attr('src',"<?= $this->assetUrl('img/assiette_dejeuner.svg') ?>")
+
+                        }else if (repas == 'repas3') {
+
+                            $('#assiette').attr('src',"<?= $this->assetUrl('img/assiette_gouter.svg') ?>")
+
+                        }else if (repas == 'repas4') {
+
+                            $('#assiette').attr('src',"<?= $this->assetUrl('img/assiette_dejeuner.svg') ?>")
+
+                        }
                         $('#navTopBar').html(result.ingredients);
                         dragFn();
                         dropFn();

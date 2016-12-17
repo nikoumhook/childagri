@@ -23,7 +23,7 @@ class AssietteController extends Controller
         if (isset($_SESSION['repasEnCour']) && !empty($_SESSION['repasEnCour'])) {
             $this->redirectToRoute('game_carte');
         }
-        
+
         if (isset($_SESSION['save']['id_quizz']) && !empty($_SESSION['save']['id_quizz']) && count(explode(',',$_SESSION['save']['id_quizz'])) == 12) {
             var_dump('REDIRIGER VERS LA CARTE ET COPIé CE SCRIPT SUr LE BOUTON RETOUR de LA CARTE !!!');
             die;
@@ -34,7 +34,7 @@ class AssietteController extends Controller
         // le player peut se trouver sur l'assiette uniquement si il est connecté
         if (isset($_SESSION['player'])) {
 
-            // Ont récupère les repas qui ont été selectionné
+            // Ont récupère les repas qui ont été selectionné utile pour le bouton repas et l'intestin
             $repas = $gameController->getRepasSelected(false);
 
 

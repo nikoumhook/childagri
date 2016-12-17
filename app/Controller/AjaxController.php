@@ -97,8 +97,6 @@ class AjaxController extends Controller
 	}// fermeture function AddPlayer
 
 
-
-
 //METHODE CONNECT PLAYER : page landing Page - Formulaire de connexion
 	public function connectPlayer()
 	{
@@ -132,10 +130,6 @@ class AjaxController extends Controller
             }
 		}// fermeture 1ère condition !empty
 	}// fermeture function connectPlayer
-
-
-
-
 
 	/***************** Page quizz:  TRAITEMENTS **********/
 	public function quizz()
@@ -227,14 +221,28 @@ class AjaxController extends Controller
 
         $alimentsModel = new AlimentsModel();
 
+        $alimentsSelected = [];
+
+        // construction des aliments deja selectionné
+        if (!empty($_SESSION['save']['repas'])) {
+            $alimentsSelected = '';
+            foreach ($_SESSION['save']['repas'] as $value) {
+                $alimentsSelected .= implode(',',$value);
+            }
+            $alimentsSelected = explode(',',$alimentsSelected);
+        }
+
+        // preparation de l'affichage pour la liste des ingredients
+
         $aliments = $alimentsModel->getAlimentForRepas();
+
 
         if ($aliments) {
             //$html = '';
             $html = '<a class="customNavigation btn prev"> < </a><ul id="owl-demo">' ;
             foreach ($aliments as $aliment) {
 
-                if ($aliment['publish'] == 'oui' && !empty($aliment['urlImg']) ) {
+                if ($aliment['publish'] == 'oui' && !empty($aliment['urlImg']) && !in_array($aliment['id'],$alimentsSelected)) {
 
                     $html .= '<li class="item" id="from'.$aliment['id'].'" name="'.$aliment['name'].'"><img src="../assets/'.$aliment['urlImg'].'" alt=""></li>';
 

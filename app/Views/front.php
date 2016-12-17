@@ -23,7 +23,7 @@
 
         <!-- <div class="debug pam">
             <pre>
-                <php ($_SESSION); ?>
+                <php var_dump($_SESSION); ?>
             </pre>
         </div> -->
 
@@ -40,9 +40,13 @@
         </div>
         <div id="navTrophee" class="pam">
             <?php if (!empty($_SESSION['save']['id_quizz'])): ?>
-                Affiche la petite bubulle
+                <div class="containerBulle">
+                    <div id="bulle" class="">
+                        Ont joue au QUIZZ ?
+                    </div>
+                </div>
             <?php endif; ?>
-            image Intestinc
+            <?php $this->insert('front/intestin'); ?>
         </div>
         <!-- BOUTON PERMANENTS ************///////////////////////////////:******************* -->
 
@@ -61,6 +65,8 @@
                     </div>
                 </div>
             <?php endif; ?>
+
+
 
             <div id="navLeftBar">
                 <ul>
@@ -81,10 +87,10 @@
             </div>
         <?php endif; ?>
         <!-- FIN BOUTON POUR CARTE  ************///////////////////////////////:******************* -->
-
         <main>
             <?= $this->section('main_content') ?>
         </main>
+
 
         <!-- INCLUSION JAVASCRIPT  ************///////////////////////////////:******************* -->
             <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -93,9 +99,23 @@
             <?= $this->section('script') ?>
         <!-- FIN INCLUSION JAVASCRIPT  ************///////////////////////////////:******************* -->
         <script type="text/javascript">
-        // menu deco
-        $('.decoMenu').click(function(){
-            $('.decoSubmenu').toggle();
+        $(function(){
+
+            var intestinFn;
+            var nBrDeRepasPris;
+            intestinFn = function(){
+                $("#intestinEtape<?= (!empty($repas)? count($repas) : '99'); ?>").show();
+            };
+            // appel de la fonction
+            intestinFn();
+
+            // menu deco
+            $('.decoMenu').click(function(){
+                $('.decoSubmenu').toggle();
+            });
+
+
+
         });
         </script>
     </body>

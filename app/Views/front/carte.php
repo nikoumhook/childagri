@@ -1,4 +1,4 @@
-<?php $this->layout('front', ['title' => 'Jeu carte']) ?>
+<?php $this->layout('front', ['title' => 'Jeu carte', 'repas' => $repas]) ?>
 
 <?php $this->start('head') ?>
     <link rel="stylesheet" href="<?= $this->assetUrl('css/carte.css') ?>">

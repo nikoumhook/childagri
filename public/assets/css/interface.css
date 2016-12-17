@@ -118,10 +118,45 @@ body{
 /*          MENU Trophee            */
 /************************************/
 #navTrophee{
+    position: relative;
     z-index: 98;
     position: fixed;
     bottom: 0;right: 0;
-    background: pink;
+    max-width: 245px;
+}
+#intestin{
+    max-height: 245px;
+    width: 100%;
+}
+#intestinEtape1,#intestinEtape2,#intestinEtape3,#intestinEtape4{
+    display: none;
+}
+.containerBulle {
+	position: absolute;
+	top: 16%;
+	right: 63%;
+}
+#bulle {
+	width: 127px;
+	height: 57px;
+	background: red;
+	position: relative;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+    padding: 2px 6px;
+    text-align: center;
+}
+#bulle::after {
+	content: "";
+	position: absolute;
+	left: 100%;
+	top: 14px;
+	width: 0;
+	height: 0;
+	border-top: 13px solid transparent;
+	border-left: 26px solid red;
+	border-bottom: 13px solid transparent;
 }
 /************************************/
 /*         MENU NavRetour           */

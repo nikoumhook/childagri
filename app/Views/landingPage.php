@@ -7,6 +7,7 @@
 
 <!-- Style simple Genius -->
 <link rel="stylesheet" href="<?= $this->assetUrl('css/simpleGenie.css') ?>">
+
 <!-- Script simple Genius -->
 <script src="<?= $this->assetUrl('js/modernizr.custom.js') ?>"></script>
 
@@ -15,6 +16,7 @@
 
 <!-- Mon style -->
 <link rel="stylesheet" href="<?=$this->assetUrl('css/landingPage.css');?>">
+    <link rel="stylesheet" href="<?= $this->assetUrl('css/popinFormulaireFront.css') ?>">
 
 </head>
 
@@ -40,36 +42,40 @@
 			<button type="button" class="overlay-close">Fermer</button>
 
 			<!-- Div wrapper formulaire Popin: 2 grid -->
-			<div class="grid-2 wrapperPopin flex-container-v">
+			<div class="grid-2 wrapperPopin flex-container-v pam">
 
 				<!-- Div formulaire connexion Popin -->
-				<div id="connexion" class="bloc1 center">
-					<h2 class="txtcenter titrePopinLanding"> Connecte toi pour jouer</h2>
-					<form id="FormConnect" class="flex-item-center" action="#">
+				<div id="connexion" class="bloc1 flex-container-v">
 
-						<div class="grid-2 flex-item-center">
-							<label for="usernameC" class="labelLanding one-third">Ton pseudo</label>
-							<input id="usernameC" class="inputLanding two-third" type="text" name="username" placeholder="Maxou33" required>
-						</div>
+					<div class="flex-container pam">
 
-						<div class="grid-2 flex-item-center">
-							<label for="passwordC" class="labelLanding one-third">Ton mot de passe</label>
-							<input id="passwordC" class="inputLanding two-third" type="password" name="passwordconnect" placeholder="Ex: unMot2PassSecret" required>
-						</div>
+						<h2 class="txtcenter pam titreConnect"> Connecte toi</h2>
+						<form id="FormConnect" class="flex-item-center" action="#">
 
-						<div id="buttonConnexion" class="grid">
-							<button id="validConnexion" type="submit">SE CONNECTER POUR JOUER</button>
-						</div>
+							<!-- <div class="grid-2 flex-item-center"> -->
+								<!-- <label for="usernameC" class="labelLanding one-third">Ton pseudo</label> -->
+								<input id="usernameC" class="" type="text" name="username" placeholder="TON PSEUDO" required>
+							<!-- </div>
+ -->
+							<!-- <div class="grid-2 flex-item-center"> -->
+								<!-- <label for="passwordC" class="labelLanding one-third">Ton mot de passe</label -->>
+								<input id="passwordC" class="" type="password" name="passwordconnect" placeholder="TON MOT DE PASSE" required>
+							<!-- </div> -->
 
-						<!-- div Affichage resultat traitement AJAX CONNEXION-->
-						<div id="resultConnect" class="txtcenter"></div>
+							<div id="buttonConnexion" class="grid">
+								<button id="validConnexion" type="submit">SE CONNECTER POUR JOUER</button>
+							</div>
 
-					</form>
-				</div>
+							<!-- div Affichage resultat traitement AJAX CONNEXION-->
+							<div id="resultConnect" class="txtcenter"></div>
+
+						</form>
+					</div>
+				</div> <!-- fermeture bloc1 -->
 
 				<!-- Div formulaire inscription Popin -->
-				<div id="inscription" class="bloc2 center">
-					<h2 class="txtcenter titrePopinLanding"> Inscris toi pour jouer</h2>
+				<div id="inscription" class="bloc2 center flex-container-v">
+					<h2 class="txtcenter pam titreConnect"> Inscris toi</h2>
 					<form class="flex-item-center" action="#">
 
 						<!-- formulaire iscription-->

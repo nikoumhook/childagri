@@ -25,7 +25,7 @@
 
 	<form method="POST" enctype="multipart/form-data">
 
-		<h1 class="titreForm txtcenter pbm">Enregistrer un aliment</h1>
+		<h1 class="titreForm txtcenter">Enregistrer un aliment</h1>
 
 		<div class="grid-3 flex-container flex-container-v">
 			<div class="pam flex-container-v push">

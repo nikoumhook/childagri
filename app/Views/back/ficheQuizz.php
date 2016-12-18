@@ -28,7 +28,7 @@
 
     <form method="POST">
 
-        <h1 class="titreFiche txtcenter pbs"> Quizz du <br> <?=$quizz1['ingredient'];?> de la région <?=ucfirst($quizz1['region']);?></h1>
+        <h1 class="titreFiche txtcenter"> Quizz du <?=$quizz1['ingredient'];?> de la région <?=ucfirst($quizz1['region']);?></h1>
 
         <div class="grid-4 flex-container-v">
 

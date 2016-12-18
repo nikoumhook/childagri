@@ -11,9 +11,9 @@
 <?php $this->start('main_content') ?>
 
 
-		<h1 class="titreForm txtcenter pbm">Enregistrer un quizz</h1>
+		<h1 class="titreForm txtcenter">Enregistrer un quizz</h1>
 
-		<div class="grid-6 pam">
+		<div class="grid-6 pas">
 			<label for="aliment" class="push aliment mbs txtright">CHOISISSEZ</label>
 			<select id="aliment" name="aliment" class="mll pull">
 	  			<option value="" selected disable>Liste des aliments</option>

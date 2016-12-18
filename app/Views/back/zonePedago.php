@@ -22,9 +22,9 @@
 
 		<form method="POST" enctype="multipart/form-data">
 
-			<h1 class="titreForm txtcenter pbm">Enregistrer un contenu pedagogique</h1>
+			<h1 class="titreForm txtcenter">Enregistrer un contenu pedagogique</h1>
 
-			<div class="grid-6 flex-container-v pam">
+			<div class="grid-6 flex-container-v pas">
 				<label for="aliment" class="aliment mbs push txtright">CHOISISSEZ</label>
 				<select name="aliment" class="mll pull">
 	  				<option value="" selected disable>Liste des aliments</option>

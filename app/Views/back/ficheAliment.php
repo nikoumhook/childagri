@@ -26,7 +26,7 @@
 
 	<form method="POST" enctype="multipart/form-data">
 
-		<h1 class="titreFiche txtcenter pbs">Fiche du <?=$aliment['name'];?></h1>
+		<h1 class="titreFiche txtcenter">Fiche du <?=$aliment['name'];?></h1>
 
 		<div class="grid-6 pas">
 

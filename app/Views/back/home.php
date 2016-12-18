@@ -3,7 +3,7 @@
 <?php $this->start('main_content') ?>
 
 	<h1 class="txtcenter">BIENVENUE SUR VOTRE BACKOFFICE</h1>
-	<div class="txtcenter accueil pbl"> Vous allez pouvoir administrer les contenus de votre application en trois coups de cuillère à pot !!<br>Choississez le menu dont vous avez besoin et laissez guider.</div>
+	<div class="txtcenter accueil pbs"> Vous allez pouvoir administrer les contenus de votre application en trois coups de cuillère à pot !!<br>Choississez le menu dont vous avez besoin et laissez guider.</div>
 
 	<div class="grid-4-small-2">
 

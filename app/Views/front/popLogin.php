@@ -1,9 +1,11 @@
 <div class="overlay overlay-simplegenie">
     <button type="button" class="overlay-close">Close</button>
-    <div class="grid-2">
+
+    <div class="grid-2 flex-container-v pal">
+
         <!-- formulaire pour les personnes ayant deja un compte -->
-        <div id="login">
-            <h2>Connection</h2>
+        <div id="login" class="flex-container-v">
+            <h2 class="txtcenter">Connection</h2>
             <form class="login" action="#" method="post">
                 <label for="username">Pseudo</label>
                 <input id="username" name="username" class="" type="text" required>
@@ -12,9 +14,10 @@
                 <button type="submit">Connecter</button>
             </form>
         </div>
+
         <!-- formulaire pour les personnes ne possedant pas de compte -->
-        <div id="subscribe">
-            <h2>Inscription</h2>
+        <div id="subscribe" class="flex-container-v">
+            <h2 class="txtcenter">Inscription</h2>
             <form class="subscribe" action="#" method="post">
                 <label for="username">Pseudo</label>
                 <input id="username" name="username" class="" type="text">

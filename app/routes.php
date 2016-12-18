@@ -15,6 +15,8 @@
     	['GET|POST', '/game/carte', 'Carte#carte', 'game_carte'],
         // Page quizz :
         ['GET|POST', '/game/quizz', 'Quizz#quizz', 'game_quizz'],
+        // Page result :
+        ['GET|POST', '/game/result', 'Result#result', 'game_result'],
 
 
         // menu deco (quit) et reset :

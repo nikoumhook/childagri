@@ -13,26 +13,20 @@ class QuizzController extends Controller
         $e = 1;
         $quizzModel = new QuizzModel();
         $pedagoModel = new PedagoModel();
-        $aliments = array_slice(explode(',', $_SESSION['save']['id_quizz']), -3, 3);
-        for($i = 0; $i < count($aliments); null){
-            ${'question'.$e} = $quizzModel->getQuizzByIdAliment($aliments[$i]);
-            ${'question'.$e} = $pedagoModel->getQuizzAliment(${'question'.$e}[$i]['id_aliment']);
-            $e++;
-            $i++;
+        //$_SESSION['aliments'] = [1,7,3,9,2,13];
+        array_shift($_SESSION['aliments']);
+        if(!empty($_SESSION['aliments'])){
+            $question = $quizzModel->getQuizzByIdAliment($_SESSION['aliments'][0]);
+            $question = $pedagoModel->getQuizzAliment($question[0]['id_aliment']);
         }
-        $this->show('front/quizz',[
-            'question1' => $question1,
-            'question2' => $question2,
-            'question3' => $question3
-            // 'question4' => $question4,
-            // 'question5' => $question5,
-            // 'question6' => $question6,
-            // 'question7' => $question7,
-            // 'question8' => $question8,
-            // 'question9' => $question9,
-            // 'question10' => $question10,
-            // 'question11' => $question11,
-            // 'question12' => $question12,
-        ]);
+        if(!empty($_SESSION['aliments'])){
+            $this->show('front/quizz',[
+                'question' => $question
+            ]);
+        }
+        else{
+            //upload des résultats et redirection sur la page Result
+            $this->redirectToRoute('game_result');
+        }
     }
 }

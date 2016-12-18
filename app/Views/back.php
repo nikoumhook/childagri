@@ -23,7 +23,7 @@
 </head>
 <body>
 
-    <nav>
+    <nav class="mtm">
         <div class="wrapper containerMenu">
             <div id="logo">
                 <a href="<?= $this->url('back_home') ?>">LOGO</a>

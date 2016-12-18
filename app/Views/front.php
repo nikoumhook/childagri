@@ -12,7 +12,6 @@
         <?= $this->section('head') ?>
 
         <link rel="stylesheet" href="<?= $this->assetUrl('css/interface.css') ?>">
-        <link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
         <style media="screen">
             .already{
                 background-color: black;
@@ -42,7 +41,7 @@
             <?php if (!empty($_SESSION['save']['id_quizz'])): ?>
                 <div class="containerBulle">
                     <div id="bulle" class="">
-                        Ont joue au QUIZZ ?
+                        <a href="<?= $this->url('game_quizz') ?>">Ont joue au QUIZZ ?</a>
                     </div>
                 </div>
             <?php endif; ?>
@@ -83,7 +82,9 @@
         <!-- BOUTON POUR CARTE  ************///////////////////////////////:******************* -->
         <?php if ($w_current_route == 'game_carte'): ?>
             <div id="navReturn" class="pam">
-                <a href="<?= $this->url('game_assiette') ?>">fleche de retour</a>
+                <a href="<?= $this->url('game_assiette') ?>">
+                    <img class="btn-back" src="<?= $this->assetUrl('/img/assiette_petitDej.svg') ?>" alt="retour">
+                </a>
             </div>
         <?php endif; ?>
         <!-- FIN BOUTON POUR CARTE  ************///////////////////////////////:******************* -->

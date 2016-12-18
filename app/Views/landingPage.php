@@ -16,8 +16,6 @@
 
 <!-- Mon style -->
 <link rel="stylesheet" href="<?=$this->assetUrl('css/landingPage.css');?>">
-    <link rel="stylesheet" href="<?= $this->assetUrl('css/popinFormulaireFront.css') ?>">
-
 </head>
 
 <body>
@@ -27,16 +25,17 @@
 	<div id="wrapper" class="backgroundLanding">
 
 		<!-- Div explication -->
-		<div id="explainLanding">
+		<!-- <div id="explainLanding">
 			<h1 class="txtcenter titreLanding">Amuse toi à découvrir ce que tu manges tous les jours !</h1>
-		</div>
-
-		<!-- Button play -->
-		<button id="trigger-overlay" type="button" class="overlay">ON JOUE</button>
+		</div> -->
+        <div class="containerBtn wrapper">
+            <!-- Button play -->
+            <button id="trigger-overlay" type="button" class="overlay playBtn">ON JOUE</button>
+        </div>
 
 
 		<!-- Div POPIN -->
-		<div id="log" class="overlay overlay-simplegenie">
+        <div id="log" class="overlay overlay-simplegenie centreurOverlay">
 
 			<!-- Bouton fermeture de la div simple genius-->
 			<button type="button" class="overlay-close">Fermer</button>
@@ -55,10 +54,9 @@
 							<!-- <div class="grid-2 flex-item-center"> -->
 								<!-- <label for="usernameC" class="labelLanding one-third">Ton pseudo</label> -->
 								<input id="usernameC" class="" type="text" name="username" placeholder="TON PSEUDO" required>
-							<!-- </div>
- -->
+							<!-- </div> -->
 							<!-- <div class="grid-2 flex-item-center"> -->
-								<!-- <label for="passwordC" class="labelLanding one-third">Ton mot de passe</label -->>
+								<!-- <label for="passwordC" class="labelLanding one-third">Ton mot de passe</label -->
 								<input id="passwordC" class="" type="password" name="passwordconnect" placeholder="TON MOT DE PASSE" required>
 							<!-- </div> -->
 
@@ -74,7 +72,7 @@
 				</div> <!-- fermeture bloc1 -->
 
 				<!-- Div formulaire inscription Popin -->
-				<div id="inscription" class="bloc2 center flex-container-v">
+				<div id="inscription" class="bloc2">
 					<h2 class="txtcenter pam titreConnect"> Inscris toi</h2>
 					<form class="flex-item-center" action="#">
 

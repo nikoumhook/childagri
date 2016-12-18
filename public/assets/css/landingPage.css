@@ -7,21 +7,21 @@
 	width: 100vw;
 }
 
-.backgroundLanding{
-	background: url();
-	background-color: ;
 
+.playBtn {
+    position: relative;
+	width: 35%;
+	height: 35%;
+	background: rgba(161,196,204,0.9);
 }
-
-
-
-/***************DIV EXPLAIN**********************/
-
-
-#explainLanding{
+.containerBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper{
 	height: 100vh;
 	width: 100vw;
-	margin: 0 auto;
 }
 
 
@@ -35,15 +35,38 @@
 
 
 /***************DIV POPIN*************************/
-
+/* bouton fermer */
+.overlay .overlay-close {
+	width: 80px;
+	height: 80px;
+    cursor: pointer;
+	position: fixed;;
+	right: 20px;
+	top: 20px;
+	overflow: hidden;
+	border: none;
+	background: url(../img/cross.png) no-repeat center center;
+	text-indent: 200%;
+	color: transparent;
+	outline: none;
+	z-index: 10000;
+}
+.centreurOverlay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /*Wrapper Popin*/
-.wrapperPopin{
-	height:100vh;
-	width:100vw;
+.wrapperPopin {
+	max-height: 50vh;
+	max-width: 1400px;
+}
+.wrapperPopin h2{
+    display: block;
+    width: 100%;
 }
 
 .bloc1{
-	height:100vh;
 	border: 0;
 	border-radius: 3px;
 	padding-left: 10px;
@@ -59,7 +82,6 @@
 
 
 .bloc2{
-	height:100vh;
 	border: 0;
 	border-radius: 3px;
 	padding-right: 10px;
@@ -102,5 +124,5 @@
 	width: 250px;
 	border:0;
 	border-radius: 3px;
-	
+
 }

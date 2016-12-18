@@ -23,21 +23,31 @@
 </head>
 <body>
 
-    <nav class="mtm">
+    <nav class="mtm mbm">
         <div class="wrapper containerMenu">
             <div id="logo">
                 <a href="<?= $this->url('back_home') ?>">LOGO</a>
             </div>
             <div id="menu">
                 <ul>
-                    <li><a href="<?= $this->url('back_aliment') ?>" class="<= ($w_current_route == 'back_aliment')? 'active' :''; ?>">ALIMENTS</a></li>
+                    <li class="menuItem" ><a href="<?= $this->url('back_aliment') ?>" class="<= ($w_current_route == 'back_aliment')? 'active' :''; ?>">ALIMENTS</a>
+                        <ul class="subMenu" ><li class="mts"><a href="<?= $this->url('back_aliment') ?>">Creation d'aliment</a></li><li class="mts"><a href="<?= $this->url('back_aliment') ?>">Liste Aliments</a></li></ul>
+                    </li>
 
-                    <li><a href="<?= $this->url('back_zonePedago') ?>" class="<= ($w_current_route == 'back_zonePedago')? 'active' :''; ?>">PEDAGOGIE</a></li>
+                    <li class="menuItem" ><a href="<?= $this->url('back_zonePedago') ?>" class="<= ($w_current_route == 'back_zonePedago')? 'active' :''; ?>">PEDAGOGIE</a>
+                        <ul class="subMenu" ><li class="mts"><a href="<?= $this->url('back_aliment') ?>">Creation d'aliment</a></li><li class="mts"><a href="<?= $this->url('back_aliment') ?>">Liste Aliments</a></li></ul>
+                    </li>
 
-                    <li><a href="<?= $this->url('back_quizz') ?>" class="<= ($w_current_route == 'back_quizz')? 'active' :''; ?>">QUIZZ</a></li>
+                    <li class="menuItem" ><a href="<?= $this->url('back_quizz') ?>" class="<= ($w_current_route == 'back_quizz')? 'active' :''; ?>">QUIZZ</a>
+                        <ul class="subMenu" ><li class="mts"><a href="<?= $this->url('back_aliment') ?>">Creation d'aliment</a></li><li class="mts"><a href="<?= $this->url('back_aliment') ?>">Liste Aliments</a></li></ul>
+                    </li>
 
-                    <li><a href="<= $this->url('nom_de_la_route') ?>" class="<= ($w_current_route == 'nom_de_la_route')? 'active' :''; ?>">JOUEURS</a></li>
+                    <li class="menuItem" ><a href="<= $this->url('nom_de_la_route') ?>" class="<= ($w_current_route == 'nom_de_la_route')? 'active' :''; ?>">JOUEURS</a>
+                        <ul class="subMenu" ><li class="mts"><a href="<?= $this->url('back_aliment') ?>">Creation d'aliment</a></li><li class="mts"><a href="<?= $this->url('back_aliment') ?>">Liste Aliments</a></li></ul>
+                    </li>
                 </ul>
+
+
             </div>
         </div>
     </nav>
@@ -50,6 +60,33 @@
 
 		<footer>
 		</footer>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script>
+            $(function(){
+                var p;
+                $('.menuItem').click(function(e){
 
+                    e.preventDefault();
+
+                    p = $(this).children();
+                    p= p[1];
+
+                    $('.down').slideUp();
+
+                    if ($(p).hasClass('down')) {
+                        $('.down').slideUp();
+                        $(p).removeClass('down');
+
+                    }else {
+                        $('.down').removeClass('down');
+                        $(p).addClass('down')
+                        $(p).slideDown();
+                    }
+                    //console.log($(p).css('display'));
+
+                });
+
+            });
+        </script>
 </body>
 </html>

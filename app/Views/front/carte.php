@@ -1,4 +1,5 @@
-<?php $this->layout('front', ['title' => 'Jeu carte', 'repas' => $repas]) ?>
+<?php $this->layout('front', ['title' => 'Jeu carte', 'repas' => $repas,
+    'aliment1' => $aliment1,'aliment2' => $aliment2,'aliment3' => $aliment3]) ?>
 
 <?php $this->start('head') ?>
 
@@ -136,6 +137,7 @@ $(document).ready(function(){
 
 <?php $this->start('main_content') ?>
 
+
     <div id="container_carte" class="pal">
 
         <div id="zonePedago" class="zonePedago mal">
@@ -145,9 +147,19 @@ $(document).ready(function(){
                 <div class="pedagoFermer"></div>
 
                 <!-- Titre -->
-                <h1 class="txtcenter"><?= ucfirst($aliment1['name']) ?></h1>
+                <h1 class="mas txtcenter"><?= ucfirst($aliment1['name']) ?></h1>
 
                 <!-- Zone 1 Info pédago -->
+                <div class="grid-2 flex-container-v">
+                    <div class="vignetteAlimentPedago">
+                        <img class="" src="<?= $this->assetUrl($aliment1['urlImg']);?>" alt="">
+                    </div>
+                    <div class="">
+                        <img src="<?= $this->assetUrl($aliment1['illus'])?>" class="vignetteAgri" alt="">
+                    </div>
+                </div> <!-- fermeture zone1 -->
+
+                <!-- Zone 2 Info pédago -->
                 <div class="grid-2 flex-container-v pas">
                     <!-- Picto audio -->
                     <div class="pictoSound pas">
@@ -159,13 +171,13 @@ $(document).ready(function(){
                             <source src="<?= $this->assetUrl($aliment1['urlSound']);?>" type="audio/mp3" >
                         </audio>
                     </div>
-                </div> <!-- fermeture zone1 -->
-
-                <!-- Zone 2 Info pédago -->
-                <div class="flex-container-v pam">
-                    <p><?= $aliment1['content'] ?></p>
-                    <img class="left vignetteAlimentPedago" src="<?= $this->assetUrl($aliment1['urlImg']);?>" alt="">
                 </div> <!-- fermeture zone2 -->
+
+                <!-- Zone 3 Info pédago -->
+                <div class="flex-container-v pam">
+                    <p><?= htmlspecialchars_decode($aliment1['content'])?></p>
+                </div> <!-- fermeture zone3 -->
+
             </div> <!-- fermeture aliment1 -->
 
             <div class="aliment2 pal alim">
@@ -173,9 +185,19 @@ $(document).ready(function(){
                 <div class="pedagoFermer"></div>
 
                 <!-- Titre -->
-                <h1 class="txtcenter"> <?= ucfirst($aliment2['name']) ?> </h1>
+                <h1 class="txtcenter"> <?= ucfirst($aliment2['name'])?> </h1>
 
                 <!-- Zone 1 Info pédago -->
+                <div class="grid-2 flex-container-v">
+                    <div>
+                       <img class="left vignetteAlimentPedago" src="<?= $this->assetUrl($aliment2['urlImg']);?>" alt="">
+                    </div>
+                    <div>
+                        <img src="<?= $this->assetUrl($aliment2['illus'])?>" class="vignetteAgri" alt="">
+                    </div>
+                </div> <!-- fermeture zone1 -->
+
+                <!-- Zone 2 Info pédago -->
                 <div class="grid-2 flex-container-v pas">
                     <!-- Picto audio -->
                     <div class="pictoSound pas">
@@ -187,13 +209,13 @@ $(document).ready(function(){
                             <source src="<?= $this->assetUrl($aliment2['urlSound']);?>" type="audio/mp3" >
                         </audio>
                     </div>
-                </div> <!-- fermeture zone1 -->
-
-                <!-- Zone 2 Info pédago -->
-                <div class="flex-container-v pam">
-                    <p><?= $aliment2['content'] ?></p>
-                    <img class="left vignetteAlimentPedago" src="<?= $this->assetUrl($aliment2['urlImg']);?>" alt="">
                 </div> <!-- fermeture zone2 -->
+
+                <!-- Zone 3 Info pédago -->
+                <div class="flex-container-v pam">
+                    <p><?= htmlspecialchars_decode($aliment2['content'])?></p>
+                </div> <!-- fermeture zone3 -->
+
             </div> <!-- fermeture aliment2 -->
 
 
@@ -204,8 +226,17 @@ $(document).ready(function(){
                  <!-- Titre -->
                 <h1 class="txtcenter"> <?= ucfirst($aliment3['name']) ?> </h1>
 
-
                 <!-- Zone 1 Info pédago -->
+                <div class="grid-2 flex-container-v">
+                    <div>
+                        <img class="left vignetteAlimentPedago" src="<?= $this->assetUrl($aliment3['urlImg']);?>" alt="">
+                    </div>
+                    <div>
+                        <img src="<?= $this->assetUrl($aliment3['illus'])?>" class="vignetteAgri" alt="">
+                    </div>
+                </div> <!-- fermeture zone1 -->
+
+                <!-- Zone 2 Info pédago -->
                 <div class="grid-2 flex-container-v pas">
                     <!-- Picto audio -->
                     <div class="pictoSound pas">
@@ -217,14 +248,13 @@ $(document).ready(function(){
                             <source src="<?= $this->assetUrl($aliment3['urlSound']);?>" type="audio/mp3" >
                         </audio>
                     </div>
-                </div><!-- fermeture zone1 -->
+                </div><!-- fermeture zone2 -->
 
-                <!-- Zone 2 Info pédago -->
+                <!-- Zone 3 Info pédago -->
                 <div class="flex-container-v pam">
-                    <p><?= $aliment3['content'] ?></p>
-                    <img class="left vignetteAlimentPedago" src="<?= $this->assetUrl($aliment3['urlImg']);?>" alt="">
-                </div>
-            </div> <!-- fermeture aliment1 -->
+                    <p><?= htmlspecialchars_decode($aliment3['content'])?></p>
+                </div><!-- fermeture zone3 -->
+            </div> <!-- fermeture aliment3 -->
 
         </div> <!-- fermeture div zonePedago -->
 

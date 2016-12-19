@@ -59,8 +59,11 @@
 }
 
 .vignetteAlimentPedago{
-    width:125px;
+    max-width: 30%;
 }
 
+.vignetteAgri{
+    width:130px;
+}
 
 

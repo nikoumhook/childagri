@@ -89,7 +89,7 @@ $(document).ready(function(){
     });
 
     $('.pedagoFermer').click(function(){
-        $('.alim').slideUp();    
+        $('.alim').slideUp();
 
     });
 
@@ -175,13 +175,6 @@ $(document).ready(function(){
                 <!-- Titre -->
                 <h1 class="txtcenter"> <?= ucfirst($aliment2['name']) ?> </h1>
 
-<<<<<<< HEAD
-                <img src="<?= $this->assetUrl('img/sound.svg') ?>" class="vignetteSound" alt="">
-                <audio src="<?= $this->assetUrl($aliment2['urlSound']);?>"></audio>
-
-                <p><?= $aliment2['content'] ?></p>
-                <img src="<?= $this->assetUrl($aliment2['urlImg']);?>" alt="">
-=======
                 <!-- Zone 1 Info pédago -->
                 <div class="grid-2 flex-container-v pas">
                     <!-- Picto audio -->
@@ -202,7 +195,7 @@ $(document).ready(function(){
                     <img class="left vignetteAlimentPedago" src="<?= $this->assetUrl($aliment2['urlImg']);?>" alt="">
                 </div> <!-- fermeture zone2 -->
             </div> <!-- fermeture aliment2 -->
->>>>>>> 4956bca14e9fca6ffd8cd3e4ff511b28ff8e6d71
+
 
             <div class="aliment3 pal alim">
                 <!-- Div avec img croix en css pour fermer zone -->
@@ -210,18 +203,8 @@ $(document).ready(function(){
 
                  <!-- Titre -->
                 <h1 class="txtcenter"> <?= ucfirst($aliment3['name']) ?> </h1>
-<<<<<<< HEAD
 
-                <img src="<?= $this->assetUrl('img/sound.svg') ?>" class="vignetteSound" alt="">
-                <audio src="<?= $this->assetUrl($aliment3['urlSound']);?>"></audio>
-                <p><?= $aliment3['content'] ?></p>
-                <img src="<?= $this->assetUrl($aliment3['urlImg']);?>" alt="">
 
-            </div>
-
-        </div>
-=======
-                
                 <!-- Zone 1 Info pédago -->
                 <div class="grid-2 flex-container-v pas">
                     <!-- Picto audio -->
@@ -244,7 +227,7 @@ $(document).ready(function(){
             </div> <!-- fermeture aliment1 -->
 
         </div> <!-- fermeture div zonePedago -->
->>>>>>> 4956bca14e9fca6ffd8cd3e4ff511b28ff8e6d71
+
 
         <?php $this->insert('front/element_carte') ?>
 

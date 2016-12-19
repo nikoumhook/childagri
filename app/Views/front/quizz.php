@@ -30,6 +30,9 @@ var_dump($_SESSION['results']); ?>
 		</form>
     </div>
 </div>
+<?php
+$_SESSION['results'] = 91;
+?>
 <script>
 	$(document).ready(function(){
 		$('#button').click(function(e){

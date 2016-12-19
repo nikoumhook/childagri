@@ -20,3 +20,18 @@ label{
     align-items: center;
     min-height: 100vh;
 }
+/*Style Page de Résultat*/
+#titreGlobal{
+    text-align: center;
+}
+#globalResult{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.containerResult{
+    width: 400px;
+}
+h4{
+    text-align: center;
+}

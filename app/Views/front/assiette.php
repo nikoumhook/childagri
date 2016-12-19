@@ -19,7 +19,6 @@
         <img id="assiette" src="<?= $this->assetUrl('img/assiette_petitDej.svg') ?>" alt="assiette de drag">
     </div>
 <?php $this->stop('main_content') ?>
-
 <?php $this->start('script') ?>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 

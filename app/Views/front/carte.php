@@ -1,7 +1,14 @@
 <?php $this->layout('front', ['title' => 'Jeu carte', 'repas' => $repas]) ?>
 
 <?php $this->start('head') ?>
+
+    <!-- Typo -->
+    <link href="https://fonts.googleapis.com/css?family=Paytone+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+
     <link rel="stylesheet" href="<?= $this->assetUrl('css/carte.css') ?>">
+
 <?php $this->stop('head') ?>
 
 
@@ -55,7 +62,7 @@ $(document).ready(function(){
     $('#marker1').click(function(){
 
         marker1 = true;
-        $('#zonePedago').children().hide();
+        $('.alim').hide();
         $('.aliment1').slideToggle( "slow", function() {
 
         });
@@ -66,7 +73,7 @@ $(document).ready(function(){
     $('#marker2').click(function(){
 
         marker2 = true;
-        $('#zonePedago').children().hide();
+         $('.alim').hide();
         $('.aliment2').slideToggle( "slow", function() {
 
         });
@@ -77,7 +84,7 @@ $(document).ready(function(){
     $('#marker3').click(function(){
 
         marker3 = true;
-        $('#zonePedago').children().hide();
+        $('.alim').hide();
         $('.aliment3').slideToggle( "slow", function() {
 
         });
@@ -131,25 +138,41 @@ $(document).ready(function(){
 
     <div id="container_carte" class="pal">
 
-        <div id="zonePedago">
-            <div class="aliment1">
-                <h1> <?= $aliment1['name'] ?> </h1>
-                <img src="<?= $this->assetUrl($aliment1['urlImg']);?>" alt="">
-                <p><?= $aliment1['content'] ?></p>
+        <div id="zonePedago" class="zonePedago mal">
+
+            <div class="aliment1 pal alim">
+                <div class="pedagoFermer"></div>
+                <h1 class="txtcenter"> <?= ucfirst($aliment1['name']) ?> </h1>
+
+                <img src="<?= $this->assetUrl('img/sound.svg') ?>" class="vignetteSound" alt="">
                 <audio src="<?= $this->assetUrl($aliment1['urlSound']);?>"></audio>
+
+                <p><?= $aliment1['content'] ?></p>
+                <img src="<?= $this->assetUrl($aliment1['urlImg']);?>" alt="">
+
             </div>
-            <div class="aliment2">
-                <h1> <?= $aliment2['name'] ?> </h1>
-                <img src="<?= $this->assetUrl($aliment2['urlImg']);?>" alt="">
-                <p><?= $aliment2['content'] ?></p>
+            <div class="aliment2 pal alim">
+                <div class="pedagoFermer"></div>
+                <h1 class="txtcenter"> <?= ucfirst($aliment2['name']) ?> </h1>
+
+                <img src="<?= $this->assetUrl('img/sound.svg') ?>" class="vignetteSound" alt="">
                 <audio src="<?= $this->assetUrl($aliment2['urlSound']);?>"></audio>
+                
+                <p><?= $aliment2['content'] ?></p>
+                <img src="<?= $this->assetUrl($aliment2['urlImg']);?>" alt="">
+
             </div>
-            <div class="aliment3">
-                <h1> <?= $aliment3['name'] ?> </h1>
-                <img src="<?= $this->assetUrl($aliment3['urlImg']);?>" alt="">
-                <p><?= $aliment3['content'] ?></p>
+            <div class="aliment3 pal alim">
+                <div class="pedagoFermer"></div>
+                <h1 class="txtcenter"> <?= ucfirst($aliment3['name']) ?> </h1>
+                
+                <img src="<?= $this->assetUrl('img/sound.svg') ?>" class="vignetteSound" alt="">
                 <audio src="<?= $this->assetUrl($aliment3['urlSound']);?>"></audio>
+                <p><?= $aliment3['content'] ?></p>
+                <img src="<?= $this->assetUrl($aliment3['urlImg']);?>" alt="">
+
             </div>
+
         </div>
 
         <?php $this->insert('front/element_carte') ?>

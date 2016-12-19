@@ -1,19 +1,10 @@
 body{
     width: 100vw;
     height: 100vh;
-    background: #D8D8CD;
-
-
-
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7db9e8+1,d8d8cd+4,d8d8cd+81,d8d8cd+100 */
-    background: rgb(125,185,232); /* Old browsers */
-    background: -moz-linear-gradient(top, rgba(125,185,232,1) 1%, rgba(216,216,205,1) 4%, rgba(216,216,205,1) 81%, rgba(216,216,205,1) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(125,185,232,1) 1%,rgba(216,216,205,1) 4%,rgba(216,216,205,1) 81%,rgba(216,216,205,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(125,185,232,1) 1%,rgba(216,216,205,1) 4%,rgba(216,216,205,1) 81%,rgba(216,216,205,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#d8d8cd',GradientType=0 ); /* IE6-9 */
-
-
+    background: #EFDDCB;
 }
+
+
 /************************************/
 /*             Debug               */
 /************************************/
@@ -44,9 +35,8 @@ body{
     justify-content: center;
     padding: 0;
     margin: 0;
-
-
 }
+
 .navAlimentBtn{
     max-height: 64px;
     max-width: 64px;
@@ -73,6 +63,20 @@ body{
 .btn{
     cursor: pointer;
 }
+
+
+.reglesAssiettes1{
+    font-family:'Paytone One', sans-serif;
+    font-size: 20px;
+    color:#7A7874;
+}
+
+.reglesAssiettes2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color:#7A7874;
+}
+
 /************************************/
 /*             LEFTBAR              */
 /************************************/
@@ -89,26 +93,52 @@ body{
 }
 
 #navLeftBar li{
+    font-family:'Paytone One', sans-serif;
+    color:#7A7874;
+    font-size: 20px;
     list-style: none;
 }
 .circle{
-    border: 5px solid rgba(0,0,0,0.5);
-    background: rgba(255,255,255,0.5);
+    /*border: 5px solid rgba(0,0,0,0.5);*/
+    background: #EDC977;
     margin:10px;
-    width:100px;
-    height:100px;
-    border-radius:100px;
+    width:150px;
+    height:150px;
+    border-radius:6px;
     text-align:center;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .circle:hover{
-    background: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.5);
     cursor: pointer;
 }
 .repasFait{
-    background: red;
+    background: #E25647;
+}
+
+.already{
+    background-color: #F2AE6A;
+}
+
+/************************************/
+/*            CARTE DE FRANCE             */
+/************************************/
+
+.reglesCarte1{
+    position: fixed;
+    top:0;
+    width: 100%;
+    display: flex;
+    font-family:'Paytone One', sans-serif;
+    font-size: 20px;
+    color:#7A7874;
+}
+
+.reglesCarte2{
+    width:60%;
+    margin:0 auto;
 }
 
 /************************************/
@@ -119,10 +149,28 @@ body{
 	position: fixed;
 	top: 1em;
 	right: 1em;
-	background: rgba(125,125,125,1);
+	background: #7A7874;
 	cursor: pointer;
 	border-radius: 6px;
 }
+
+.decoMenu, {
+    color:#FFF;
+    font-family:'Paytone One', sans-serif;
+    font-size: 16px;
+}
+
+.decoMenu a, .decoMenu a:hover{
+    color:#FFF;
+    font-family:'Paytone One', sans-serif;
+    font-size: 11px;  
+}
+
+.mini{
+    width: 35px;
+}
+
+
 .decoSubmenu {
 	display: none;
 	position: fixed;
@@ -130,21 +178,37 @@ body{
     right: 19px;
 	text-align: center;
 }
+
 .decoSubmenu li{
-    background: rgba(125,125,125,1);
+    background: #AAA7A2;
     border-radius: 6px;
     list-style: none;
     text-align: center;
 }
+
+/*.sousMenu1 li::before{
+    content:" ";
+    background-image: url("img/thumbs-up.svg");
+   
+}
+
+.sousMenu2 li::before{
+    content:" ";
+    background-image: url("img/cross.svg");
+   
+}
+*/
+
+
 .decoSubmenu li a{
     text-decoration: none;
     border-radius: 6px;
     display: block;
 }
-.decoSubmenu li a:hover{
+/*.decoSubmenu li a:hover{
     background: rgb(182, 182, 182);
 }
-/************************************/
+*//************************************/
 /*          MENU Trophee            */
 /************************************/
 #navTrophee{
@@ -152,15 +216,14 @@ body{
     z-index: 98;
     position: fixed;
     bottom: 0;right: 0;
-    max-width: 245px;
+    max-width: 345px;
 }
 #intestin{
     /*max-height: 245px;*/
     width: 100%;
 }
-#intestin:hover{
-    opacity: 0;
-}
+
+
 #intestinEtape1,#intestinEtape2,#intestinEtape3,#intestinEtape4{
     display: none;
 }

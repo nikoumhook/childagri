@@ -8,15 +8,13 @@ use Model\PedagoModel;
 use Model\AlimentsModel;
 use Model\QuizzModel;
 use \W\Security\AuthorizationModel;
+use \W\Security\AuthentificationModel;
 
 use Intervention\Image\ImageManagerStatic as Image;
 
 
 class BackController extends Controller
 {
-
-
-
 
 	/**
 	 * Page d'accueil par défaut
@@ -31,6 +29,7 @@ class BackController extends Controller
     public function quizz(){
 
         $authorizationModel = new AuthorizationModel();
+        $authentificationModel = new AuthentificationModel();
 
         if (!$authentificationModel->getLoggedUser() || $authorizationModel->isGranted('out')) {
             $this->redirectToRoute('login');

@@ -141,15 +141,15 @@ $(document).ready(function(){
 
         <div id="zonePedago" class="zonePedago mal">
 
-            <div class="aliment1 pal alim">
+            <div class="aliment1 pam alim">
                 <!-- Div avec img croix en css pour fermer zone -->
                 <div class="pedagoFermer"></div>
 
                 <!-- Titre -->
-                <h1 class="mas txtcenter"><?= ucfirst($aliment1['name']) ?></h1>
+                <h1 class="mas txtcenter"><?=ucfirst($aliment1['name'])?></h1>
 
                 <!-- Zone 1 Info pédago -->
-                <div class="grid-2 flex-container-v">
+                <div class="grid-5 flex-container-v align">
                     <div class="vignetteAlimentPedago">
                         <img class="" src="<?= $this->assetUrl($aliment1['urlImg']);?>" alt="">
                     </div>
@@ -187,7 +187,7 @@ $(document).ready(function(){
                 <h1 class="txtcenter"> <?= ucfirst($aliment2['name'])?> </h1>
 
                 <!-- Zone 1 Info pédago -->
-                <div class="grid-2 flex-container-v">
+                <div class="grid-5 flex-container-v align">
                     <div>
                        <img class="left vignetteAlimentPedago" src="<?= $this->assetUrl($aliment2['urlImg']);?>" alt="">
                     </div>
@@ -226,7 +226,7 @@ $(document).ready(function(){
                 <h1 class="txtcenter"> <?= ucfirst($aliment3['name']) ?> </h1>
 
                 <!-- Zone 1 Info pédago -->
-                <div class="grid-2 flex-container-v">
+                <div class="grid-5 flex-container-v align">
                     <div>
                         <img class="left vignetteAlimentPedago" src="<?= $this->assetUrl($aliment3['urlImg']);?>" alt="">
                     </div>

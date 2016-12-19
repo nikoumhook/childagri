@@ -13,22 +13,22 @@
 .alim{
     display: none;
     z-index: 9000;
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left:0;
+    right: 0;
+    background-color: rgba(255,255,255,0.7);
+    border:0;
+    border-radius: 6px;
+    overflow-y: scroll;
 }
-
 
 .markerRegion{
     z-index: 99999;
     cursor: pointer;
 }
 
-
-.zonePedago{
-    background-color: rgba(255,255,255,0.7);
-    border:0;
-    border-radius: 6px;
-    max-width:50%;
-    position: relative;
-}
 
 .zonePedago p{
     font-family: 'Montserrat', sans-serif;
@@ -50,6 +50,11 @@
     background: url(../img/cross.svg) no-repeat center center;
 }
 
+
+.align{
+    align-items: center;
+}
+
 .pictoSound{
     max-width: 10%
 }
@@ -59,11 +64,11 @@
 }
 
 .vignetteAlimentPedago{
-    max-width: 30%;
+/*    max-width: 16%;*/
 }
 
 .vignetteAgri{
-    width:130px;
+    width:250px;
 }
 
 

@@ -1,7 +1,8 @@
 <?php $this->layout('back', ['title' => 'Administrer vos contenus pedagogiques']) ?>
 
 <?php $this->start('head') ?>
-
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+  <script>tinymce.init({ selector:'textarea' });</script>
     <!-- Feuille de style FORMULAIRE BACK -->
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/formulaire.css') ?>">
 
@@ -45,7 +46,7 @@
 					<label for="content" class="">Contenu pédago</label>
 					<textarea id="content" class="tinychildAgri" type="text" name="content" placeholder="Ex: Le lait">
 					</textarea>
-				</div> 
+				</div>
 
 				<div class="flex-container-v pam">
 					<label for="picture" class="">Fichier image</label>
@@ -57,7 +58,7 @@
 						<input id="sound" class="pas" type="file" name="sound" accept="audio/mpeg3" value="">
 					</div>
 
-				</div> 
+				</div>
 			</div> <!-- fermeture grid 2 -->
 
 
@@ -77,13 +78,13 @@
 	  						<input type="radio" name="publish" value="non"> BROUILLON
 	  					</div>
 	  				</div>
-	  			</div> 
+	  			</div>
 
 
 				<!-- Bouton -->
 				<div class="flex-container-v pull mll">
 					<button type="submit" class="bouttonEnregistrer">ENREGISTRER</button>
-				</div> 
+				</div>
 
 			</div> <!--  fermeture div Grid2 -->
 

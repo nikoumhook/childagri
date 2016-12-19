@@ -135,7 +135,6 @@ $(document).ready(function(){
 <?php $this->stop('script') ?>
 
 <?php $this->start('main_content') ?>
-
     <div id="container_carte" class="pal">
 
         <div id="zonePedago" class="zonePedago mal">

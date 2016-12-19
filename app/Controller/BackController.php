@@ -611,8 +611,10 @@ class BackController extends Controller
 
 			$usernameValidator = v::alnum('é,è,ê,à,ï,ö')->length(5, 20);
 
-			if(!v::notEmpty()->length(20,5000)->validate($post['content'])){
+			if(!v::notEmpty()->length(20,5000)->validate($_POST['content'])){
 				$errors[] = 'Votre contenu pédagogique doit comporter un minimum de 20 caractères';
+			}else {
+			    $content = htmlspecialchars($_POST['content']);
 			}
 
 			if (!isset($post['publish']) || empty($post['publish']) || !($post['publish']== 'oui' || $post['publish']=='non')) {
@@ -730,7 +732,7 @@ class BackController extends Controller
 
 
 				$data = [
-					'content' 	=>$post['content'],
+					'content' 	=>$content,
 					'publish'	=>$post['publish'],
 				];
 
@@ -790,6 +792,7 @@ class BackController extends Controller
 
 		if (!empty($_POST)) {
 
+
 			foreach ($_POST as $key => $value) {
 				$post[$key] = trim(strip_tags($value));
 			}
@@ -804,8 +807,10 @@ class BackController extends Controller
 				$errors[] = 'Votre devez choisir si vous souhaitez publier votre contenu pédagogique ou si vous souhaitez l\'enregistrer en brouillon';
 			}
 
-			if(!v::notEmpty()->length(20,5000)->validate($post['content'])){
+			if(!v::notEmpty()->length(20,5000)->validate($_POST['content'])){
 				$errors[] = 'Votre contenu pédagogique doit comporter un minimum de 20 caractères';
+			}else {
+			    $content = htmlspecialchars($_POST['content']);
 			}
 
 			//Condition fichier audio
@@ -924,7 +929,7 @@ class BackController extends Controller
 
 				$data = [
 					'id_aliment'=>$post['aliment'],
-					'content' 	=>$post['content'],
+					'content' 	=>$content,
 					'publish'	=>$post['publish'],
 					'id_land'	=>$aliment['id_land'],
 				];

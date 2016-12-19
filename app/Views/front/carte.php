@@ -65,21 +65,19 @@ $(document).ready(function(){
         $('.aliment1').slideToggle( "slow", function() {
 
         });
-
         controleClickPedago();
-
     });
+
     $('#marker2').click(function(){
 
         marker2 = true;
-         $('.alim').hide();
+        $('.alim').hide();
         $('.aliment2').slideToggle( "slow", function() {
 
         });
-
         controleClickPedago();
-
     });
+
     $('#marker3').click(function(){
 
         marker3 = true;
@@ -87,10 +85,14 @@ $(document).ready(function(){
         $('.aliment3').slideToggle( "slow", function() {
 
         });
-
         controleClickPedago();
+    });
+
+    $('.pedagoFermer').click(function(){
+        $('.alim').slideUp();    
 
     });
+
 
     var controleClickPedago = function(){
         if (marker1 && marker2 && marker3) {
@@ -119,7 +121,7 @@ $(document).ready(function(){
 
                 $('#navReturn').slideDown();
             }else {
-                $('#navReturn').html('tu as fait tout les repas de la journée');
+                $('#navReturn').html('tu as fait tous les repas de la journée');
                 $('#navReturn').slideDown();
             }
             // a cette endroit faire le script qui fait apparaitre Le logo du quizz
@@ -139,30 +141,76 @@ $(document).ready(function(){
         <div id="zonePedago" class="zonePedago mal">
 
             <div class="aliment1 pal alim">
+                <!-- Div avec img croix en css pour fermer zone -->
                 <div class="pedagoFermer"></div>
-                <h1 class="txtcenter"> <?= ucfirst($aliment1['name']) ?> </h1>
 
-                <img src="<?= $this->assetUrl('img/sound.svg') ?>" class="vignetteSound" alt="">
-                <audio src="<?= $this->assetUrl($aliment1['urlSound']);?>"></audio>
+                <!-- Titre -->
+                <h1 class="txtcenter"><?= ucfirst($aliment1['name']) ?></h1>
 
-                <p><?= $aliment1['content'] ?></p>
-                <img src="<?= $this->assetUrl($aliment1['urlImg']);?>" alt="">
+                <!-- Zone 1 Info pédago -->
+                <div class="grid-2 flex-container-v pas">
+                    <!-- Picto audio -->
+                    <div class="pictoSound pas">
+                        <img src="<?= $this->assetUrl('img/sound.svg') ?>" class="vignetteSound" alt="">
+                    </div>
+                    <!-- Piste audio -->
+                    <div class="pam">
+                        <audio controls="controls">
+                            <source src="<?= $this->assetUrl($aliment1['urlSound']);?>" type="audio/mp3" >
+                        </audio>
+                    </div>
+                </div> <!-- fermeture zone1 -->
 
-            </div>
+                <!-- Zone 2 Info pédago -->
+                <div class="flex-container-v pam">
+                    <p><?= $aliment1['content'] ?></p>
+                    <img class="left vignetteAlimentPedago" src="<?= $this->assetUrl($aliment1['urlImg']);?>" alt="">
+                </div> <!-- fermeture zone2 -->
+            </div> <!-- fermeture aliment1 -->
+
             <div class="aliment2 pal alim">
+                <!-- Div avec img croix en css pour fermer zone -->
                 <div class="pedagoFermer"></div>
+
+                <!-- Titre -->
                 <h1 class="txtcenter"> <?= ucfirst($aliment2['name']) ?> </h1>
 
+<<<<<<< HEAD
                 <img src="<?= $this->assetUrl('img/sound.svg') ?>" class="vignetteSound" alt="">
                 <audio src="<?= $this->assetUrl($aliment2['urlSound']);?>"></audio>
 
                 <p><?= $aliment2['content'] ?></p>
                 <img src="<?= $this->assetUrl($aliment2['urlImg']);?>" alt="">
+=======
+                <!-- Zone 1 Info pédago -->
+                <div class="grid-2 flex-container-v pas">
+                    <!-- Picto audio -->
+                    <div class="pictoSound pas">
+                        <img src="<?= $this->assetUrl('img/sound.svg') ?>" class="vignetteSound" alt="">
+                    </div>
+                    <!-- Piste audio -->
+                    <div class="pam">
+                        <audio controls="controls">
+                            <source src="<?= $this->assetUrl($aliment2['urlSound']);?>" type="audio/mp3" >
+                        </audio>
+                    </div>
+                </div> <!-- fermeture zone1 -->
 
-            </div>
+                <!-- Zone 2 Info pédago -->
+                <div class="flex-container-v pam">
+                    <p><?= $aliment2['content'] ?></p>
+                    <img class="left vignetteAlimentPedago" src="<?= $this->assetUrl($aliment2['urlImg']);?>" alt="">
+                </div> <!-- fermeture zone2 -->
+            </div> <!-- fermeture aliment2 -->
+>>>>>>> 4956bca14e9fca6ffd8cd3e4ff511b28ff8e6d71
+
             <div class="aliment3 pal alim">
+                <!-- Div avec img croix en css pour fermer zone -->
                 <div class="pedagoFermer"></div>
+
+                 <!-- Titre -->
                 <h1 class="txtcenter"> <?= ucfirst($aliment3['name']) ?> </h1>
+<<<<<<< HEAD
 
                 <img src="<?= $this->assetUrl('img/sound.svg') ?>" class="vignetteSound" alt="">
                 <audio src="<?= $this->assetUrl($aliment3['urlSound']);?>"></audio>
@@ -172,6 +220,31 @@ $(document).ready(function(){
             </div>
 
         </div>
+=======
+                
+                <!-- Zone 1 Info pédago -->
+                <div class="grid-2 flex-container-v pas">
+                    <!-- Picto audio -->
+                    <div class="pictoSound pas">
+                        <img src="<?= $this->assetUrl('img/sound.svg') ?>" class="vignetteSound" alt="">
+                    </div>
+                    <!-- Piste audio -->
+                    <div class="pam">
+                        <audio controls="controls">
+                            <source src="<?= $this->assetUrl($aliment3['urlSound']);?>" type="audio/mp3" >
+                        </audio>
+                    </div>
+                </div><!-- fermeture zone1 -->
+
+                <!-- Zone 2 Info pédago -->
+                <div class="flex-container-v pam">
+                    <p><?= $aliment3['content'] ?></p>
+                    <img class="left vignetteAlimentPedago" src="<?= $this->assetUrl($aliment3['urlImg']);?>" alt="">
+                </div>
+            </div> <!-- fermeture aliment1 -->
+
+        </div> <!-- fermeture div zonePedago -->
+>>>>>>> 4956bca14e9fca6ffd8cd3e4ff511b28ff8e6d71
 
         <?php $this->insert('front/element_carte') ?>
 

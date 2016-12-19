@@ -21,6 +21,11 @@ class BackController extends Controller
 	 */
 	public function home()
 	{
+        $authentificationModel = new AuthentificationModel();
+
+        if (!$authentificationModel->getLoggedUser()) {
+            $this->redirectToRoute('login');
+        }
 		$this->show('back/home');
 	}
 

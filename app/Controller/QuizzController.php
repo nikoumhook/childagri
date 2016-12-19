@@ -10,11 +10,10 @@ class QuizzController extends Controller
 {
 
     public function quizz(){
-        $e = 1;
         $quizzModel = new QuizzModel();
         $pedagoModel = new PedagoModel();
-        //$_SESSION['aliments_quizz']['complete'][] = array_shift($_SESSION['aliments_quizz']['uncomplete']);
         //echo array_shift($_SESSION['aliments_quizz']['uncomplete']);
+        $_SESSION['aliments_quizz']['complete'][] = array_shift($_SESSION['aliments_quizz']['uncomplete']);
         //unset($_SESSION['aliments_quizz']);
         //unset($_SESSION['results']);
         if(!empty($_SESSION['aliments_quizz']['uncomplete'])){

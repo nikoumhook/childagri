@@ -50,11 +50,30 @@
             </div>
         </div>
         <?php if ($w_current_route != 'game_quizz'): ?>
+            
+        <!-- GESTION DES CONTENU DE LA BULLE -->
+            <?php switch (count($repas)) {
+                case 1:
+                    $contentBulle = 'Merci,pour ce premier repas composé de '. $aliment1['name'].','.$aliment2['name'].','.$aliment3['name'].', mon estomac ce remplie.';
+                    break;
+                case 2:
+                    $contentBulle = 'Merci,pour ce deuxieme repas <a href="'.$this->url('game_quizz').'">On joue au QUIZZ ?</a>';
+                    break;
+                case 3:
+                    $contentBulle = 'Merci,pour ce Troisieme repas';
+                    break;
+                case 4:
+                    $contentBulle = 'Merci,pour ce Quetrieme repas';
+                    break;
+            } ?>
+
+
+            <!-- affichage du bonhomme et de sa bulle -->
             <div id="navTrophee" class="pam mrl">
-                <?php if (!empty($_SESSION['save']['id_quizz'])): ?>
+                <?php if (!empty($_SESSION['repasEnCour'])): ?>
                     <div class="containerBulle">
                         <div id="bulle" class="">
-                            <a href="<?= $this->url('game_quizz') ?>">On joue au QUIZZ ?</a>
+                            <?= $contentBulle ?>
                         </div>
                     </div>
                 <?php endif; ?>

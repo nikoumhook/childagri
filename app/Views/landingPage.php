@@ -41,81 +41,85 @@
 			<button type="button" class="overlay-close">Fermer</button>
 
 			<!-- Div wrapper formulaire Popin: 2 grid -->
-			<div class="grid-2 wrapperPopin flex-container-v pam">
+			<div class="grid-2 wrapperPopin flex-container-v has-gutter">
 
 				<!-- Div formulaire connexion Popin -->
 				<div id="connexion" class="bloc1 flex-container-v">
 
-					<div class="flex-container pam">
+					<div class="flex-container-v">
+						<form id="FormConnect" class="" action="#">
+						<h1 class="txtcenter pam titreConnect"> CONNECTE TOI !</h1>
 
-						<h2 class="txtcenter pam titreConnect"> Connecte toi</h2>
-						<form id="FormConnect" class="flex-item-center" action="#">
-
-							<!-- <div class="grid-2 flex-item-center"> -->
-								<!-- <label for="usernameC" class="labelLanding one-third">Ton pseudo</label> -->
-								<input id="usernameC" class="" type="text" name="username" placeholder="TON PSEUDO" required>
-							<!-- </div> -->
-							<!-- <div class="grid-2 flex-item-center"> -->
-								<!-- <label for="passwordC" class="labelLanding one-third">Ton mot de passe</label -->
-								<input id="passwordC" class="" type="password" name="passwordconnect" placeholder="TON MOT DE PASSE" required>
-							<!-- </div> -->
-
-							<div id="buttonConnexion" class="grid">
-								<button id="validConnexion" type="submit">SE CONNECTER POUR JOUER</button>
+							<div class="flex-container-v flex-container">
+								<div class="grid-2 connect flex-container-v">
+									<div class="pas">
+										<input id="usernameC" class="inputConnect inputLanding pas" type="text" name="username" placeholder="Ton pseudo" required>
+									</div>
+									<div class="pas txtright">
+										<input id="passwordC" class="inputConnect inputLanding pas" type="password" name="passwordconnect" placeholder="Ton mot de passe" required>
+									</div>
+								</div>
+								<div id="buttonConnexion" class="grid pas">
+									<button id="validConnexion" class="grid pas enregistrer"type="submit">SE CONNECTER</button>
+								</div>
 							</div>
 
 							<!-- div Affichage resultat traitement AJAX CONNEXION-->
-							<div id="resultConnect" class="txtcenter"></div>
+							<div id="resultConnect" class="mal txtcenter flex-container-v"></div>
 
 						</form>
 					</div>
+
 				</div> <!-- fermeture bloc1 -->
 
 				<!-- Div formulaire inscription Popin -->
-				<div id="inscription" class="bloc2">
-					<h2 class="txtcenter pam titreConnect"> Inscris toi</h2>
-					<form class="flex-item-center" action="#">
+				<div id="inscription" class="bloc2 flex-container-v">
 
-						<!-- formulaire iscription-->
-						<div class="grid-2 flex-item-center">
-							<label for="firstname" class="labelLanding one-third">Ton prénom</label>
-							<input id="firstname" class="inputLanding two-third" type="text" name="firstname" placeholder="Ex: Maxime">
+					<div class="flex-container-v">
+						<form class="" action="#">
+						<h1 class="txtcenter pam titreConnect"> INSCRIS TOI !</h1>
+							
+							<div class="grid-3 flex-container-v">
+								<div class="pas">
+									<input id="firstname" class="inputLanding pas" type="text" name="firstname" placeholder="Ton prénom">
+								</div>
+								<div class="pas">
+									<input id="lastname" class="inputLanding pas" type="text" name="lastname" placeholder="Ton nom" >
+								</div>
+								<div class="pas">
+									<input id="username" class="inputLanding pas" type="text" name="username" placeholder="Ton pseudo">
+								</div>
+							</div> <!-- fermeture grid3 -->
 
-							<label for="lastname" class="labelLanding one-third">Ton nom</label>
-							<input id="lastname" class="inputLanding two-third" type="text" name="lastname" placeholder="Ex:Segol" >
-						</div>
+							<div class="grid-2 flex-container-v">
+								<div class="pas">
+									<input id="password" class="inputPassword inputLanding pas" type="password" name="password" placeholder="Ton mot de passe">
+								</div>
+								<div class="pas txtright">
+									<input id="passwordVerify" class="inputPassword inputLanding pas" type="password" name="passwordVerify" placeholder="Ton mot de passe">
+								</div>
+							</div> <!-- fermeture grid2 -->
 
-						<div class="grid-2 flex-item-center">
-							<label for="username" class="labelLanding one-third">Ton pseudo</label>
-							<input id="username" class="inputLanding" type="text" name="username" placeholder="Ex:Maxou33">
+							<div class="grid-2 flex-container-v">
+								<div class="txtMail pas">
+									Ton adresse mail est falcutative, elle te pemet de récupérer ton mot de passe à tout moment
+								</div>
 
-							<label for="password" class="labelLanding one-third">Ton mot de passe</label>
+								<div class="pas txtright">
+									<input id="mail" class="inputLanding pas" type="mail" name="mail" placeholder="Ton mail">
+								</div>
+							</div> <!-- fermeture grid2 -->
 
-							<input id="password" class="inputLanding two-third" type="password" name="password" placeholder="Ex: unMot2PassSecret">
+							<div id="buttonSubscribe" class="grid pas">
+								<button id="validInscription" class="grid pas enregistrer" type="submit">S'INSCRIRE</button>
+							</div>
 
+							<!-- div Affichage resultat traitement AJAX INSCRIPTION-->
+							<div id="resultInscription" class="mam txtcenter flex-container-v"></div>
 
-							<label for="passwordVerify" class="labelLanding one-third">Ton mot de passe (encore)</label>
-							<input id="passwordVerify" class="inputLanding two-third" type="password" name="passwordVerify" placeholder="Ex: unMot2PassSecret">
-						</div>
+							</form>
+					</div>
 
-						<div class="grid-1 flex-item-center">
-							L'adresse mail n'est pas obligatoire.<br>
-							Mais elle te pemettra de récupérer ton mot de passe si tu l'oublies !
-						</div>
-
-						<div class="grid-2 flex-item-center">
-							<label for="mail" class="labelLanding one-third">Ton mail</label>
-							<input id="mail" class="inputLanding three-quarter" type="mail" name="mail" placeholder="Ex: max.s@gmail.com">
-						</div>
-
-						<div id="buttonSubscribe" class="grid">
-							<button id="validInscription" type="submit">S'INSCRIRE POUR JOUER</button>
-						</div>
-
-						<!-- div Affichage resultat traitement AJAX INSCRIPTION-->
-						<div id="resultInscription" class="center"></div>
-
-					</form>
 				</div> <!-- fermeture de la div inscription -->
 
 			</div> <!-- fermeture de la div wrapper de la popin -->
@@ -144,14 +148,14 @@
 				success: function(result){
 					if(result.code == 'valid'){
                         $('#buttonSubscribe').html('');
-						$('#resultInscription').html('<div class="infoReussite">' + result.msg +'</div>');
+						$('#resultInscription').html('<div class="pas infoReussite">' + result.msg +'</div>');
 
                         setInterval(function(){
                             $(location).attr('href','<?= $this->url('game_startPlay'); ?>');
                         },3000);
 					}
 					else if(result.code =='error'){
-						$('#resultInscription').html('<div class="infoErreur">' + result.msg +'</div>');
+						$('#resultInscription').html('<div class="pas txtcenter infoErreur">' + result.msg +'</div>');
 					}
 				}//fermeture success
 			});//fermeture $.ajax
@@ -182,7 +186,7 @@
                         },3000);
 
 					}else if(result.code =='error'){
-						$('#resultConnect').html('<div class="infoErreur">' + result.msg +'</div>');
+						$('#resultConnect').html('<div class="pas txtcenter infoErreur">' + result.msg +'</div>');
 					};
 				}//fermeture success
 			});//fermeture $.ajax

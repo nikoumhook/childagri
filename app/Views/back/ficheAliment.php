@@ -10,7 +10,7 @@
 
 <?php $this->start('main_content') ?>
 
-		<?php if (empty($aliment)) :?> 
+		<?php if (empty($aliment)) :?>
 			<div class=""> Aliment inconnu</div>
 		<?php endif;?>
 
@@ -34,10 +34,10 @@
 
 			<label for="aliment" class="mbs prs push txtright">Nom</label>
 			<input id="aliment" class="pas pull" type="text" name="aliment" value="<?= ucfirst($aliment['name']);?>">
-		
+
 		</div> <!-- fermeture grid6 -->
 
-		
+
 		<div class="grid-2 flex-container-v">
 
 			<div class="pas txtright">
@@ -53,7 +53,7 @@
   					<?php endforeach ;?>
 				</select>
 			</div>
-			
+
 		</div> <!-- fermeture grid2 -->
 
 
@@ -64,7 +64,7 @@
 				<input id="picture" class="pas" type="file" name="picture" class="" accept="image/*" value="">
 			</div>
 
-	
+
 			<div class="pas flex-container-v pull">
 
 				<div class="flex-container-v">
@@ -77,7 +77,7 @@
 	                    		<div class="nomRepas txtright three-quarter">Petit-Déj</div>
 	                    		<input id="repas1" class="one-quarter mts" name="repas1" type="checkbox" value="oui" <?=($aliment['repas1']=='oui')? 'checked': '';?>>
 	                    	</div>
-			                   
+
 			                <div class="flex-container flex-container-v grid-2 pas">
 	                    		<div class="nomRepas txtright three-quarter">Déjeuner</div>
 	                    		<input id="repas2" class="one-quarter mts" name="repas2" type="checkbox" value="oui"<?=($aliment['repas2']=='oui')? 'checked': '';?>>
@@ -96,8 +96,8 @@
             	</div>
             </div>
        	</div><!-- fermeture grid3 -->
-                    
-                
+
+
      	<div class="grid-4 flex-container-v ptm pbs">
 
       		<div class="flex-container-v prn plm txtcenter push">
@@ -107,7 +107,7 @@
 
 				<div class="flex-container">
 					<div class="right prs">
-						EN LIGNE <input type="radio" name="publish" value="oui" <?=($aliment['publish']=='oui')? 'checked': '';?>> 
+						EN LIGNE <input type="radio" name="publish" value="oui" <?=($aliment['publish']=='oui')? 'checked': '';?>>
 					</div>
 					<div class="left pls">
 						<input type="radio" name="publish" value="non" <?=($aliment['publish']=='non')? 'checked': '';?>> BROUILLON
@@ -118,7 +118,7 @@
 
 			<!-- Bouton -->
 			<div class="flex-container-v pull mll">
-				<button type="submit" class="bouttonEnregistrer">MODIFIER</button>
+				<button type="submit" class="bouttonEnregistrer cursor">MODIFIER</button>
 			</div>
 
 		</div> <!-- fermeture Grid4 -->

@@ -57,7 +57,7 @@
     				<i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a>
 				</td>
 				<td class="txtcenter">
-                    <div class="deleteBtn" type="button" name="delete" data-id="<?= $aliment['id'];?>">
+                    <div class="deleteBtn cursor" type="button" name="delete" data-id="<?= $aliment['id'];?>">
                         <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
                     </div>
     				</a>

@@ -88,7 +88,7 @@
 			</div>
 
 			<!-- Bouton -->
-			<div class="flex-container-v pull mll">
+			<div class="flex-container-v pull mll cursor">
 				<button type="submit" class="bouttonEnregistrer">MODIFIER</button>
 			</div>
 

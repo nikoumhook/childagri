@@ -168,7 +168,7 @@
         <div class="grid-4 flex-container-v pbm">
             <div class="flex-container-v push"></div>
             <div class="flex-container-v txtcenter">
-                <button type="submit" class="bouttonEnregistrer">ENREGISTRER</button>
+                <button type="submit" class="bouttonEnregistrer cursor">ENREGISTRER</button>
             </div>
              <div class="flex-container-v pull"></div>
         </div>

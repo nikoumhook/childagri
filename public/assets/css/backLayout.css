@@ -1,7 +1,10 @@
 body {
     background: url('../img/backoffice_background.jpg');
 }
-
+img{
+    max-width: 256px;
+    max-height: 256px;
+}
 .wrapper{
     width: 100%;
     max-width: 1200px;
@@ -28,6 +31,9 @@ body {
 }
 .menuItem{
     position: relative;
+}
+.cursor{
+    cursor: pointer;
 }
 /*************************************/
 /*           NAVIGATION             */
@@ -139,10 +145,15 @@ footer{
     height: 50px;
     display: flex;
     align-items: center;
-    justify-content: center;
 }
-.containerFooter{
-    max-width: 1400px;
+.containerFooter {
+	max-width: 1200px;
+	width: 100%;
+	margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
 }
 .containerFooter a{
     color: white;

@@ -22,7 +22,7 @@
         <?= $this->section('head') ?>
 
         <link rel="stylesheet" href="<?= $this->assetUrl('css/interface.css') ?>">
-       
+
     </head>
     <body>
 
@@ -71,14 +71,16 @@
         <?php if ($w_current_route == 'game_assiette'): ?>
 
             <?php if (isset($carte)): ?>
-                <div id="navTopBar" class="pas flex-container-v">
-                    <!-- le contenu ici est remplacé par jQuery quand un repas est selectionné ! -->
-                    <div class="reglesAssiettes1 pas txtcenter">
-                       <?= strtoupper($_SESSION['player']['username']);?> A TOI DE JOUER POUR DECOUVRIR LES ALIMENTS QUE TU MANGES AU QUOTIDIEN
-                    </div>
-                    <div class="reglesAssiettes2 pas txtcenter">
-                        Cliques sur un repas et des aliments vont apparaitre <br>
-                        Choisis 3 aliments que tu souhaites manger et glisse-les dans ton assiette
+                <div id="navTopBar">
+                    <div class="pas flex-container-v">
+                        <!-- le contenu ici est remplacé par jQuery quand un repas est selectionné ! -->
+                        <div class="reglesAssiettes1 pas txtcenter">
+                            <?= strtoupper($_SESSION['player']['username']);?> A TOI DE JOUER POUR DECOUVRIR LES ALIMENTS QUE TU MANGES AU QUOTIDIEN
+                        </div>
+                        <div class="reglesAssiettes2 pas txtcenter">
+                            Cliques sur un repas et des aliments vont apparaitre <br>
+                            Choisis 3 aliments que tu souhaites manger et glisse-les dans ton assiette
+                        </div>
                     </div>
                 </div>
             <?php endif; ?>
@@ -111,7 +113,7 @@
                 break;
             case '3':
                $repasName = 'goûter';
-                break; 
+                break;
             case '4':
                 $repasName = 'dîner';
                 break;

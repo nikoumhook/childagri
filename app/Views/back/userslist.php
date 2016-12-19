@@ -2,6 +2,14 @@
 
 <!-- Colonne SQL :  id, firstname, lastname, username, password, email, inGame, id_result, id_quizz_use, birthDate -->
 
+<?php $this->start('head') ?>
+
+    <!-- Feuille de style LISTE BACK -->
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/liste.css') ?>">
+
+
+<?php $this->stop('head') ?>
+
 <?php $this->start('main_content') ?>
 
 <table class="man">

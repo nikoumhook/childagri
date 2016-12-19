@@ -240,6 +240,7 @@ class AjaxController extends Controller
         if ($aliments) {
             //$html = '';
 
+
             $html = '<a class="customNavigation btn prev"><img class="navAlimentBtn" src="../assets/img/arrows-left.png" alt=""></a><ul id="owl-demo">' ;
             foreach ($aliments as $aliment) {
 

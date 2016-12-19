@@ -79,13 +79,15 @@
     </div>
 
 		<footer>
-            <?php if(!empty($w_user)):?>
-                <a href="<?= $this->url('deconnexion') ?>">Deconnexion</a>
+            <div class="containerFooter">
+                <?php if(!empty($w_user)):?>
+                    <a href="<?= $this->url('deconnexion') ?>">Deconnexion</a>
 
-                <a href="<?= $this->url('userlist') ?>">Gestion des utilisateurs</a>
-                <a href="<?= $this->url('addUser') ?>">Ajout d'utilisateur</a>
-            <?php endif; ?>
-            <a href="<?= $this->url('login') ?>">A propos</a>
+                    <a href="<?= $this->url('userlist') ?>">Gestion des utilisateurs</a>
+                    <a href="<?= $this->url('addUser') ?>">Ajout d'utilisateur</a>
+                <?php endif; ?>
+                <a href="<?= $this->url('login') ?>">A propos</a>
+            </div>
 		</footer>
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script>

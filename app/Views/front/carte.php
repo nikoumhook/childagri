@@ -13,7 +13,6 @@
 
 
 <?php $this->start('script');?>
-
 <script>
 var xy = [
     ['null','null'],
@@ -135,7 +134,6 @@ $(document).ready(function(){
 
 <?php $this->start('main_content') ?>
 
-
     <div id="container_carte" class="pal">
 
         <div id="zonePedago" class="zonePedago mal">
@@ -157,7 +155,7 @@ $(document).ready(function(){
 
                 <img src="<?= $this->assetUrl('img/sound.svg') ?>" class="vignetteSound" alt="">
                 <audio src="<?= $this->assetUrl($aliment2['urlSound']);?>"></audio>
-                
+
                 <p><?= $aliment2['content'] ?></p>
                 <img src="<?= $this->assetUrl($aliment2['urlImg']);?>" alt="">
 
@@ -165,7 +163,7 @@ $(document).ready(function(){
             <div class="aliment3 pal alim">
                 <div class="pedagoFermer"></div>
                 <h1 class="txtcenter"> <?= ucfirst($aliment3['name']) ?> </h1>
-                
+
                 <img src="<?= $this->assetUrl('img/sound.svg') ?>" class="vignetteSound" alt="">
                 <audio src="<?= $this->assetUrl($aliment3['urlSound']);?>"></audio>
                 <p><?= $aliment3['content'] ?></p>

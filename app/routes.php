@@ -15,6 +15,7 @@
     	['GET|POST', '/game/carte', 'Carte#carte', 'game_carte'],
         // Page quizz :
         ['GET|POST', '/game/quizz', 'Quizz#quizz', 'game_quizz'],
+        ['GET|POST', '/game/ajax/quizz', 'Quizz#updateQuizz', 'game_updateQuizz'],
         // Page result :
         ['GET|POST', '/game/result', 'Result#result', 'game_result'],
 

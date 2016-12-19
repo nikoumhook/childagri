@@ -13,13 +13,13 @@ class QuizzController extends Controller
         $e = 1;
         $quizzModel = new QuizzModel();
         $pedagoModel = new PedagoModel();
-        //$_SESSION['aliments'] = [1,7,3,9,2,13];
-        array_shift($_SESSION['aliments']);
-        if(!empty($_SESSION['aliments'])){
-            $question = $quizzModel->getQuizzByIdAliment($_SESSION['aliments'][0]);
+        //$_SESSION['aliments_quizz']['complete'][] = array_shift($_SESSION['aliments_quizz']['uncomplete']);
+        //echo array_shift($_SESSION['aliments_quizz']['uncomplete']);
+        //unset($_SESSION['aliments_quizz']);
+        //unset($_SESSION['results']);
+        if(!empty($_SESSION['aliments_quizz']['uncomplete'])){
+            $question = $quizzModel->getQuizzByIdAliment($_SESSION['aliments_quizz']['uncomplete'][0]);
             $question = $pedagoModel->getQuizzAliment($question[0]['id_aliment']);
-        }
-        if(!empty($_SESSION['aliments'])){
             $this->show('front/quizz',[
                 'question' => $question
             ]);
@@ -27,6 +27,17 @@ class QuizzController extends Controller
         else{
             //upload des résultats et redirection sur la page Result
             $this->redirectToRoute('game_result');
+        }
+    }
+
+    public function updateQuizz(){
+        if(!empty($_POST)){
+                $_SESSION['aliments_quizz']['complete'][] = array_shift($_SESSION['aliments_quizz']['uncomplete']);
+                $_SESSION['results'][81] = 'oui';
+                $_SESSION['results'][82] = 'non';
+                $_SESSION['results'][83] = 'oui';
+                $_SESSION['results'][84] = 'non';
+			    $this->showJson(['code'=>'valid']);
         }
     }
 }

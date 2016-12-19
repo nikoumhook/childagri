@@ -10,8 +10,22 @@ body {
     border-radius: 4px;
 
 }
-
-
+.subMenu{
+    display: none;
+    position: absolute;
+    top: 70px;
+    margin: 0;
+    padding: 0;
+}
+.subMenu li a{
+    background: #F9D9B1!important;
+}
+.subMenu li:hover a{
+    background-color: #F88C00!important; 
+}
+.menuItem{
+    position: relative;
+}
 /*************************************/
 /*           NAVIGATION             */
 /*************************************/
@@ -138,5 +152,3 @@ body{
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
 }
-
-

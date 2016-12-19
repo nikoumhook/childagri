@@ -37,16 +37,18 @@
                 </ul>
             </div>
         </div>
-        <div id="navTrophee" class="pam">
-            <?php if (!empty($_SESSION['save']['id_quizz'])): ?>
-                <div class="containerBulle">
-                    <div id="bulle" class="">
-                        <a href="<?= $this->url('game_quizz') ?>">Ont joue au QUIZZ ?</a>
+        <?php if ($w_current_route != 'game_quizz'): ?>
+            <div id="navTrophee" class="pam">
+                <?php if (!empty($_SESSION['save']['id_quizz'])): ?>
+                    <div class="containerBulle">
+                        <div id="bulle" class="">
+                            <a href="<?= $this->url('game_quizz') ?>">Ont joue au QUIZZ ?</a>
+                        </div>
                     </div>
-                </div>
-            <?php endif; ?>
-            <?php $this->insert('front/intestin'); ?>
-        </div>
+                <?php endif; ?>
+                <?php $this->insert('front/intestin'); ?>
+            </div>
+        <?php endif; ?>
         <!-- BOUTON PERMANENTS ************///////////////////////////////:******************* -->
 
 
@@ -81,11 +83,14 @@
 
         <!-- BOUTON POUR CARTE  ************///////////////////////////////:******************* -->
         <?php if ($w_current_route == 'game_carte'): ?>
-            <div id="navReturn" class="pam">
-                <a href="<?= $this->url('game_assiette') ?>">
-                    <img class="btn-back" src="<?= $this->assetUrl('/img/assiette_petitDej.svg') ?>" alt="retour">
-                </a>
-            </div>
+
+            <?php if (isset($_SESSION['save']['id_quizz']) && count(explode(',',$_SESSION['save']['id_quizz'])) < 12): ?>
+                <div id="navReturn" class="pam">
+                    <a href="<?= $this->url('game_assiette') ?>">
+                        <img class="btn-back" src="<?= $this->assetUrl('/img/assiette_petitDej.svg') ?>" alt="retour">
+                    </a>
+                </div>
+            <?php endif; ?>
         <?php endif; ?>
         <!-- FIN BOUTON POUR CARTE  ************///////////////////////////////:******************* -->
         <main>

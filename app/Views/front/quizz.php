@@ -1,17 +1,16 @@
-<?php $this->layout('quizz', ['title' => 'Quizz']) ?>
+<?php $this->layout('front', ['title' => 'quizz']) ?>
+
 
 <?php $this->start('head') ?>
 <link rel="stylesheet" href="<?= $this->assetUrl('css/quizz.css') ?>">
 <?php $this->stop('head') ?>
 
 <?php $this->start('main_content'); ?>
-<pre>
-<?php
-var_dump($_SESSION['results']);
-?>
-</pre>
+
+
 <legend><h1>Quiz</h1></legend><hr>
-<div id="quizzForm">
+<div class="containerQuizz">
+    <div id="quizzForm">
 		<form class="" method="post" name="quizzform">
 			<?php if(!empty($question)): ?>
 			<div class="quizAliment">
@@ -32,5 +31,7 @@ $_SESSION['results'][82] = 'non';
 $_SESSION['results'][83] = 'oui';
 $_SESSION['results'][84] = 'non';
 ?>
+
+    </div>
 </div>
 <?php $this->stop('main_content') ?>

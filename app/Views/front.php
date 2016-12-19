@@ -27,6 +27,10 @@
         </div> -->
 
 
+        <!-- CONTENU  ************///////////////////////////////:******************* -->
+        <main>
+            <?= $this->section('main_content') ?>
+        </main>
         <!-- BOUTON PERMANENTS ************///////////////////////////////:******************* -->
         <div id="navDeco">
             <div class="decoMenu pam">
@@ -92,10 +96,6 @@
                 </div>
             <?php endif; ?>
         <?php endif; ?>
-        <!-- FIN BOUTON POUR CARTE  ************///////////////////////////////:******************* -->
-        <main>
-            <?= $this->section('main_content') ?>
-        </main>
 
 
         <!-- INCLUSION JAVASCRIPT  ************///////////////////////////////:******************* -->

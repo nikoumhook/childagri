@@ -47,6 +47,16 @@ body{
 
 
 }
+.navAlimentBtn{
+    max-height: 64px;
+    max-width: 64px;
+}
+.navAlimentBtn:hover{
+    opacity: 0.6;
+}
+.navAlimentBtn:active {
+    margin-top: 2px;
+}
 .owl-wrapper-outer{
     border-radius: 5px;
 }
@@ -136,8 +146,11 @@ body{
     max-width: 245px;
 }
 #intestin{
-    max-height: 245px;
+    /*max-height: 245px;*/
     width: 100%;
+}
+#intestin:hover{
+    opacity: 0;
 }
 #intestinEtape1,#intestinEtape2,#intestinEtape3,#intestinEtape4{
     display: none;

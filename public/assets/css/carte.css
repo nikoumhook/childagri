@@ -18,6 +18,6 @@
     display: none;
 }
 .markerRegion{
-    z-index: 105;
+    z-index: 99999;
     cursor: pointer;
 }

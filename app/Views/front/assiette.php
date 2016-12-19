@@ -16,7 +16,7 @@
             </div>
         </div>
 
-        <img id="assiette" src="<?= $this->assetUrl('img/assiette_petitDej.svg') ?>" alt="">
+        <img id="assiette" src="<?= $this->assetUrl('img/assiette_petitDej.svg') ?>" alt="assiette de drag">
     </div>
 <?php $this->stop('main_content') ?>
 

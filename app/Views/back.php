@@ -30,20 +30,37 @@
             </div>
             <div id="menu">
                 <ul>
-                    <li class="menuItem" ><a href="<?= $this->url('back_aliment') ?>" class="<= ($w_current_route == 'back_aliment')? 'active' :''; ?>">ALIMENTS</a>
-                        <ul class="subMenu" ><li class="mts"><a href="<?= $this->url('back_aliment') ?>">Creation d'aliment</a></li><li class="mts"><a href="<?= $this->url('back_aliment') ?>">Liste Aliments</a></li></ul>
+                    <li>
+                        <span class="menuItem" >
+                            <a href="<?= $this->url('back_aliment') ?>" class="<?= ($w_current_route == 'back_aliment')? 'active' :''; ?>">ALIMENTS</a>
+                        </span>
+                        <ul class="subMenu" >
+                            <li class="mts"><a href="<?= $this->url('back_aliment') ?>">Creation d'aliment</a></li>
+                            <li class="mts"><a href="<?= $this->url('back_listeAliment') ?>">Liste Aliments</a></li>
+                        </ul>
                     </li>
 
-                    <li class="menuItem" ><a href="<?= $this->url('back_zonePedago') ?>" class="<= ($w_current_route == 'back_zonePedago')? 'active' :''; ?>">PEDAGOGIE</a>
-                        <ul class="subMenu" ><li class="mts"><a href="<?= $this->url('back_aliment') ?>">Creation d'aliment</a></li><li class="mts"><a href="<?= $this->url('back_aliment') ?>">Liste Aliments</a></li></ul>
+                    <li>
+                        <span class="menuItem">
+                            <a href="<?= $this->url('back_zonePedago') ?>" class="<?= ($w_current_route == 'back_zonePedago')? 'active' :''; ?>">PEDAGOGIE</a>
+                        </span>
+                        <ul class="subMenu" >
+                            <li class="mts"><a href="<?= $this->url('back_zonePedago') ?>">Creation Pedago</a></li>
+                            <li class="mts"><a href="<?= $this->url('back_listePedago') ?>">Liste Pedago</a></li>
+                        </ul>
                     </li>
 
-                    <li class="menuItem" ><a href="<?= $this->url('back_quizz') ?>" class="<= ($w_current_route == 'back_quizz')? 'active' :''; ?>">QUIZZ</a>
-                        <ul class="subMenu" ><li class="mts"><a href="<?= $this->url('back_aliment') ?>">Creation d'aliment</a></li><li class="mts"><a href="<?= $this->url('back_aliment') ?>">Liste Aliments</a></li></ul>
+                    <li>
+                        <span class="menuItem">
+                            <a href="<?= $this->url('back_quizz') ?>" class="<?= ($w_current_route == 'back_quizz')? 'active' :''; ?>">QUIZZ</a>
+                        </span>
+                        <ul class="subMenu" >
+                            <li class="mts"><a href="<?= $this->url('back_quizz') ?>">Creation Quizz</a></li>
+                            <li class="mts"><a href="<?= $this->url('back_listeQuizz') ?>">Liste Quizz</a></li>
+                        </ul>
                     </li>
 
-                    <li class="menuItem" ><a href="<= $this->url('nom_de_la_route') ?>" class="<= ($w_current_route == 'nom_de_la_route')? 'active' :''; ?>">JOUEURS</a>
-                        <ul class="subMenu" ><li class="mts"><a href="<?= $this->url('back_aliment') ?>">Creation d'aliment</a></li><li class="mts"><a href="<?= $this->url('back_aliment') ?>">Liste Aliments</a></li></ul>
+                    <li class="" ><a href="<?= $this->url('back_listeUser') ?>" class="<?= ($w_current_route == 'back_listeUser')? 'active' :''; ?>">JOUEURS</a>
                     </li>
                 </ul>
 
@@ -65,11 +82,10 @@
             $(function(){
                 var p;
                 $('.menuItem').click(function(e){
-
                     e.preventDefault();
 
-                    p = $(this).children();
-                    p= p[1];
+                    p = $(this).next();
+                    //p= p[1];
 
                     $('.down').slideUp();
 
@@ -86,6 +102,10 @@
 
                 });
 
+                $( "main" ).mouseover(function(){
+                    $('.down').slideUp();
+                    $(p).removeClass('down');
+                });
             });
         </script>
 </body>

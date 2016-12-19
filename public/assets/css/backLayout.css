@@ -13,15 +13,18 @@ body {
 .subMenu{
     display: none;
     position: absolute;
-    top: 70px;
+    top:85px;
     margin: 0;
     padding: 0;
+}
+.subMenu li{
+    display: block!important;
 }
 .subMenu li a{
     background: #F9D9B1!important;
 }
 .subMenu li:hover a{
-    background-color: #F88C00!important; 
+    background-color: #F88C00!important;
 }
 .menuItem{
     position: relative;

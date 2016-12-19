@@ -239,7 +239,8 @@ class AjaxController extends Controller
 
         if ($aliments) {
             //$html = '';
-            $html = '<a class="customNavigation btn prev"> < </a><ul id="owl-demo">' ;
+
+            $html = '<a class="customNavigation btn prev"><img class="navAlimentBtn" src="../assets/img/arrows-left.png" alt=""></a><ul id="owl-demo">' ;
             foreach ($aliments as $aliment) {
 
                 if ($aliment['publish'] == 'oui' && !empty($aliment['urlImg']) && !in_array($aliment['id'],$alimentsSelected)) {
@@ -249,7 +250,7 @@ class AjaxController extends Controller
                 }
             };
 
-            $html .= '</ul><a class="customNavigation btn next"> > </a>' ;
+            $html .= '</ul><a class="customNavigation btn next"><img class="navAlimentBtn" src="../assets/img/arrows-right.png" alt=""></a>' ;
 
 
             $this->showJson(['ingredients' => $html,'success'=> 'ok']);

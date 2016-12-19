@@ -25,8 +25,7 @@ class AssietteController extends Controller
         }
 
         if (isset($_SESSION['save']['id_quizz']) && !empty($_SESSION['save']['id_quizz']) && count(explode(',',$_SESSION['save']['id_quizz'])) == 12) {
-            var_dump('REDIRIGER VERS LA CARTE ET COPIé CE SCRIPT SUr LE BOUTON RETOUR de LA CARTE !!!');
-            die;
+            $this->redirectToRoute('game_carte');
         }
 
         // si tout est repondu il n'y a plus a venir sur l'assiette mais ont doit directement être redirigé sur le quizz

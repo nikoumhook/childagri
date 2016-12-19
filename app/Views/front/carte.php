@@ -109,7 +109,13 @@ $(document).ready(function(){
                 }//fermeture success
             });//fermeture $.ajax
             // activation du bouton retour a la carte de france !
-            $('#navReturn').slideDown();
+            if (<?= count($_SESSION['save']['repas'])?> < 12) {
+
+                $('#navReturn').slideDown();
+            }else {
+                $('#navReturn').html('tu as fait tout les repas de la journée');
+                $('#navReturn').slideDown();
+            }
             // a cette endroit faire le script qui fait apparaitre Le logo du quizz
         };
     };

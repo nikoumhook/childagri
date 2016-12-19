@@ -2,7 +2,8 @@
 
 <?php $this->start('head') ?>
 
-
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+  <script>tinymce.init({ selector:'textarea' });</script>
     <!-- Feuille de style FICHE BACK -->
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/fiche.css') ?>">
 
@@ -61,15 +62,15 @@
 					</textarea>
 			</div>
 
-	
+
 		</div> <!-- fermeture grid2 -->
 
-	
-
-	
 
 
-		<div class="grid-4 flex-container-v ptm pbs"> 
+
+
+
+		<div class="grid-4 flex-container-v ptm pbs">
 
 			<div class="flex-container-v prn plm txtcenter push">
 				<div class="">
@@ -92,7 +93,7 @@
 			</div>
 
 		</div> <!-- fermeture de grid4 -->
-		
+
 
 	</form>
 

@@ -7,8 +7,6 @@
 
 
 <?php $this->start('main_content') ?>
-<?php var_dump($_SESSION) ?>
-
     <div id="container_assiette" class="pal">
         <div class="containerZoneDrag">
             <div id="dragZone">

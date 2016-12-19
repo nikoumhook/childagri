@@ -31,11 +31,11 @@ class AjaxController extends Controller
 			$usernameValidator = v::alnum('é,è,ê,à,ï,ö')->length(5, 20);
 
 			if(!v::notEmpty()->length(2,15)->validate($post['firstname'])){
-				$errors[] = 'Ton prénom nom doit comporter entre 2 et 15 lettres';
+				$errors[] = 'Ton prénom doit comporter entre 2 et 15 lettres';
 			}
 
 			if(!v::notEmpty()->length(2,15)->validate($post['lastname'])){
-				$errors[] = 'Ton nom nom doit comporter entre 2 et 15 lettres';
+				$errors[] = 'Ton nom doit comporter entre 2 et 15 lettres';
 			}
 
 			if(!v::notEmpty()->length(2,15)->validate($post['username'])){
@@ -47,7 +47,7 @@ class AjaxController extends Controller
 			}
 
 			if(!v::notEmpty()->length(5,15)->validate($post['password'])){
-				$errors[] = 'Choisis un mot de passe nom entre 5 et 15 lettres';
+				$errors[] = 'Choisis un mot de passe entre 5 et 15 lettres';
 			}
 
 			if($post['passwordVerify']!= $post['password']){

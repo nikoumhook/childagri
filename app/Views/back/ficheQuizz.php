@@ -12,7 +12,7 @@
 
 
 	<?php if (empty($quizz1)) :?>
-		<div class=""> Pas encore de quizz</div>
+		<div class=""> Pas encore de quizz, <a href="<?= $this->url('back_quizz') ?>">creez en un</a> </div>
     <?php else: ?>
 
 
@@ -35,14 +35,14 @@
             <div class="flex-container-v pam">
 
                 <?php if (isset($quizz1) && !empty($quizz1)): ?>
-              
+
                     <div class="flex-container-v">
                         <input type="hidden" value="<?= $quizz1['id'];?>" name="id1">
 
                         <label for="question1" class="question txtcenter"> Question 1</label>
                         <textarea id="question1" class="tinyChildAgri" name="question1"><?=ucfirst($quizz1['content']);?>
                         </textarea>
-                        
+
                         <div class="flex-container-v ptm">
                                 <label for="answer1" class="reponse pbs txtcenter"> Réponse</label>
                                 <div class="flex-container">
@@ -75,7 +75,7 @@
                         <label for="question2" class="question txtcenter"> Question 2</label>
                         <br>
                         <textarea id="question2" class="tinyChildAgri" name="question2"><?=ucfirst($quizz2['content']);?></textarea>
-                        
+
 
                         <div class="flex-container-v ptm">
                             <label for="answer2" class="reponse pbs txtcenter"> Réponse</label>
@@ -95,7 +95,7 @@
 
                 <?php endif; ?>
 
-                    </div>    
+                    </div>
             </div>
 
 
@@ -110,7 +110,7 @@
                         <label for="question3" class="question txtcenter"> Question 3</label>
                         <br>
                         <textarea id="question3" class="tinyChildAgri" name="question3"><?=ucfirst($quizz3['content']);?></textarea>
-                        
+
                         <div class="flex-container-v ptm">
                             <label for="answer3" class="reponse pbs txtcenter"> Réponse</label>
                             <div class="flex-container">
@@ -142,7 +142,7 @@
                         <label for="question4" class="question txtcenter"> Question 4</label>
                         <br>
                         <textarea id="question4" class="tinyChildAgri" name="question4"><?=ucfirst($quizz4['content']);?></textarea>
-                        
+
                         <div class="flex-container-v ptm">
                             <label for="answer4" class="reponse pbs txtcenter"> Réponse</label>
                             <div class="flex-container">
@@ -158,9 +158,9 @@
                         <label for="answer4explain" class="elementReponse txtcenter ptm"> Elément réponse:</label>
                         <br>
                         <textarea id="answer4explain" name="explainAnswer4" class="tinyChildAgri"><?=($quizz4['explainAnswer']);?></textarea>
-                <?php endif; ?> 
+                <?php endif; ?>
                     </div>
-            </div> 
+            </div>
 
         </div>
 
@@ -172,7 +172,7 @@
             </div>
              <div class="flex-container-v pull"></div>
         </div>
-        
+
 
     </form>
 

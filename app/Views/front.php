@@ -33,11 +33,11 @@
         </main>
         <!-- BOUTON PERMANENTS ************///////////////////////////////:******************* -->
         <div id="navDeco">
-            <div class="decoMenu pam">
-                MENU
+            <div class="decoMenu plm prm pts pbs">
+                <img src="<?= $this->assetUrl('img/menu.svg') ?>" alt="">MENU
                 <ul class="decoSubmenu">
-                    <li><a class="pas" href="<?= $this->url('game_reset') ?>">Reset</a></li>
-                    <li><a class="pas" href="<?= $this->url('game_quit') ?>">Deco</a></li>
+                    <li><a class="mas pas" href="<?= $this->url('game_reset') ?>">Reset</a></li>
+                    <li><a class="mas pas" href="<?= $this->url('game_quit') ?>">Deco</a></li>
                 </ul>
             </div>
         </div>

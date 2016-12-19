@@ -114,26 +114,35 @@ body{
 /************************************/
 /*            MENU DECO             */
 /************************************/
-#navDeco{
-    z-index: 101;
-    position: fixed;
-    top: 0;right: 0;
-    background: rgba(125,125,125,1);
-    cursor: pointer;
+#navDeco {
+	z-index: 101;
+	position: fixed;
+	top: 1em;
+	right: 1em;
+	background: rgba(125,125,125,1);
+	cursor: pointer;
+	border-radius: 6px;
 }
-.decoSubmenu{
-    display: none;
-    position: fixed;
-    top: 70px;right: 20px;
+.decoSubmenu {
+	display: none;
+	position: fixed;
+	top: 95px;
+    right: 19px;
+	text-align: center;
 }
 .decoSubmenu li{
+    background: rgba(125,125,125,1);
+    border-radius: 6px;
     list-style: none;
+    text-align: center;
 }
 .decoSubmenu li a{
+    text-decoration: none;
+    border-radius: 6px;
     display: block;
 }
 .decoSubmenu li a:hover{
-    background: red;
+    background: rgb(182, 182, 182);
 }
 /************************************/
 /*          MENU Trophee            */

@@ -64,7 +64,6 @@ class CarteController extends Controller
                 ]);
 
             }
-
             $this->redirectToRoute('game_assiette');
 
         }

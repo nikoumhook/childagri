@@ -6,8 +6,11 @@
 <?php $this->stop('head') ?>
 
 <?php $this->start('main_content'); ?>
-
-
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<pre>
+<?php var_dump($_SESSION['aliments_quizz']);
+var_dump($_SESSION['results']); ?>
+</pre>
 <legend><h1>Quiz</h1></legend><hr>
 <div class="containerQuizz">
     <div id="quizzForm">
@@ -25,13 +28,26 @@
 			<br>
 			<button type="submit" id="button" name="button">Répondre</button>
 		</form>
-<?php
-$_SESSION['results'][81] = 'oui';
-$_SESSION['results'][82] = 'non';
-$_SESSION['results'][83] = 'oui';
-$_SESSION['results'][84] = 'non';
-?>
-
     </div>
 </div>
+<script>
+	$(document).ready(function(){
+		$('#button').click(function(e){
+			e.preventDefault();
+			$.ajax({
+				url: '<?=$this->url('game_updateQuizz');?>',
+				type:'post',
+				cache:false,
+				data: $('form').serialize(),
+				dataType: 'json',
+				success: function(result){
+					if(result.code == 'valid'){
+						location.reload();
+					}
+				};
+			});//fermeture $.ajax
+		});// fermeture buttton clic
+	});//fermeture document.ready
+</script>
+
 <?php $this->stop('main_content') ?>

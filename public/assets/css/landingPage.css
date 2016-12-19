@@ -36,7 +36,7 @@
 
 /***************DIV POPIN*************************/
 /* bouton fermer */
-.overlay .overlay-close {
+/*.overlay .overlay-close {
 	width: 80px;
 	height: 80px;
     cursor: pointer;
@@ -50,16 +50,21 @@
 	color: transparent;
 	outline: none;
 	z-index: 10000;
-}
+}*/
+
+
 .centreurOverlay{
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+
+
 /*Wrapper Popin*/
 .wrapperPopin {
 	max-height: 50vh;
-	max-width: 1400px;
+	max-width: 1600px;
 }
 .wrapperPopin h2{
     display: block;
@@ -68,10 +73,13 @@
 
 .bloc1{
 	border: 0;
-	border-radius: 3px;
-	padding-left: 10px;
+	border-radius: 6px;
+	background-color: beige;
 }
 
+.connect{
+	flex:1;
+}
 
 .titreConnect{
 	color: #FFF;
@@ -79,50 +87,65 @@
 	font-size: 26px;
 }
 
-
-
 .bloc2{
 	border: 0;
-	border-radius: 3px;
-	padding-right: 10px;
-}
-
-
-
-/*Etiquette des fomulaires*/
-.labelLanding{
-	margin-top: 5px;
-	margin-bottom: 5px;
+	border-radius: 6px;
+	background-color: beige;
 }
 
 
 /*/*Input des fomulaires*/
-/*.inputLanding{
-	margin-top: 5px;
-	margin-bottom:5px;
+.inputLanding{
+	font-family: 'Montserrat', sans-serif; 
 	border:0;
-	border-radius: 3px;*/
-}*/
+	border-radius: 6px;
+	background-color: ;
+}
+
+.inputPassword{
+	width:100%;
+}
+
+.inputConnect{
+	width:100%;
+}
+
+.txtMail{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 14px;
+	color: #FFF;
+}
 
 
 /*Message erreur*/
 .infoErreur{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 14px;
 	color: black;
 	background-color:#E5B7B7;
-	width: 400px;
 	border:0;
 	border-radius: 3px;
 }
 
-
-
-
 /*Message reussite*/
 .infoReussite{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 14px;
 	color: black;
 	background-color: #9EC49D;
-	width: 250px;
 	border:0;
 	border-radius: 3px;
 
+}
+
+
+/*bouton enregistrer view quizz*/
+.enregistrer{
+	height:50px;
+	background-color:;
+	color:#FFF;
+	font-family:'Paytone One', sans-serif;
+	border:0px;
+    border-radius: 6px;
+    font-size: 18px;
 }

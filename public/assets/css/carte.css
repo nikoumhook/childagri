@@ -21,3 +21,35 @@
     z-index: 99999;
     cursor: pointer;
 }
+
+
+.zonePedago{
+    background-color: rgba(255,255,255,0.7);
+    border:0;
+    border-radius: 6px;
+    max-width:50%;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+
+.zonePedago h1{
+    font-family:'Paytone One', sans-serif;
+    font-size: 40px;
+}
+
+
+.pedagoFermer{
+    height: 35px;
+    width:35px;
+    position: absolute;
+    top:4px;
+    right:4px;
+    background: url(../img/cross.svg) no-repeat center center;
+}
+
+
+.vignetteSound{
+    width:55px;
+}

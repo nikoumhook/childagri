@@ -7,6 +7,7 @@ use Respect\Validation\Validator as v;
 use Model\PedagoModel;
 use Model\AlimentsModel;
 use Model\QuizzModel;
+use \W\Security\AuthorizationModel;
 
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -27,8 +28,14 @@ class BackController extends Controller
 
 	/***************** Page QUIZZ: AFFICHAGE  **********/
 
-    public function quizz()
-	{
+    public function quizz(){
+
+        $authorizationModel = new AuthorizationModel();
+
+        if (!$authentificationModel->getLoggedUser() || $authorizationModel->isGranted('out')) {
+            $this->redirectToRoute('login');
+        }
+
 		$modelPedago = new PedagoModel();
         $modelQuizz = new QuizzModel();
 
@@ -51,6 +58,14 @@ class BackController extends Controller
 
 	public function listeQuizz()
 	{
+
+        $authentificationModel = new AuthentificationModel();
+        $authorizationModel = new AuthorizationModel();
+
+        if (!$authentificationModel->getLoggedUser()) {
+            $this->redirectToRoute('login');
+        }
+
 		$modelPedago = new PedagoModel();
 		$this->show('back/listeQuizz', [
 			'aliments'=>$modelPedago->getAliments()
@@ -61,6 +76,12 @@ class BackController extends Controller
 
 	public function ficheQuizz($id)
 	{
+
+        $authentificationModel = new AuthentificationModel();
+
+        if (!$authentificationModel->getLoggedUser()) {
+            $this->redirectToRoute('login');
+        }
 
 		$errors = [];
 		$formValid = false;
@@ -214,22 +235,35 @@ class BackController extends Controller
 
 	}//fermeture functionficheQuizz
 
-
 	/***************** Page LISTE ALIMENT: AFFICHAGE  **********/
 
 	public function listeAliment()
 	{
+
+        $authentificationModel = new AuthentificationModel();
+
+        if (!$authentificationModel->getLoggedUser()) {
+            $this->redirectToRoute('login');
+        }
+
+
 		$modelPedago = new PedagoModel();
 		$this->show('back/listeAliment', [
 			'aliments'=>$modelPedago->getAliments()
 			]);
 	}
 
-
 	/***************** Page FICHE ALIMENT: AFFICHAGE et traitement update  **********/
 
 	public function ficheAliment($id)
 	{
+
+        $authentificationModel = new AuthentificationModel();
+
+        if (!$authentificationModel->getLoggedUser()) {
+            $this->redirectToRoute('login');
+        }
+
 		$modelPedago = new PedagoModel();
 		$modelAliments = new AlimentsModel();
 
@@ -377,12 +411,17 @@ class BackController extends Controller
 
 	}// fermeture function ficheAliment
 
-
-
 	/***************** Page ALIMENT: AFFICHAGE et TRAITEMENTS **********/
 
 	public function aliment()
 	{
+
+        $authentificationModel = new AuthentificationModel();
+
+        if (!$authentificationModel->getLoggedUser()) {
+            $this->redirectToRoute('login');
+        }
+
 		$errors = [];
 		$formValid = false;
 		$imgvalid= false;
@@ -529,11 +568,18 @@ class BackController extends Controller
 
 	}// fermeture function aliment
 
-
 	/***************** Page LISTE PEDAGO: AFFICHAGE  **********/
 
 	public function listePedago()
 	{
+
+        $authentificationModel = new AuthentificationModel();
+
+        if (!$authentificationModel->getLoggedUser()) {
+            $this->redirectToRoute('login');
+        }
+
+
 		$modelPedago = new PedagoModel();
 		$this->show('back/listePedago', [
 			'pedagos'=>$modelPedago->getPedago(),
@@ -544,6 +590,13 @@ class BackController extends Controller
 
 	public function fichePedago($id)
 	{
+
+
+        $authentificationModel = new AuthentificationModel();
+
+        if (!$authentificationModel->getLoggedUser()) {
+            $this->redirectToRoute('login');
+        }
 
 		$errors = [];
 		$formValid = false;
@@ -711,11 +764,15 @@ class BackController extends Controller
 
 	}//fermeture function fichePedago
 
-
 	/***************** Page Zones Pédagogiques: AFFICHAGE et TRAITEMENTS **********/
 
 	public function zonePedago(){
 
+        $authentificationModel = new AuthentificationModel();
+
+        if (!$authentificationModel->getLoggedUser()) {
+            $this->redirectToRoute('login');
+        }
 
 		$errors = [];
 		$formValid = false;

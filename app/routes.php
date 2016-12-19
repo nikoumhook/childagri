@@ -43,6 +43,12 @@
 
 /*//////////////BACK-OFFICE Administration*//////////////////////////
 
+        // BACK-CONNEXION page de login :
+        ['GET|POST', '/config/login/', 'Users#login', 'login'],
+        ['GET|POST', '/config/adduser/', 'Users#addUser', 'addUser'],
+        ['GET|POST', '/config/logout/', 'Users#logout', 'deconnexion'],
+        ['GET|POST', '/config/userlist/', 'Users#ListUsers', 'userlist'],
+
         // BACK page d'accueil :
         ['GET|POST', '/config/', 'Back#home', 'back_home'],
 

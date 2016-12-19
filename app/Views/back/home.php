@@ -14,13 +14,13 @@
 		            	<h2 class="txtcenter man">ALIMENT</h2>
 		            	<ul class="man pan">
 		            		<li class="txtcenter pts">
-		            			<a href="<?= $this->url('back_aliment') ?>" class="<= ($w_current_route == 'back_aliment')? 'active' :''; ?>">
+		            			<a href="<?= $this->url('back_aliment') ?>">
 		            			<h3 class="man">ADMINISTRER</h3>
 		            			</a>
 		            		</li>
 		            		<li class="txtcenter explainMenu">Enregistrez tous les aliments utilisés dans votre application</li>
 		            		<li class="txtcenter ptm">
-		            			<a href="<?= $this->url('back_listeAliment') ?>" class="<= ($w_current_route == 'back_listeAliment')? 'active' :''; ?>">
+		            			<a href="<?= $this->url('back_listeAliment') ?>">
 		            			<h3 class="man">LISTE</h3>
 		            			</a>
 		            		</li>
@@ -39,20 +39,20 @@
 	            	<h2 class="txtcenter man">PEDAGO</h2>
 	            	<ul class="man pan">
 	            		<li class="txtcenter pts">
-	            			<a href="<?= $this->url('back_zonePedago') ?>" class="<= ($w_current_route == 'back_zonePedago')? 'active' :''; ?>">
+	            			<a href="<?= $this->url('back_zonePedago') ?>">
 	            			<h3 class="man">ADMINISTRER</h3>
 	            			</a>
 	            		</li>
 	            		<li class="txtcenter explainMenu">Enregistrez tous les contenus utilisés dans votre application</li>
 	            		</li>
 	            		<li class="txtcenter ptm">
-	            			<a href="<?= $this->url('back_listePedago') ?>" class="<= ($w_current_route == 'back_listePedago')? 'active' :''; ?>">
+	            			<a href="<?= $this->url('back_listePedago') ?>">
 	            			<h3 class="man">LISTE</h3>
 	            			</a>
 	            		</li>
 	            		<li class="txtcenter explainMenu">Utilisez la liste des contenus pour pouvoir les modifier rapidement</li>
 	            	</ul>
-	            	
+
 	            </div>
 	        </div>
 	    </div>
@@ -65,19 +65,19 @@
 	            	<h2 class="txtcenter man">QUIZZ</h2>
 	            	<ul class="man pan">
 	            		<li class="txtcenter pts">
-	            			<a href="<?= $this->url('back_quizz') ?>" class="<= ($w_current_route == 'back_quizz')? 'active' :''; ?>">
+	            			<a href="<?= $this->url('back_quizz') ?>">
 	            			<h3 class="man">ADMINISTRER</h3>
 	            			</a>
 	            		</li>
 	            		<li class="txtcenter explainMenu">Enregistrez tous les quizz utilisés dans votre application</li>
 	            		<li class="txtcenter ptm">
-	            			<a href="<?= $this->url('back_listeQuizz') ?>" class="<= ($w_current_route == 'back_listeQuizz')? 'active' :''; ?>">
+	            			<a href="<?= $this->url('back_listeQuizz') ?>">
 	            			<h3 class="man">LISTE</h3>
 	            			</a>
 	            		</li>
 	            		<li class="txtcenter explainMenu">Utilisez la liste des quizz pour pouvoir les modifier rapidement</li>
 	            	</ul>
-	            	
+
 	            </div>
 	        </div>
 	    </div>
@@ -89,13 +89,19 @@
 	           		<h2 class="txtcenter man">JOUEUR</h2>
 	            	<ul class="man pan">
 	            		<li class="txtcenter pts">
-	            			<a href="<?= $this->url('back_listeUser') ?>" class="<= ($w_current_route == 'back_listeQuizz')? 'active' :''; ?>">
+	            			<a href="<?= $this->url('back_listeUser') ?>">
+	            			<h3 class="man">LISTE</h3>
+	            			</a>
+	            		</li>
+	            		<li class="txtcenter explainMenu">Utilisez la liste des joueurs et accéder à leurs informations</li>
+	            		<li class="txtcenter pts">
+	            			<a href="<?= $this->url('userlist') ?>">
 	            			<h3 class="man">LISTE</h3>
 	            			</a>
 	            		</li>
 	            		<li class="txtcenter explainMenu">Utilisez la liste des joueurs et accéder à leurs informations</li>
 	            	</ul>
-	            	
+
 	            </div>
 	        </div>
 	    </div>

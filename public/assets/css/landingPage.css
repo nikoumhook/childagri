@@ -36,7 +36,7 @@
 
 /***************DIV POPIN*************************/
 /* bouton fermer */
-.overlay .overlay-close {
+/*.overlay .overlay-close {
 	width: 80px;
 	height: 80px;
     cursor: pointer;
@@ -50,12 +50,17 @@
 	color: transparent;
 	outline: none;
 	z-index: 10000;
-}
+}*/
+
+
 .centreurOverlay{
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+
+
 /*Wrapper Popin*/
 .wrapperPopin {
 	max-height: 50vh;

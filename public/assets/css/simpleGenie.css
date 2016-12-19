@@ -11,14 +11,14 @@
 
 /* Overlay closing cross */
 .overlay .overlay-close {
-	width: 80px;
-	height: 80px;
+	width: 50px;
+	height: 50px;
 	position: absolute;
 	right: 20px;
 	top: 20px;
 	overflow: hidden;
 	border: none;
-	background: url(../img/cross.png) no-repeat center center;
+	background: url(../img/cross.svg) no-repeat center center;
 	text-indent: 200%;
 	color: transparent;
 	outline: none;

@@ -35,6 +35,8 @@
         ['GET|POST', '/ajax/quizz', 'Ajax#quizz', 'ajax_quizz'],
         // BACK traitement des quizz :
         ['GET|POST', '/ajax/finassiette', 'Ajax#finAssiette', 'ajax_finAssiette'],
+        // BACK delete Aliments :/
+        ['GET|POST', '/ajax/deletealiment', 'Ajax#deleteAliment', 'ajax_deleteAliment'],
         // ASSIETTE récuperation des aliments en fonction du repas :
         ['GET|POST', '/ajax/getaliments', 'Ajax#getNeedIngredientsForRepas', 'ajax_getAliments'],
         // Carte récuperation des aliments en fonction du repas :

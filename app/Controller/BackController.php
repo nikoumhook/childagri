@@ -28,10 +28,9 @@ class BackController extends Controller
 
     public function quizz(){
 
-        $authorizationModel = new AuthorizationModel();
         $authentificationModel = new AuthentificationModel();
 
-        if (!$authentificationModel->getLoggedUser() || $authorizationModel->isGranted('out')) {
+        if (!$authentificationModel->getLoggedUser()) {
             $this->redirectToRoute('login');
         }
 

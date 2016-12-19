@@ -118,5 +118,6 @@
                 });
             });
         </script>
+        <?= $this->section('js') ?>
 </body>
 </html>

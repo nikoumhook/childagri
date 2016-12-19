@@ -260,7 +260,6 @@ class AjaxController extends Controller
 
     }// fin fonction getNeedIngredientsForRepas
 
-
     // fonction qui controle la sortie de la page carte
     public function finCarte(){
 
@@ -302,6 +301,16 @@ class AjaxController extends Controller
 
     }
 
+    public function deleteAliment(){
+        $alimentsModel = new AlimentsModel();
 
+        if (!empty($_POST['id']) && is_numeric($_POST['id'])) {
+            $controle = $alimentsModel->delete($_POST['id']);
+
+            if ($controle) {
+                $this->showJson(['success'=>true]);
+            }
+        }
+    }
 
 }//fermeture de la class

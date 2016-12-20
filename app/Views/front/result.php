@@ -8,296 +8,54 @@
 <div id="titreGlobal">
     <h1>Résultats du Quizz</h1>
 </div>
-<div id="globalResult">
-    <?php if (isset($_SESSION['save']['repas'][1])): ?>
-    <div class="containerResult">
-        <h3>Petit Déjeuner</h3>
-        <div class="containerAliment">
-            <h4><?php echo($question[1][0]['ingredient']); ?></h4><br>
-            <div class="questionUnite">
-                <?php echo($question[1][0]['content']); ?>
-                <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$question[1][0]['id']]?><span></p>
-                <?php if($question[1][0]['answer'] === $_SESSION['results'][$question[1][0]['id']]):?>
-                    <p style="color:green;">Bravo tu as bien répondu</p>
-                <?php endif;?>
-                <?php if($question[1][0]['answer'] != $_SESSION['results'][$question[1][0]['id']]):?>
-                    <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$question[1][0]['explainAnswer']?></span><br>
-                <?php endif;?><br>
-            </div>
-            <div class="questionUnite">
-                <?php echo($question[1][1]['content']); ?>
-                <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$question[1][1]['id']]?><span></p>
-                <?php if($question[1][1]['answer'] === $_SESSION['results'][$question[1][1]['id']]):?>
-                    <p style="color:green;">Bravo tu as bien répondu</p>
-                <?php endif;?>
-                <?php if($question[1][1]['answer'] != $_SESSION['results'][$question[1][1]['id']]):?>
-                    <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$question[1][1]['explainAnswer']?></span><br>
-                <?php endif;?><br>
-            </div>
-            <div class="questionUnite">
-                <?php echo($question[1][2]['content']); ?>
-                <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$question[1][2]['id']]?><span></p>
-                <?php if($question[1][2]['answer'] === $_SESSION['results'][$question[1][2]['id']]):?>
-                    <p style="color:green;">Bravo tu as bien répondu</p>
-                <?php endif;?>
-                <?php if($question[1][2]['answer'] != $_SESSION['results'][$question[1][2]['id']]):?>
-                    <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$question[1][2]['explainAnswer']?></span><br>
-                <?php endif;?><br>
-            </div>
-            <div class="questionUnite">
-                <?php echo($question[1][3]['content']); ?>
-                <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$question[1][3]['id']]?><span></p>
-                <?php if($question[1][3]['answer'] === $_SESSION['results'][$question[1][3]['id']]):?>
-                    <p style="color:green;">Bravo tu as bien répondu</p>
-                <?php endif;?>
-                <?php if($question[1][3]['answer'] != $_SESSION['results'][$question[1][3]['id']]):?>
-                    <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$question[1][3]['explainAnswer']?></span><br>
-                <?php endif;?><br>
-            </div>
-        </div>
-        <div class="containerAliment">
-            <h4><?php echo($question[2][0]['ingredient']); ?></h4><br>
-            <div class="questionUnite">
-                <?php echo($question[2][0]['content']); ?>
-                <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$question[2][0]['id']]?><span></p>
-                <?php if($question[2][0]['answer'] === $_SESSION['results'][$question[2][0]['id']]):?>
-                    <p style="color:green;">Bravo tu as bien répondu</p>
-                <?php endif;?>
-                <?php if($question[2][0]['answer'] != $_SESSION['results'][$question[2][0]['id']]):?>
-                    <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$question[2][0]['explainAnswer']?></span><br>
-                <?php endif;?><br>
-            </div>
-            <div class="questionUnite">
-                <?php echo($question[2][1]['content']); ?>
-                <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$question[2][1]['id']]?><span></p>
-                <?php if($question[2][1]['answer'] === $_SESSION['results'][$question[2][1]['id']]):?>
-                    <p style="color:green;">Bravo tu as bien répondu</p>
-                <?php endif;?>
-                <?php if($question[2][1]['answer'] != $_SESSION['results'][$question[2][1]['id']]):?>
-                    <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$question[2][1]['explainAnswer']?></span><br>
-                <?php endif;?><br>
-            </div>
-            <div class="questionUnite">
-                <?php echo($question[2][2]['content']); ?>
-                <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$question[2][2]['id']]?><span></p>
-                <?php if($question[2][2]['answer'] === $_SESSION['results'][$question[2][2]['id']]):?>
-                    <p style="color:green;">Bravo tu as bien répondu</p>
-                <?php endif;?>
-                <?php if($question[2][2]['answer'] != $_SESSION['results'][$question[2][2]['id']]):?>
-                    <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$question[2][2]['explainAnswer']?></span><br>
-                <?php endif;?><br>
-            </div>
-            <div class="questionUnite">
-                <?php echo($question[2][3]['content']); ?>
-                <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$question[2][3]['id']]?><span></p>
-                <?php if($question[2][3]['answer'] === $_SESSION['results'][$question[2][3]['id']]):?>
-                    <p style="color:green;">Bravo tu as bien répondu</p>
-                <?php endif;?>
-                <?php if($question[2][3]['answer'] != $_SESSION['results'][$question[2][3]['id']]):?>
-                    <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$question[2][3]['explainAnswer']?></span><br>
-                <?php endif;?><br>
-            </div>
-        </div>
-        <div class="containerAliment">
-            <h4><?php echo($question[3][0]['ingredient']); ?></h4><br>
-            <div class="questionUnite">
-                <?php echo($question[3][0]['content']); ?>
-                <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$question[3][0]['id']]?><span></p>
-                <?php if($question[3][0]['answer'] === $_SESSION['results'][$question[3][0]['id']]):?>
-                    <p style="color:green;">Bravo tu as bien répondu</p>
-                <?php endif;?>
-                <?php if($question[3][0]['answer'] != $_SESSION['results'][$question[3][0]['id']]):?>
-                    <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$question[3][0]['explainAnswer']?></span><br>
-                <?php endif;?><br>
-            </div>
-            <div class="questionUnite">
-                <?php echo($question[3][1]['content']); ?>
-                <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$question[3][1]['id']]?><span></p>
-                <?php if($question[3][1]['answer'] === $_SESSION['results'][$question[3][1]['id']]):?>
-                    <p style="color:green;">Bravo tu as bien répondu</p>
-                <?php endif;?>
-                <?php if($question[3][1]['answer'] != $_SESSION['results'][$question[3][1]['id']]):?>
-                    <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$question[3][1]['explainAnswer']?></span><br>
-                <?php endif;?><br>
-            </div>
-            <div class="questionUnite">
-                <?php echo($question[3][2]['content']); ?>
-                <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$question[3][2]['id']]?><span></p>
-                <?php if($question[3][2]['answer'] === $_SESSION['results'][$question[3][2]['id']]):?>
-                    <p style="color:green;">Bravo tu as bien répondu</p>
-                <?php endif;?>
-                <?php if($question[3][2]['answer'] != $_SESSION['results'][$question[3][2]['id']]):?>
-                    <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$question[3][2]['explainAnswer']?></span><br>
-                <?php endif;?><br>
-            </div>
-            <div class="questionUnite">
-                <?php echo($question[3][3]['content']); ?>
-                <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$question[3][3]['id']]?><span></p>
-                <?php if($question[3][3]['answer'] === $_SESSION['results'][$question[3][3]['id']]):?>
-                    <p style="color:green;">Bravo tu as bien répondu</p>
-                <?php endif;?>
-                <?php if($question[3][3]['answer'] != $_SESSION['results'][$question[3][3]['id']]):?>
-                    <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$question[3][3]['explainAnswer']?></span><br>
-                <?php endif;?><br>
-            </div>
-        </div>
-    </div>
-    <?php endif; ?>
-    <?php if (isset($_SESSION['save']['repas'][2])): ?>
-    <div class="containerResult">
-        <h3>Déjeuner</h3>
-        <div class="containerAliment">
-            <h4><?php echo($question[4][0]['ingredient']); ?></h4><br>
-            <div class="questionUnite">
-                <?php echo($question[4][0]['content']); ?>
-                <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$question[4][0]['id']]?><span></p>
-                <?php if($question[4][0]['answer'] === $_SESSION['results'][$question[4][0]['id']]):?>
-                    <p style="color:green;">Bravo tu as bien répondu</p>
-                <?php endif;?>
-                <?php if($question[4][0]['answer'] != $_SESSION['results'][$question[4][0]['id']]):?>
-                    <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$question[4][0]['explainAnswer']?></span><br>
-                <?php endif;?><br>
-            </div>
-            <div class="questionUnite">
-                <?php echo($question[4][1]['content']); ?>
-                <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$question[4][1]['id']]?><span></p>
-                <?php if($question[4][1]['answer'] === $_SESSION['results'][$question[4][1]['id']]):?>
-                    <p style="color:green;">Bravo tu as bien répondu</p>
-                <?php endif;?>
-                <?php if($question[4][1]['answer'] != $_SESSION['results'][$question[4][1]['id']]):?>
-                    <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$question[4][1]['explainAnswer']?></span><br>
-                <?php endif;?><br>
-            </div>
-            <div class="questionUnite">
-                <?php echo($question[4][2]['content']); ?>
-                <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$question[4][2]['id']]?><span></p>
-                <?php if($question[4][2]['answer'] === $_SESSION['results'][$question[4][2]['id']]):?>
-                    <p style="color:green;">Bravo tu as bien répondu</p>
-                <?php endif;?>
-                <?php if($question[4][2]['answer'] != $_SESSION['results'][$question[4][2]['id']]):?>
-                    <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$question[4][2]['explainAnswer']?></span><br>
-                <?php endif;?><br>
-            </div>
-            <div class="questionUnite">
-                <?php echo($question[4][3]['content']); ?>
-                <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$question[4][3]['id']]?><span></p>
-                <?php if($question[4][3]['answer'] === $_SESSION['results'][$question[4][3]['id']]):?>
-                    <p style="color:green;">Bravo tu as bien répondu</p>
-                <?php endif;?>
-                <?php if($question[4][3]['answer'] != $_SESSION['results'][$question[4][3]['id']]):?>
-                    <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$question[4][3]['explainAnswer']?></span><br>
-                <?php endif;?><br>
-            </div>
-        </div>
-        <div class="containerAliment">
-            <h4><?php echo($question[5][0]['ingredient']); ?></h4><br>
-            <div class="questionUnite">
-                <?php echo($question[5][0]['content']); ?>
-                <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$question[5][0]['id']]?><span></p>
-                <?php if($question[5][0]['answer'] === $_SESSION['results'][$question[5][0]['id']]):?>
-                    <p style="color:green;">Bravo tu as bien répondu</p>
-                <?php endif;?>
-                <?php if($question[5][0]['answer'] != $_SESSION['results'][$question[5][0]['id']]):?>
-                    <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$question[5][0]['explainAnswer']?></span><br>
-                <?php endif;?><br>
-            </div>
-            <div class="questionUnite">
-                <?php echo($question[5][1]['content']); ?>
-                <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$question[5][1]['id']]?><span></p>
-                <?php if($question[5][1]['answer'] === $_SESSION['results'][$question[5][1]['id']]):?>
-                    <p style="color:green;">Bravo tu as bien répondu</p>
-                <?php endif;?>
-                <?php if($question[5][1]['answer'] != $_SESSION['results'][$question[5][1]['id']]):?>
-                    <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$question[5][1]['explainAnswer']?></span><br>
-                <?php endif;?><br>
-            </div>
-            <div class="questionUnite">
-                <?php echo($question[5][2]['content']); ?>
-                <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$question[5][2]['id']]?><span></p>
-                <?php if($question[5][2]['answer'] === $_SESSION['results'][$question[5][2]['id']]):?>
-                    <p style="color:green;">Bravo tu as bien répondu</p>
-                <?php endif;?>
-                <?php if($question[5][2]['answer'] != $_SESSION['results'][$question[5][2]['id']]):?>
-                    <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$question[5][2]['explainAnswer']?></span><br>
-                <?php endif;?><br>
-            </div>
-            <div class="questionUnite">
-                <?php echo($question[5][3]['content']); ?>
-                <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$question[5][3]['id']]?><span></p>
-                <?php if($question[5][3]['answer'] === $_SESSION['results'][$question[5][3]['id']]):?>
-                    <p style="color:green;">Bravo tu as bien répondu</p>
-                <?php endif;?>
-                <?php if($question[5][3]['answer'] != $_SESSION['results'][$question[5][3]['id']]):?>
-                    <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$question[5][3]['explainAnswer']?></span><br>
-                <?php endif;?><br>
-            </div>
-        </div>
-        <?php if(!empty($question[6])): ?>
-        <div>
-            <h4><?php echo($question[6][0]['ingredient']); ?></h4><br>
-            <?php echo($question[6][0]['content']); ?><p style="color:green;">V Vrai</p><br>
-            <?php echo($question[6][1]['content']); ?><p style="color:green;">V Vrai</p><br>
-            <?php echo($question[6][2]['content']); ?><p style="color:green;">V Vrai</p><br>
-            <?php echo($question[6][3]['content']); ?><p style="color:green;">V Vrai</p><br>
-        </div>
-    <?php endif; ?>
-    </div>
-    <?php endif; ?>
-    <?php if (isset($_SESSION['save']['repas'][3])): ?>
-    <div class="containerResult">
-        <h3>Gouter</h3>
-        <div class="containerAliment">
-            <h4><?php echo($question[1][0]['ingredient']); ?></h4><br>
-            <?php echo($question[1][0]['content']); ?><p style="color:green;">V Vrai</p><br>
-            <?php echo($question[1][1]['content']); ?><p style="color:green;">V Vrai</p><br>
-            <?php echo($question[1][2]['content']); ?><p style="color:green;">V Vrai</p><br>
-            <?php echo($question[1][3]['content']); ?><p style="color:green;">V Vrai</p><br>
-        </div>
-        <div>
-            <h4><?php echo($question[2][0]['ingredient']); ?></h4><br>
-            <?php echo($question[2][0]['content']); ?><p style="color:green;">V Vrai</p><br>
-            <?php echo($question[2][1]['content']); ?><p style="color:green;">V Vrai</p><br>
-            <?php echo($question[2][2]['content']); ?><p style="color:green;">V Vrai</p><br>
-            <?php echo($question[2][3]['content']); ?><p style="color:green;">V Vrai</p><br>
-        </div>
-        <div>
-            <h4><?php echo($question[3][0]['ingredient']); ?></h4><br>
-            <?php echo($question[3][0]['content']); ?><p style="color:green;">V Vrai</p><br>
-            <?php echo($question[3][1]['content']); ?><p style="color:green;">V Vrai</p><br>
-            <?php echo($question[3][2]['content']); ?><p style="color:green;">V Vrai</p><br>
-            <?php echo($question[3][3]['content']); ?><p style="color:green;">V Vrai</p><br>
-        </div>
-    </div>
-    <?php endif; ?>
-    <?php if (isset($_SESSION['save']['repas'][4])): ?>
-    <div class="containerResult">
-        <h3>Diner</h3>
-        <h4><?php echo($question1[0]['ingredient']); ?></h4><br>
-        <div class="containerAliment">
-            <h4><?php echo($question[1][0]['ingredient']); ?></h4><br>
-            <?php echo($question[1][0]['content']); ?><p style="color:green;">V Vrai</p><br>
-            <?php echo($question[1][1]['content']); ?><p style="color:green;">V Vrai</p><br>
-            <?php echo($question[1][2]['content']); ?><p style="color:green;">V Vrai</p><br>
-            <?php echo($question[1][3]['content']); ?><p style="color:green;">V Vrai</p><br>
-        </div>
-        <div>
-            <h4><?php echo($question[2][0]['ingredient']); ?></h4><br>
-            <?php echo($question[2][0]['content']); ?><p style="color:green;">V Vrai</p><br>
-            <?php echo($question[2][1]['content']); ?><p style="color:green;">V Vrai</p><br>
-            <?php echo($question[2][2]['content']); ?><p style="color:green;">V Vrai</p><br>
-            <?php echo($question[2][3]['content']); ?><p style="color:green;">V Vrai</p><br>
-        </div>
-        <div>
-            <h4><?php echo($question[3][0]['ingredient']); ?></h4><br>
-            <?php echo($question[3][0]['content']); ?><p style="color:green;">V Vrai</p><br>
-            <?php echo($question[3][1]['content']); ?><p style="color:green;">V Vrai</p><br>
-            <?php echo($question[3][2]['content']); ?><p style="color:green;">V Vrai</p><br>
-            <?php echo($question[3][3]['content']); ?><p style="color:green;">V Vrai</p><br>
-        </div>
-    </div>
-    <?php endif; ?>
-</div>
 
+<?php foreach ($question as $questions): ?>
+    <?php if(!empty($questions)): ?>
+        <h4><?php echo($questions[0]['ingredient']); ?></h4><br>
+    <div class="globalResult">
+        <div class="containerAliment">
+            <?php echo($questions[0]['content']); ?>
+            <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$questions[0]['id']]?><span></p>
+            <?php if($questions[0]['answer'] === $_SESSION['results'][$questions[0]['id']]):?>
+                <p style="color:green;">Bravo tu as bien répondu</p>
+            <?php else: ?>
+                <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$questions[0]['explainAnswer']?></span><br>
+            <?php endif;?><br>
+        </div>
+        <br>
+        <div class="containerAliment">
+            <?php echo($questions[1]['content']); ?>
+            <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$questions[1]['id']]?><span></p>
+            <?php if($questions[1]['answer'] === $_SESSION['results'][$questions[1]['id']]):?>
+                <p style="color:green;">Bravo tu as bien répondu</p>
+            <?php else: ?>
+                <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$questions[1]['explainAnswer']?></span><br>
+            <?php endif;?><br>
+        </div>
+        <br>
+        <div class="containerAliment">
+            <?php echo($questions[2]['content']); ?>
+            <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$questions[2]['id']]?><span></p>
+            <?php if($questions[2]['answer'] === $_SESSION['results'][$questions[2]['id']]):?>
+                <p style="color:green;">Bravo tu as bien répondu</p>
+            <?php else: ?>
+                <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$questions[2]['explainAnswer']?></span><br>
+            <?php endif;?><br>
+        </div>
+        <br>
+        <div class="containerAliment">
+            <?php echo($questions[3]['content']); ?>
+            <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$questions[3]['id']]?><span></p>
+            <?php if($questions[3]['answer'] === $_SESSION['results'][$questions[3]['id']]):?>
+                <p style="color:green;">Bravo tu as bien répondu</p>
+            <?php else: ?>
+                <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$questions[3]['explainAnswer']?></span><br>
+            <?php endif;?><br>
+        </div>
+        <br>
+    </div>
+    <?php endif; ?>
+<?php endforeach; ?>
 
 
 <?php $this->stop('main_content') ?>

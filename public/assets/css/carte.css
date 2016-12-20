@@ -16,9 +16,6 @@
 
 
 
-
-
-
 .alim{
     display: none;
     z-index: 9000;
@@ -30,7 +27,7 @@
     background-color: rgba(255,255,255,0.7);
     border:0;
     border-radius: 6px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .markerRegion{
@@ -64,20 +61,20 @@
     align-items: center;
 }
 
-.pictoSound{
+/*.pictoSound{
     max-width: 10%
-}
+}*/
 
-.vignetteSound{
+/*.vignetteSound{
     width:55px;
 }
-
+*/
 .vignetteAlimentPedago{
-/*    max-width: 16%;*/
+    width: 11%;
 }
 
 .vignetteAgri{
-    width:250px;
+    width:150px;
 }
 
 

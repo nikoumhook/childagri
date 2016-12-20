@@ -27,11 +27,14 @@ label{
 #globalResult{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;;
 }
 .containerResult{
     width: 400px;
 }
 h4{
     text-align: center;
+}
+.questionUnite{
+    margin: 10px;
 }

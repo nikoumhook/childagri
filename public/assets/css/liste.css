@@ -9,8 +9,6 @@ thead{
     font-size: 18px;
 }
 
-
-
 table {
   width: 100%;
   max-width: 100%;
@@ -20,19 +18,55 @@ table {
   border-radius: 6px;
 }
 
-
 td{
     border-bottom: 1px solid #ddd;
 }
 
 .quizzGd{
 	width: 30%;
-
 }
-
 
 .quizzPt {
 	width: 20%;
-
 }
 
+
+/*************************************/
+/*               PAGE USERLIST                 */
+/*************************************/
+.bouttonUserList{
+  height:50px;
+  background-color: #F88C00;
+  color:#FFF;
+  font-family:'Paytone One', sans-serif;
+  border:0px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.selectUserList{
+  height: 50px;
+  border: 0px solid black;
+  border-radius: 3px;
+  background-color: #FFF;
+}
+
+.align{
+  vertical-align: middle;
+}
+
+.thUserList{
+  font-family:'Paytone One', sans-serif;
+  font-size: 20px;
+  color:#F88C00;
+  
+}
+
+
+
+td{
+    vertical-align: middle;
+}
+tr:nth-child(2n+2){
+    background: #689C9F;
+}

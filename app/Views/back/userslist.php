@@ -12,31 +12,43 @@
 
 <?php $this->start('main_content') ?>
 
+
+<h1 class="titreForm txtcenter pam">Liste des utilisateurs</h1>
+
 <table class="man">
 	<tr>
-		<th>Validation</th>
-		<th>username</th>
-		<th>email</th>
-        <th>Role</th>
+		<th class="thUserList txtcenter">SELECTIONNER</th>
+		<th class="thUserList txtcenter">PSEUDO</th>
+		<th class="thUserList txtcenter">MAIL</th>
+        <th class="thUserList txtcenter">ROLE</th>
 	</tr>
 </table>
 <form class="" method="post">
 	<?php foreach($users as $user): ?>
         <table class="man">
             <tr>
-                <td><input type="checkbox" name="users[]" value="<?= $user['id']; ?>"></td>
-                <td><?= $user['username'];?></td>
+                <td class="txtcenter"><input class="" type="checkbox" name="users[]" value="<?= $user['id']; ?>"></td>
+                <td><?= ucfirst($user['username']);?></td>
                 <td><?= $user['email'];?></td>
-                <td><?= ($user['role'] == 'out')? 'bloqué' : 'confirmé';?></td>
+                <td class="txtcenter"><?= ($user['role'] == 'out')? 'Bloqué' : 'Confirmé';?></td>
             </tr>
         </table>
 	<?php endforeach; ?>
-    <select class="" name="action">
-        <option value="validate">Confirmer</option>
-        <option value="blocked">bloquer</option>
-        <option value="delete">Supprimer</option>
-    </select>
-    <input type="submit" value="Action !!">
+
+    <div class="grid-5 flex-container-v align mam">
+        <div class="push txtright">
+            <select class="selectUserList pas mas" name="action">
+                <option value="validate">Confirmer</option>
+                <option value="blocked">Bloquer</option>
+                <option value="delete">Supprimer</option>
+            </select>
+        </div>
+        <div class="pull">
+            <button type="submit" class="bouttonUserList pas mas">ENREGISTRER</button>
+        </div>
+    </div>
+
+
 </form>
 
 </table>

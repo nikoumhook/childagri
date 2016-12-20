@@ -1,9 +1,10 @@
 body {
     background: url('../img/backoffice_background.jpg');
 }
+
 img{
-    max-width: 256px;
-    max-height: 256px;
+    max-width: 128px;
+    max-height: 128px;
     width: 100%;
 }
 .wrapper{

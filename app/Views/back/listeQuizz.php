@@ -1,4 +1,4 @@
-<?php $this->layout('back', ['title' => 'LIste des quizz']) ?>
+<?php $this->layout('back', ['title' => 'Liste des quizz']) ?>
 
 <?php $this->start('head') ?>
 

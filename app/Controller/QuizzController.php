@@ -25,12 +25,12 @@ class QuizzController extends Controller
                 $_SESSION['results'][$key] = $value;
             }
 
+            if (isset($_SESSION['aliments_quizz']['uncomplete']) && !empty($_SESSION['aliments_quizz']['uncomplete'])) {
+                $_SESSION['aliments_quizz']['complete'][] = array_shift($_SESSION['aliments_quizz']['uncomplete']);
+            }
         }
 
 
-        if (isset($_SESSION['aliments_quizz']['uncomplete']) && !empty($_SESSION['aliments_quizz']['uncomplete'])) {
-            $_SESSION['aliments_quizz']['complete'][] = array_shift($_SESSION['aliments_quizz']['uncomplete']);
-        }
         //unset($_SESSION['aliments_quizz']);
         //unset($_SESSION['results']);
         if (!isset($_SESSION['aliments_quizz'])) {

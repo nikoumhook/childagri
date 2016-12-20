@@ -128,11 +128,14 @@
             <?php endif; ?>
 
 
-
             <div id="navLeftBar" class="mll">
                 <ul>
-                    <li id="repas1" class="circle <?= (empty($repas) || !in_array(1,$repas))? 'obsRepas' : 'repasFait' ?>">PETIT-DEJ </li>
-                    <li id="repas2" class="circle <?= (empty($repas) || !in_array(2,$repas))? 'obsRepas' : 'repasFait' ?>">DEJEUNER</li>
+                    <li id="repas1" class="circle <?= (empty($repas) || !in_array(1,$repas))? 'obsRepas' : 'repasFait' ?>">PETIT-DEJ
+                        <img src="<?= $this->assetUrl('img/fourmis.png');?>" class="fourmis1">
+                    </li>
+                    <li id="repas2" class="circle <?= (empty($repas) || !in_array(2,$repas))? 'obsRepas' : 'repasFait' ?>">DEJEUNER
+                        <img src="<?= $this->assetUrl('img/fourmis.png');?>" class="fourmis2">
+                    </li>
                     <li id="repas3" class="circle <?= (empty($repas) || !in_array(3,$repas))? 'obsRepas' : 'repasFait' ?>">GOÛTER</li>
                     <li id="repas4" class="circle <?= (empty($repas) || !in_array(4,$repas))? 'obsRepas' : 'repasFait' ?>">DÎNER</li>
                 </ul>
@@ -140,7 +143,6 @@
         <?php endif; ?>
 
         <!-- FIN BOUTON POUR ASSIETTE ************///////////////////////////////:******************* -->
-
         <!-- BOUTON POUR CARTE  ************///////////////////////////////:******************* -->
         <?php if ($w_current_route == 'game_carte'): ?>
 
@@ -190,13 +192,12 @@
             <?php endif; ?>
         <?php endif; ?>
 
-
         <!-- INCLUSION JAVASCRIPT  ************///////////////////////////////:******************* -->
-            <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-            <script src="<?= $this->assetUrl('owl-carousel/owl.carousel.min.js') ?>"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="<?= $this->assetUrl('owl-carousel/owl.carousel.min.js') ?>"></script>
 
-            <?= $this->section('script') ?>
-        <!-- FIN INCLUSION JAVASCRIPT  ************///////////////////////////////:******************* -->
+        <?= $this->section('script') ?>
+
         <script type="text/javascript">
         $(function(){
 
@@ -212,10 +213,68 @@
             $('.decoMenu').click(function(){
                 $('.decoSubmenu').toggle();
             });
-
-
-
         });
         </script>
+
+        <?php if ($w_current_route == 'game_assiette'): ?>
+              <script>
+
+    $(document).ready(function(){
+
+       var fourmis1 = function(){
+            var $fourmis = $('.fourmis1');
+            // $('.fourmis1').css('position', 'relative')
+             
+            $fourmis.fadeIn().animate({left: '1000%'}, 5000, function(){
+                // Anim complète
+                $fourmis.css('transform', 'rotate(75deg)')
+            })
+            .animate({top:'300%'}, 5000, function(){
+                // Anim complète
+                $fourmis.css('transform', 'rotate(115deg)')
+            })
+            .animate({right:'300%'}, 5000, function(){
+                // Anim complète
+                $fourmis.css('transform', 'rotate(110deg)')
+            });
+              /* .animate({top: '0px'}, 5000);*/
+       };
+
+
+ var fourmis2 = function(){
+             $('.fourmis2').fadeIn().css('position', 'relative');
+                $('.fourmis2').animate({left: '500%'}, 6000, function(){
+                // Anim complète
+                $('.fourmis2').css('transform', 'rotate(-75deg)')
+                })
+              .animate({bottom:'90%'}, 6000, function(){
+                // Anim complète
+                $('.fourmis2').css('transform', 'rotate(-175deg)')
+              })
+             .animate({left:'50%'}, 5000, function(){
+                // Anim complète
+                $('.fourmis2').css('transform', 'rotate(45deg)')
+              })
+              /* .animate({top: '0px'}, 5000);*/
+       };
+
+
+
+
+
+        $('#repas1').click(function(){
+            fourmis1();
+            //fourmis2();
+            
+        });
+
+    });
+
+    </script>
+        <?php endif;?>
+            
+
+        <!-- FIN INCLUSION JAVASCRIPT  ************///////////////////////////////:******************* -->
+
     </body>
 </html>

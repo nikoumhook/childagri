@@ -100,6 +100,29 @@ body{
     font-size: 20px;
     list-style: none;
 }
+
+/*#repas1{
+    position: absolute;
+}
+*/
+.fourmis1{
+    display: none;
+    position: relative;
+    z-index: -1;
+    -webkit-transition: -webkit-transform 1s;
+    transition: transform 1s;
+}
+
+
+.fourmis2{
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: -webkit-transform 1s;
+    transition: transform 1s;
+}
+
+
+
 .circle{
     /*border: 5px solid rgba(0,0,0,0.5);*/
     background: #EDC977;

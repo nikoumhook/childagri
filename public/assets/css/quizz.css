@@ -24,12 +24,12 @@ label{
 #titreGlobal{
     text-align: center;
 }
-#globalResult{
+.globalResult{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;;
 }
-.containerResult{
+.containerAliment{
     width: 400px;
 }
 h4{

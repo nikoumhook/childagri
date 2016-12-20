@@ -51,7 +51,7 @@
 	  				</div>
 
 					<!-- Bouton -->
-					<div class="flex-container-v ptm">
+					<div id="containerQuestion1" class="flex-container-v ptm">
 						<button id="validQuestion1" type="submit" class="mam bouttonEnregistrerQuizz cursor">ENREGISTRER</button>
 					</div>
 
@@ -88,7 +88,7 @@
 
 	  				</div>
 	  				<!-- Bouton -->
-					<div class="center flex-container-v ptm">
+					<div id="containerQuestion2" class="center flex-container-v ptm">
 						<button id="validQuestion2" type="submit" class="mam bouttonEnregistrerQuizz cursor">ENREGISTRER</button>
 					</div>
 
@@ -123,7 +123,7 @@
 	  				</div>
 
 	  				<!-- Bouton -->
-					<div class="center flex-container-v ptm">
+					<div id="containerQuestion3" class="center flex-container-v ptm">
 						<button id="validQuestion3" type="submit" class="mam bouttonEnregistrerQuizz cursor">ENREGISTRER</button>
 					</div>
 
@@ -160,12 +160,12 @@
 
 	  				</div>
 	  				<!-- Bouton -->
-					<div class="center flex-container-v ptm">
+					<div id="containerQuestion4" class="center flex-container-v ptm">
 						<button id="validQuestion4" type="submit" class="mam bouttonEnregistrerQuizz cursor">ENREGISTRER</button>
 					</div>
 
 					<!-- div Affichage resultat traitement AJAX CONNEXION-->
-					<div id="resultQuestion3" class="result txtcenter"></div>
+					<div id="resultQuestion4" class="result txtcenter"></div>
 				</form>
 			</div> <!-- fermeture bloc 4 -->
 
@@ -192,9 +192,9 @@
 					cache:false,
 					data: {
 						aliment : $('#aliment').val() ,
-						question : $(form).children('textarea').val(),
-						answer : $(form).children('input:checked').val(),
-						ExplainAnswer : $(form).children('input[type="text"]').val()
+						question : $(form).children().children('textarea').val(),
+						answer : $(form).children().children('input:checked').val(),
+						ExplainAnswer : $(form).children().children('#ExplainAnswer').val()
 					},
 					dataType: 'json',
 					success: function(result){
@@ -213,22 +213,27 @@
 
 		};
 
-		$('#formQuestion1').children('.center').children('button').click(function(e){
+		$('#formQuestion1').children('#containerQuestion1').children('button').click(function(e){
 			e.preventDefault();
 			controlAjax($(this));
 
 		});
-		$('#formQuestion2').children('.center').children('button').click(function(e){
+		// $('#formQuestion1').children('.center').children('button').click(function(e){
+		// 	e.preventDefault();
+		// 	controlAjax($(this));
+        //
+		// });
+		$('#formQuestion2').children('#containerQuestion1').children('button').click(function(e){
 			e.preventDefault();
 			controlAjax($(this));
 
 		});
-		$('#formQuestion3').children('.center').children('button').click(function(e){
+		$('#formQuestion3').children('#containerQuestion1').children('button').click(function(e){
 			e.preventDefault();
 			controlAjax($(this));
 
 		});
-		$('#formQuestion4').children('.center').children('button').click(function(e){
+		$('#formQuestion4').children('#containerQuestion1').children('button').click(function(e){
 			e.preventDefault();
 			controlAjax($(this));
 

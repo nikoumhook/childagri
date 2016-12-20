@@ -16,8 +16,7 @@ class AjaxController extends Controller
     private $nbrDeRepasRequis = 2 ;
 
 	//METHODE ADD PLAYER : page landing Page - Formulaire d'inscription
-	public function addPlayer()
-	{
+	public function addPlayer(){
 		$errors = [];
         $controlMail = false; // sert a controler si le champ mail a été rempli
 		$modelAddPlayer = new PlayersModel();
@@ -98,8 +97,7 @@ class AjaxController extends Controller
 
 
 //METHODE CONNECT PLAYER : page landing Page - Formulaire de connexion
-	public function connectPlayer()
-	{
+	public function connectPlayer(){
 		$errors = [];
 
 		if (!empty($_POST)) {
@@ -132,13 +130,11 @@ class AjaxController extends Controller
 	}// fermeture function connectPlayer
 
 	/***************** Page quizz:  TRAITEMENTS **********/
-	public function quizz()
-	{
+	public function quizz(){
 
 		$errors = [];
 		$formValid = false;
 		$modelQuizz = new QuizzModel();
-
 
 		if (!empty($_POST)) {
 

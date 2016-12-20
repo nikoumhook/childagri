@@ -37,6 +37,10 @@ img{
 .cursor{
     cursor: pointer;
 }
+h1{
+    color: white;
+    margin: 0;
+}
 /*************************************/
 /*           NAVIGATION             */
 /*************************************/
@@ -69,11 +73,9 @@ nav{
     background-color: #F9D9B1;
 
 }
-#menu{
-    padding-right: 2em;
-}
 #logo{
-    padding-left: 2em;
+    font-size: 2em;
+    text-shadow: 18px 12px 12px rgba(255, 255, 255, 1);
 }
 
 /*************************************/
@@ -193,6 +195,18 @@ body{
 /*************************************/
 /*             TABLEAU               */
 /*************************************/
+/*controle oui non pour la supressions*/
+.verif button{
+    border: 0;
+    margin-top: 0.5em;
+    border-radius: 2px;
+}
+.green{
+    background: #ACC489 ;
+}
+.red{
+    background: #CC7B7A;
+}
 i{
     color: black;
 }

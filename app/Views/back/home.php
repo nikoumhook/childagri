@@ -2,7 +2,7 @@
 
 <?php $this->start('main_content') ?>
 
-	<h1 class="txtcenter pam">BIENVENUE SUR VOTRE BACKOFFICE</h1>
+	<h1 class="txtcenter pas"><?=strtoupper($w_user['username']);?> BIENVENUE SUR VOTRE BACKOFFICE</h1>
 	<div class="txtcenter accueil pbs"> Vous allez pouvoir administrer les contenus de votre application en trois coups de cuillère à pot !!<br>Choississez le menu dont vous avez besoin et laissez guider.</div>
 
 	<div class="grid-4-small-2">
@@ -57,7 +57,6 @@
 	        </div>
 	    </div>
 
-
 	    <div class="columnHomeBack pam">
 	        <div class="containerInColumn pas">
 	            <div class="illus pal"><img src="<?= $this->assetUrl('img/backoffice_trophy.svg');?>" alt=""></div>
@@ -94,7 +93,7 @@
 	            			</a>
 	            		</li>
 	            		<li class="txtcenter explainMenu">Utilisez la liste des joueurs et accéder à leurs informations</li>
-	            		<li class="txtcenter pts">
+	            		<li class="txtcenter ptm">
 	            			<a href="<?= $this->url('userlist') ?>">
 	            			<h3 class="man">LISTE</h3>
 	            			</a>

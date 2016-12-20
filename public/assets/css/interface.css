@@ -130,19 +130,14 @@ body{
 
 .reglesCarte1{
     position: fixed;
-    top:0;
+    top:1em;
     width: 100%;
     display: flex;
     font-family:'Paytone One', sans-serif;
     font-size: 20px;
     color:#7A7874;
-    z-index: -1;
 }
 
-.reglesCarte2{
-    width:60%;
-    margin:0 auto;
-}
 
 /************************************/
 /*            MENU DECO             */
@@ -241,7 +236,7 @@ body{
 
 #imgBulle .cls-1{
     fill:#2B9BE7;
-    
+
 }
 
 #texteBulle{

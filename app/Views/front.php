@@ -22,15 +22,16 @@
         <?= $this->section('head') ?>
 
         <link rel="stylesheet" href="<?= $this->assetUrl('css/interface.css') ?>">
+        <link rel="stylesheet" href="<?= $this->assetUrl('css/banniere.css') ?>">
 
     </head>
     <body>
 
-        <div class="debug pam">
+        <!-- <div class="debug pam">
             <pre>
-                <?php var_dump($_SESSION); ?>
+                <php var_dump($_SESSION); ?>
             </pre>
-        </div>
+        </div> -->
 
 
         <!-- CONTENU  ************///////////////////////////////:******************* -->
@@ -51,21 +52,24 @@
         </div>
         <?php if ($w_current_route != 'game_quizz'): ?>
 
-        <!-- GESTION DES CONTENU DE LA BULLE -->
-            <?php switch (count($repas)) {
-                case 1:
-                    $contentBulle = 'Merci,pour ce premier repas composé de '. $aliment1['name'].','.$aliment2['name'].','.$aliment3['name'].', mon estomac ce remplie.';
-                    break;
-                case 2:
-                    $contentBulle = 'Merci,pour ce deuxieme repas <a href="'.$this->url('game_quizz').'">On joue au QUIZZ ?</a>';
-                    break;
-                case 3:
-                    $contentBulle = 'Merci,pour ce Troisieme repas';
-                    break;
-                case 4:
-                    $contentBulle = 'Merci,pour ce Quetrieme repas';
-                    break;
-            } ?>
+            <?php if (isset($aliment1)): ?>
+
+                        <!-- GESTION DES CONTENU DE LA BULLE -->
+                            <?php switch (count($repas)) {
+                                case 1:
+                                    $contentBulle = 'Merci,pour ce premier repas composé de '. $aliment1['name'].','.$aliment2['name'].','.$aliment3['name'].', mon estomac ce remplie.';
+                                    break;
+                                case 2:
+                                    $contentBulle = 'Merci,pour ce deuxieme repas <a href="'.$this->url('game_quizz').'">On joue au QUIZZ ?</a>';
+                                    break;
+                                case 3:
+                                    $contentBulle = 'Merci,pour ce Troisieme repas';
+                                    break;
+                                case 4:
+                                    $contentBulle = 'Merci,pour ce Quetrieme repas';
+                                    break;
+                            } ?>
+            <?php endif; ?>
 
 
             <!-- affichage du bonhomme et de sa bulle -->
@@ -97,14 +101,28 @@
             <?php if (isset($carte)): ?>
                 <div id="navTopBar">
                     <div class="pas flex-container-v">
+                        <div class="center-wrap">
+                          <div class="title-container">
+                            <div class="ribbon-left"></div>
+                            <div class="backflag-left"></div>
+                            <div class="title"><?= strtoupper($_SESSION['player']['username']);?> A TOI DE JOUER POUR DECOUVRIR LES ALIMENTS QUE TU MANGES AU QUOTIDIEN.
+                             <span class="sous-title">
+                                 Cliques sur un repas et des aliments vont apparaitre<br>
+                                 Choisis 3 aliments que tu souhaites manger et glisse-les dans ton assiette
+                             </span>
+                            </div>
+                            <div class="backflag-right"></div>
+                            <div class="ribbon-right"></div>
+                          </div>
+                        </div>
                         <!-- le contenu ici est remplacé par jQuery quand un repas est selectionné ! -->
-                        <div class="reglesAssiettes1 pas txtcenter">
-                            <?= strtoupper($_SESSION['player']['username']);?> A TOI DE JOUER POUR DECOUVRIR LES ALIMENTS QUE TU MANGES AU QUOTIDIEN
+                        <!-- <div class="reglesAssiettes1 pas txtcenter">
+                            <= strtoupper($_SESSION['player']['username']);?> A TOI DE JOUER POUR DECOUVRIR LES ALIMENTS QUE TU MANGES AU QUOTIDIEN
                         </div>
                         <div class="reglesAssiettes2 pas txtcenter">
                             Cliques sur un repas et des aliments vont apparaitre <br>
                             Choisis 3 aliments que tu souhaites manger et glisse-les dans ton assiette
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             <?php endif; ?>
@@ -145,12 +163,22 @@
         ?>
 
         <div class="reglesCarte1 flex-container-v">
-            <div class="pas txtcenter reglesCarte2 pam">
-                <?= strtoupper($_SESSION['player']['username']);?>
-                VOILA LA CARTE DES REGIONS QUI PRODUISENT LES ALIMENTS
-                QUE TU AS PRIS AU <?=strtoupper($repasName);?>. <br>
-                Clique sur chaque aliment pour en savoir plus. Surprises garanties !!
-             </div>
+                <div class="center-wrap">
+                  <div class="title-container">
+                    <div class="ribbon-left"></div>
+                    <div class="backflag-left"></div>
+                    <div class="title">
+                        <?= strtoupper($_SESSION['player']['username']);?>
+                        VOILA LA CARTE DES REGIONS QUI PRODUISENT LES ALIMENTS
+                        DE TON <?=strtoupper($repasName);?>
+                        <span class="sous-title">
+                        Clique sur chaque aliment pour en savoir plus.<br> Surprises garanties !!
+                        </span>
+                    </div>
+                    <div class="backflag-right"></div>
+                    <div class="ribbon-right"></div>
+                  </div>
+                </div>
         </div>
 
             <?php if (isset($_SESSION['save']['id_quizz']) && count(explode(',',$_SESSION['save']['id_quizz'])) < 12): ?>

@@ -23,7 +23,7 @@
 </head>
 <body>
 
-    <nav class="mtm mbm">
+    <nav class="mts mbs">
         <div class="wrapper containerMenu">
             <div id="logo">
                 <a href="<?= $this->url('back_home') ?>">QUICROCQUOI</a>
@@ -89,7 +89,7 @@
                     <?php endif; ?>
                 </div>
                 <div class="footerRight">
-                    <a href="<?= $this->url('login') ?>">A propos</a>
+                    <a target="_blank" href="http://wf3adult.maozoo.fr/propos">A propos</a>
                 </div>
             </div>
 		</footer>

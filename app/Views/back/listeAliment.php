@@ -82,7 +82,7 @@
                     $('.verif').remove();
                     thiz = $(this).parent().parent();
                     id = $(this).attr('data-id');
-                    $(this).parent().append('<div class="verif"><button id="oui" type="button">OUI</button><button id="non" type="button">NON</button></div>');
+                    $(this).parent().append('<div class="verif"><button class="green cursor" id="oui" type="button">OUI</button><button class="red cursor" id="non" type="button">NON</button></div>');
 
                     $('#oui').click(function(){
                         reqAjax(id,thiz);

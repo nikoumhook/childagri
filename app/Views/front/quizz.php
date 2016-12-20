@@ -21,13 +21,13 @@ var_dump($question);
 				<h3><?php echo $question[0]['ingredient'] ?></h3>
 				<?php foreach($question as $value): ?>
 					<label for="<?=$value['id']?>"><?=$value['id']?><?=$value['content']?></label>
-					<input type="radio" name="<?=$value['id']?>" value="true" checked> Oui
-					<input type="radio" name="<?=$value['id']?>" value="false"> Non<br><br>
+					<input type="radio" name="<?=$value['id']?>" value="oui" checked> Oui
+					<input type="radio" name="<?=$value['id']?>" value="non"> Non<br><br>
 				<?php endforeach;?>
 			</div>
 			<?php endif; ?>
 			<br>
-			<button type="submit" id="button" name="button">Répondre</button>
+			<button type="submit" id="button">Répondre</button>
 		</form>
     </div>
 </div>

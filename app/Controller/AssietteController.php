@@ -37,7 +37,6 @@ class AssietteController extends Controller
             $repas = $gameController->getRepasSelected(false);
 
 
-            $_SESSION['aliments_quizz']['uncomplete'] = explode(',', $_SESSION['save']['id_quizz']);
             $this->show('front/assiette',[
                 'repas' =>  $repas,
                 'aliments'=> $content

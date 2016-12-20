@@ -145,6 +145,16 @@ class GameController extends Controller{
                 $data['repasEnCour'] = serialize($_SESSION['repasEnCour']) ;
 
             }
+            if (isset($_SESSION['results']) && !empty($_SESSION['results'])) {
+
+                $data['results'] = serialize($_SESSION['results']) ;
+
+            }
+            if (isset($_SESSION['aliments_quizz']) && !empty($_SESSION['aliments_quizz'])) {
+
+                $data['aliments_quizz'] = serialize($_SESSION['aliments_quizz']) ;
+
+            }
 
             $save = $saveModel->update($data,$_SESSION['save']['id']);
 
@@ -170,6 +180,8 @@ class GameController extends Controller{
              $saveGood['save']['id_quizz'] = $save['id_quizz'];
              $saveGood['save']['repas'] = unserialize($save['repas']);
              $saveGood['repasEnCour'] = unserialize($save['repasEnCour']);
+             $saveGood['results'] = unserialize($save['results']);
+             $saveGood['aliments_quizz'] = unserialize($save['aliments_quizz']);
          }else {
              $saveGood = $save;
          }
@@ -293,6 +305,8 @@ class GameController extends Controller{
 
         unset($_SESSION['save']);
         unset($_SESSION['repasEnCour']);
+        unset($_SESSION['results']);
+        unset($_SESSION['aliments_quizz']);
 
         $this->redirectToRoute('game_startPlay');
 
@@ -308,6 +322,8 @@ class GameController extends Controller{
         unset($_SESSION['player']);
         unset($_SESSION['save']);
         unset($_SESSION['repasEnCour']);
+        unset($_SESSION['results']);
+        unset($_SESSION['aliments_quizz']);
 
         $this->redirectToRoute('game_landing');
 

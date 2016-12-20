@@ -300,31 +300,4 @@
 
 
 
-
-
-<pre>
-<?php
-var_dump($_SESSION);
-//var_dump($question[5]);
-// $_SESSION['results'][86] = 'oui';
-// $_SESSION['results'][87] = 'oui';
-// $_SESSION['results'][88] = 'oui';
-// $_SESSION['results'][89] = 'oui';
-// $_SESSION['results'][90] = 'oui';
-// $_SESSION['results'][91] = 'oui';
-// $_SESSION['results'][92] = 'oui';
-// $_SESSION['results'][93] = 'oui';
-// $_SESSION['results'][94] = 'oui';
-// $_SESSION['results'][95] = 'oui';
-// $_SESSION['results'][96] = 'oui';
-// $_SESSION['results'][97] = 'oui';
-?>
-</pre>
-
-
-
-
-
-
-
 <?php $this->stop('main_content') ?>

@@ -17,13 +17,11 @@ class LandingController extends Controller
 	public function landingPage()
 	{
 
+
         // si l'utilisateur est déja connecté ont le redirige sur l'assiette
         if (isset($_SESSION['player']) && !empty($_SESSION['player'])) {
             $this->redirectToRoute('game_assiette');
         }
-
-        
-
 		$this->show('landingPage.php');
 
 	}

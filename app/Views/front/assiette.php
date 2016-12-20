@@ -200,19 +200,7 @@
                 dataType: 'json',
                 success: function(result){
                     if (result.control == 'ok') {
-                        setInterval(function(){
-                            $(location).attr('href','<?= $this->url('game_carte'); ?>');
-                        },1000);
-
-                        // if (repas == 'repas1') {
-                        // }else if (repas == 'repas2') {
-                        //
-                        // }else if (repas == 'repas3') {
-                        //
-                        // }else if (repas == 'repas4') {
-                        //
-                        // }
-
+                        $(location).attr('href','<?= $this->url('game_carte'); ?>');
 
                     }else {
                         alert('il y a un probleme technique merci de le signaler à rang5@prod.fr');

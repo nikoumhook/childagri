@@ -1,3 +1,9 @@
+main{
+    background: url('../img/landscape.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 #container_carte{
     width: 100vw;
     height: 100vh;
@@ -76,5 +82,3 @@
 .vignetteAgri{
     width:150px;
 }
-
-

@@ -1,4 +1,4 @@
-<?php $this->layout('quizz', ['title' => 'Resultat du quizz']) ?>
+<?php $this->layout('front', ['title' => 'Resultat du quizz']) ?>
 
 <?php $this->start('head') ?>
 <link rel="stylesheet" href="<?= $this->assetUrl('css/quizz.css') ?>">
@@ -56,6 +56,33 @@
     </div>
     <?php endif; ?>
 <?php endforeach; ?>
-
+<div id="success"></div>
+    <button type="button" id="save">Sauvegarder</button>
+    <a href="<?= $this->url('game_reset');?>"><button type="button" id="reset">Reset</button></a>
 
 <?php $this->stop('main_content') ?>
+<?php $this->start('script') ?>
+<!-- Script Affichage validation formulaire connexion en Ajax -->
+<script>
+    $(function(){
+
+        $('#save').click(function(e){
+            e.preventDefault();
+            $.ajax({
+                url: '<?=$this->url('ajax_saveresultat');?>',
+                type: 'post',
+                cache:false,
+                dataType: 'json',
+                success: function(result){
+                    if(result.success == 'true'){
+                        $('#success').hml("enregistré !");
+                    }else{
+                        $('#success').hml("Probleme d'enregistrement, désolé, nous en avont pris note nous allons corrigé ce petit soucis !");
+                    };
+                }//fermeture success
+            });//fermeture $.ajax
+        });// fermeture buttton clic
+
+    });//fermeture document.ready
+</script>
+<?php $this->stop('script') ?>

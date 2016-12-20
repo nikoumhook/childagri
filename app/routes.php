@@ -18,6 +18,8 @@
         ['GET|POST', '/game/ajax/quizz', 'Quizz#updateQuizz', 'game_updateQuizz'],
         // Page result :
         ['GET|POST', '/game/result', 'Result#result', 'game_result'],
+        // Page result :
+        ['GET|POST', '/game/resultat/[i:id]', 'Result#recupresult', 'game_recup_result'],
 
 
         // menu deco (quit) et reset :
@@ -41,6 +43,10 @@
         ['GET|POST', '/ajax/getaliments', 'Ajax#getNeedIngredientsForRepas', 'ajax_getAliments'],
         // Carte récuperation des aliments en fonction du repas :
         ['GET|POST', '/ajax/fincarte', 'Ajax#finCarte', 'ajax_finCarte'],
+        // Enregistrement du resultat :
+        ['GET|POST', '/ajax/saveresultat', 'Ajax#saveResultatQuizz', 'ajax_saveresultat'],
+        // Recupétation et affichage des resultats :
+        ['GET|POST', '/ajax/recupresultat', 'Ajax#recupResultat', 'ajax_recupresultat'],
 
 
 /*//////////////BACK-OFFICE Administration*//////////////////////////

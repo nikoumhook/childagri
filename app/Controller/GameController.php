@@ -290,9 +290,10 @@ class GameController extends Controller{
     }
 
     /**
-     * methode qui redirige vers l'assiette
+     * methode reset la partie et redirige
+     * parametre par defaut a true pour rediriger sur la page d'accueil mais si false peut être utliliser sans redirection
      */
-    public function resetGame(){
+    public function resetGame($redirect = true){
 
         $playersModel = new PlayersModel();
         $saveModel = new SaveModel();
@@ -308,7 +309,9 @@ class GameController extends Controller{
         unset($_SESSION['results']);
         unset($_SESSION['aliments_quizz']);
 
-        $this->redirectToRoute('game_startPlay');
+        if ($redirect) {
+            $this->redirectToRoute('game_startPlay');
+        }
 
     }
 

@@ -21,8 +21,11 @@
         <!-- import des fichiers css meta et script si besoin  -->
         <?= $this->section('head') ?>
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/csshake/1.5.1/csshake-little.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/csshake/1.5.1/csshake-default.min.css">
         <link rel="stylesheet" href="<?= $this->assetUrl('css/interface.css') ?>">
         <link rel="stylesheet" href="<?= $this->assetUrl('css/banniere.css') ?>">
+        <link rel="stylesheet" type="text/css" href="http://csshake.surge.sh/csshake.min.css">
 
     </head>
     <body>
@@ -47,10 +50,14 @@
                     <img class="mini mrs" src="<?= $this->assetUrl('img/thumbs-up.svg')?>" alt=""><span>REJOUER</span></a></li>
                     <li><a class="mas pas" href="<?= $this->url('game_quit') ?>">
                     <img class="mini mrs" src="<?= $this->assetUrl('img/cross.svg')?>"><span>SE DECONNECTER</span></a></li>
+                    <li id="resultats"><a class="mas pas" href="#">
+                    <img class="mini mrs" src="<?= $this->assetUrl('img/cross.svg')?>"><span>VOS RESULTATS</span></a></li>
                 </ul>
             </div>
         </div>
-        <?php if ($w_current_route != 'game_quizz'): ?>
+
+        <div id='popResultat'></div>
+        <?php if (!($w_current_route == 'game_quizz' || $w_current_route == 'game_result')): ?>
 
             <?php if (isset($aliment1)): ?>
 
@@ -73,17 +80,18 @@
 
 
             <!-- affichage du bonhomme et de sa bulle -->
+            <!-- <div id="navTrophee" class="pam mrl shake-hard"> -->
             <div id="navTrophee" class="pam mrl">
                 <?php if (!empty($_SESSION['repasEnCour'])): ?>
                     <div class="containerBulle">
-                        <div class="wrapContainerBulle">
+                        <!-- <div class="wrapContainerBulle">
                             <div id="imgBulle" class="">
-                                <?= $this->insert('front/bulle')?>
-                            </div>
+                                <= $this->insert('front/bulle')?>
+                            </div> -->
                             <div id="texteBulle" class="">
-                                <?= $contentBulle ?>
+                                <= $contentBulle ?>
                             </div>
-                        </div> <!-- fermeture wrapContainerBulle -->
+                        <!-- </div> fermeture wrapContainerBulle -->
                     </div>
                 <?php endif; ?>
                 <?php $this->insert('front/intestin'); ?>
@@ -186,7 +194,7 @@
             <?php if (isset($_SESSION['save']['id_quizz']) && count(explode(',',$_SESSION['save']['id_quizz'])) < 12): ?>
                 <div id="navReturn" class="pam">
                     <a href="<?= $this->url('game_assiette') ?>">
-                        <img class="btn-back" src="<?= $this->assetUrl('/img/assiette_petitDej.svg') ?>" alt="retour">
+                        <img class="btn-back shake-chunk shake-constant shake-constant--hover" src="<?= $this->assetUrl('/img/assiette_petitDej.svg') ?>" alt="retour">
                     </a>
                 </div>
             <?php endif; ?>
@@ -224,7 +232,7 @@
        var fourmis1 = function(){
             var $fourmis = $('.fourmis1');
             // $('.fourmis1').css('position', 'relative')
-             
+
             $fourmis.fadeIn().animate({left: '1000%'}, 5000, function(){
                 // Anim complète
                 $fourmis.css('transform', 'rotate(75deg)')
@@ -241,7 +249,7 @@
        };
 
 
- var fourmis2 = function(){
+       var fourmis2 = function(){
              $('.fourmis2').fadeIn().css('position', 'relative');
                 $('.fourmis2').animate({left: '500%'}, 6000, function(){
                 // Anim complète
@@ -259,20 +267,40 @@
        };
 
 
-
-
-
         $('#repas1').click(function(){
             fourmis1();
             //fourmis2();
-            
+
         });
+
+        // requete de récuperation des resultat :
+        $('#resultats').click(function(e){
+            e.preventDefault();
+            $.ajax({
+                url: '<?=$this->url('ajax_recupresultat');?>',
+                type: 'post',
+                cache:false,
+                dataType: 'json',
+                success: function(result){
+                    if (result.success) {
+                        $('#popResultat').html(result.resultats);
+                    }else {
+                        $('#popResultat').html('<div><ul><li>Tu n\'as pas de résultat</li></ul></div>');
+                    }
+
+                    $('#popResultat').click(function(){
+                        $(this).children().remove();
+                    });
+
+                }//fermeture success
+            });//fermeture $.ajax
+        });// fermeture buttton clic
 
     });
 
     </script>
         <?php endif;?>
-            
+
 
         <!-- FIN INCLUSION JAVASCRIPT  ************///////////////////////////////:******************* -->
 

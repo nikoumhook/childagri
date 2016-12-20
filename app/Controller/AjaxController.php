@@ -6,6 +6,7 @@ use \W\Controller\Controller;
 use Model\PlayersModel;
 use Model\AlimentsModel;
 use Model\QuizzModel;
+use Model\ResultatsModel;
 use \Controller\GameController;
 use Respect\Validation\Validator as v;
 
@@ -308,6 +309,51 @@ class AjaxController extends Controller
                 $this->showJson(['success'=>true]);
             }
         }
+    }
+
+    public function saveResultatQuizz(){
+
+        $resultatsModel = new ResultatsModel;
+
+        if (!empty($_SESSION['results']) && isset($_SESSION['player']['id'])) {
+
+            $controle = $resultatsModel->insert([
+                'id_player' =>  $_SESSION['player']['id'],
+                'resultats' =>  serialize($_SESSION['results']),
+                'datetime' =>  date('Y-m-d-H:i:s')
+            ]);
+            if ($controle){
+                $this->showJson(['success' => 'true']);
+            }else {
+                $this->showJson(['success' => 'false']);
+            }
+
+        }
+
+    }
+
+    public function recupResultat(){
+
+        $resultatsModel = new ResultatsModel;
+        $resultats = [];
+        $success = false ;
+        if (isset($_SESSION['player']['id'])) {
+            $resultats = $resultatsModel->getresultats($_SESSION['player']['id']);
+
+            if ($resultats) {
+                $success = true;
+                $html = "<div><ul>";
+                $html .= "<li>ATTENTION SI TU REGARDE UN ANCIEN RESULTAT TA PARTIE EN COUR SERA PERDU !!</li>";
+                    foreach ($resultats as $value) {
+                        $html .= '<li><a href="'.$this->generateUrl('game_recup_result',['id'=>$value['id']]).'">'.$value['datetime'].'</a></li>';
+                    }
+                $html .= "</ul></div>";
+
+                $resultats = $html ;
+            }
+        }
+
+        $this->showJson(['success' => $success, 'resultats' => $resultats]);
     }
 
 }//fermeture de la class

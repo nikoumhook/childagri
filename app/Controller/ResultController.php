@@ -4,7 +4,9 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use Model\QuizzModel;
+use Model\ResultatsModel;
 use Model\PedagoModel;
+use \Controller\GameController;
 
 class ResultController extends Controller
 {
@@ -30,5 +32,24 @@ class ResultController extends Controller
 
     }
 
+    public function recupresult($id){
+
+        $resultatsModel = new ResultatsModel();
+        $gameController = new GameController();
+
+        if (!empty($id) && is_numeric($id)) {
+
+            $resultat = $resultatsModel->find($id);
+
+            $resultat = unserialize($resultat['resultats']);
+
+            $gameController->resetGame(false);
+            $_SESSION['results'] = $resultat;
+
+            $this->redirectToRoute('game_quizz');
+
+        }
+
+    }
 
 }

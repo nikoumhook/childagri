@@ -9,7 +9,8 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <pre>
 <?php var_dump($_SESSION['aliments_quizz']);
-var_dump($_SESSION['results']); ?>
+var_dump($question);
+?>
 </pre>
 <legend><h1>Quiz</h1></legend><hr>
 <div class="containerQuizz">
@@ -30,9 +31,7 @@ var_dump($_SESSION['results']); ?>
 		</form>
     </div>
 </div>
-<?php
-$_SESSION['results'] = 91;
-?>
+
 <script>
 	$(document).ready(function(){
 		$('#button').click(function(e){

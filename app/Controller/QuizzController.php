@@ -13,19 +13,25 @@ class QuizzController extends Controller
         $quizzModel = new QuizzModel();
         $pedagoModel = new PedagoModel();
         //echo array_shift($_SESSION['aliments_quizz']['uncomplete']);
-        $_SESSION['aliments_quizz']['complete'][] = array_shift($_SESSION['aliments_quizz']['uncomplete']);
-        //unset($_SESSION['aliments_quizz']);
+        //$_SESSION['aliments_quizz']['complete'][] = array_shift($_SESSION['aliments_quizz']['uncomplete']);
+        unset($_SESSION['aliments_quizz']);
         //unset($_SESSION['results']);
         if(!empty($_SESSION['aliments_quizz']['uncomplete'])){
             $question = $quizzModel->getQuizzByIdAliment($_SESSION['aliments_quizz']['uncomplete'][0]);
             $question = $pedagoModel->getQuizzAliment($question[0]['id_aliment']);
+            if(empty($quizzModel->getQuizzByIdAliment($_SESSION['aliments_quizz']['uncomplete'][1]))){
+                $_SESSION['aliments_quizz']['complete'][] = array_shift($_SESSION['aliments_quizz']['uncomplete']);
+            }
             $this->show('front/quizz',[
                 'question' => $question
             ]);
         }
-        else{
+        elseif(!empty($_SESSION['results'])){
             //upload des résultats et redirection sur la page Result
             $this->redirectToRoute('game_result');
+        }
+        else{
+            $this->redirectToRoute('game_landing');
         }
     }
 

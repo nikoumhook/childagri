@@ -204,18 +204,14 @@
                             $(location).attr('href','<?= $this->url('game_carte'); ?>');
                         },1000);
 
-                        if (repas == 'repas1') {
-                            alert('Felicitation, tu as choisi ton '+repas1+', tu peut maintenant en savoir plus sur sur tes choix');
-                        }else if (repas == 'repas2') {
-                            alert('Felicitation, tu as choisi ton '+repas2+', tu peut maintenant en savoir plus sur sur tes choix');
-
-                        }else if (repas == 'repas3') {
-                            alert('Felicitation, tu as choisi ton '+repas3+', tu peut maintenant en savoir plus sur sur tes choix');
-
-                        }else if (repas == 'repas4') {
-                            alert('Felicitation, tu as choisi ton '+repas4+', tu peut maintenant en savoir plus sur sur tes choix');
-
-                        }
+                        // if (repas == 'repas1') {
+                        // }else if (repas == 'repas2') {
+                        //
+                        // }else if (repas == 'repas3') {
+                        //
+                        // }else if (repas == 'repas4') {
+                        //
+                        // }
 
 
                     }else {

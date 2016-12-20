@@ -2,10 +2,10 @@
 
 $w_config = [
    	//information de connexion à la bdd
-	'db_host' => 'lhcp1077.webapps.net',			//hôte (ip, domaine) de la bdd
-    'db_user' => 'fl223g7z_rang5e',					//nom d'utilisateur pour la bdd
-    'db_pass' => 'webforce3r@ng5bdx33',				//mot de passe de la bdd
-    'db_name' => 'fl223g7z_enfant',					//nom de la bdd
+	'db_host' => '',			//hôte (ip, domaine) de la bdd
+    'db_user' => '',					//nom d'utilisateur pour la bdd
+    'db_pass' => '',				//mot de passe de la bdd
+    'db_name' => '',					//nom de la bdd
     'db_table_prefix' => '',						//préfixe ajouté aux noms de table
 
 	//authentification, autorisation

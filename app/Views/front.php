@@ -47,11 +47,11 @@
                 <img src="<?= $this->assetUrl('img/menu.svg') ?>" alt="">MENU
                 <ul class="decoSubmenu">
                     <li><a class="mas pas" href="<?= $this->url('game_reset') ?>">
-                    <img class="mini mrs" src="<?= $this->assetUrl('img/thumbs-up.svg')?>" alt=""><span>REJOUER</span></a></li>
+                    <img class="mini mrs" src="<?= $this->assetUrl('img/cycle.svg')?>" alt=""><span>REJOUER</span></a></li>
                     <li><a class="mas pas" href="<?= $this->url('game_quit') ?>">
                     <img class="mini mrs" src="<?= $this->assetUrl('img/cross.svg')?>"><span>SE DECONNECTER</span></a></li>
                     <li id="resultats"><a class="mas pas" href="#">
-                    <img class="mini mrs" src="<?= $this->assetUrl('img/cross.svg')?>"><span>VOS RESULTATS</span></a></li>
+                    <img class="mini mrs" src="<?= $this->assetUrl('img/trophy.svg')?>"><span>VOS RESULTATS</span></a></li>
                 </ul>
             </div>
         </div>

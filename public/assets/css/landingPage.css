@@ -24,7 +24,9 @@
 	width: 100vw;
 }
 
-
+.h100{
+    height:100%;
+}
 
 /***************Boutton ON JOUE********************/
 
@@ -79,6 +81,7 @@
 
 .connect{
 	flex:1;
+    align-items: center;
 }
 
 .titreConnect{
@@ -87,27 +90,24 @@
 	font-size: 26px;
 }
 
+.bloc{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .bloc2{
 	border: 0;
 	border-radius: 6px;
 	background-color: beige;
 }
 
-
 /*/*Input des fomulaires*/
 .inputLanding{
-	font-family: 'Montserrat', sans-serif; 
+	font-family: 'Montserrat', sans-serif;
 	border:0;
 	border-radius: 6px;
 	background-color: ;
-}
-
-.inputPassword{
-	width:100%;
-}
-
-.inputConnect{
-	width:100%;
 }
 
 .txtMail{
@@ -115,7 +115,6 @@
 	font-size: 14px;
 	color: #FFF;
 }
-
 
 /*Message erreur*/
 .infoErreur{

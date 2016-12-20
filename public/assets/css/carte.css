@@ -10,6 +10,15 @@
     height: 90%;
 }
 
+#region01, #region02 , #region03 , #region04 , #region05 , #region06 , #region07 , #region08 , #region09 , #region10 , #region11 , #region12 , #region13 , #region14 , #region15 , #region16 , #region17 , #region18 , #region19 , #region20 , #region21 , #region22  {
+    fill: #ACC489 !important;
+}
+
+
+
+
+
+
 .alim{
     display: none;
     z-index: 9000;

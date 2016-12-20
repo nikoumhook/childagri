@@ -220,16 +220,39 @@ body{
     width: 100%;
 }
 
-
 #intestinEtape1,#intestinEtape2,#intestinEtape3,#intestinEtape4{
     display: none;
 }
 .containerBulle {
 	position: absolute;
-	top: 16%;
-	right: 63%;
+	top: -53%;
+	right: 85%;
 }
-#bulle {
+
+.wrapContainerBulle{
+
+}
+
+
+#imgBulle{
+    position: absolute;
+    width: 230%;
+}
+
+#imgBulle .cls-1{
+    fill:#2B9BE7;
+    
+}
+
+#texteBulle{
+    /*position:absolute;*/
+    color:#FFF;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+/*#bulle {
 	width: 127px;
 	height: 57px;
 	background: red;
@@ -240,6 +263,7 @@ body{
     padding: 2px 6px;
     text-align: center;
 }
+
 #bulle::after {
 	content: "";
 	position: absolute;
@@ -251,6 +275,8 @@ body{
 	border-left: 26px solid red;
 	border-bottom: 13px solid transparent;
 }
+*/
+
 /************************************/
 /*         MENU NavRetour           */
 /************************************/

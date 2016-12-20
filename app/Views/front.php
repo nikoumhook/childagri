@@ -72,9 +72,14 @@
             <div id="navTrophee" class="pam mrl">
                 <?php if (!empty($_SESSION['repasEnCour'])): ?>
                     <div class="containerBulle">
-                        <div id="bulle" class="">
-                            <?= $contentBulle ?>
-                        </div>
+                        <div class="wrapContainerBulle">
+                            <div id="imgBulle" class="">
+                                <?= $this->insert('front/bulle')?>
+                            </div>
+                            <div id="texteBulle" class="">
+                                <?= $contentBulle ?>
+                            </div>
+                        </div> <!-- fermeture wrapContainerBulle -->
                     </div>
                 <?php endif; ?>
                 <?php $this->insert('front/intestin'); ?>

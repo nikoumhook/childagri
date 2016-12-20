@@ -11,7 +11,7 @@
 <?php $this->start('main_content') ?>
 
 
-<h1 class="txtcenter"> Liste des quizz</h1>
+<h1 class="txtcenter pam"> Liste des quizz</h1>
 
 	<table>
 		<thead>
@@ -29,7 +29,7 @@
 				<td class="quizz txtcenter"><?=ucfirst($aliment['name']);?></td>
 				<td class="quizz txtcenter"><img class="vignette" src="<?=$this->assetUrl($aliment['urlImg']);?>"></td>
 				<td class="quizz txtcenter">
-					<?php 
+					<?php
 					switch ($aliment['publish']) {
 					case "oui":
 						echo "Publié";

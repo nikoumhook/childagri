@@ -4,14 +4,14 @@
 
     <!-- Feuille de style LISTE BACK -->
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/liste.css') ?>">
-	
+
 <?php $this->stop('head') ?>
 
 
 <?php $this->start('main_content') ?>
 
 
-	<h1 class="txtcenter"> Liste des contenus pédagogiques</h1>
+	<h1 class="txtcenter pam"> Liste des contenus pédagogiques</h1>
 
 	<table>
 		<thead>
@@ -29,7 +29,7 @@
 				<td class="txtcenter"><?=ucfirst($pedago['ingredient']);?></td>
 				<td class="txtcenter"><?=ucfirst($pedago['region']);?></td>
 				<td class="txtcenter">
-					<?php 
+					<?php
 					switch ($pedago['publish']) {
 					case "oui":
 						echo "Publié";

@@ -43,94 +43,93 @@ var xy = [
     ['280','240']
 ];
 
-$(document).ready(function(){
-    //Etabli la position du marker et son image en svg
-    $("#marker1").attr("x",xy[<?php echo $aliment1['id_land'] ?>][0]);
-    $("#marker1").attr("y",xy[<?php echo $aliment1['id_land'] ?>][1]);
-    $("#marker1").attr("xlink:href", '<?= $this->assetUrl($aliment1['urlImg']);?>');
-    $("#marker2").attr("x",xy[<?php echo $aliment2['id_land'] ?>][0]);
-    $("#marker2").attr("y",xy[<?php echo $aliment2['id_land'] ?>][1]);
-    $("#marker2").attr("xlink:href", "<?= $this->assetUrl($aliment2['urlImg']);?>");
-    $("#marker3").attr("x",xy[<?php echo $aliment3['id_land'] ?>][0]);
-    $("#marker3").attr("y",xy[<?php echo $aliment3['id_land'] ?>][1]);
-    $("#marker3").attr("xlink:href", '<?= $this->assetUrl($aliment3['urlImg']);?>');
+    $(document).ready(function(){
+        //Etabli la position du marker et son image en svg
+        $("#marker1").attr("x",xy[<?php echo $aliment1['id_land'] ?>][0]);
+        $("#marker1").attr("y",xy[<?php echo $aliment1['id_land'] ?>][1]);
+        $("#marker1").attr("xlink:href", '<?= $this->assetUrl($aliment1['urlImg']);?>');
+        $("#marker2").attr("x",xy[<?php echo $aliment2['id_land'] ?>][0]);
+        $("#marker2").attr("y",xy[<?php echo $aliment2['id_land'] ?>][1]);
+        $("#marker2").attr("xlink:href", "<?= $this->assetUrl($aliment2['urlImg']);?>");
+        $("#marker3").attr("x",xy[<?php echo $aliment3['id_land'] ?>][0]);
+        $("#marker3").attr("y",xy[<?php echo $aliment3['id_land'] ?>][1]);
+        $("#marker3").attr("xlink:href", '<?= $this->assetUrl($aliment3['urlImg']);?>');
 
-    var marker1 = false;
-    var marker2 = false;
-    var marker3 = false;
+        var marker1 = false;
+        var marker2 = false;
+        var marker3 = false;
 
-    $('#marker1').click(function(){
+        $('#marker1').click(function(){
 
-        marker1 = true;
-        $('.alim').hide();
-        $('.aliment1').slideToggle( "slow", function() {
+            marker1 = true;
+            $('.alim').hide();
+            $('.aliment1').slideToggle( "slow", function() {
+
+            });
+            controleClickPedago();
+        });
+
+        $('#marker2').click(function(){
+
+            marker2 = true;
+            $('.alim').hide();
+            $('.aliment2').slideToggle( "slow", function() {
+
+            });
+            controleClickPedago();
+        });
+
+        $('#marker3').click(function(){
+
+            marker3 = true;
+            $('.alim').hide();
+            $('.aliment3').slideToggle( "slow", function() {
+
+            });
+            controleClickPedago();
+        });
+
+        $('.pedagoFermer').click(function(){
+            $('.alim').slideUp();
 
         });
-        controleClickPedago();
-    });
-
-    $('#marker2').click(function(){
-
-        marker2 = true;
-        $('.alim').hide();
-        $('.aliment2').slideToggle( "slow", function() {
-
-        });
-        controleClickPedago();
-    });
-
-    $('#marker3').click(function(){
-
-        marker3 = true;
-        $('.alim').hide();
-        $('.aliment3').slideToggle( "slow", function() {
-
-        });
-        controleClickPedago();
-    });
-
-    $('.pedagoFermer').click(function(){
-        $('.alim').slideUp();
-
-    });
 
 
-    var controleClickPedago = function(){
-        if (marker1 && marker2 && marker3) {
-            $.ajax({
-                url: '<?=$this->url('ajax_finCarte');?>',
-                type:'post',
-                cache:false,
-                data: {
+        var controleClickPedago = function(){
+            if (marker1 && marker2 && marker3) {
+                $.ajax({
+                    url: '<?=$this->url('ajax_finCarte');?>',
+                    type:'post',
+                    cache:false,
+                    data: {
 
-                },
-                dataType: 'json',
-                success: function(result){
-                    if (result.success == 'ok') {
+                    },
+                    dataType: 'json',
+                    success: function(result){
+                        if (result.success == 'ok') {
 
-                        $('#navTopBar').html(result.ingredients);
-                        dragFn();
-                        dropFn();
-                        owl();
+                            $('#navTopBar').html(result.ingredients);
+                            dragFn();
+                            dropFn();
+                            owl();
 
-                    }
+                        }
 
-                }//fermeture success
-            });//fermeture $.ajax
-            // activation du bouton retour a la carte de france !
-            if (<?= count($_SESSION['save']['repas'])?> < 12) {
+                    }//fermeture success
+                });//fermeture $.ajax
+                // activation du bouton retour a la carte de france !
+                if (<?= count($_SESSION['save']['repas'])?> < 12) {
 
-                $('#navReturn').slideDown();
-            }else {
-                $('#navReturn').html('tu as fait tous les repas de la journée');
-                $('#navReturn').slideDown();
-            }
-            // a cette endroit faire le script qui fait apparaitre Le logo du quizz
+                    $('#navReturn').slideDown();
+                }else {
+                    $('#navReturn').html('tu as fait tous les repas de la journée');
+                    $('#navReturn').slideDown();
+                }
+                // a cette endroit faire le script qui fait apparaitre Le logo du quizz
+            };
         };
-    };
 
-});// ready jaquery
-
+    });// ready jaquery
 
 </script>
 <?php $this->stop('script') ?>
@@ -143,7 +142,7 @@ $(document).ready(function(){
 
             <div class="aliment1 pam alim">
                 <!-- Div avec img croix en css pour fermer zone -->
-                <div class="pedagoFermer"></div>
+                <div class="pedagoFermer cursor"></div>
 
                 <!-- Titre -->
                 <h1 class="mas txtcenter"><?=ucfirst($aliment1['name'])?></h1>
@@ -181,7 +180,7 @@ $(document).ready(function(){
 
             <div class="aliment2 pal alim">
                 <!-- Div avec img croix en css pour fermer zone -->
-                <div class="pedagoFermer"></div>
+                <div class="pedagoFermer cursor"></div>
 
                 <!-- Titre -->
                 <h1 class="txtcenter"> <?= ucfirst($aliment2['name'])?> </h1>
@@ -220,7 +219,7 @@ $(document).ready(function(){
 
             <div class="aliment3 pal alim">
                 <!-- Div avec img croix en css pour fermer zone -->
-                <div class="pedagoFermer"></div>
+                <div class="pedagoFermer cursor"></div>
 
                  <!-- Titre -->
                 <h1 class="txtcenter"> <?= ucfirst($aliment3['name']) ?> </h1>

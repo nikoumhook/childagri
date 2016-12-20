@@ -11,7 +11,7 @@
 <?php $this->start('main_content') ?>
 
 
-		<h1 class="titreForm txtcenter">Enregistrer un quizz</h1>
+		<h1 class="titreForm txtcenter pam">Enregistrer un quizz</h1>
 
 		<div class="grid-6 pas">
 			<label for="aliment" class="push aliment mbs txtright">CHOISISSEZ</label>

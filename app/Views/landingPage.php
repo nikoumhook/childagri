@@ -48,6 +48,8 @@
 
 						<form id="FormConnect" class="bloc w100 h100" action="#">
 						        <h1 class="txtcenter pam titreConnect w100"> CONNECTE TOI !</h1>
+                                <div class="pas w100">Si tu es dèjà inscrit, connecte-toi ici<br>
+                                    pour jouer une nouvelle partie ou finir ta partie en cours</div>
 
 								<div class="grid-2 connect w100">
 									<div class="pas">
@@ -60,7 +62,7 @@
                                 <!-- div Affichage resultat traitement AJAX CONNEXION-->
                                 <div id="resultConnect" class="mas txtcenter flex-container-v"></div>
 								<div id="buttonConnexion" class="grid pas w100">
-									<button id="validConnexion" class="grid pas enregistrer"type="submit">SE CONNECTER</button>
+									<button id="validConnexion" class="grid pas enregistrer cursor"type="submit">SE CONNECTER</button>
 								</div>
 
 
@@ -73,7 +75,6 @@
 
 						<form class="bloc" action="#">
 						<h1 class="txtcenter pam titreConnect"> INSCRIS TOI !</h1>
-
 							<div class="grid-3 flex-container-v">
 								<div class="pas">
 									<input id="firstname" class="inputLanding pas" type="text" name="firstname" placeholder="Ton prénom">

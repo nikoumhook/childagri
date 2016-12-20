@@ -26,7 +26,7 @@
     <nav class="mtm mbm">
         <div class="wrapper containerMenu">
             <div id="logo">
-                <a href="<?= $this->url('back_home') ?>">LOGO</a>
+                <a href="<?= $this->url('back_home') ?>">QUICROCQUOI</a>
             </div>
             <?php if(!empty($w_user)):?>
                 <div id="menu">

@@ -43,14 +43,14 @@
                 <img src="<?= $this->assetUrl('img/menu.svg') ?>" alt="">MENU
                 <ul class="decoSubmenu">
                     <li><a class="mas pas" href="<?= $this->url('game_reset') ?>">
-                    <img class="mini" src="<?= $this->assetUrl('img/thumbs-up.svg')?>" alt=""> REJOUER</a></li>
+                    <img class="mini mrs" src="<?= $this->assetUrl('img/thumbs-up.svg')?>" alt=""><span>REJOUER</span></a></li>
                     <li><a class="mas pas" href="<?= $this->url('game_quit') ?>">
-                    <img class="mini" src="<?= $this->assetUrl('img/cross.svg')?>"> SE DECONNECTER</a></li>
+                    <img class="mini mrs" src="<?= $this->assetUrl('img/cross.svg')?>"><span>SE DECONNECTER</span></a></li>
                 </ul>
             </div>
         </div>
         <?php if ($w_current_route != 'game_quizz'): ?>
-            
+
         <!-- GESTION DES CONTENU DE LA BULLE -->
             <?php switch (count($repas)) {
                 case 1:
@@ -141,8 +141,10 @@
 
         <div class="reglesCarte1 flex-container-v">
             <div class="pas txtcenter reglesCarte2 pam">
-
-                <?= strtoupper($_SESSION['player']['username']);?> VOILA LA CARTE DES REGIONS QUI PRODUISENT LES ALIMENTS QUE TU AS PRIS AU <?=strtoupper($repasName);?>. <br>Clique sur chaque aliment pour en savoir plus. Surprises garanties !!
+                <?= strtoupper($_SESSION['player']['username']);?>
+                VOILA LA CARTE DES REGIONS QUI PRODUISENT LES ALIMENTS
+                QUE TU AS PRIS AU <?=strtoupper($repasName);?>. <br>
+                Clique sur chaque aliment pour en savoir plus. Surprises garanties !!
              </div>
         </div>
 

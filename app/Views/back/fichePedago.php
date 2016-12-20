@@ -28,7 +28,7 @@
 
 	<form method="POST" enctype="multipart/form-data">
 
-		<h1 class="titreFiche txtcenter">Contenu pédagogique du <?=$pedago['ingredient'];?> de  <?=ucfirst($pedago['region']);?></h1>
+		<h1 class="titreFiche txtcenter pam">Contenu pédagogique du <?=$pedago['ingredient'];?> de  <?=ucfirst($pedago['region']);?></h1>
 
 		<div class="grid-2 flex-container-v">
 

@@ -188,30 +188,24 @@ body{
     list-style: none;
     text-align: center;
 }
-
-/*.sousMenu1 li::before{
-    content:" ";
-    background-image: url("img/thumbs-up.svg");
-
+.decoSubmenu li span{
+    flex: 1;
+    text-align: left;
 }
-
-.sousMenu2 li::before{
-    content:" ";
-    background-image: url("img/cross.svg");
-
-}
-*/
-
-
 .decoSubmenu li a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     text-decoration: none;
     border-radius: 6px;
-    display: block;
+    font-size: 1em;
 }
-/*.decoSubmenu li a:hover{
-    background: rgb(182, 182, 182);
+.decoSubmenu li a:hover{
+    font-size: 1em;
+    opacity: 0.6;
 }
-*//************************************/
+
+/************************************/
 /*          MENU Trophee            */
 /************************************/
 #navTrophee{

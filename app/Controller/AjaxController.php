@@ -119,7 +119,7 @@ class AjaxController extends Controller
                         $gameController = new GameController();
                         $gameController->setPlayer($result);
 
-						$this->showJson(['code'=>'valid', 'msg'=>'Bravo tu es bien connecté. <br>PRET, FEU, JOUEZ !']);
+						$this->showJson(['code'=>'valid', 'msg'=>'Bravo tu es bien connecté. <br><span class="PFJ">PRET, FEU, JOUEZ !</span>']);
 					}else {
 					    $error[] = 'Si tu as oublié ton mot de passe demande le ici';
 					}

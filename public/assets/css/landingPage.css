@@ -119,6 +119,10 @@
 }
 
 /*Message erreur*/
+.PFJ{
+    font-size: 2em;
+}
+
 .infoErreur{
 	font-family: 'Montserrat', sans-serif;
 	font-size: 14px;

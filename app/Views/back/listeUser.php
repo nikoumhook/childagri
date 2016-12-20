@@ -12,7 +12,7 @@
 
 <?php $this->start('main_content') ?>
 
-<h1 class="txtcenter"> Liste des joueurs</h1>
+<h1 class="txtcenter pam"> Liste des joueurs</h1>
 
 <table>
 

@@ -4,6 +4,7 @@ body {
 img{
     max-width: 256px;
     max-height: 256px;
+    width: 100%;
 }
 .wrapper{
     width: 100%;
@@ -11,7 +12,7 @@ img{
     margin: 0 auto;
     border:0;
     border-radius: 4px;
-    
+
 
 }
 .subMenu{
@@ -188,4 +189,20 @@ h3{
 body{
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
+}
+/*************************************/
+/*             TABLEAU               */
+/*************************************/
+i{
+    color: black;
+}
+th{
+    background: #4B6F71;
+    color: white;
+}
+td{
+    vertical-align: middle;
+}
+tr:nth-child(2n+2){
+    background: #689C9F;
 }

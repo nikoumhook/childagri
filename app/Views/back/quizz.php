@@ -52,7 +52,7 @@
 
 					<!-- Bouton -->
 					<div class="flex-container-v ptm">
-						<button id="validQuestion1" type="submit" class="mam bouttonEnregistrerQuizz">ENREGISTRER</button>
+						<button id="validQuestion1" type="submit" class="mam bouttonEnregistrerQuizz cursor">ENREGISTRER</button>
 					</div>
 
 					<!-- div Affichage resultat traitement AJAX CONNEXION-->
@@ -60,7 +60,7 @@
 
 				</form>
 
-			</div> 
+			</div>
 
 			<div class="flex-container-v pas">
 
@@ -89,7 +89,7 @@
 	  				</div>
 	  				<!-- Bouton -->
 					<div class="center flex-container-v ptm">
-						<button id="validQuestion2" type="submit" class="mam bouttonEnregistrerQuizz">ENREGISTRER</button>
+						<button id="validQuestion2" type="submit" class="mam bouttonEnregistrerQuizz cursor">ENREGISTRER</button>
 					</div>
 
 					<!-- div Affichage resultat traitement AJAX CONNEXION-->
@@ -124,12 +124,12 @@
 
 	  				<!-- Bouton -->
 					<div class="center flex-container-v ptm">
-						<button id="validQuestion3" type="submit" class="mam bouttonEnregistrerQuizz">ENREGISTRER</button>
+						<button id="validQuestion3" type="submit" class="mam bouttonEnregistrerQuizz cursor">ENREGISTRER</button>
 					</div>
 
 					<!-- div Affichage resultat traitement AJAX CONNEXION-->
 					<div id="resultQuestion3" class="result txtcenter"></div>
-					
+
 				</form>
 			</div> <!-- fermeture bloc3 -->
 
@@ -161,7 +161,7 @@
 	  				</div>
 	  				<!-- Bouton -->
 					<div class="center flex-container-v ptm">
-						<button id="validQuestion4" type="submit" class="mam bouttonEnregistrerQuizz">ENREGISTRER</button>
+						<button id="validQuestion4" type="submit" class="mam bouttonEnregistrerQuizz cursor">ENREGISTRER</button>
 					</div>
 
 					<!-- div Affichage resultat traitement AJAX CONNEXION-->

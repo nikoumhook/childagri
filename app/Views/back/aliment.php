@@ -31,7 +31,7 @@
 			<div class="pam flex-container-v push">
 				<label for="aliment" class="">Nom</label>
 				<input id="aliment" class="pas" type="text" name="aliment" placeholder="Ex: tomate">
-			</div> 
+			</div>
 
 
 			<div class="pam flex-container-v pull">
@@ -42,7 +42,7 @@
   						<option value="<?= $land['id'];?>"> <?= ucfirst($land['publicName']);?></option>
   						<?php endforeach ;?>
 				</select>
-			</div> 
+			</div>
 
 		</div>
 
@@ -51,10 +51,10 @@
 			<div class="pam flex-container-v push">
 				<label for="picture" class="">Image</label>
 				<input id="picture" class="pas" type="file" name="picture" class="" accept="image/*" value="">
-			</div>  
+			</div>
 
 			<div class="pam flex-container-v pull">
-				 
+
                 <div class="flex-container-v">
 
                 	<label class="txtleft">Repas</label>
@@ -65,7 +65,7 @@
 		                    	<div class="nomRepas txtright three-quarter">Petit-Déj</div>
 		                    	<input id="repas1" class="one-quarter mts" name="repas1" type="checkbox" value="oui">
 		                    </div>
-		                   
+
 		                    <div class="flex-container flex-container-v grid-2 pas">
 		                    	<div class="nomRepas txtright three-quarter">Déjeuner</div>
 		                   		<input id="repas2" class="one-quarter mts" name="repas2" type="checkbox" value="oui">
@@ -81,7 +81,7 @@
 
 		                </div>
                 </div>
-            </div> 
+            </div>
 
         </div><!-- fermeture grid3 -->
 
@@ -102,12 +102,12 @@
   						<input type="radio" name="publish" value="non"> BROUILLON
   					</div>
   				</div>
-  			</div> 
+  			</div>
 
 			<!-- Bouton -->
 			<div class="flex-container-v pull mll">
-				<button type="submit" class="bouttonEnregistrer">ENREGISTRER</button>
-			</div> 
+				<button type="submit" class="bouttonEnregistrer cursor">ENREGISTRER</button>
+			</div>
 
 		</div><!-- fermeture GRID4 -->
 

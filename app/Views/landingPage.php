@@ -38,7 +38,7 @@
         <div id="log" class="overlay overlay-simplegenie centreurOverlay">
 
 			<!-- Bouton fermeture de la div simple genius-->
-			<button type="button" class="overlay-close">Fermer</button>
+			<button type="button" class="overlay-close cursor">Fermer</button>
 
 			<!-- Div wrapper formulaire Popin: 2 grid -->
 			<div class="grid-2 wrapperPopin flex-container-v has-gutter">

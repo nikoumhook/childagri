@@ -1,5 +1,7 @@
 
-
+.cursor{
+    cursor: pointer;
+}
 /***************WRAPPER**********************/
 
 #wrapper{

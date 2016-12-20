@@ -4,7 +4,9 @@ body{
     background: #EFDDCB;
 }
 
-
+.cursor{
+    cursor: pointer;
+}
 /************************************/
 /*             Debug               */
 /************************************/
@@ -164,7 +166,7 @@ body{
 .decoMenu a, .decoMenu a:hover{
     color:#FFF;
     font-family:'Paytone One', sans-serif;
-    font-size: 11px;  
+    font-size: 11px;
 }
 
 .mini{
@@ -190,13 +192,13 @@ body{
 /*.sousMenu1 li::before{
     content:" ";
     background-image: url("img/thumbs-up.svg");
-   
+
 }
 
 .sousMenu2 li::before{
     content:" ";
     background-image: url("img/cross.svg");
-   
+
 }
 */
 

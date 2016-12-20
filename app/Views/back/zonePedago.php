@@ -83,7 +83,7 @@
 
 				<!-- Bouton -->
 				<div class="flex-container-v pull mll">
-					<button type="submit" class="bouttonEnregistrer">ENREGISTRER</button>
+					<button type="submit" class="bouttonEnregistrer cursor">ENREGISTRER</button>
 				</div>
 
 			</div> <!--  fermeture div Grid2 -->

@@ -89,7 +89,7 @@
 
 			<!-- Bouton -->
 			<div class="flex-container-v pull mll cursor">
-				<button type="submit" class="bouttonEnregistrer">MODIFIER</button>
+				<button type="submit" class="bouttonEnregistrer cursor">MODIFIER</button>
 			</div>
 
 		</div> <!-- fermeture de grid4 -->

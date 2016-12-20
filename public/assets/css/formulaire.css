@@ -1,78 +1,11 @@
-
 /*************************************/
-/*               FORMULAIRE                */
+/*           GENERAL TOUS LES FORM             */
 /*************************************/
-
 form{
 	border: 0;
 	border-radius: 6px;
 }
 
-/*bouton enregistrer view aliment + contenu pedago*/
-.bouttonEnregistrer{
-	background-color: #F88C00;
-	color:#FFF;
-	font-family:'Paytone One', sans-serif;
-	border:0px;
-    font-size: 38px;
-    border-radius: 4px;
-}
-
-/*bouton enregistrer view quizz*/
-.bouttonEnregistrerQuizz{
-	height:50px;
-	background-color: #F88C00;
-	color:#FFF;
-	font-family:'Paytone One', sans-serif;
-	border:0px;
-    font-size: 18px;
-    border-radius: 4px;
-}
-
-
-/*Label publier brouillon en ligne View Aliment + Contenu pedago*/
-.publier{
-	font-family:'Paytone One', sans-serif;
-	font-size: 26px;
-	color: #FFF;
-}
-
-/*Label choisissez votre aliment View Quizz + Contenu pedago*/
-.aliment{
-	color: #F88C00;
-	font-family:'Paytone One', sans-serif;
-	font-size: 26px;
-}
-
-/*Labels question View Quizz*/
-.question{
-	color: #FFF;
-	font-size: 25px;
-}
-
-.reponse{
-	font-size:19px;
-}
-
-.elementReponse{
-	font-size:19px;
-}
-
-
-/*repas input View Aliment*/
-
-.repas{
-	background-color: #FFF;
-	border:0;
-	border-radius: 6px;
-}
-
-.nomRepas{
-	font-family:'Paytone One', sans-serif;
-	font-size: 20px;
-}
-
-/*Général à tous les formulaires*/
 .titreForm{
 	color: #FFF;
 }
@@ -101,6 +34,109 @@ label{
 	font-size: 20px;
 }
 
+
+/*bouton enregistrer VIEW aliment + VIEW contenu pedago*/
+.bouttonEnregistrer{
+	background-color: #F88C00;
+	color:#FFF;
+	font-family:'Paytone One', sans-serif;
+	border:0px;
+    font-size: 38px;
+    border-radius: 4px;
+}
+
+/*bouton enregistrer VIEW quizz*/
+.bouttonEnregistrerQuizz{
+	height:50px;
+	background-color: #F88C00;
+	color:#FFF;
+	font-family:'Paytone One', sans-serif;
+	border:0px;
+    font-size: 18px;
+    border-radius: 4px;
+}
+
+
+/*Label publier brouillon en ligne VIEW Aliment + VIEW Contenu pedago*/
+.publier{
+	font-family:'Paytone One', sans-serif;
+	font-size: 26px;
+	color: #FFF;
+}
+
+/*Label choisissez votre aliment VIEW Quizz + VIEW Contenu pedago*/
+.aliment{
+	color: #F88C00;
+	font-family:'Paytone One', sans-serif;
+	font-size: 26px;
+}
+
+/*Labels question VIEW Quizz*/
+.question{
+	color: #FFF;
+	font-size: 25px;
+}
+
+.reponse{
+	font-size:19px;
+}
+
+.elementReponse{
+	font-size:19px;
+}
+
+
+/*repas input VIEW Aliment*/
+
+.repas{
+	background-color: #FFF;
+	border:0;
+	border-radius: 6px;
+}
+
+.nomRepas{
+	font-family:'Paytone One', sans-serif;
+	font-size: 20px;
+}
+
+
+/*************************************/
+/*           FORMULAIRE ADD USER             */
+/*************************************/
+.blocUser{
+	width:32%;
+}
+
+.labelAddUser{
+	font-family:'Paytone One', sans-serif;
+	font-size: 20px;
+	color:#F88C00;
+}
+
+.inputAddUser{
+	border: 0px solid black;
+	border-radius: 3px;
+	background-color: #FFF;
+}
+
+
+.bouttonEnregistrerUser{
+	height:50px;
+	background-color: #F88C00;
+	color:#FFF;
+	font-family:'Paytone One', sans-serif;
+	border:0px;
+    font-size: 20px;
+    border-radius: 4px;
+}
+
+
+/*************************************/
+/*           MESSAGE ERREUR REUSSITE             */
+/*************************************/
+
+
+
 .erreur{
 	font-family: 'Montserrat', sans-serif;
     color:#black;
@@ -120,3 +156,34 @@ label{
     border-radius: 4px 4px 0 0;
 
 }
+
+
+
+/*Message erreur page administrer des quizz car un message par colonne de quizz
+pas les même border radius*/
+
+.erreurQuizz{
+	font-family: 'Montserrat', sans-serif;
+    color: #black;
+    background-color: #CC7B7A;
+    font-size:16px;
+    border: 0;
+    border-radius: 4px;
+}
+
+
+.successQuizz{
+	font-family: 'Montserrat', sans-serif;
+    color:#black;
+    background-color: #ACC489;
+    font-size:16px;
+    border: 0;
+    border-radius: 4px;
+
+}
+
+
+
+
+
+

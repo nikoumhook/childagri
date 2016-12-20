@@ -82,7 +82,7 @@
             <div class="containerFooter">
                 <div class="footerLeft">
                     <?php if(!empty($w_user)):?>
-                        <a href="<?= $this->url('deconnexion') ?>">Deconnexion</a>
+                        <a href="<?= $this->url('deconnexion') ?>">Déconnexion</a>
 
                         <a href="<?= $this->url('userlist') ?>">Gestion des utilisateurs</a>
                         <a href="<?= $this->url('addUser') ?>">Ajout d'utilisateur</a>

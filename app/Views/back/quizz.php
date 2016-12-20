@@ -193,20 +193,20 @@
 					data: {
 						aliment : $('#aliment').val() ,
 						question : $(form).children().children('textarea').val(),
-						answer : $(form).children().children('input:checked').val(),
+						answer : $(form).children().children().children().children().children('input:checked').val(),
 						ExplainAnswer : $(form).children().children('#ExplainAnswer').val()
 					},
 					dataType: 'json',
 					success: function(result){
 						if(result.code == 'valid'){
-							$(form).children('.result').html('<div class="success">' + result.msg +'</div>');
+							$(form).children('.result').html('<div class="successQuizz">' + result.msg +'</div>');
 							nbrQuestion++;
 							if (nbrQuestion==4) {
 								$(location).attr('href', '<?= $this->url('back_quizz');?>');
 							}
 						}
 						else if(result.code =='error'){
-							$(form).children('.result').html('<div class="erreur">' + result.msg +'</div>');
+							$(form).children('.result').html('<div class="erreurQuizz">' + result.msg +'</div>');
 						}
 					}//fermeture success
 				});//fermeture $.ajax
@@ -223,17 +223,17 @@
 		// 	controlAjax($(this));
         //
 		// });
-		$('#formQuestion2').children('#containerQuestion1').children('button').click(function(e){
+		$('#formQuestion2').children('#containerQuestion2').children('button').click(function(e){
 			e.preventDefault();
 			controlAjax($(this));
 
 		});
-		$('#formQuestion3').children('#containerQuestion1').children('button').click(function(e){
+		$('#formQuestion3').children('#containerQuestion3').children('button').click(function(e){
 			e.preventDefault();
 			controlAjax($(this));
 
 		});
-		$('#formQuestion4').children('#containerQuestion1').children('button').click(function(e){
+		$('#formQuestion4').children('#containerQuestion4').children('button').click(function(e){
 			e.preventDefault();
 			controlAjax($(this));
 

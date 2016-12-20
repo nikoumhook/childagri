@@ -25,7 +25,7 @@ class PedagoModel extends Model
 
 	public function getAliments(){
 		$app = getApp();
-		$sql = 'SELECT aliments.*, lands.name AS region FROM aliments LEFT JOIN lands ON aliments.id_land = lands.id ORDER BY aliments.name';
+		$sql = 'SELECT aliments.*, lands.publicName AS region FROM aliments LEFT JOIN lands ON aliments.id_land = lands.id ORDER BY aliments.name';
 		$dbh = ConnectionModel::getDbh();
 		$sth = $dbh->prepare($sql);
 

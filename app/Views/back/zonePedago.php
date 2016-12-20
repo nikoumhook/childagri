@@ -4,6 +4,7 @@
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
   <script>tinymce.init({ selector:'textarea' });</script>
     <!-- Feuille de style FORMULAIRE BACK -->
+    
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/formulaire.css') ?>">
 
 <?php $this->stop('head') ?>
@@ -13,11 +14,11 @@
 
 		<!-- affichage des messages d'erreur -->
 		<?php if (isset($errors) && !empty($errors)):?>
-		<div class=""><?=implode('<br>', $errors);?></div>
+		<div class="pas erreur"><?=implode('<br>', $errors);?></div>
 		<?php endif;?>
 
 		<?php if (isset($success) && $success == true):?>
-		<div class="">Bravo votre contenu pedagogique a bien été enregistré!</div>
+		<div class="pas success">Bravo votre contenu pedagogique a bien été enregistré !</div>
 		<?php endif;?>
 
 

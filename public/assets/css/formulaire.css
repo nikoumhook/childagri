@@ -100,3 +100,23 @@ textarea{
 label{
 	font-size: 20px;
 }
+
+.erreur{
+	font-family: 'Montserrat', sans-serif;
+    color:#black;
+    background-color: #CC7B7A;
+    font-size:16px;
+    border: 0;
+    border-radius: 4px 4px 0 0;
+}
+
+
+.success{
+	font-family: 'Montserrat', sans-serif;
+    color:#black;
+    background-color: #ACC489;
+    font-size:16px;
+    border: 0;
+    border-radius: 4px 4px 0 0;
+
+}

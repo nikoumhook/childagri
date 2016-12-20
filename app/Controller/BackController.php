@@ -288,7 +288,7 @@ class BackController extends Controller
 			}
 
 			if (!isset($post['land']) && !is_numeric($post['land'])) {
-				$errors [] ="Vous devez selectionner la région de production de votre aliment dans le menu déroulant";
+				$errors[] = 'Vous devez selectionner la région de production de votre aliment dans le menu déroulant';
 			}
 
 			if(v::notEmpty()->validate($_FILES['picture']['name'])){
@@ -443,7 +443,7 @@ class BackController extends Controller
 			}
 
 			if (empty($post['land']) && !is_numeric($post['land'])) {
-				$errors [] ="Vous devez selectionner la région de production de votre aliment dans le menu déroulant";
+				$errors[] = 'Vous devez selectionner la région de production de votre aliment dans le menu déroulant';
 			}
 
 

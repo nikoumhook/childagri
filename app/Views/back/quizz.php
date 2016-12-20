@@ -199,14 +199,14 @@
 					dataType: 'json',
 					success: function(result){
 						if(result.code == 'valid'){
-							$(form).children('.result').html('<div class="">' + result.msg +'</div>');
+							$(form).children('.result').html('<div class="success">' + result.msg +'</div>');
 							nbrQuestion++;
 							if (nbrQuestion==4) {
 								$(location).attr('href', '<?= $this->url('back_quizz');?>');
 							}
 						}
 						else if(result.code =='error'){
-							$(form).children('.result').html('<div class="">' + result.msg +'</div>');
+							$(form).children('.result').html('<div class="erreur">' + result.msg +'</div>');
 						}
 					}//fermeture success
 				});//fermeture $.ajax

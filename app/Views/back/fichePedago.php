@@ -19,11 +19,11 @@
 
 		<!-- affichage des messages d'erreur -->
 		<?php if (isset($errors) && !empty($errors)):?>
-		<div class=""><?=implode('<br>', $errors);?></div>
+		<div class="pas erreur"><?=implode('<br>', $errors);?></div>
 		<?php endif;?>
 
 		<?php if (isset($success) && $success == true):?>
-		<div class="">Bravo votre contenu pedagogique a bien été mis à jour</div>
+		<div class="pas success">Bravo votre contenu pedagogique a bien été mis à jour</div>
 		<?php endif;?>
 
 	<form method="POST" enctype="multipart/form-data">

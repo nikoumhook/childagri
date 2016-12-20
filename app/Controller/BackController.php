@@ -91,6 +91,11 @@ class BackController extends Controller
 		$modelPedago = new PedagoModel();
 		$modelQuizz = new QuizzModel();
 
+		$quizz1 = [];
+		$quizz2 = [];
+		$quizz3 = [];
+		$quizz4 = [];
+
         if (!empty($_POST)) {
 
 			foreach ($_POST as $key => $value) {

@@ -12,7 +12,8 @@
 
 
 	<?php if (empty($quizz1)) :?>
-		<div class=""> Pas encore de quizz, <a href="<?= $this->url('back_quizz') ?>">creez en un</a> </div>
+		<div class=" txt-center pas noQuizz"> Cet aliment n'a pas encore de quizz. <a href="<?= $this->url('back_quizz') ?>">Créez lui son quizz</a> 
+        </div>
     <?php else: ?>
 
 
@@ -28,7 +29,7 @@
 
     <form method="POST">
 
-        <h1 class="titreFiche txtcenter pam"> Quizz du <?=$quizz1['ingredient'];?> de la région <?=ucfirst($quizz1['region']);?></h1>
+        <h1 class="titreFiche txtcenter pam"> Quizz du <?=strtolower($quizz1['ingredient']);?> de la région <?=ucfirst($quizz1['region']);?></h1>
 
         <div class="grid-4 flex-container-v">
 

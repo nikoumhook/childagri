@@ -26,8 +26,8 @@
 		<tbody>
 		<?php foreach ($pedagos as $pedago):?>
 				<tr>
-				<td class="txtcenter"><?=ucfirst($pedago['ingredient']);?></td>
-				<td class="txtcenter"><?=ucfirst($pedago['region']);?></td>
+				<td class="txtcenter"><?=ucwords(str_replace('-', ' ', $pedago['ingredient']));?></td>
+				<td class="txtcenter"><?=ucwords(str_replace('-', ' ', $pedago['region']));?></td>
 				<td class="txtcenter">
 					<?php
 					switch ($pedago['publish']) {

@@ -175,7 +175,7 @@ class AjaxController extends Controller
 				];
 
 				if ($modelQuizz->insert($dataInsert)) {
-					$this->showJson(['code'=>'valid', 'msg'=>'Votre question a bien été enregistré dans le quizz']);
+					$this->showJson(['code'=>'valid', 'msg'=>'Votre question a bien été enregistrée dans le quizz']);
 				}
 
 			}//fermeture if count error=0

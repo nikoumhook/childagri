@@ -37,7 +37,7 @@
 
 				<td class="txtcenter"><img class="" src="<?=$this->assetUrl($aliment['urlImg']);?>"></td>
 
-				<td class="txtcenter"><?=ucfirst($aliment['region']);?></td>
+				<td class="txtcenter"><?=ucwords(str_replace('-', ' ', ($aliment['region'])));?></td>
 
 				<td class="txtcenter">
 					<?php

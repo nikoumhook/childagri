@@ -28,7 +28,7 @@
 
 	<form method="POST" enctype="multipart/form-data">
 
-		<h1 class="titreFiche txtcenter pam">Contenu pédagogique du <?=$pedago['ingredient'];?> de  <?=ucfirst($pedago['region']);?></h1>
+		<h1 class="titreFiche txtcenter pam">Contenu pédagogique du <?=strtolower($pedago['ingredient']);?> de  <?=ucfirst($pedago['region']);?></h1>
 
 		<div class="grid-2 flex-container-v">
 
@@ -55,18 +55,13 @@
 				</div>
 			</div>
 
-
 			<div class="flex-container-v pam">
 					<label class="man" for="pedago">Contenu pédagogique</label><br>
 					<textarea id="pedago" class="txtAreaFiche tinyChildAgri" name="content" ><?=$pedago['content'];?>
 					</textarea>
 			</div>
 
-
 		</div> <!-- fermeture grid2 -->
-
-
-
 
 
 

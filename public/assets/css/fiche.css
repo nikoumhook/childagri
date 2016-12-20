@@ -16,7 +16,6 @@
 }
 
 
-
 input{
 	border: 0px solid black;
 	border-radius: 3px;
@@ -41,8 +40,7 @@ label{
 	font-size: 20px;
 }
 
-
-/*Label publier brouillon en ligne View Aliment + Contenu pedago*/
+/*Label publier brouillon en ligne VIEW Aliment + Contenu pedago*/
 .publier{
 	font-family:'Paytone One', sans-serif;
 	font-size: 26px;
@@ -50,7 +48,7 @@ label{
 }
 
 
-/*repas input View Aliment*/
+/*repas input VIEW Aliment*/
 
 .repas{
 	background-color: #FFF;
@@ -69,7 +67,7 @@ label{
 }
 
 
-/*Labels question View Quizz*/
+/*Labels question VIEW Quizz*/
 .question{
 	color: #F88C00;
 	font-size: 25px;
@@ -102,4 +100,17 @@ label{
     border: 0;
     border-radius: 4px 4px 0 0;
 
+}
+
+/*Message erreur si pas de quizz
+*/
+
+
+.noQuizz{
+	font-family: 'Montserrat', sans-serif;
+    color:#black;
+    background-color: #CC7B7A;
+    font-size:16px;
+    border: 0;
+    border-radius: 4px;
 }

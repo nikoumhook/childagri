@@ -23,9 +23,9 @@
 	</tr>
 	<?php foreach($players as $player): ?>
 		<tr>
-			<td><?php echo $player['username'];?></td>
-			<td><?php echo $player['birthDate'];?></td>
-			<td><?php echo $player['email'];?></td>
+			<td><?= ucfirst($player['username']);?></td>
+			<td><?= $player['birthDate'];?></td>
+			<td><?= $player['email'];?></td>
 		</tr>
 	<?php endforeach; ?>
 

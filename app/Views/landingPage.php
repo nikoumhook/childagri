@@ -191,7 +191,9 @@
 					if(result.code == 'valid'){
 
                         $('#buttonConnexion').html('');
-						$('#resultConnect').html('<div class="infoReussite">' + result.msg +'</div>');
+
+                        // faire le pret feut partez en interval ici
+						$('#resultConnect').html('<div id="startPFP" class="infoReussite">' + result.msg +' <img class="pbs" width="48px" src="<?=$this->assetUrl('img/loader.svg');?>"/></div>');
                         setInterval(function(){
                             $(location).attr('href','<?= $this->url('game_startPlay'); ?>');
                         },3000);

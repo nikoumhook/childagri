@@ -144,22 +144,25 @@
 <script>
     $(function(){
 
-        $('#save').click(function(e){
-            e.preventDefault();
-            $.ajax({
-                url: '<?=$this->url('ajax_saveresultat');?>',
-                type: 'post',
-                cache:false,
-                dataType: 'json',
-                success: function(result){
-                    if(result.success == "true"){
-                        $('#success').html("<span class="">enregistré !<span>");
-                    }else{
-                        $('#success').html("<span class="">Probleme d'enregistrement, désolé, nous en avont pris note nous allons corrigé ce petit soucis !<span>");
-                    };
-                }//fermeture success
-            });//fermeture $.ajax
-        });// fermeture buttton clic
+
+            $('#save').click(function(e){
+                e.preventDefault();
+                $.ajax({
+                    url: '<?=$this->url('ajax_saveresultat');?>',
+                    type: 'post',
+                    cache:false,
+                    dataType: 'json',
+                    success: function(result){
+                        if(result.success == "true"){
+                            $('#success').html("<span class=''>enregistré !<span>");
+                        }else{
+                            $('#success').html("<span class=''>Probleme d'enregistrement, désolé, nous en avont pris note nous allons corrigé ce petit soucis !<span>");
+                        };
+                    }//fermeture success
+                });//fermeture $.ajax
+            });// fermeture buttton clic
+
+
 
     });//fermeture document.ready
 </script>

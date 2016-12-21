@@ -76,7 +76,7 @@ class PedagoModel extends Model
 
 	public function getPedago(){
 		$app = getApp();
-		$sql = 'SELECT pedago.* , lands.name AS region, aliments.name AS ingredient FROM pedago JOIN lands ON pedago.id_land = lands.id JOIN aliments ON pedago.id_land = aliments.id_land';
+		$sql = 'SELECT pedago.* , lands.name AS region, aliments.name AS ingredient FROM pedago JOIN lands ON pedago.id_land = lands.id JOIN aliments ON pedago.id_land = aliments.id_land ORDER BY aliments.name';
 		$dbh = ConnectionModel::getDbh();
 		$sth = $dbh->prepare($sql);
 

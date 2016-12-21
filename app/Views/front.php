@@ -31,10 +31,10 @@
 
         <!-- <div class="debug pam">
             <pre>
-                <php var_dump($_SESSION); ?>
+                <php var_dump($_SESSION);?>
             </pre>
-        </div>
- -->
+        </div> -->
+
 
         <!-- CONTENU  ************///////////////////////////////:******************* -->
         <main>

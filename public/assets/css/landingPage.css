@@ -1,6 +1,7 @@
 body{
     background: url('../img/landingPage.png') no-repeat center;
     background-size: cover;
+	overflow: hidden;
 }
 .cursor{
     cursor: pointer;
@@ -39,8 +40,28 @@ body{
 	font-size:24px;
 }
 
+#nuage1{
+    position: absolute;
+	margin-left: 100px;
+	z-index: 1;
+}
+#nuage2{
+	display: block;
+    position: absolute;
+	top: 200px;
+	right: 100px;
+	z-index: 0;
+}
+#soleil{
+	position: absolute;
+	margin: 0px;
+	z-index: 0;
+	width: 10vw;
+	height: 10vh;
+}
+svg{
 
-
+}
 /***************DIV POPIN*************************/
 /* bouton fermer */
 /*.overlay .overlay-close {

@@ -42,7 +42,10 @@
         <!-- BOUTON PERMANENTS ************///////////////////////////////:******************* -->
         <div id="navDeco">
             <div class="decoMenu plm prm pts pbs">
-                <img src="<?= $this->assetUrl('img/menu.svg') ?>" alt="">MENU
+                <div class="menu-icon">
+                        <span></span>
+                </div>
+                MENU
                 <ul class="decoSubmenu">
                     <li><a class="mas pas" href="<?= $this->url('game_reset') ?>">
                     <img class="mini mrs" src="<?= $this->assetUrl('img/cycle.svg')?>" alt=""><span>REJOUER</span></a></li>
@@ -293,7 +296,16 @@
                 }//fermeture success
             });//fermeture $.ajax
         });// fermeture buttton clic
-
+        $('.menu-icon').click(function(e){
+            e.preventDefault();
+            $this = $(this);
+            if($this.hasClass('is-opened')){
+                $this.addClass('is-closed').removeClass('is-opened');
+            }
+            else{
+                $this.removeClass('is-closed').addClass('is-opened');
+            }
+        })
     });
 
     </script>

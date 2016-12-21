@@ -19,7 +19,24 @@
 </head>
 
 <body>
-
+	<div id="nuage1">
+		<img width="100vw" height="100vh" src="<?=$this->assetUrl('img/nuage.svg');?>">
+	</div>
+	<div id="nuage2">
+		<img width="150vw" height="150vh" src="<?=$this->assetUrl('img/nuage.svg');?>">
+	</div>
+	<div id="soleil">
+		<svg version="1.1" width="100vw" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="156px" height="156px" viewBox="0 0 156 156" style="enable-background:new 0 0 156 156;" xml:space="preserve"><style type="text/css">
+		.st0{fill:#FEF17D;}	.st1{fill:none;stroke:#FFF27B;stroke-width:36;stroke-miterlimit:10;stroke-dasharray:11.9658,29.9146;}
+		</style>
+		<circle id="core" class="st0" cx="78" cy="78" r="29"/>
+		<g id="rayons">
+			<circle class="st1" cx="78" cy="78" r="60">
+				<animateTransform id="rayonsAnim" attributeName="transform" attributeType="XML" type="rotate" from="0 78 78" to="360 78 78" dur="25s" repeatCount="indefinite"/>
+			</circle>
+		</g>
+	</svg>
+</div>
 
 	<!-- DIV grand wrapper -->
 	<div id="wrapper" class="backgroundLanding">
@@ -189,6 +206,21 @@
 </script>
 
 
+<div class="script">
+	<script type="text/javascript">
+	$(document).ready(function() {
+		nuage();
+	});
+	function nuage(){
+		$('#nuage1').fadeIn({queue: false, duration: 2000});
+		$('#nuage1').animate({left: '50%'}, 10000, 'linear')
+		.animate({left:'0%'}, 10000, 'linear', function(){
+			// Anim complète
+			nuage();
+		})
+	};
+	</script>
+</div>
 
 </body>
 

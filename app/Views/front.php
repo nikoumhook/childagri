@@ -21,8 +21,6 @@
         <!-- import des fichiers css meta et script si besoin  -->
         <?= $this->section('head') ?>
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/csshake/1.5.1/csshake-little.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/csshake/1.5.1/csshake-default.min.css">
         <link rel="stylesheet" href="<?= $this->assetUrl('css/interface.css') ?>">
         <link rel="stylesheet" href="<?= $this->assetUrl('css/banniere.css') ?>">
         <link rel="stylesheet" type="text/css" href="http://csshake.surge.sh/csshake.min.css">

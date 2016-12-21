@@ -7,6 +7,7 @@ body{
 .cursor{
     cursor: pointer;
 }
+
 /************************************/
 /*             Debug               */
 /************************************/
@@ -349,7 +350,7 @@ body{
 /*#navReturn:hover img{
     -webkit-transition-duration: 1s;
     transition-duration: 1s;
-    -webkit-transform: rotate(-15deg); 
+    -webkit-transform: rotate(-15deg);
     transform: rotate(-15deg);
 }*/
 .containerBtnBack{

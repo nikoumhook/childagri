@@ -1,0 +1,82 @@
+/*******************************/
+    /* PETIT ECRAN TABLETTE */
+/*******************************/
+@media screen and (max-width: 920px){
+    .displayNoneSmall{
+        display: none;
+        opacity: 0;
+    }
+    /* FRONT */
+    /*barre superieur*/
+    #navTopBar {
+    	max-width:50%;
+        margin: 0 auto;
+    }
+    /*icone du menu deco*/
+    .decoMenu{
+        padding: 3px;
+    }
+    .decoMenu img{
+        width: 42px;
+        height: 42px;
+    }
+    /*icone du  sous menu deco*/
+    .decoSubmenu {
+        top: 48px;
+        right: 16px;
+    }
+    .decoSubmenu li a {
+        padding: 8px 1px;
+    }
+    .decoSubmenu li a img{
+        padding: 0;
+        margin: 0;
+    }
+
+    /*BONHOMME*/
+    #intestin {
+        max-height: 225px;
+        width: auto;
+    }
+    #navTrophee {
+        max-width: 345px;
+        margin-right: 0;
+        padding: 0;
+    }
+
+    /*AGRANDISSEMENT ASSIETTE */
+    #assiette {
+        height: 100%;
+    }
+    /*contenu assiette*/
+    .aliments img {
+    	height: 100px;
+    	width: 100px;
+    }
+    #dragZone {
+    	height: 60%;
+    	margin-top: -30%;
+    	width: 50%;
+    	margin-left: -26%;
+    }
+    /*LEFTBAR RECTRESSISSEMENT DES BOUTON */
+    .circle {
+    	width: 90px;
+    	height: 90px;
+    }
+    #navLeftBar {
+        margin-left: 5px;
+        margin: 0;
+    }
+    #navLeftBar li {
+	    font-size: 15px;
+    }
+
+    /*CARTE */
+    .carte {
+    	height: 119%;
+    	padding-right: 140px;
+    }
+
+}
+/* PETIT ECRAN PC */

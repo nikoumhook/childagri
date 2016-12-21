@@ -1,5 +1,5 @@
 body{
-    background: url('../img/landingPage.png') no-repeat center;
+    background: url('../img/landingPage.svg') no-repeat center;
     background-size: cover;
 	overflow: hidden;
 }
@@ -42,7 +42,7 @@ body{
 
 #nuage1{
     position: absolute;
-	margin-left: 100px;
+	margin-left: -100px;
 	z-index: 1;
 }
 #nuage2{
@@ -59,8 +59,14 @@ body{
 	width: 10vw;
 	height: 10vh;
 }
-svg{
-
+#couverts{
+	position: absolute;
+	bottom: 0;
+	margin: 10vw;
+	display: inline-flex;
+	width: 20vw;
+}
+.couverts{
 }
 /***************DIV POPIN*************************/
 /* bouton fermer */

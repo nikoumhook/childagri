@@ -19,8 +19,7 @@ class BackController extends Controller
 	/**
 	 * Page d'accueil par défaut
 	 */
-	public function home()
-	{
+	public function home(){
         $authentificationModel = new AuthentificationModel();
 
         if (!$authentificationModel->getLoggedUser()) {
@@ -59,8 +58,7 @@ class BackController extends Controller
 
 	/***************** Page LISTE QUIZZ: AFFICHAGE  **********/
 
-	public function listeQuizz()
-	{
+	public function listeQuizz(){
 
         $authentificationModel = new AuthentificationModel();
         $authorizationModel = new AuthorizationModel();
@@ -77,8 +75,7 @@ class BackController extends Controller
 
 	/***************** Page FICHE QUIZZ: AFFICHAGE  **********/
 
-	public function ficheQuizz($id)
-	{
+	public function ficheQuizz($id){
 
         $authentificationModel = new AuthentificationModel();
 
@@ -96,7 +93,15 @@ class BackController extends Controller
 		$quizz3 = [];
 		$quizz4 = [];
 
+        // set a vérifier les champs qui sont remplies :
+        $data1 = true ;
+        $data2 = true ;
+        $data3 = true ;
+        $data4 = true ;
+
+
         if (!empty($_POST)) {
+
 
 			foreach ($_POST as $key => $value) {
 					$post[$key] = trim(strip_tags($value));
@@ -104,106 +109,155 @@ class BackController extends Controller
 
 			$usernameValidator = v::alnum('é,è,ê,à,ï,ö')->length(5, 20);
 
-			// Verif QUESTION - REPONSE1
-			if(!v::notEmpty()->length(20,1000)->validate($post['question1'])){
-				$errors[] = 'Votre question doit comporter un minimum de 20 caractères';
-			}
+            // Verif QUESTION - REPONSE1
+			if (!empty($post['question1'])) {
 
-			if (!isset($post['answer1']) || empty($post['answer1']) || !($post['answer1']== 'oui' || $post['answer1']=='non')) {
-					$errors[] = 'Votre devez choisir la réponse de votre question';
-			}
+                $data1 = false ;
 
-			// Verif complément de réponse
-			if(!v::notEmpty()->length(20,1000)->validate($post['explainAnswer1'])){
-				$errors[] = 'Votre complément de réponse doit comporter un minimum de 20 caractères';
-			}
+                if(!v::notEmpty()->length(20,1000)->validate($post['question1'])){
+                    $errors[] = 'Votre première question doit comporter un minimum de 20 caractères';
+                }
 
+                if (!isset($post['answer1']) || empty($post['answer1']) || !($post['answer1']== 'oui' || $post['answer1']=='non')) {
+                        $errors[] = 'Votre devez choisir la réponse de votre première question';
+                }
 
-			// Verif QUESTION - REPONSE2
-			if(!v::notEmpty()->length(20,1000)->validate($post['question2'])){
-				$errors[] = 'Votre question doit comporter un minimum de 20 caractères';
-			}
+                // Verif complément de réponse
+                if(!v::notEmpty()->length(20,1000)->validate($post['explainAnswer1'])){
+                    $errors[] = 'Votre complément de la première réponse doit comporter un minimum de 20 caractères';
+                }
+            }
 
-			if (!isset($post['answer2']) || empty($post['answer2']) || !($post['answer2']== 'oui' || $post['answer2']=='non')) {
-					$errors[] = 'Votre devez choisir la réponse de votre question';
-			}
+            // Verif QUESTION - REPONSE2
+			if (!empty($post['question2'])) {
 
-			// Verif complément de réponse
-			if(!v::notEmpty()->length(20,1000)->validate($post['explainAnswer2'])){
-				$errors[] = 'Votre complément de réponse doit comporter un minimum de 20 caractères';
+                $data2 = false ;
+
+    			if(!v::notEmpty()->length(20,1000)->validate($post['question2'])){
+    				$errors[] = 'Votre seconde question doit comporter un minimum de 20 caractères';
+    			}
+
+    			if (!isset($post['answer2']) || empty($post['answer2']) || !($post['answer2']== 'oui' || $post['answer2']=='non')) {
+    					$errors[] = 'Votre devez choisir la réponse de votre seconde question';
+    			}
+
+    			// Verif complément de réponse
+    			if(!v::notEmpty()->length(20,1000)->validate($post['explainAnswer2'])){
+    				$errors[] = 'Votre complément de la seconde réponse doit comporter un minimum de 20 caractères';
+    			}
 			}
 
 
 			// Verif QUESTION - REPONSE3
-			if(!v::notEmpty()->length(20,1000)->validate($post['question3'])){
-				$errors[] = 'Votre question doit comporter un minimum de 20 caractères';
-			}
+            if (!empty($post['question3'])) {
 
-			if (!isset($post['answer3']) || empty($post['answer3']) || !($post['answer3']== 'oui' || $post['answer3']=='non')) {
-					$errors[] = 'Votre devez choisir la réponse de votre question';
-			}
+                $data3 = false ;
 
-			// Verif complément de réponse
-			if(!v::notEmpty()->length(20,1000)->validate($post['explainAnswer3'])){
-				$errors[] = 'Votre complément de réponse doit comporter un minimum de 20 caractères';
-			}
+                if(!v::notEmpty()->length(20,1000)->validate($post['question3'])){
+                    $errors[] = 'Votre troisième question doit comporter un minimum de 20 caractères';
+                }
+
+                if (!isset($post['answer3']) || empty($post['answer3']) || !($post['answer3']== 'oui' || $post['answer3']=='non')) {
+                    $errors[] = 'Votre devez choisir la troisième réponse de votre question';
+                }
+
+                // Verif complément de réponse
+                if(!v::notEmpty()->length(20,1000)->validate($post['explainAnswer3'])){
+                    $errors[] = 'Votre complément de la troisième réponse doit comporter un minimum de 20 caractères';
+                }
+
+            }
 
 			// Verif QUESTION - REPONSE4
-			if(!v::notEmpty()->length(20,1000)->validate($post['question4'])){
-				$errors[] = 'Votre question doit comporter un minimum de 20 caractères';
-			}
+            if (!empty($post['question4'])) {
 
-			if (!isset($post['answer4']) || empty($post['answer4']) || !($post['answer4']== 'oui' || $post['answer4']=='non')) {
-					$errors[] = 'Votre devez choisir la réponse de votre question';
-			}
+                $data4 = false ;
 
-			// Verif complément de réponse
-			if(!v::notEmpty()->length(20,1000)->validate($post['explainAnswer4'])){
-				$errors[] = 'Votre complément de réponse doit comporter un minimum de 20 caractères';
-			}
+                if(!v::notEmpty()->length(20,1000)->validate($post['question4'])){
+                    $errors[] = 'Votre quatrième question doit comporter un minimum de 20 caractères';
+                }
+
+                if (!isset($post['answer4']) || empty($post['answer4']) || !($post['answer4']== 'oui' || $post['answer4']=='non')) {
+                    $errors[] = 'Votre devez choisir la réponse de votre quatrième question';
+                }
+
+                // Verif complément de réponse
+                if(!v::notEmpty()->length(20,1000)->validate($post['explainAnswer4'])){
+                    $errors[] = 'Votre complément de la quatrième réponse doit comporter un minimum de 20 caractères';
+                }
+            }
 
 			if (count($errors) === 0) {
 
 
-				$data1=[
-					'content'		=> $post['question1'],
-					'answer'		=> $post['answer1'],
-					'explainAnswer' => $post['explainAnswer1']
-				];
+                if (!$data1) {
+                    $data1=[
+                        'content'		=> $post['question1'],
+                        'answer'		=> $post['answer1'],
+                        'explainAnswer' => $post['explainAnswer1']
+                    ];
 
-				$data2=[
-					'content'		=> $post['question2'],
-					'answer'		=> $post['answer2'],
-					'explainAnswer' => $post['explainAnswer2']
-				];
+                    if (!empty($post['id1'])) {
+                        $data1 =  $modelQuizz->update($data1, $post['id1']);
+                    }else {
+                        $data1['id_aliment'] = $id;
+                        $data1 = $modelQuizz->insert($data1);
+                    }
 
-				$data3=[
-					'content'		=> $post['question3'],
-					'answer'		=> $post['answer3'],
-					'explainAnswer' => $post['explainAnswer3']
-				];
+                }
+                if (!$data2) {
+                    $data2=[
+                        'content'		=> $post['question2'],
+                        'answer'		=> $post['answer2'],
+                        'explainAnswer' => $post['explainAnswer2']
+                    ];
 
-				$data4=[
-					'content'		=> $post['question4'],
-					'answer'		=> $post['answer4'],
-					'explainAnswer' => $post['explainAnswer4']
-				];
+                    if (!empty($post['id2'])) {
+                        $data2 = $modelQuizz->update($data2, $post['id2']);
+                    }else {
+                        $data2['id_aliment'] = $id;
+                        $data2 = $modelQuizz->insert($data2);
+                    }
 
+                }
+                if (!$data3) {
+                    $data3=[
+                        'content'		=> $post['question3'],
+                        'answer'		=> $post['answer3'],
+                        'explainAnswer' => $post['explainAnswer3']
+                    ];
+                    if (!empty($post['id3'])) {
+                        $data3 = $modelQuizz->update($data3, $post['id3']);
+                    }else {
+                        $data3['id_aliment'] = $id;
+                        $data3 = $modelQuizz->insert($data3);
+                    }
+
+                }
+                if (!$data4) {
+                    $data4=[
+                        'content'		=> $post['question4'],
+                        'answer'		=> $post['answer4'],
+                        'explainAnswer' => $post['explainAnswer4']
+                    ];
+
+                    if (!empty($post['id4'])) {
+                        $data4 = $modelQuizz->update($data4, $post['id4']);
+                    }else {
+                        $data4['id_aliment'] = $id;
+                        $data4 = $modelQuizz->insert($data4);
+                    }
+
+                }
+                if ($data1 && $data2 && $data3 && $data4) {
+                    $formValid=true;
+                }
 			}//fermeture if count $error=0
 
-			$result=  $modelQuizz->update($data1, $post['id1']);
-			$result1= $modelQuizz->update($data2, $post['id2']);
-			$result2= $modelQuizz->update($data3, $post['id3']);
-			$result3= $modelQuizz->update($data4, $post['id4']);
-
-			if ($result && $result1 && $result2 && $result3) {
-				$formValid=true;
-			}
 
         }//fermeture 1ère condition !empty$POST
 
         $conteneurQuizz = $modelPedago->getQuizzAliment($id);
-
         if($conteneurQuizz){
             $i = 1;
             foreach ($conteneurQuizz as $quizz) {
@@ -230,7 +284,6 @@ class BackController extends Controller
             $quizz1 = $quizz2 = $quizz3 = $quizz4 = '' ;
         }
 
-
 		$this->show('back/ficheQuizz',[
 			'errors'	=>$errors,
 			'success'	=>$formValid,
@@ -245,8 +298,7 @@ class BackController extends Controller
 
 	/***************** Page LISTE ALIMENT: AFFICHAGE  **********/
 
-	public function listeAliment()
-	{
+	public function listeAliment(){
 
         $authentificationModel = new AuthentificationModel();
 
@@ -263,8 +315,7 @@ class BackController extends Controller
 
 	/***************** Page FICHE ALIMENT: AFFICHAGE et traitement update  **********/
 
-	public function ficheAliment($id)
-	{
+	public function ficheAliment($id){
 
         $authentificationModel = new AuthentificationModel();
 
@@ -421,8 +472,7 @@ class BackController extends Controller
 
 	/***************** Page ALIMENT: AFFICHAGE et TRAITEMENTS **********/
 
-	public function aliment()
-	{
+	public function aliment(){
 
         $authentificationModel = new AuthentificationModel();
 
@@ -578,8 +628,7 @@ class BackController extends Controller
 
 	/***************** Page LISTE PEDAGO: AFFICHAGE  **********/
 
-	public function listePedago()
-	{
+	public function listePedago(){
 
         $authentificationModel = new AuthentificationModel();
 
@@ -596,8 +645,7 @@ class BackController extends Controller
 
 	/***************** Page FICHE PEDAGO: AFFICHAGE  et traitement update **********/
 
-	public function fichePedago($id)
-	{
+	public function fichePedago($id){
 
 
         $authentificationModel = new AuthentificationModel();
@@ -973,9 +1021,6 @@ class BackController extends Controller
 			]);
 
 	}//fermeture fonction zonePedago
-
-
-
 
 
 }//fermeture de la class

@@ -30,14 +30,24 @@
 		.st0{fill:#FEF17D;}	.st1{fill:none;stroke:#FFF27B;stroke-width:36;stroke-miterlimit:10;stroke-dasharray:11.9658,29.9146;}
 		</style>
 		<circle id="core" class="st0" cx="78" cy="78" r="29"/>
-		<g id="rayons">
-			<circle class="st1" cx="78" cy="78" r="60">
-				<animateTransform id="rayonsAnim" attributeName="transform" attributeType="XML" type="rotate" from="0 78 78" to="360 78 78" dur="25s" repeatCount="indefinite"/>
-			</circle>
-		</g>
-	</svg>
-</div>
-
+			<g id="rayons">
+				<circle class="st1" cx="78" cy="78" r="60">
+					<animateTransform id="rayonsAnim" attributeName="transform" attributeType="XML" type="rotate" from="0 78 78" to="360 78 78" dur="25s" repeatCount="indefinite"/>
+				</circle>
+			</g>
+		</svg>
+	</div>
+	<div id="couverts">
+		<div class="couverts">
+			<img width="100vw" height="100vh" src="<?=$this->assetUrl('img/landingcouteau.svg');?>">
+		</div>
+		<div class="couverts">
+			<img width="100vw" height="100vh" src="<?=$this->assetUrl('img/landingcuillere.svg');?>">
+		</div>
+		<div class="couverts">
+			<img width="100vw" height="100vh" src="<?=$this->assetUrl('img/landingfourchette.svg');?>">
+		</div>
+	</div>
 	<!-- DIV grand wrapper -->
 	<div id="wrapper" class="backgroundLanding">
 
@@ -213,9 +223,9 @@
 	});
 	function nuage(){
 		$('#nuage1').fadeIn({queue: false, duration: 2000});
-		$('#nuage1').animate({left: '50%'}, 10000, 'linear')
-		.animate({left:'0%'}, 10000, 'linear', function(){
+		$('#nuage1').animate({right: '-100px'}, 5000, 'linear', function(){
 			// Anim complète
+			$('#nuage1').removeAttr('style');
 			nuage();
 		})
 	};

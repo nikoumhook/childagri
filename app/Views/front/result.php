@@ -5,58 +5,136 @@
 <?php $this->stop('head') ?>
 
 <?php $this->start('main_content'); ?>
-<div id="titreGlobal">
-    <h1>Résultats du Quizz</h1>
-</div>
 
-<?php foreach ($question as $questions): ?>
-    <?php if(!empty($questions)): ?>
-        <h4><?php echo($questions[0]['ingredient']); ?></h4><br>
-    <div class="globalResult">
-        <div class="containerAliment">
-            <?php echo($questions[0]['content']); ?>
-            <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$questions[0]['id']]?><span></p>
-            <?php if($questions[0]['answer'] === $_SESSION['results'][$questions[0]['id']]):?>
-                <p style="color:green;">Bravo tu as bien répondu</p>
-            <?php else: ?>
-                <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$questions[0]['explainAnswer']?></span><br>
-            <?php endif;?><br>
+    <div id="mbl navTopBar">
+        <div class="pas flex-container-v">
+            <div class="center-wrap">
+              <div class="title-container">
+                <div class="ribbon-left"></div>
+                <div class="backflag-left"></div>
+                <div class="title"><?= strtoupper($_SESSION['player']['username']);?> VOICI LES RESULTATS DE TON QUIZZ !
+                 <span class="sous-title">
+                    Tu peux jouer encore et encore !
+                 </span>
+                </div>
+                <div class="backflag-right"></div>
+                <div class="ribbon-right"></div>
+              </div>
+            </div>
+            <!-- le contenu ici est remplacé par jQuery quand un repas est selectionné ! -->
+            <!-- <div class="reglesAssiettes1 pas txtcenter">
+                <= strtoupper($_SESSION['player']['username']);?> A TOI DE JOUER POUR DECOUVRIR LES ALIMENTS QUE TU MANGES AU QUOTIDIEN
+            </div>
+            <div class="reglesAssiettes2 pas txtcenter">
+                Cliques sur un repas et des aliments vont apparaitre <br>
+                Choisis 3 aliments que tu souhaites manger et glisse-les dans ton assiette
+            </div> -->
         </div>
-        <br>
-        <div class="containerAliment">
-            <?php echo($questions[1]['content']); ?>
-            <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$questions[1]['id']]?><span></p>
-            <?php if($questions[1]['answer'] === $_SESSION['results'][$questions[1]['id']]):?>
-                <p style="color:green;">Bravo tu as bien répondu</p>
-            <?php else: ?>
-                <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$questions[1]['explainAnswer']?></span><br>
-            <?php endif;?><br>
-        </div>
-        <br>
-        <div class="containerAliment">
-            <?php echo($questions[2]['content']); ?>
-            <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$questions[2]['id']]?><span></p>
-            <?php if($questions[2]['answer'] === $_SESSION['results'][$questions[2]['id']]):?>
-                <p style="color:green;">Bravo tu as bien répondu</p>
-            <?php else: ?>
-                <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$questions[2]['explainAnswer']?></span><br>
-            <?php endif;?><br>
-        </div>
-        <br>
-        <div class="containerAliment">
-            <?php echo($questions[3]['content']); ?>
-            <p style="color: lightgrey; font-size: 0.6em;">Tu as répondu: <span style="text-decoration: underline;"><?=$_SESSION['results'][$questions[3]['id']]?><span></p>
-            <?php if($questions[3]['answer'] === $_SESSION['results'][$questions[3]['id']]):?>
-                <p style="color:green;">Bravo tu as bien répondu</p>
-            <?php else: ?>
-                <p style="color:red;">Tu as fais une erreur,</p><span style="color: lightgrey; font-size: 0.6em;"><?=$questions[3]['explainAnswer']?></span><br>
-            <?php endif;?><br>
-        </div>
-        <br>
     </div>
-    <?php endif; ?>
-<?php endforeach; ?>
-<div id="success"></div>
+
+
+    <div class="mal ContainerResult">
+
+    <?php foreach ($question as $questions): ?>
+
+    <?php if(!empty($questions)): ?>
+
+        <h1 class="txtcenter"><?= ucwords($questions[0]['ingredient']); ?></h1>
+
+            <div class="grid-4 flex-container-v">
+
+                <div class="pas txtcenter">
+                    <h2 class="txtcenter"><?=($questions[0]['content']); ?></h2>
+                    <div class="grid-4 reponseUser">
+                        <div class="push"><h3>Ta réponse</h3></div>
+                        <div class="pull resultQuestion">
+                        <?=$_SESSION['results'][$questions[0]['id']]?>
+                        </div>
+                    </div>
+
+                    <?php if($questions[0]['answer'] === $_SESSION['results'][$questions[0]['id']]):?>
+                        <div class="bravo">Bravo tu as tout compris</div>
+
+                    <?php else: ?>
+                        <div class="zut">Tu as fait une erreur</div>
+
+                    <div class="reponseQuestion"><?=$questions[0]['explainAnswer']?></div>
+
+                    <?php endif;?>
+                </div> <!-- Fermeture bloc1 -->
+
+                
+                <div class="pas txtcenter">
+                    <h2 class="txtcenter"><?=($questions[1]['content']); ?></h2>
+                    <div class="grid-4 reponseUser">
+                        <div class="push"><h3>Ta réponse</h3></div>
+                        <div class="pull resultQuestion">
+                            <?=$_SESSION['results'][$questions[1]['id']]?>
+                        </div>
+                    </div>
+
+                    <?php if($questions[1]['answer'] === $_SESSION['results'][$questions[1]['id']]):?>
+                        <div class="bravo">Bravo tu as tout compris</div>
+
+                    <?php else: ?>
+                         <div class="zut">Tu as fait une erreur</div>
+
+                    <div class="reponseQuestion">
+                        <?=$questions[1]['explainAnswer']?>
+                    </div>
+                    <?php endif;?>
+                </div> <!-- Fermeture bloc2 -->
+            
+                <div class="pas txtcenter">
+
+                    <h2 class="txtcenter"><?=($questions[2]['content']); ?></h2>
+                    <div class="grid-4 reponseUser">
+                        <div class="push"><h3>Ta réponse</h3></div>
+                        <div class="pull resultQuestion">
+                            <?=$_SESSION['results'][$questions[2]['id']]?>
+                        </div>
+                    </div>
+
+                    <?php if($questions[2]['answer'] === $_SESSION['results'][$questions[2]['id']]):?>
+                        <div class="bravo">Bravo tu as tout compris</div>
+
+                    <?php else: ?>
+                        <div class="zut">Tu as fait une erreur</div>
+
+                    <div class="reponseQuestion">
+                        <?=$questions[2]['explainAnswer']?>
+                    </div>
+                    <?php endif;?>
+
+                </div><!-- Fermeture bloc3 -->
+
+                <div class="pas txtcenter">
+
+                    <h2 class="txtcenter"><?=($questions[3]['content']); ?></h2>
+                    <div class="grid-4 reponseUser">
+                        <div class="push"><h3>Ta réponse</h3></div>
+                        <div class="pull resultQuestion">
+                            <?=$_SESSION['results'][$questions[3]['id']]?>
+                        </div>
+                    </div>
+
+                    <?php if($questions[3]['answer'] === $_SESSION['results'][$questions[3]['id']]):?>
+                        <div class="bravo">Bravo tu as tout compris</div>
+
+                    <?php else: ?>
+                          <div class="zut">Tu as fait une erreur</div>
+                    <div class="reponseQuestion">
+                        <?=$questions[3]['explainAnswer']?>
+                    </div>
+                    <?php endif;?>
+                </div><!-- Fermeture bloc4 -->
+
+            </div> <!-- Fermeture Grid4 -->
+
+            <?php endif; ?>
+        <?php endforeach; ?>
+
+    <div id="success"></div>
     <button type="button" id="save">Sauvegarder</button>
     <a href="<?= $this->url('game_reset');?>"><button type="button" id="reset">Reset</button></a>
 

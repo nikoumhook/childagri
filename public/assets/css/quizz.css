@@ -44,7 +44,10 @@ label{
     display: block;
     white-space: nowrap;
 }
-
+.inputRadioQuizz {
+	margin: 0;
+	display: inline;
+}
 
 .containerQuizz{
     display: flex;

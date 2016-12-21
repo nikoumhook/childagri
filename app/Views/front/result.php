@@ -7,7 +7,7 @@
 <?php $this->start('main_content'); ?>
 
     <div id="mbl navTopBar">
-        <div class="pas flex-container-v">
+        <div class="pas flex-container-v displayNoneSmall">
             <div class="center-wrap">
               <div class="title-container">
                 <div class="ribbon-left"></div>
@@ -63,7 +63,7 @@
                     <?php endif;?>
                 </div> <!-- Fermeture bloc1 -->
 
-                
+
                 <div class="pas txtcenter">
                     <h2 class="txtcenter"><?=($questions[1]['content']); ?></h2>
                     <div class="grid-4 reponseUser">
@@ -84,7 +84,7 @@
                     </div>
                     <?php endif;?>
                 </div> <!-- Fermeture bloc2 -->
-            
+
                 <div class="pas txtcenter">
 
                     <h2 class="txtcenter"><?=($questions[2]['content']); ?></h2>

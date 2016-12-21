@@ -10,7 +10,7 @@
 
 
     <div id="navTopBar">
-        <div class="pas flex-container-v">
+        <div class="pas flex-container-v displayNoneSmall">
             <div class="center-wrap">
               <div class="title-container">
                 <div class="ribbon-left"></div>
@@ -46,31 +46,32 @@
 
 					<h1 class="txtcenter"><?= ucfirst($question[0]['ingredient']) ?></h1>
 
+                    <?php $i=1; ?>
 					<?php foreach($question as $value): ?>
-
 						<label class="txtcenter" for="<?=$value['id']?>"><?=$value['content']?></label>
 
 						<div class="grid-6 flex-container-v">
 
 							<div class="push">
-								OUI <input type="radio" name="<?=$value['id']?>" value="oui" checked>
+                                <label class="inputRadioQuizz" for="OUI<?= $i; ?>">OUI </label>
+								<input id="OUI<?= $i; ?>" type="radio" name="<?=$value['id']?>" value="oui" checked>
 							</div>
 							<div class="pull">
-								<input type="radio" name="<?=$value['id']?>" value="non"> NON
+								<input id="NON<?= $i; ?>" type="radio" name="<?=$value['id']?>" value="non"><label class="inputRadioQuizz" for="NON<?= $i; ?>"> NON</label>
 							</div>
 						</div>
-
+                        <?php $i++; ?>
 					<?php endforeach;?>
 
 						<div class="grid txtcenter mam">
-							<button type="submit" id="button" class="bouttonEnregistrerQuizz">REPONDRE</button>
+							<button type="submit" id="button" class="cursor bouttonEnregistrerQuizz">REPONDRE</button>
 						</div>
 				</div>
 
 
 				<?php endif; ?>
 
-				
+
 
 
 			</form>

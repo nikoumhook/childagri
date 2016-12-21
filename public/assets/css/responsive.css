@@ -77,6 +77,28 @@
     	height: 119%;
     	padding-right: 140px;
     }
+    /*QUIZZ*/
+    .containerQuizz {
+    	margin: 0;
+    	padding: 0;
+    }
+    /* RESULTAT */
+    h2{
+        white-space:pre-line;
+        max-width: 100%;
+    }
 
 }
 /* PETIT ECRAN PC */
+/*******************************/
+    /* PETIT ECRAN TABLETTE */
+/*******************************/
+@media screen and (min-width: 920px) and (max-width: 1290px){
+    .displayNoneMedium{
+        display: none;
+        opacity: 0;
+    }
+    .carte {
+    	margin-right: 279px;
+    }
+}

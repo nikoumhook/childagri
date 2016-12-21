@@ -35,14 +35,14 @@
 }
 #dragZone {
 	position: absolute;
-	height: 45%;
-	margin-top: -14%;
-	width: 30%;
-	margin-left: -17%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
+	height: 50%;
+	margin-top: -25%;
+	width: 42%;
+	margin-left: -22%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
 }
 
 .aliments img{

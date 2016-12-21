@@ -226,10 +226,14 @@ body{
 	border-radius: 6px;
 }
 
-.decoMenu, {
+.decoMenu {
     color:#FFF;
     font-family:'Paytone One', sans-serif;
     font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .decoMenu a, .decoMenu a:hover{
@@ -246,7 +250,7 @@ body{
 .decoSubmenu {
 	display: none;
 	position: fixed;
-	top: 95px;
+	top: 105px;
     right: 19px;
 	text-align: center;
 }

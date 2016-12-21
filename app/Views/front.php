@@ -43,7 +43,10 @@
         <!-- BOUTON PERMANENTS ************///////////////////////////////:******************* -->
         <div id="navDeco">
             <div class="decoMenu plm prm pts pbs">
-                <img src="<?= $this->assetUrl('img/menu.svg') ?>" alt=""><span class="displayNoneSmall">MENU</span>
+                <div class="menu-icon">
+                        <span></span>
+                </div>
+                <span class="displayNoneSmall">MENU</span>
                 <ul class="decoSubmenu">
                     <li><a class="mas pas" href="<?= $this->url('game_reset') ?>">
                     <img class="mini mrs" src="<?= $this->assetUrl('img/cycle.svg')?>" alt=""><span class="displayNoneSmall">REJOUER</span></a></li>
@@ -329,7 +332,6 @@
                             }else {
                                 $('#popResultat').html('<div><ul><li>Tu n\'as pas de résultat</li></ul></div>');
                             }
-
                             $('#popResultat').click(function(){
                                 $(this).children().remove();
                             });
@@ -338,10 +340,30 @@
                     });//fermeture $.ajax
             });// fermeture buttton clic
 
+            //}); // pb avec git il reste sa
+
+
         });
 
         </script>
     <?php endif;?>
+
+    <script>
+    $(function(){
+
+        $('.decoMenu').click(function(e){
+            e.preventDefault();
+            thiz = $(this).children('.menu-icon');
+            if(thiz.hasClass('is-opened')){
+                thiz.addClass('is-closed').removeClass('is-opened');
+            }
+            else{
+                thiz.removeClass('is-closed').addClass('is-opened');
+            }
+        });
+
+    });
+    </script>
         <!-- FIN INCLUSION JAVASCRIPT  ************///////////////////////////////:******************* -->
 
     </body>

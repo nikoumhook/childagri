@@ -48,7 +48,7 @@
 		</div> -->
         <div class="containerBtn wrapper">
             <!-- Button play -->
-            <button id="trigger-overlay" type="button" class="overlay playBtn">Jouer !</button>
+            <button id="trigger-overlay" type="button" class="overlay playBtn">JOUER !</button>
         </div>
 
 

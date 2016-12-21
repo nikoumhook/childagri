@@ -75,8 +75,7 @@
 
 						<form id="FormConnect" class="bloc w100 h100" action="#">
 						        <h1 class="txtcenter pam titreConnect w100"> CONNECTE TOI !</h1>
-                                <div class="pas w100">Si tu es dèjà inscrit, connecte-toi ici<br>
-                                    pour jouer une nouvelle partie ou finir ta partie en cours</div>
+                                <div class="connect pas w100">Si tu es déjà inscrit, connecte-toi ici pour jouer une nouvelle partie ou finir ta partie en cours</div>
 
 								<div class="grid-2 connect w100">
 									<div class="pas">
@@ -109,7 +108,7 @@
 								<div class="pas">
 									<input id="lastname" class="inputLanding pas" type="text" name="lastname" placeholder="Ton nom" >
 								</div>
-								<div class="pas">
+								<div class="pas txtright">
 									<input id="username" class="inputLanding pas" type="text" name="username" placeholder="Ton pseudo">
 								</div>
 							</div> <!-- fermeture grid3 -->
@@ -124,7 +123,7 @@
 							</div> <!-- fermeture grid2 -->
 
 							<div class="grid-2 flex-container-v">
-								<div class="txtMail pas">
+								<div class="connect pas">
 									Ton adresse mail est falcutative, elle te pemet de récupérer ton mot de passe à tout moment
 								</div>
 

@@ -152,10 +152,10 @@
                 cache:false,
                 dataType: 'json',
                 success: function(result){
-                    if(result.success == 'true'){
-                        $('#success').hml("enregistré !");
+                    if(result.success == "true"){
+                        $('#success').html("<span class="">enregistré !<span>");
                     }else{
-                        $('#success').hml("Probleme d'enregistrement, désolé, nous en avont pris note nous allons corrigé ce petit soucis !");
+                        $('#success').html("<span class="">Probleme d'enregistrement, désolé, nous en avont pris note nous allons corrigé ce petit soucis !<span>");
                     };
                 }//fermeture success
             });//fermeture $.ajax

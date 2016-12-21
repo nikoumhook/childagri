@@ -31,10 +31,10 @@
 
         <!-- <div class="debug pam">
             <pre>
-                <php var_dump($_SESSION); ?>
+                <php var_dump($_SESSION);?>
             </pre>
-        </div>
-        -->
+
+        </div> -->
 
         <!-- CONTENU  ************///////////////////////////////:******************* -->
         <main>
@@ -114,8 +114,12 @@
                     <li id="repas2" class="circle <?= (empty($repas) || !in_array(2,$repas))? 'obsRepas' : 'repasFait' ?>">DEJEUNER
                         <img src="<?= $this->assetUrl('img/fourmis.png');?>" class="fourmis2">
                     </li>
-                    <li id="repas3" class="circle <?= (empty($repas) || !in_array(3,$repas))? 'obsRepas' : 'repasFait' ?>">GOÛTER</li>
-                    <li id="repas4" class="circle <?= (empty($repas) || !in_array(4,$repas))? 'obsRepas' : 'repasFait' ?>">DÎNER</li>
+                    <li id="repas3" class="circle <?= (empty($repas) || !in_array(3,$repas))? 'obsRepas' : 'repasFait' ?>">GOÛTER
+                        <img src="<?= $this->assetUrl('img/fourmis.png');?>" class="fourmis3">
+                    </li>
+                    <li id="repas4" class="circle <?= (empty($repas) || !in_array(4,$repas))? 'obsRepas' : 'repasFait' ?>">DÎNER
+                        <img src="<?= $this->assetUrl('img/fourmis.png');?>" class="fourmis4">
+                    </li>
                 </ul>
             </div>
         <?php endif; ?>
@@ -198,55 +202,121 @@
             });
         </script>
 
-        <?php if ($w_current_route == 'game_assiette'): ?>
-        <script>
+    <?php if ($w_current_route == 'game_assiette'): ?>
 
-            $(document).ready(function(){
+            <script>
 
-               var fourmis1 = function(){
-                    var $fourmis = $('.fourmis1');
+        $(document).ready(function(){
 
-                    $fourmis.fadeIn({queue: false, duration: 1000});
-                    $fourmis.animate({left: '900%'}, 8000, function(){
-                        // Anim complète
-                        $fourmis.css('transform', 'rotate(75deg)')
-                    })
-                    .animate({top:'90%'}, 6000, function(){
-                        // Anim complète
-                        $fourmis.css('transform', 'rotate(115deg)')
-                    })
-                    .animate({right:'300%'}, 5000, function(){
-                        // Anim complète
-                        $fourmis.css('transform', 'rotate(110deg)')
-                    });
-                      /* .animate({top: '0px'}, 5000);*/
-               };
+           var fourmis1 = function(){
+                var $fourmis = $('.fourmis1');
 
-               var fourmis2 = function(){
-                    var $fourmis = $('.fourmis2');
-                    $fourmis.fadeIn({queue: false, duration: 1000});
-                    $fourmis.animate({left: '500%'}, 6000, function(){
-                        // Anim complète
-                        $fourmis.css('transform', 'rotate(-75deg)')
-                    })
-                    .animate({bottom:'90%'}, 6000, function(){
-                        // Anim complète
-                       $fourmis.css('transform', 'rotate(-175deg)')
-                    })
-                    .animate({left:'50%'}, 5000, function(){
-                        // Anim complète
-                        $fourmis.css('transform', 'rotate(45deg)')
-                    });
-               };
+                $fourmis.fadeIn({queue: false, duration: 1000});
+                $fourmis.animate({left: '900%'}, 8000, function(){
+                    // Anim complète
+                    $fourmis.css('transform', 'rotate(75deg)')
+                })
+                .animate({top:'90%'}, 6000, function(){
+                    // Anim complète
+                    $fourmis.css('transform', 'rotate(115deg)')
+                })
+                .animate({right:'300%'}, 5000, function(){
+                    // Anim complète
+                    $fourmis.css('transform', 'rotate(110deg)')
+                });
+           };
 
-                $('#repas1').click(function(){
-                    fourmis1();
-                    fourmis2();
 
+           var fourmis2 = function(){
+                var $fourmis = $('.fourmis2');
+                $fourmis.fadeIn({queue: false, duration: 1000});
+                $fourmis.animate({left: '500%'}, 6000, function(){
+                    // Anim complète
+                    $fourmis.css('transform', 'rotate(-75deg)')
+                })
+                .animate({bottom:'90%'}, 6000, function(){
+                    // Anim complète
+                   $fourmis.css('transform', 'rotate(-175deg)')
+                })
+                .animate({left:'50%'}, 5000, function(){
+                    // Anim complète
+                    $fourmis.css('transform', 'rotate(45deg)')
+                });
+           };
+
+
+           var fourmis3 = function(){
+                var $fourmis = $('.fourmis3');
+                $fourmis.fadeIn({queue: false, duration: 1000});
+                $fourmis.animate({left: '300%'}, 5500, function(){
+                    // Anim complète
+                    $fourmis.css('transform', 'rotate(75deg)')
+                })
+                .animate({top:'90%'}, 6000, function(){
+                    // Anim complète
+                   $fourmis.css('transform', 'rotate(-150deg)')
+                })
+                .animate({right:'0%'}, 7000, function(){
+                    // Anim complète
+                    $fourmis.css('transform', 'rotate(150deg)')
                 });
 
-                // requete de récuperation des resultat :
-                $('#resultats').click(function(e){
+           };
+
+           var fourmis4 = function(){
+                var $fourmis = $('.fourmis4');
+                $fourmis.fadeIn({queue: false, duration: 1000});
+                $fourmis.animate({left: '140%'}, 3500, function(){
+                    // Anim complète
+                    $fourmis.css('transform', 'rotate(-75deg)')
+                })
+                .animate({bottom:'70%'}, 6000, function(){
+                    // Anim complète
+                   $fourmis.css('transform', 'rotate(-150deg)')
+                })
+                .animate({right:'200%'}, 3000, function(){
+                    // Anim complète
+                    $fourmis.css('transform', 'rotate(-300deg)')
+                });
+
+
+           };
+
+            $('#repas1').click(function(){
+                fourmis1();
+                fourmis2();
+                fourmis3();
+                fourmis4();
+            });
+
+            $('#repas2').click(function(){
+                fourmis1();
+                fourmis2();
+                fourmis3();
+                fourmis4();
+            });
+
+
+            $('#repas3').click(function(){
+                fourmis1();
+                fourmis2();
+                fourmis3();
+                fourmis4();
+            });
+
+            $('#repas4').click(function(){
+                fourmis1();
+                fourmis2();
+                fourmis3();
+                fourmis4();
+            });
+
+
+            // requete de récuperation des resultat :
+
+
+            // requete de récuperation des resultat deja enregistré via le menu deco:
+            $('#resultats').click(function(e){
                     e.preventDefault();
                     $.ajax({
                         url: '<?=$this->url('ajax_recupresultat');?>',
@@ -266,12 +336,12 @@
 
                         }//fermeture success
                     });//fermeture $.ajax
-                });// fermeture buttton clic
+            });// fermeture buttton clic
 
-            });
+        });
 
         </script>
-        <?php endif;?>
+    <?php endif;?>
         <!-- FIN INCLUSION JAVASCRIPT  ************///////////////////////////////:******************* -->
 
     </body>

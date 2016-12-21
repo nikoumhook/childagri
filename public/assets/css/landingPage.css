@@ -1,5 +1,5 @@
 body{
-    background: url('../img/landingPage.svg') no-repeat center;
+    background: #36A9E1;
     background-size: cover;
 	overflow: hidden;
 }
@@ -9,16 +9,42 @@ body{
 /***************WRAPPER**********************/
 
 #wrapper{
+  background: url('../img/landingPageB.svg') no-repeat center;
+  background-size: cover;
 	height: 100vh;
 	width: 100vw;
+  z-index: 2;
 }
 
 
 .playBtn {
-    position: relative;
-	width: 35%;
-	height: 35%;
-	background: rgba(161,196,204,0.9);
+  background: #000000;
+  background-image: -webkit-linear-gradient(top, #000000, #000000);
+  background-image: -moz-linear-gradient(top, #000000, #000000);
+  background-image: -ms-linear-gradient(top, #000000, #000000);
+  background-image: -o-linear-gradient(top, #000000, #000000);
+  background-image: linear-gradient(to bottom, #000000, #000000);
+  -webkit-border-radius: 9;
+  -moz-border-radius: 9;
+  border-radius: 9px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 80px;
+  padding: 40px;
+  text-decoration: none;
+  position: relative;
+  width: 35%;
+  height: 35%;
+}
+
+.playBtn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
 }
 .containerBtn{
     display: flex;
@@ -39,23 +65,22 @@ body{
 .titreLanding{
 	font-size:24px;
 }
-
 #nuage1{
     position: absolute;
 	margin-left: -100px;
 	z-index: 1;
 }
 #nuage2{
-	display: block;
     position: absolute;
-	top: 200px;
-	right: 100px;
-	z-index: 0;
+	top: 20vh;
+	right: -200px;
+	z-index: -1;
 }
 #soleil{
 	position: absolute;
-	margin: 0px;
-	z-index: 0;
+  top: 29vh;
+	right: 12vw;
+	z-index: -1;
 	width: 10vw;
 	height: 10vh;
 }
@@ -112,6 +137,8 @@ body{
 }
 
 .connect{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 
 	flex:1;
     align-items: center;
 }
@@ -126,6 +153,9 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: #F7943D;
+    border:0;
+    border-radius: 6px;
 }
 
 .bloc2{
@@ -174,13 +204,13 @@ body{
 }
 
 
-/*bouton enregistrer view quizz*/
+/*bouton enregistrer*/
 .enregistrer{
 	height:50px;
-	background-color:;
-	color:#FFF;
+	background-color:#FFF;
+	color:#F7943D;
 	font-family:'Paytone One', sans-serif;
 	border:0px;
     border-radius: 6px;
-    font-size: 18px;
+    font-size: 20px;
 }

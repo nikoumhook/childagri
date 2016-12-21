@@ -26,16 +26,7 @@
 		<img width="150vw" height="150vh" src="<?=$this->assetUrl('img/nuage.svg');?>">
 	</div>
 	<div id="soleil">
-		<svg version="1.1" width="100vw" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="156px" height="156px" viewBox="0 0 156 156" style="enable-background:new 0 0 156 156;" xml:space="preserve"><style type="text/css">
-		.st0{fill:#FEF17D;}	.st1{fill:none;stroke:#FFF27B;stroke-width:36;stroke-miterlimit:10;stroke-dasharray:11.9658,29.9146;}
-		</style>
-		<circle id="core" class="st0" cx="78" cy="78" r="29"/>
-			<g id="rayons">
-				<circle class="st1" cx="78" cy="78" r="60">
-					<animateTransform id="rayonsAnim" attributeName="transform" attributeType="XML" type="rotate" from="0 78 78" to="360 78 78" dur="25s" repeatCount="indefinite"/>
-				</circle>
-			</g>
-		</svg>
+		<img width="150vw" height="150vh" src="<?=$this->assetUrl('img/soleil.svg');?>">
 	</div>
 	<div id="couverts">
 		<div class="couverts">
@@ -57,7 +48,7 @@
 		</div> -->
         <div class="containerBtn wrapper">
             <!-- Button play -->
-            <button id="trigger-overlay" type="button" class="overlay playBtn">ON JOUE</button>
+            <button id="trigger-overlay" type="button" class="overlay playBtn">Jouer !</button>
         </div>
 
 
@@ -75,8 +66,7 @@
 
 						<form id="FormConnect" class="bloc w100 h100" action="#">
 						        <h1 class="txtcenter pam titreConnect w100"> CONNECTE TOI !</h1>
-                                <div class="pas w100">Si tu es dèjà inscrit, connecte-toi ici<br>
-                                    pour jouer une nouvelle partie ou finir ta partie en cours</div>
+                                <div class="connect pas w100">Si tu es déjà inscrit, connecte-toi ici pour jouer une nouvelle partie ou finir ta partie en cours</div>
 
 								<div class="grid-2 connect w100">
 									<div class="pas">
@@ -109,7 +99,7 @@
 								<div class="pas">
 									<input id="lastname" class="inputLanding pas" type="text" name="lastname" placeholder="Ton nom" >
 								</div>
-								<div class="pas">
+								<div class="pas txtright">
 									<input id="username" class="inputLanding pas" type="text" name="username" placeholder="Ton pseudo">
 								</div>
 							</div> <!-- fermeture grid3 -->
@@ -124,7 +114,7 @@
 							</div> <!-- fermeture grid2 -->
 
 							<div class="grid-2 flex-container-v">
-								<div class="txtMail pas">
+								<div class="connect pas">
 									Ton adresse mail est falcutative, elle te pemet de récupérer ton mot de passe à tout moment
 								</div>
 
@@ -216,21 +206,28 @@
 </script>
 
 
-<div class="script">
 	<script type="text/javascript">
 	$(document).ready(function() {
-		nuage();
+		nuage1();
+		nuage2();
 	});
-	function nuage(){
+	function nuage1(){
 		$('#nuage1').fadeIn({queue: false, duration: 2000});
-		$('#nuage1').animate({right: '-100px'}, 5000, 'linear', function(){
+		$('#nuage1').animate({right: '-200px'}, 10000, 'linear', function(){
 			// Anim complète
 			$('#nuage1').removeAttr('style');
-			nuage();
+			nuage1();
+		})
+	};
+	function nuage2(){
+		$('#nuage2').fadeIn({queue: false, duration: 2000});
+		$('#nuage2').animate({left: '-400px'}, 12000, 'linear', function(){
+			// Anim complète
+			$('#nuage2').removeAttr('style');
+			nuage2();
 		})
 	};
 	</script>
-</div>
 
 </body>
 

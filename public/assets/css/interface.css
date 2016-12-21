@@ -2,6 +2,7 @@ body{
     width: 100vw;
     height: 100vh;
     background: #EFDDCB;
+    background-image: url('../img/backgroundAssiette.jpg');
 }
 
 .cursor{
@@ -139,11 +140,7 @@ body{
     font-size: 20px;
     list-style: none;
 }
-/*
-#repas1{
-    position: absolute;
-}
-*/
+
 .fourmis1{
     display: none;
     position: absolute;
@@ -151,7 +148,6 @@ body{
     -webkit-transition: -webkit-transform 1s;
     transition: transform 1s;
 }
-
 
 .fourmis2{
     display: none;
@@ -161,6 +157,21 @@ body{
     transition: transform 1s;
 }
 
+.fourmis3{
+    display: none;
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: -webkit-transform 1s;
+    transition: transform 1s;
+}
+
+.fourmis4{
+    display: none;
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: -webkit-transform 1s;
+    transition: transform 1s;
+}
 
 
 .circle{

@@ -106,7 +106,7 @@
         <?php if ($w_current_route == 'game_assiette'): ?>
 
             <?php if (isset($carte)): ?>
-                <div id="navTopBar" class="displayNoneSmall">
+                <div id="navTopBar" class="">
                     <div class="pas flex-container-v displayNoneSmall">
                         <div class="center-wrap">
                           <div class="title-container">
@@ -171,7 +171,7 @@
                 };
         ?>
 
-        <div class="reglesCarte1 flex-container-v">
+        <div class="reglesCarte1 flex-container-v displayNoneSmall">
                 <div class="center-wrap">
                   <div class="title-container">
                     <div class="ribbon-left"></div>
@@ -202,6 +202,7 @@
         <!-- INCLUSION JAVASCRIPT  ************///////////////////////////////:******************* -->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="<?= $this->assetUrl('owl-carousel/owl.carousel.min.js') ?>"></script>
+        <script src="<?= $this->assetUrl('js/fixTouch.js') ?>"></script>
 
         <?= $this->section('script') ?>
 

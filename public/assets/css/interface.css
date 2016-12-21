@@ -358,23 +358,3 @@ body{
     height: 100%;
     align-items: center;
 }
-/*******************************/
-/* MEDIA QUERIES POUr TABLETTE */
-/*******************************/
-@media screen and (max-width: 920px){
-    /*// reduction des boutons repas*/
-    .circle{
-        margin:5px;
-        width:70px;
-        height:70px;
-        border-radius:700px;
-        text-align:center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    /*// reduction des icones d'aliment*/
-    #navTopBar{
-        height: 20px;
-    }
-}

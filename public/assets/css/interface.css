@@ -8,6 +8,9 @@ body{
 .cursor{
     cursor: pointer;
 }
+.noCursor{
+    cursor: default;
+}
 /************************************/
 /*             Debug               */
 /************************************/
@@ -223,10 +226,14 @@ body{
 	border-radius: 6px;
 }
 
-.decoMenu, {
+.decoMenu {
     color:#FFF;
     font-family:'Paytone One', sans-serif;
     font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .decoMenu a, .decoMenu a:hover{
@@ -243,7 +250,7 @@ body{
 .decoSubmenu {
 	display: none;
 	position: fixed;
-	top: 95px;
+	top: 105px;
     right: 19px;
 	text-align: center;
 }
@@ -328,10 +335,16 @@ body{
 #intestinEtape1,#intestinEtape2,#intestinEtape3,#intestinEtape4{
     display: none;
 }
+
 .containerBulle {
+	display: block;
 	position: absolute;
-	top: -53%;
-	right: 85%;
+	top: -27%;
+	right: 35%;
+	width: 175px;
+	height: 175px;
+	background: url('../img/bulle.png') no-repeat center;
+	background-size: contain;
 }
 
 .wrapContainerBulle{

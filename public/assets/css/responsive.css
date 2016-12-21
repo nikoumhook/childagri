@@ -43,7 +43,12 @@
         margin-right: 0;
         padding: 0;
     }
-
+    .containerBulle {
+    	top: -57%;
+    	right: 17%;
+    	width: 175px;
+    	height: 175px;
+    }
     /*AGRANDISSEMENT ASSIETTE */
     #assiette {
         height: 100%;
@@ -84,7 +89,7 @@
     }
     /* RESULTAT */
     h2{
-        white-space:pre-line;
+        /*white-space:pre-line;*/
         max-width: 100%;
     }
 

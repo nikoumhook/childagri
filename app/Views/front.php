@@ -33,8 +33,8 @@
             <pre>
                 <php var_dump($_SESSION);?>
             </pre>
-        </div> -->
 
+        </div> -->
 
         <!-- CONTENU  ************///////////////////////////////:******************* -->
         <main>
@@ -58,53 +58,24 @@
             </div>
         </div>
 
+        <!-- utiliser par la page resulta pour afficher si la sauvegarde c'est bien deroulé -->
         <div id='popResultat'></div>
         <?php if (!($w_current_route == 'game_quizz' || $w_current_route == 'game_result')): ?>
 
-            <?php if (isset($aliment1)): ?>
-
-                        <!-- GESTION DES CONTENU DE LA BULLE -->
-                            <?php switch (count($repas)) {
-                                case 1:
-                                    $contentBulle = 'Merci,pour ce premier repas composé de '. $aliment1['name'].','.$aliment2['name'].','.$aliment3['name'].', mon estomac ce remplie.';
-                                    break;
-                                case 2:
-                                    $contentBulle = 'Merci,pour ce deuxieme repas <a href="'.$this->url('game_quizz').'">On joue au QUIZZ ?</a>';
-                                    break;
-                                case 3:
-                                    $contentBulle = 'Merci,pour ce Troisieme repas';
-                                    break;
-                                case 4:
-                                    $contentBulle = 'Merci,pour ce Quetrieme repas';
-                                    break;
-                            } ?>
-            <?php endif; ?>
-
-
             <!-- affichage du bonhomme et de sa bulle -->
             <!-- <div id="navTrophee" class="pam mrl shake-hard"> -->
-            <div id="navTrophee" class="pam mrl">
-                <?php if (!empty($_SESSION['repasEnCour'])): ?>
-                    <div class="containerBulle">
-                        <!-- <div class="wrapContainerBulle">
-                            <div id="imgBulle" class="">
-                                <= $this->insert('front/bulle')?>
-                            </div> -->
-                            <div id="texteBulle" class="">
-                                <= $contentBulle ?>
-                            </div>
-                        <!-- </div> fermeture wrapContainerBulle -->
-                    </div>
-                <?php endif; ?>
-                <?php $this->insert('front/intestin'); ?>
-            </div>
+            <a id="lienQuizz" class="noCursor" href="#">
+                <div id="navTrophee" class="pam mrl">
+                    <div id="bubulle" class=""></div>
+                    <?php $this->insert('front/intestin'); ?>
+                </div>
+            </a>
         <?php endif; ?>
         <!-- BOUTON PERMANENTS ************///////////////////////////////:******************* -->
 
 
         <!-- BOUTON POUR ASSIETTE ************///////////////////////////////:******************* -->
-        <?php
-        $carte=''; ?>
+        <?php $carte=''; ?>
 
         <?php if ($w_current_route == 'game_assiette'): ?>
 
@@ -162,20 +133,21 @@
 
         <?php $repasName = array_keys($_SESSION['repasEnCour']) ;?>
 
-        <?php switch ($repasName[0]) {
-            case '1':
-                $repasName = 'petit-déjeuner';
-                break;
-             case '2':
-                $repasName = 'déjeuner';
-                break;
-            case '3':
-               $repasName = 'goûter';
-                break;
-            case '4':
-                $repasName = 'dîner';
-                break;
-                };
+        <?php
+                switch ($repasName[0]) {
+                    case '1':
+                        $repasName = 'petit-déjeuner';
+                        break;
+                     case '2':
+                        $repasName = 'déjeuner';
+                        break;
+                    case '3':
+                       $repasName = 'goûter';
+                        break;
+                    case '4':
+                        $repasName = 'dîner';
+                        break;
+                        };
         ?>
 
         <div class="reglesCarte1 flex-container-v displayNoneSmall">
@@ -211,174 +183,187 @@
         <script src="<?= $this->assetUrl('owl-carousel/owl.carousel.min.js') ?>"></script>
 
         <?= $this->section('script') ?>
+
         <script src="<?= $this->assetUrl('js/fixTouch.js') ?>"></script>
 
         <script type="text/javascript">
-        $(function(){
+            $(function(){
 
-            var intestinFn;
-            var nBrDeRepasPris;
-            intestinFn = function(){
-                $("#intestinEtape<?= (!empty($repas)? count($repas) : '99'); ?>").show();
-            };
-            // appel de la fonction
-            intestinFn();
+                var intestinFn;
+                var nBrDeRepasPris;
 
-            // menu deco
-            $('.decoMenu').click(function(){
-                $('.decoSubmenu').toggle();
+                intestinFn = function(){
+                    $("#intestinEtape<?= (!empty($repas)? count($repas) : '99'); ?>").show();
+                };
+                // appel de la fonction
+                intestinFn();
+
+                // menu deco
+                $('.decoMenu').click(function(){
+                    $('.decoSubmenu').toggle();
+                });
             });
-        });
         </script>
 
-        <?php if ($w_current_route == 'game_assiette'): ?>
-              <script>
+    <?php if ($w_current_route == 'game_assiette'): ?>
 
-    $(document).ready(function(){
+            <script>
 
-       var fourmis1 = function(){
-            var $fourmis = $('.fourmis1');
+        $(document).ready(function(){
 
-            $fourmis.fadeIn({queue: false, duration: 1000});
-            $fourmis.animate({left: '900%'}, 8000, function(){
-                // Anim complète
-                $fourmis.css('transform', 'rotate(75deg)')
-            })
-            .animate({top:'90%'}, 6000, function(){
-                // Anim complète
-                $fourmis.css('transform', 'rotate(115deg)')
-            })
-            .animate({right:'300%'}, 5000, function(){
-                // Anim complète
-                $fourmis.css('transform', 'rotate(110deg)')
+           var fourmis1 = function(){
+                var $fourmis = $('.fourmis1');
+
+                $fourmis.fadeIn({queue: false, duration: 1000});
+                $fourmis.animate({left: '900%'}, 8000, function(){
+                    // Anim complète
+                    $fourmis.css('transform', 'rotate(75deg)')
+                })
+                .animate({top:'90%'}, 6000, function(){
+                    // Anim complète
+                    $fourmis.css('transform', 'rotate(115deg)')
+                })
+                .animate({right:'300%'}, 5000, function(){
+                    // Anim complète
+                    $fourmis.css('transform', 'rotate(110deg)')
+                });
+           };
+
+
+           var fourmis2 = function(){
+                var $fourmis = $('.fourmis2');
+                $fourmis.fadeIn({queue: false, duration: 1000});
+                $fourmis.animate({left: '500%'}, 6000, function(){
+                    // Anim complète
+                    $fourmis.css('transform', 'rotate(-75deg)')
+                })
+                .animate({bottom:'90%'}, 6000, function(){
+                    // Anim complète
+                   $fourmis.css('transform', 'rotate(-175deg)')
+                })
+                .animate({left:'50%'}, 5000, function(){
+                    // Anim complète
+                    $fourmis.css('transform', 'rotate(45deg)')
+                });
+           };
+
+
+           var fourmis3 = function(){
+                var $fourmis = $('.fourmis3');
+                $fourmis.fadeIn({queue: false, duration: 1000});
+                $fourmis.animate({left: '300%'}, 5500, function(){
+                    // Anim complète
+                    $fourmis.css('transform', 'rotate(75deg)')
+                })
+                .animate({top:'90%'}, 6000, function(){
+                    // Anim complète
+                   $fourmis.css('transform', 'rotate(-150deg)')
+                })
+                .animate({right:'0%'}, 7000, function(){
+                    // Anim complète
+                    $fourmis.css('transform', 'rotate(150deg)')
+                });
+
+           };
+
+           var fourmis4 = function(){
+                var $fourmis = $('.fourmis4');
+                $fourmis.fadeIn({queue: false, duration: 1000});
+                $fourmis.animate({left: '140%'}, 3500, function(){
+                    // Anim complète
+                    $fourmis.css('transform', 'rotate(-75deg)')
+                })
+                .animate({bottom:'70%'}, 6000, function(){
+                    // Anim complète
+                   $fourmis.css('transform', 'rotate(-150deg)')
+                })
+                .animate({right:'200%'}, 3000, function(){
+                    // Anim complète
+                    $fourmis.css('transform', 'rotate(-300deg)')
+                });
+
+
+           };
+
+            $('#repas1').click(function(){
+                fourmis1();
+                fourmis2();
+                fourmis3();
+                fourmis4();
             });
-       };
 
-
-       var fourmis2 = function(){
-            var $fourmis = $('.fourmis2');
-            $fourmis.fadeIn({queue: false, duration: 1000});
-            $fourmis.animate({left: '500%'}, 6000, function(){
-                // Anim complète
-                $fourmis.css('transform', 'rotate(-75deg)')
-            })
-            .animate({bottom:'90%'}, 6000, function(){
-                // Anim complète
-               $fourmis.css('transform', 'rotate(-175deg)')
-            })
-            .animate({left:'50%'}, 5000, function(){
-                // Anim complète
-                $fourmis.css('transform', 'rotate(45deg)')
-            });
-       };
-
-
-       var fourmis3 = function(){
-            var $fourmis = $('.fourmis3');
-            $fourmis.fadeIn({queue: false, duration: 1000});
-            $fourmis.animate({left: '300%'}, 5500, function(){
-                // Anim complète
-                $fourmis.css('transform', 'rotate(75deg)')
-            })
-            .animate({top:'90%'}, 6000, function(){
-                // Anim complète
-               $fourmis.css('transform', 'rotate(-150deg)')
-            })
-            .animate({right:'0%'}, 7000, function(){
-                // Anim complète
-                $fourmis.css('transform', 'rotate(150deg)')
-            });
-
-       };
-
-       var fourmis4 = function(){
-            var $fourmis = $('.fourmis4');
-            $fourmis.fadeIn({queue: false, duration: 1000});
-            $fourmis.animate({left: '140%'}, 3500, function(){
-                // Anim complète
-                $fourmis.css('transform', 'rotate(-75deg)')
-            })
-            .animate({bottom:'70%'}, 6000, function(){
-                // Anim complète
-               $fourmis.css('transform', 'rotate(-150deg)')
-            })
-            .animate({right:'200%'}, 3000, function(){
-                // Anim complète
-                $fourmis.css('transform', 'rotate(-300deg)')
+            $('#repas2').click(function(){
+                fourmis1();
+                fourmis2();
+                fourmis3();
+                fourmis4();
             });
 
 
-       };
+            $('#repas3').click(function(){
+                fourmis1();
+                fourmis2();
+                fourmis3();
+                fourmis4();
+            });
 
-        $('#repas1').click(function(){
-            fourmis1();
-            fourmis2();
-            fourmis3();
-            fourmis4();
+            $('#repas4').click(function(){
+                fourmis1();
+                fourmis2();
+                fourmis3();
+                fourmis4();
+            });
+
+
+            // requete de récuperation des resultat :
+
+
+            // requete de récuperation des resultat deja enregistré via le menu deco:
+            $('#resultats').click(function(e){
+                    e.preventDefault();
+                    $.ajax({
+                        url: '<?=$this->url('ajax_recupresultat');?>',
+                        type: 'post',
+                        cache:false,
+                        dataType: 'json',
+                        success: function(result){
+                            if (result.success) {
+                                $('#popResultat').html(result.resultats);
+                            }else {
+                                $('#popResultat').html('<div><ul><li>Tu n\'as pas de résultat</li></ul></div>');
+                            }
+                            $('#popResultat').click(function(){
+                                $(this).children().remove();
+                            });
+
+                        }//fermeture success
+                    });//fermeture $.ajax
+            });// fermeture buttton clic
+
+            //}); // pb avec git il reste sa
+
+
         });
 
-        $('#repas2').click(function(){
-            fourmis1();
-            fourmis2();
-            fourmis3();
-            fourmis4();
-        });
+        </script>
+    <?php endif;?>
 
+    <script>
+    $(function(){
 
-        $('#repas3').click(function(){
-            fourmis1();
-            fourmis2();
-            fourmis3();
-            fourmis4();
-        });
-
-        $('#repas4').click(function(){
-            fourmis1();
-            fourmis2();
-            fourmis3();
-            fourmis4();
-        });
-
-
-        // requete de récuperation des resultat :
-        $('#resultats').click(function(e){
+        $('.decoMenu').click(function(e){
             e.preventDefault();
-            $.ajax({
-                url: '<?=$this->url('ajax_recupresultat');?>',
-                type: 'post',
-                cache:false,
-                dataType: 'json',
-                success: function(result){
-                    if (result.success) {
-                        $('#popResultat').html(result.resultats);
-                    }else {
-                        $('#popResultat').html('<div><ul><li>Tu n\'as pas de résultat</li></ul></div>');
-                    }
-
-                    $('#popResultat').click(function(){
-                        $(this).children().remove();
-                    });
-
-                }//fermeture success
-            });//fermeture $.ajax
-        });// fermeture buttton clic
-
-        $('.menu-icon').click(function(e){
-            e.preventDefault();
-            $this = $(this);
-            if($this.hasClass('is-opened')){
-                $this.addClass('is-closed').removeClass('is-opened');
+            thiz = $(this).children('.menu-icon');
+            if(thiz.hasClass('is-opened')){
+                thiz.addClass('is-closed').removeClass('is-opened');
             }
             else{
-                $this.removeClass('is-closed').addClass('is-opened');
+                thiz.removeClass('is-closed').addClass('is-opened');
             }
-        })
+        });
+
     });
-
     </script>
-        <?php endif;?>
-
-
         <!-- FIN INCLUSION JAVASCRIPT  ************///////////////////////////////:******************* -->
 
     </body>

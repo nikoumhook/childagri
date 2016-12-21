@@ -1,40 +1,131 @@
 #quizzForm{
     background: rgba(255,255,255,0.7);
-    border-radius: 10px;
+    border-radius: 6px;
 }
-h3{
-    text-decoration: underline;
-    color: red;
+
+
+.title{
+    font-family:'Paytone One', sans-serif;
+    color: #FFF;
+    min-width: 150px;
+    max-width: 1750px;
+    overflow: hidden;
+    white-space: nowrap;
+    float: left;
+    margin-top: 0.4em;
+    margin-left: -75px;
+    margin-right: -75px;
+    color: white;
 }
+
+.sous-title{
+    font-family:'Paytone One', sans-serif;
+    color: #FFF
+}
+
+
+h1{
+    font-family:'Paytone One', sans-serif;
+    font-size: 32px;
+    color: #F88C00;
+}
+
+
 .quizzAliment{
     margin: 0 auto;
-    max-width: 400px;
+    max-width: 600px;
 }
+
+
 label{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
     width: 500px;
     display: block;
+    white-space: nowrap;
 }
+
+
 .containerQuizz{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
-/*Style Page de Résultat*/
-#titreGlobal{
-    text-align: center;
+
+
+.bouttonEnregistrerQuizz{
+    height:50px;
+    background-color: #F88C00;
+    color:#FFF;
+    font-family:'Paytone One', sans-serif;
+    border:0px;
+    font-size: 18px;
+    border-radius: 4px;
 }
-.globalResult{
+
+
+/*Style Page de Résultat*/
+
+.ContainerResult{
+    background: rgba(255,255,255,0.7);
+    border-radius: 6px;
+}
+
+h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: black;
+    white-space: nowrap;
+}
+
+.reponseUser{
+    vertical-align: middle;
+}
+
+h3{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: black;
+}
+
+.resultQuestion{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: black;
+}
+
+.bravo{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #ACC489;
+}
+
+.zut{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #CC7B7A;
+}
+
+.reponseQuestion{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: black;
+}
+
+
+
+/*.globalResult{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;;
 }
-.containerAliment{
+*/
+/*.containerAliment{
     width: 400px;
 }
-h4{
-    text-align: center;
-}
+*/
+
 .questionUnite{
     margin: 10px;
 }

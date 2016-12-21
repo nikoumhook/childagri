@@ -1,4 +1,7 @@
-
+body{
+    background: url('../img/landingPage.png') no-repeat center;
+    background-size: cover;
+}
 .cursor{
     cursor: pointer;
 }

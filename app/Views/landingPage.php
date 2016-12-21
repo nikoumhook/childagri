@@ -216,21 +216,28 @@
 </script>
 
 
-<div class="script">
 	<script type="text/javascript">
 	$(document).ready(function() {
-		nuage();
+		nuage1();
+		nuage2();
 	});
-	function nuage(){
+	function nuage1(){
 		$('#nuage1').fadeIn({queue: false, duration: 2000});
-		$('#nuage1').animate({right: '-100px'}, 5000, 'linear', function(){
+		$('#nuage1').animate({right: '-200px'}, 10000, 'linear', function(){
 			// Anim complète
 			$('#nuage1').removeAttr('style');
-			nuage();
+			nuage1();
+		})
+	};
+	function nuage2(){
+		$('#nuage2').fadeIn({queue: false, duration: 2000});
+		$('#nuage2').animate({left: '-400px'}, 12000, 'linear', function(){
+			// Anim complète
+			$('#nuage2').removeAttr('style');
+			nuage2();
 		})
 	};
 	</script>
-</div>
 
 </body>
 

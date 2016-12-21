@@ -352,7 +352,7 @@
     $(function(){
 
         $('.decoMenu').click(function(e){
-            e.preventDefault();
+            //e.preventDefault();
             thiz = $(this).children('.menu-icon');
             if(thiz.hasClass('is-opened')){
                 thiz.addClass('is-closed').removeClass('is-opened');

@@ -143,8 +143,12 @@
                     <li id="repas2" class="circle <?= (empty($repas) || !in_array(2,$repas))? 'obsRepas' : 'repasFait' ?>">DEJEUNER
                         <img src="<?= $this->assetUrl('img/fourmis.png');?>" class="fourmis2">
                     </li>
-                    <li id="repas3" class="circle <?= (empty($repas) || !in_array(3,$repas))? 'obsRepas' : 'repasFait' ?>">GOÛTER</li>
-                    <li id="repas4" class="circle <?= (empty($repas) || !in_array(4,$repas))? 'obsRepas' : 'repasFait' ?>">DÎNER</li>
+                    <li id="repas3" class="circle <?= (empty($repas) || !in_array(3,$repas))? 'obsRepas' : 'repasFait' ?>">GOÛTER
+                        <img src="<?= $this->assetUrl('img/fourmis.png');?>" class="fourmis3">
+                    </li>
+                    <li id="repas4" class="circle <?= (empty($repas) || !in_array(4,$repas))? 'obsRepas' : 'repasFait' ?>">DÎNER
+                        <img src="<?= $this->assetUrl('img/fourmis.png');?>" class="fourmis4">
+                    </li>
                 </ul>
             </div>
         <?php endif; ?>
@@ -245,7 +249,6 @@
                 // Anim complète
                 $fourmis.css('transform', 'rotate(110deg)')
             });
-              /* .animate({top: '0px'}, 5000);*/
        };
 
 
@@ -267,11 +270,53 @@
        };
 
 
-        $('#repas1').click(function(){
+       var fourmis3 = function(){
+            var $fourmis = $('.fourmis3');
+            $fourmis.fadeIn({queue: false, duration: 1000});
+            $fourmis.animate({left: '300%'}, 5500, function(){
+                // Anim complète
+                $fourmis.css('transform', 'rotate(75deg)')
+            })
+            .animate({top:'90%'}, 6000, function(){
+                // Anim complète
+               $fourmis.css('transform', 'rotate(-150deg)')
+            })
+            .animate({right:'0%'}, 7000, function(){
+                // Anim complète
+                $fourmis.css('transform', 'rotate(150deg)')
+            });
+
+       };
+
+       var fourmis4 = function(){
+            var $fourmis = $('.fourmis4');
+            $fourmis.fadeIn({queue: false, duration: 1000});
+            $fourmis.animate({left: '140%'}, 3500, function(){
+                // Anim complète
+                $fourmis.css('transform', 'rotate(-75deg)')
+            })
+            .animate({bottom:'70%'}, 6000, function(){
+                // Anim complète
+               $fourmis.css('transform', 'rotate(-150deg)')
+            })
+            .animate({right:'200%'}, 3000, function(){
+                // Anim complète
+                $fourmis.css('transform', 'rotate(-300deg)')
+            });
+
+
+       };
+
+
+
+        $('#repas3').click(function(){
             fourmis1();
             fourmis2();
+            fourmis3();
+            fourmis4();
 
         });
+
 
         // requete de récuperation des resultat :
         $('#resultats').click(function(e){

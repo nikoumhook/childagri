@@ -19,8 +19,7 @@ class BackController extends Controller
 	/**
 	 * Page d'accueil par défaut
 	 */
-	public function home()
-	{
+	public function home(){
         $authentificationModel = new AuthentificationModel();
 
         if (!$authentificationModel->getLoggedUser()) {
@@ -59,8 +58,7 @@ class BackController extends Controller
 
 	/***************** Page LISTE QUIZZ: AFFICHAGE  **********/
 
-	public function listeQuizz()
-	{
+	public function listeQuizz(){
 
         $authentificationModel = new AuthentificationModel();
         $authorizationModel = new AuthorizationModel();
@@ -77,8 +75,7 @@ class BackController extends Controller
 
 	/***************** Page FICHE QUIZZ: AFFICHAGE  **********/
 
-	public function ficheQuizz($id)
-	{
+	public function ficheQuizz($id){
 
         $authentificationModel = new AuthentificationModel();
 
@@ -203,7 +200,6 @@ class BackController extends Controller
         }//fermeture 1ère condition !empty$POST
 
         $conteneurQuizz = $modelPedago->getQuizzAliment($id);
-
         if($conteneurQuizz){
             $i = 1;
             foreach ($conteneurQuizz as $quizz) {
@@ -230,7 +226,6 @@ class BackController extends Controller
             $quizz1 = $quizz2 = $quizz3 = $quizz4 = '' ;
         }
 
-
 		$this->show('back/ficheQuizz',[
 			'errors'	=>$errors,
 			'success'	=>$formValid,
@@ -245,8 +240,7 @@ class BackController extends Controller
 
 	/***************** Page LISTE ALIMENT: AFFICHAGE  **********/
 
-	public function listeAliment()
-	{
+	public function listeAliment(){
 
         $authentificationModel = new AuthentificationModel();
 
@@ -263,8 +257,7 @@ class BackController extends Controller
 
 	/***************** Page FICHE ALIMENT: AFFICHAGE et traitement update  **********/
 
-	public function ficheAliment($id)
-	{
+	public function ficheAliment($id){
 
         $authentificationModel = new AuthentificationModel();
 
@@ -421,8 +414,7 @@ class BackController extends Controller
 
 	/***************** Page ALIMENT: AFFICHAGE et TRAITEMENTS **********/
 
-	public function aliment()
-	{
+	public function aliment(){
 
         $authentificationModel = new AuthentificationModel();
 
@@ -578,8 +570,7 @@ class BackController extends Controller
 
 	/***************** Page LISTE PEDAGO: AFFICHAGE  **********/
 
-	public function listePedago()
-	{
+	public function listePedago(){
 
         $authentificationModel = new AuthentificationModel();
 
@@ -596,8 +587,7 @@ class BackController extends Controller
 
 	/***************** Page FICHE PEDAGO: AFFICHAGE  et traitement update **********/
 
-	public function fichePedago($id)
-	{
+	public function fichePedago($id){
 
 
         $authentificationModel = new AuthentificationModel();
@@ -973,9 +963,6 @@ class BackController extends Controller
 			]);
 
 	}//fermeture fonction zonePedago
-
-
-
 
 
 }//fermeture de la class

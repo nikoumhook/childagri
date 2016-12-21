@@ -55,46 +55,18 @@
             </div>
         </div>
 
+        <!-- utiliser par la page resulta pour afficher si la sauvegarde c'est bien deroulé -->
         <div id='popResultat'></div>
         <?php if (!($w_current_route == 'game_quizz' || $w_current_route == 'game_result')): ?>
 
-            <?php if (isset($aliment1)): ?>
-
-                        <!-- GESTION DES CONTENU DE LA BULLE -->
-                            <?php switch (count($repas)) {
-                                case 1:
-                                    $contentBulle = 'Merci,pour ce premier repas composé de '. $aliment1['name'].','.$aliment2['name'].','.$aliment3['name'].', mon estomac ce remplie.';
-                                    break;
-                                case 2:
-                                    $contentBulle = 'Merci,pour ce deuxieme repas <a href="'.$this->url('game_quizz').'">On joue au QUIZZ ?</a>';
-                                    break;
-                                case 3:
-                                    $contentBulle = 'Merci,pour ce Troisieme repas';
-                                    break;
-                                case 4:
-                                    $contentBulle = 'Merci,pour ce Quetrieme repas';
-                                    break;
-                            } ?>
-            <?php endif; ?>
-
-
             <!-- affichage du bonhomme et de sa bulle -->
             <!-- <div id="navTrophee" class="pam mrl shake-hard"> -->
-            <div id="navTrophee" class="pam mrl">
-                <?php if (!empty($_SESSION['repasEnCour'])): ?>
-                    <div class="containerBulle">
-                        <!-- <div class="wrapContainerBulle">
-                            <div id="imgBulle" class="">
-                                <= $this->insert('front/bulle')?>
-                            </div> -->
-                            <div id="texteBulle" class="">
-                                <= $contentBulle ?>
-                            </div>
-                        <!-- </div> fermeture wrapContainerBulle -->
-                    </div>
-                <?php endif; ?>
-                <?php $this->insert('front/intestin'); ?>
-            </div>
+            <a id="lienQuizz" class="noCursor" href="#">
+                <div id="navTrophee" class="pam mrl">
+                    <div id="bubulle" class=""></div>
+                    <?php $this->insert('front/intestin'); ?>
+                </div>
+            </a>
         <?php endif; ?>
         <!-- BOUTON PERMANENTS ************///////////////////////////////:******************* -->
 
@@ -155,20 +127,21 @@
 
         <?php $repasName = array_keys($_SESSION['repasEnCour']) ;?>
 
-        <?php switch ($repasName[0]) {
-            case '1':
-                $repasName = 'petit-déjeuner';
-                break;
-             case '2':
-                $repasName = 'déjeuner';
-                break;
-            case '3':
-               $repasName = 'goûter';
-                break;
-            case '4':
-                $repasName = 'dîner';
-                break;
-                };
+        <?php
+                switch ($repasName[0]) {
+                    case '1':
+                        $repasName = 'petit-déjeuner';
+                        break;
+                     case '2':
+                        $repasName = 'déjeuner';
+                        break;
+                    case '3':
+                       $repasName = 'goûter';
+                        break;
+                    case '4':
+                        $repasName = 'dîner';
+                        break;
+                        };
         ?>
 
         <div class="reglesCarte1 flex-container-v displayNoneSmall">
@@ -204,104 +177,102 @@
         <script src="<?= $this->assetUrl('owl-carousel/owl.carousel.min.js') ?>"></script>
 
         <?= $this->section('script') ?>
+
         <script src="<?= $this->assetUrl('js/fixTouch.js') ?>"></script>
 
         <script type="text/javascript">
-        $(function(){
+            $(function(){
 
-            var intestinFn;
-            var nBrDeRepasPris;
-            intestinFn = function(){
-                $("#intestinEtape<?= (!empty($repas)? count($repas) : '99'); ?>").show();
-            };
-            // appel de la fonction
-            intestinFn();
+                var intestinFn;
+                var nBrDeRepasPris;
 
-            // menu deco
-            $('.decoMenu').click(function(){
-                $('.decoSubmenu').toggle();
+                intestinFn = function(){
+                    $("#intestinEtape<?= (!empty($repas)? count($repas) : '99'); ?>").show();
+                };
+                // appel de la fonction
+                intestinFn();
+
+                // menu deco
+                $('.decoMenu').click(function(){
+                    $('.decoSubmenu').toggle();
+                });
             });
-        });
         </script>
 
         <?php if ($w_current_route == 'game_assiette'): ?>
-              <script>
+        <script>
 
-    $(document).ready(function(){
+            $(document).ready(function(){
 
-       var fourmis1 = function(){
-            var $fourmis = $('.fourmis1');
+               var fourmis1 = function(){
+                    var $fourmis = $('.fourmis1');
 
-            $fourmis.fadeIn({queue: false, duration: 1000});
-            $fourmis.animate({left: '900%'}, 8000, function(){
-                // Anim complète
-                $fourmis.css('transform', 'rotate(75deg)')
-            })
-            .animate({top:'90%'}, 6000, function(){
-                // Anim complète
-                $fourmis.css('transform', 'rotate(115deg)')
-            })
-            .animate({right:'300%'}, 5000, function(){
-                // Anim complète
-                $fourmis.css('transform', 'rotate(110deg)')
-            });
-              /* .animate({top: '0px'}, 5000);*/
-       };
-
-
-       var fourmis2 = function(){
-            var $fourmis = $('.fourmis2');
-            $fourmis.fadeIn({queue: false, duration: 1000});
-            $fourmis.animate({left: '500%'}, 6000, function(){
-                // Anim complète
-                $fourmis.css('transform', 'rotate(-75deg)')
-            })
-            .animate({bottom:'90%'}, 6000, function(){
-                // Anim complète
-               $fourmis.css('transform', 'rotate(-175deg)')
-            })
-            .animate({left:'50%'}, 5000, function(){
-                // Anim complète
-                $fourmis.css('transform', 'rotate(45deg)')
-            });
-       };
-
-
-        $('#repas1').click(function(){
-            fourmis1();
-            fourmis2();
-
-        });
-
-        // requete de récuperation des resultat :
-        $('#resultats').click(function(e){
-            e.preventDefault();
-            $.ajax({
-                url: '<?=$this->url('ajax_recupresultat');?>',
-                type: 'post',
-                cache:false,
-                dataType: 'json',
-                success: function(result){
-                    if (result.success) {
-                        $('#popResultat').html(result.resultats);
-                    }else {
-                        $('#popResultat').html('<div><ul><li>Tu n\'as pas de résultat</li></ul></div>');
-                    }
-
-                    $('#popResultat').click(function(){
-                        $(this).children().remove();
+                    $fourmis.fadeIn({queue: false, duration: 1000});
+                    $fourmis.animate({left: '900%'}, 8000, function(){
+                        // Anim complète
+                        $fourmis.css('transform', 'rotate(75deg)')
+                    })
+                    .animate({top:'90%'}, 6000, function(){
+                        // Anim complète
+                        $fourmis.css('transform', 'rotate(115deg)')
+                    })
+                    .animate({right:'300%'}, 5000, function(){
+                        // Anim complète
+                        $fourmis.css('transform', 'rotate(110deg)')
                     });
+                      /* .animate({top: '0px'}, 5000);*/
+               };
 
-                }//fermeture success
-            });//fermeture $.ajax
-        });// fermeture buttton clic
+               var fourmis2 = function(){
+                    var $fourmis = $('.fourmis2');
+                    $fourmis.fadeIn({queue: false, duration: 1000});
+                    $fourmis.animate({left: '500%'}, 6000, function(){
+                        // Anim complète
+                        $fourmis.css('transform', 'rotate(-75deg)')
+                    })
+                    .animate({bottom:'90%'}, 6000, function(){
+                        // Anim complète
+                       $fourmis.css('transform', 'rotate(-175deg)')
+                    })
+                    .animate({left:'50%'}, 5000, function(){
+                        // Anim complète
+                        $fourmis.css('transform', 'rotate(45deg)')
+                    });
+               };
 
-    });
+                $('#repas1').click(function(){
+                    fourmis1();
+                    fourmis2();
 
-    </script>
+                });
+
+                // requete de récuperation des resultat :
+                $('#resultats').click(function(e){
+                    e.preventDefault();
+                    $.ajax({
+                        url: '<?=$this->url('ajax_recupresultat');?>',
+                        type: 'post',
+                        cache:false,
+                        dataType: 'json',
+                        success: function(result){
+                            if (result.success) {
+                                $('#popResultat').html(result.resultats);
+                            }else {
+                                $('#popResultat').html('<div><ul><li>Tu n\'as pas de résultat</li></ul></div>');
+                            }
+
+                            $('#popResultat').click(function(){
+                                $(this).children().remove();
+                            });
+
+                        }//fermeture success
+                    });//fermeture $.ajax
+                });// fermeture buttton clic
+
+            });
+
+        </script>
         <?php endif;?>
-
-
         <!-- FIN INCLUSION JAVASCRIPT  ************///////////////////////////////:******************* -->
 
     </body>

@@ -3,136 +3,9 @@
 
 <?php $this->start('head') ?>
 
-    <!-- Typo -->
-    <link href="https://fonts.googleapis.com/css?family=Paytone+One" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-
-
     <link rel="stylesheet" href="<?= $this->assetUrl('css/carte.css') ?>">
 
 <?php $this->stop('head') ?>
-
-
-<?php $this->start('script');?>
-<script>
-var xy = [
-    ['null','null'],
-    //Le premier est défini à null pour pouvoir appeler les autres en fonction de l'id dans la db
-    //['x','y'],
-    ['340','105'],
-    ['110','270'],
-    ['210','230'],
-    ['90','70'],
-    ['240','160'],
-    ['30','100'],
-    ['160','145'],
-    ['250','90'],
-    ['400','360'],
-    ['300','150'],
-    ['136','52'],
-    ['185','90'],
-    ['200','340'],
-    ['160','220'],
-    ['290','80'],
-    ['160','300'],
-    ['190','0'],
-    ['85','140'],
-    ['195','45'],
-    ['110','200'],
-    ['300','300'],
-    ['280','240']
-];
-
-    $(document).ready(function(){
-        //Etabli la position du marker et son image en svg
-        $("#marker1").attr("x",xy[<?php echo $aliment1['id_land'] ?>][0]);
-        $("#marker1").attr("y",xy[<?php echo $aliment1['id_land'] ?>][1]);
-        $("#marker1").attr("xlink:href", '<?= $this->assetUrl($aliment1['urlImg']);?>');
-        $("#marker2").attr("x",xy[<?php echo $aliment2['id_land'] ?>][0]);
-        $("#marker2").attr("y",xy[<?php echo $aliment2['id_land'] ?>][1]);
-        $("#marker2").attr("xlink:href", "<?= $this->assetUrl($aliment2['urlImg']);?>");
-        $("#marker3").attr("x",xy[<?php echo $aliment3['id_land'] ?>][0]);
-        $("#marker3").attr("y",xy[<?php echo $aliment3['id_land'] ?>][1]);
-        $("#marker3").attr("xlink:href", '<?= $this->assetUrl($aliment3['urlImg']);?>');
-
-        var marker1 = false;
-        var marker2 = false;
-        var marker3 = false;
-
-        $('#marker1').click(function(){
-
-            marker1 = true;
-            $('.alim').hide();
-            $('.aliment1').slideToggle( "slow", function() {
-
-            });
-            controleClickPedago();
-        });
-
-        $('#marker2').click(function(){
-
-            marker2 = true;
-            $('.alim').hide();
-            $('.aliment2').slideToggle( "slow", function() {
-
-            });
-            controleClickPedago();
-        });
-
-        $('#marker3').click(function(){
-
-            marker3 = true;
-            $('.alim').hide();
-            $('.aliment3').slideToggle( "slow", function() {
-
-            });
-            controleClickPedago();
-        });
-
-        $('.pedagoFermer').click(function(){
-            $('.alim').slideUp();
-
-        });
-
-
-        var controleClickPedago = function(){
-            if (marker1 && marker2 && marker3) {
-                $.ajax({
-                    url: '<?=$this->url('ajax_finCarte');?>',
-                    type:'post',
-                    cache:false,
-                    data: {
-
-                    },
-                    dataType: 'json',
-                    success: function(result){
-                        if (result.success == 'ok') {
-
-                            $('#navTopBar').html(result.ingredients);
-                            dragFn();
-                            dropFn();
-                            owl();
-
-                        }
-
-                    }//fermeture success
-                });//fermeture $.ajax
-                // activation du bouton retour a la carte de france !
-                if (<?= count($_SESSION['save']['repas'])?> < 12) {
-
-                    $('#navReturn').slideDown();
-                }else {
-                    $('#navReturn').html('tu as fait tous les repas de la journée');
-                    $('#navReturn').slideDown();
-                }
-                // a cette endroit faire le script qui fait apparaitre Le logo du quizz
-            };
-        };
-
-    });// ready jaquery
-
-</script>
-<?php $this->stop('script') ?>
 
 <?php $this->start('main_content') ?>
 
@@ -194,6 +67,7 @@ var xy = [
                 </div> <!-- fermeture titre -->
 
                 <!-- Piste audio -->
+
                 <div class="pas">
                     <audio controls="controls">
                          <source src="<?= $this->assetUrl($aliment2['urlSound']);?>" type="audio/mp3" >
@@ -228,7 +102,7 @@ var xy = [
                         <img class="" src="<?= $this->assetUrl($aliment3['urlImg']);?>" alt="">
                     </div>
                 </div> <!-- fermeture titre -->
-               
+
                 <!-- Piste audio -->
                 <div class="pas">
                         <audio controls="controls">
@@ -256,3 +130,115 @@ var xy = [
     </div>
 
 <?php $this->stop('main_content') ?>
+
+<?php $this->start('script');?>
+<script>
+    var xy = [
+    ['null','null'],
+    //Le premier est défini à null pour pouvoir appeler les autres en fonction de l'id dans la db
+    //['x','y'],
+    ['340','105'],
+    ['110','270'],
+    ['210','230'],
+    ['90','70'],
+    ['240','160'],
+    ['30','100'],
+    ['160','145'],
+    ['250','90'],
+    ['400','360'],
+    ['300','150'],
+    ['136','52'],
+    ['185','90'],
+    ['200','340'],
+    ['160','220'],
+    ['290','80'],
+    ['160','300'],
+    ['190','0'],
+    ['85','140'],
+    ['195','45'],
+    ['110','200'],
+    ['300','300'],
+    ['280','240']
+    ];
+
+    $(document).ready(function(){
+        //Etabli la position du marker et son image en svg
+        $("#marker1").attr("x",xy[<?= $aliment1['id_land']; ?>][0]);
+        $("#marker1").attr("y",xy[<?= $aliment1['id_land']; ?>][1]);
+        $("#marker1").attr("xlink:href", '<?= $this->assetUrl($aliment1['urlImg']);?>');
+        $("#marker2").attr("x",xy[<?= $aliment2['id_land']; ?>][0]);
+        $("#marker2").attr("y",xy[<?= $aliment2['id_land']; ?>][1]);
+        $("#marker2").attr("xlink:href", "<?= $this->assetUrl($aliment2['urlImg']);?>");
+        $("#marker3").attr("x",xy[<?= $aliment3['id_land']; ?>][0]);
+        $("#marker3").attr("y",xy[<?= $aliment3['id_land']; ?>][1]);
+        $("#marker3").attr("xlink:href", '<?= $this->assetUrl($aliment3['urlImg']);?>');
+
+        var marker1 = false;
+        var marker2 = false;
+        var marker3 = false;
+
+        $('#marker1').click(function(){
+
+            marker1 = true;
+            $('.alim').hide();
+            $('.aliment1').slideToggle();
+            controleClickPedago();
+        });
+
+        $('#marker2').click(function(){
+
+            marker2 = true;
+            $('.alim').hide();
+            $('.aliment2').slideToggle();
+            controleClickPedago();
+        });
+
+        $('#marker3').click(function(){
+
+            marker3 = true;
+            $('.alim').hide();
+            $('.aliment3').slideToggle();
+            controleClickPedago();
+        });
+
+        $('.pedagoFermer').click(function(){
+            $('.alim').slideUp();
+        });
+
+
+        var controleClickPedago = function(){
+            if (marker1 && marker2 && marker3) {
+
+                $.ajax({
+                    url: '<?=$this->url('ajax_finCarte');?>',
+                    type:'post',
+                    cache:false,
+                    dataType: 'json',
+                    success: function(result){
+
+                    }//fermeture success
+                });//fermeture $.ajax
+
+
+                // activation du bouton retour a la carte de france !
+                if (<?= count($_SESSION['save']['repas'])?> < 4) {
+
+                    $('#navReturn').slideDown();
+
+                }
+
+                if (<?= count($_SESSION['save']['repas'])?> == 2) {
+                    // script qui fait apparaitre La bulle et qui active le quizz
+                    $('#bubulle').addClass('containerBulle');
+                    $('#navTrophee').addClass('shake-hard cursor')
+                    $('#lienQuizz').attr('href','<?= $this->url('game_quizz');?>');
+                }
+
+            };
+        };
+
+    });// ready jquery
+
+</script>
+
+<?php $this->stop('script'); ?>

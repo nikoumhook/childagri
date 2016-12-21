@@ -7,6 +7,9 @@ body{
 .cursor{
     cursor: pointer;
 }
+.noCursor{
+    cursor: default;
+}
 /************************************/
 /*             Debug               */
 /************************************/
@@ -317,10 +320,16 @@ body{
 #intestinEtape1,#intestinEtape2,#intestinEtape3,#intestinEtape4{
     display: none;
 }
+
 .containerBulle {
+	display: block;
 	position: absolute;
-	top: -53%;
-	right: 85%;
+	top: -27%;
+	right: 35%;
+	width: 175px;
+	height: 175px;
+	background: url('../img/bulle.png') no-repeat center;
+	background-size: contain;
 }
 
 .wrapContainerBulle{

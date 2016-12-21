@@ -8,8 +8,7 @@ use \Model\AlimentsModel;
 use \Controller\GameController ;
 
 
-class CarteController extends Controller
-{
+class CarteController extends Controller{
 
 
         /**

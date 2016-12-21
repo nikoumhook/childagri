@@ -3,14 +3,14 @@
 <?php $this->start('main_content') ?>
 
 	<h1 class="txtcenter pas"><?=strtoupper($w_user['username']);?> BIENVENUE SUR VOTRE BACKOFFICE</h1>
-	<div class="txtcenter accueil pbs"> Vous allez pouvoir administrer les contenus de votre application en trois coups de cuillère à pot !!<br>Choississez le menu dont vous avez besoin et laissez guider.</div>
+	<div class="txtcenter accueil pbs"> Vous allez pouvoir administrer les contenus de votre application en trois coups de cuillère à pot !!<br>Choisissez le menu dont vous avez besoin et laissez-vous guider.</div>
 
 	<div class="grid-4-small-2">
 
 		    <div class="columnHomeBack pam">
 		        <div class="containerInColumn pas">
 		            <div class="illus pal"><img src="<?= $this->assetUrl('img/backoffice_cake.svg');?>" alt=""></div>
-		            <div class="content mtm">
+		            <div class="content pas mtm">
 		            	<h2 class="txtcenter man">ALIMENT</h2>
 		            	<ul class="man pan">
 		            		<li class="txtcenter pts">
@@ -35,7 +35,7 @@
 	    <div class="columnHomeBack pam">
 	        <div class="containerInColumn pas">
 	            <div class="illus pal"><img src="<?= $this->assetUrl('img/backoffice_clipboard.svg');?>" alt=""></div>
-	            <div class="content mtm">
+	            <div class="content pas mtm">
 	            	<h2 class="txtcenter man">PEDAGO</h2>
 	            	<ul class="man pan">
 	            		<li class="txtcenter pts">
@@ -60,7 +60,7 @@
 	    <div class="columnHomeBack pam">
 	        <div class="containerInColumn pas">
 	            <div class="illus pal"><img src="<?= $this->assetUrl('img/backoffice_trophy.svg');?>" alt=""></div>
-	            <div class="content mtm">
+	            <div class="content pas mtm">
 	            	<h2 class="txtcenter man">QUIZZ</h2>
 	            	<ul class="man pan">
 	            		<li class="txtcenter pts">
@@ -84,7 +84,7 @@
 	    <div class="columnHomeBack pam">
 	        <div class="containerInColumn pas">
 	            <div class="illus pal"><img src="<?= $this->assetUrl('img/backoffice_user.svg');?>" alt=""></div>
-	            <div class="content mtm">
+	            <div class="content pas mtm">
 	           		<h2 class="txtcenter man">JOUEUR</h2>
 	            	<ul class="man pan">
 	            		<li class="txtcenter pts">

@@ -116,7 +116,27 @@ h3{
     color: black;
 }
 
+.bouttonEnregistrerResultat{
+    height:50px;
+    background-color: #F88C00;
+    color:#FFF;
+    font-family:'Paytone One', sans-serif;
+    border:0px;
+    font-size: 14px;
+    border-radius: 4px;
+}
 
+
+
+.success{
+	font-family: 'Montserrat', sans-serif;
+    color:#black;
+    background-color: #ACC489;
+    font-size:16px;
+    border: 0;
+    border-radius: 4px 4px 0 0;
+
+}
 
 /*.globalResult{
     display: flex;

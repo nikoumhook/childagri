@@ -134,10 +134,15 @@
             <?php endif; ?>
         <?php endforeach; ?>
 
-    <div id="success"></div>
-    <button type="button" id="save">Sauvegarder</button>
-    <a href="<?= $this->url('game_reset');?>"><button type="button" id="reset">Reset</button></a>
-
+    <div id="success" class="success txtcenter"></div>
+    <div class="grid-6 pas flex-container-v">
+        <div class="push txtcenter">
+            <button type="button" class="cursor bouttonEnregistrerQuizz" id="save">SAUVERGARDER</button>
+        </div>
+        <div class="pull txtcenter">
+            <a href="<?= $this->url('game_reset');?>"><button type="button" class="cursor bouttonEnregistrerQuizz" id="reset">REJOUER</button></a>
+        </div>
+    </div>
 <?php $this->stop('main_content') ?>
 <?php $this->start('script') ?>
 <!-- Script Affichage validation formulaire connexion en Ajax -->
@@ -154,7 +159,7 @@
                     dataType: 'json',
                     success: function(result){
                         if(result.success == "true"){
-                            $('#success').html("<span class=''>enregistré !<span>");
+                            $('#success').html("<span class=''> Votre résultat est bien enregistré !<span>");
                         }else{
                             $('#success').html("<span class=''>Probleme d'enregistrement, désolé, nous en avont pris note nous allons corrigé ce petit soucis !<span>");
                         };

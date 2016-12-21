@@ -4,10 +4,10 @@
 
 <head>
 	<title>Page accueil</title>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
 <!-- Style simple Genius -->
 <link rel="stylesheet" href="<?= $this->assetUrl('css/simpleGenie.css') ?>">
-
 <!-- Script simple Genius -->
 <script src="<?= $this->assetUrl('js/modernizr.custom.js') ?>"></script>
 
@@ -16,6 +16,13 @@
 
 <!-- Mon style -->
 <link rel="stylesheet" href="<?=$this->assetUrl('css/landingPage.css');?>">
+<link rel="stylesheet" href="<?= $this->assetUrl('css/responsive.css') ?>">
+
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+
 </head>
 
 <body>
@@ -30,13 +37,13 @@
 	</div>
 	<div id="couverts">
 		<div class="couverts">
-			<img width="100vw" height="100vh" src="<?=$this->assetUrl('img/landingcouteau.svg');?>">
+			<img width="100vw" height="100vh" src="<?=$this->assetUrl('img/landingCouteau.svg');?>">
 		</div>
 		<div class="couverts">
-			<img width="100vw" height="100vh" src="<?=$this->assetUrl('img/landingcuillere.svg');?>">
+			<img width="100vw" height="100vh" src="<?=$this->assetUrl('img/landingCuillere.svg');?>">
 		</div>
 		<div class="couverts">
-			<img width="100vw" height="100vh" src="<?=$this->assetUrl('img/landingfourchette.svg');?>">
+			<img width="100vw" height="100vh" src="<?=$this->assetUrl('img/landingFourchette.svg');?>">
 		</div>
 	</div>
 	<!-- DIV grand wrapper -->
@@ -59,7 +66,7 @@
 			<button type="button" class="overlay-close cursor">Fermer</button>
 
 			<!-- Div wrapper formulaire Popin: 2 grid -->
-			<div class="grid-2 wrapperPopin flex-container-v has-gutter">
+			<div class="grid-2-small-1 wrapperPopin flex-container-v has-gutter">
 
 				<!-- Div formulaire connexion Popin -->
 				<div id="connexion" class="bloc1 bloc">
@@ -229,6 +236,7 @@
 			nuage2();
 		})
 	};
+
 	</script>
 
 </body>

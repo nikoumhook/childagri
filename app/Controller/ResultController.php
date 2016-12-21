@@ -40,13 +40,14 @@ class ResultController extends Controller
         if (!empty($id) && is_numeric($id)) {
 
             $resultat = $resultatsModel->find($id);
-
             $resultat = unserialize($resultat['resultats']);
 
             $gameController->resetGame(false);
-            $_SESSION['results'] = $resultat;
 
-            $this->redirectToRoute('game_quizz');
+            $_SESSION['results'] = $resultat['results'];
+            $_SESSION['aliments_quizz'] = $resultat['aliments_quizz'];
+
+            $this->redirectToRoute('game_result');
 
         }
 

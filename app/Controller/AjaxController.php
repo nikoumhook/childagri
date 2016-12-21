@@ -317,9 +317,12 @@ class AjaxController extends Controller
 
         if (!empty($_SESSION['results']) && isset($_SESSION['player']['id'])) {
 
+            $save['results'] = $_SESSION['results'];
+            $save['aliments_quizz']['complete'] = $_SESSION['aliments_quizz']['complete'];
+
             $controle = $resultatsModel->insert([
                 'id_player' =>  $_SESSION['player']['id'],
-                'resultats' =>  serialize($_SESSION['results']),
+                'resultats' =>  serialize($save),
                 'datetime' =>  date('Y-m-d-H:i:s')
             ]);
             if ($controle){
@@ -338,6 +341,7 @@ class AjaxController extends Controller
         $resultats = [];
         $success = false ;
         if (isset($_SESSION['player']['id'])) {
+
             $resultats = $resultatsModel->getresultats($_SESSION['player']['id']);
 
             if ($resultats) {

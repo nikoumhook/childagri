@@ -82,6 +82,4 @@ class QuizzController extends Controller
         }
     }
 
-    public function updateQuizz(){
-    }
 }

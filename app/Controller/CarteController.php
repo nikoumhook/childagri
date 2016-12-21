@@ -20,6 +20,9 @@ class CarteController extends Controller
             if (isset($_SESSION['save']['id_quizz']) && !empty($_SESSION['save']['id_quizz']) && count(explode(',',$_SESSION['save']['id_quizz'])) == 12) {
                 $this->redirectToRoute('game_quizz');
             }
+            if (isset($_SESSION['results']) && !empty($_SESSION['results'])) {
+                $this->redirectToRoute('game_result');
+            }
 
 
             if (isset($_SESSION['repasEnCour']) && !empty($_SESSION['repasEnCour'])) {

@@ -137,14 +137,14 @@ body{
     font-size: 20px;
     list-style: none;
 }
-
-/*#repas1{
+/*
+#repas1{
     position: absolute;
 }
 */
 .fourmis1{
     display: none;
-    position: relative;
+    position: absolute;
     z-index: -1;
     -webkit-transition: -webkit-transform 1s;
     transition: transform 1s;
@@ -152,6 +152,7 @@ body{
 
 
 .fourmis2{
+    display: none;
     position: absolute;
     z-index: -1;
     -webkit-transition: -webkit-transform 1s;

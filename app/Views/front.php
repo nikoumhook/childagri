@@ -229,13 +229,13 @@
 
        var fourmis1 = function(){
             var $fourmis = $('.fourmis1');
-            // $('.fourmis1').css('position', 'relative')
 
-            $fourmis.fadeIn().animate({left: '1000%'}, 5000, function(){
+            $fourmis.fadeIn({queue: false, duration: 1000});
+            $fourmis.animate({left: '900%'}, 8000, function(){
                 // Anim complète
                 $fourmis.css('transform', 'rotate(75deg)')
             })
-            .animate({top:'300%'}, 5000, function(){
+            .animate({top:'90%'}, 6000, function(){
                 // Anim complète
                 $fourmis.css('transform', 'rotate(115deg)')
             })
@@ -248,26 +248,26 @@
 
 
        var fourmis2 = function(){
-             $('.fourmis2').fadeIn().css('position', 'relative');
-                $('.fourmis2').animate({left: '500%'}, 6000, function(){
+            var $fourmis = $('.fourmis2');
+            $fourmis.fadeIn({queue: false, duration: 1000});
+            $fourmis.animate({left: '500%'}, 6000, function(){
                 // Anim complète
-                $('.fourmis2').css('transform', 'rotate(-75deg)')
-                })
-              .animate({bottom:'90%'}, 6000, function(){
+                $fourmis.css('transform', 'rotate(-75deg)')
+            })
+            .animate({bottom:'90%'}, 6000, function(){
                 // Anim complète
-                $('.fourmis2').css('transform', 'rotate(-175deg)')
-              })
-             .animate({left:'50%'}, 5000, function(){
+               $fourmis.css('transform', 'rotate(-175deg)')
+            })
+            .animate({left:'50%'}, 5000, function(){
                 // Anim complète
-                $('.fourmis2').css('transform', 'rotate(45deg)')
-              })
-              /* .animate({top: '0px'}, 5000);*/
+                $fourmis.css('transform', 'rotate(45deg)')
+            });
        };
 
 
         $('#repas1').click(function(){
             fourmis1();
-            //fourmis2();
+            fourmis2();
 
         });
 

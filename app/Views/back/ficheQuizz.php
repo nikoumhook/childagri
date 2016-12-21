@@ -79,7 +79,7 @@
                                     OUI <input type="radio" name="answer2" value="oui" <?=(!empty($quizz2) && $quizz2['answer']=='oui')? 'checked': '';?>>
                                 </div>
                                 <div class="right prl">
-                                    <input type="radio" name="answer2" value="non" <?=(!empty($quizz) && $quizz2['answer']=='non')? 'checked': '';?>> NON
+                                    <input type="radio" name="answer2" value="non" <?=(!empty($quizz2) && $quizz2['answer']=='non')? 'checked': '';?>> NON
                                 </div>
                             </div>
                         </div>

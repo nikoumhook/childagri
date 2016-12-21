@@ -1,0 +1,39 @@
+/* PETIT ECRAN TABLETTE */
+/* FRONT */
+/*barre superieur*/
+.displayNoneSmall{
+    display: none;
+    opacity: 0;
+}
+/*icone du menu*/
+.decoMenu{
+    padding: 3px;
+}
+.decoMenu img{
+    width: 42px;
+    height: 42px;
+}
+/*icone du  sous menu*/
+.decoSubmenu {
+	top: 48px;
+	right: 16px;
+}
+.decoSubmenu li a {
+	padding: 8px 1px;
+}
+.decoSubmenu li a img{
+	padding: 0;
+	margin: 0;
+}
+
+/*BONHOMME*/
+#intestin {
+	max-height: 225px;
+    width: auto;
+}
+#navTrophee {
+	max-width: 345px;
+	margin-right: 0;
+	padding: 0;
+}
+/* PETIT ECRAN PC */

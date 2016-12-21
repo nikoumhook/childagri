@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
 
         <title><?= $this->e($title) ?></title>
-
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
         <link rel="stylesheet" href="<?= $this->assetUrl('css/knacss.css') ?>">
 
 
@@ -22,8 +22,9 @@
         <?= $this->section('head') ?>
 
         <link rel="stylesheet" href="<?= $this->assetUrl('css/interface.css') ?>">
-        <link rel="stylesheet" href="<?= $this->assetUrl('css/banniere.css') ?>">
         <link rel="stylesheet" type="text/css" href="http://csshake.surge.sh/csshake.min.css">
+        <link rel="stylesheet" href="<?= $this->assetUrl('css/banniere.css') ?>">
+        <link rel="stylesheet" href="<?= $this->assetUrl('css/responsive.css') ?>">
 
     </head>
     <body>
@@ -42,14 +43,14 @@
         <!-- BOUTON PERMANENTS ************///////////////////////////////:******************* -->
         <div id="navDeco">
             <div class="decoMenu plm prm pts pbs">
-                <img src="<?= $this->assetUrl('img/menu.svg') ?>" alt="">MENU
+                <img src="<?= $this->assetUrl('img/menu.svg') ?>" alt=""><span class="displayNoneSmall">MENU</span>
                 <ul class="decoSubmenu">
                     <li><a class="mas pas" href="<?= $this->url('game_reset') ?>">
-                    <img class="mini mrs" src="<?= $this->assetUrl('img/cycle.svg')?>" alt=""><span>REJOUER</span></a></li>
+                    <img class="mini mrs" src="<?= $this->assetUrl('img/cycle.svg')?>" alt=""><span class="displayNoneSmall">REJOUER</span></a></li>
                     <li><a class="mas pas" href="<?= $this->url('game_quit') ?>">
-                    <img class="mini mrs" src="<?= $this->assetUrl('img/cross.svg')?>"><span>SE DECONNECTER</span></a></li>
+                    <img class="mini mrs" src="<?= $this->assetUrl('img/cross.svg')?>"><span class="displayNoneSmall" >SE DECONNECTER</span></a></li>
                     <li id="resultats"><a class="mas pas" href="#">
-                    <img class="mini mrs" src="<?= $this->assetUrl('img/trophy.svg')?>"><span>VOS RESULTATS</span></a></li>
+                    <img class="mini mrs" src="<?= $this->assetUrl('img/trophy.svg')?>"><span class="displayNoneSmall" >VOS RESULTATS</span></a></li>
                 </ul>
             </div>
         </div>
@@ -105,8 +106,8 @@
         <?php if ($w_current_route == 'game_assiette'): ?>
 
             <?php if (isset($carte)): ?>
-                <div id="navTopBar">
-                    <div class="pas flex-container-v">
+                <div id="navTopBar" class="displayNoneSmall">
+                    <div class="pas flex-container-v displayNoneSmall">
                         <div class="center-wrap">
                           <div class="title-container">
                             <div class="ribbon-left"></div>

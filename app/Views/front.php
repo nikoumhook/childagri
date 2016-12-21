@@ -307,6 +307,19 @@
 
        };
 
+        $('#repas1').click(function(){
+            fourmis1();
+            fourmis2();
+            fourmis3();
+            fourmis4();
+        });
+
+        $('#repas2').click(function(){
+            fourmis1();
+            fourmis2();
+            fourmis3();
+            fourmis4();
+        });
 
 
         $('#repas3').click(function(){
@@ -314,7 +327,13 @@
             fourmis2();
             fourmis3();
             fourmis4();
+        });
 
+        $('#repas4').click(function(){
+            fourmis1();
+            fourmis2();
+            fourmis3();
+            fourmis4();
         });
 
 

@@ -202,9 +202,9 @@
         <!-- INCLUSION JAVASCRIPT  ************///////////////////////////////:******************* -->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="<?= $this->assetUrl('owl-carousel/owl.carousel.min.js') ?>"></script>
-        <script src="<?= $this->assetUrl('js/fixTouch.js') ?>"></script>
 
         <?= $this->section('script') ?>
+        <script src="<?= $this->assetUrl('js/fixTouch.js') ?>"></script>
 
         <script type="text/javascript">
         $(function(){

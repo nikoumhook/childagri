@@ -22,8 +22,8 @@
     }
     /*icone du  sous menu deco*/
     .decoSubmenu {
-        top: 48px;
-        right: 16px;
+    	top: 61px;
+    	right: 13px;
     }
     .decoSubmenu li a {
         padding: 8px 1px;
@@ -92,7 +92,9 @@
         /*white-space:pre-line;*/
         max-width: 100%;
     }
-
+    .fourmis1,.fourmis2,.fourmis3,.fourmis4{
+        width: 12px;
+    }
 }
 /* PETIT ECRAN PC */
 /*******************************/

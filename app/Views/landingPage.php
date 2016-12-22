@@ -30,13 +30,13 @@
 	</div>
 	<div id="couverts">
 		<div class="couverts">
-			<img width="100vw" height="100vh" src="<?=$this->assetUrl('img/landingcouteau.svg');?>">
+			<img width="100vw" height="100vh" src="<?=$this->assetUrl('img/landingCouteau.svg');?>">
 		</div>
 		<div class="couverts">
-			<img width="100vw" height="100vh" src="<?=$this->assetUrl('img/landingcuillere.svg');?>">
+			<img width="100vw" height="100vh" src="<?=$this->assetUrl('img/landingCuillere.svg');?>">
 		</div>
 		<div class="couverts">
-			<img width="100vw" height="100vh" src="<?=$this->assetUrl('img/landingfourchette.svg');?>">
+			<img width="100vw" height="100vh" src="<?=$this->assetUrl('img/landingFourchette.svg');?>">
 		</div>
 	</div>
 	<!-- DIV grand wrapper -->

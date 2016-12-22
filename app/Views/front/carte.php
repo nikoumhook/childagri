@@ -43,7 +43,7 @@
                 </div> <!-- fermeture zone3 -->
 
                 <!-- Picto Agri -->
-                <div class="flex-container-v pas">
+                <div class="flex-container pas">
                     <img src="<?= $this->assetUrl($aliment1['illus'])?>" class="vignetteAgri" alt="">
                 </div> <!-- fermeture picto agri -->
 
@@ -80,7 +80,7 @@
                 </div> <!-- fermeture zone3 -->
 
                  <!-- Picto Agri -->
-                <div class="flex-container-v pas">
+                <div class="flex-container pas">
                     <img src="<?= $this->assetUrl($aliment2['illus'])?>" class="vignetteAgri" alt="">
                 </div> <!-- fermeture picto Agri -->
 
@@ -116,7 +116,7 @@
                 </div><!-- fermeture info pedago -->
 
                 <!-- Picto Agri -->
-                <div class="flex-container-v pas">
+                <div class="flex-container pas">
                     <img src="<?= $this->assetUrl($aliment3['illus'])?>" class="vignetteAgri" alt="">
                 </div> <!-- fermeture picto Agri -->
 
